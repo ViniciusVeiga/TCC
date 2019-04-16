@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace TCC.Areas.Areas
+namespace TCC.Areas.Public
 {
-    public class AreasAreaRegistration : AreaRegistration 
+    public class PublicAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Areas";
+                return "Public";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Areas_default",
-                "Areas/{controller}/{action}/{id}",
+                "Public_default",
+                "Public/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

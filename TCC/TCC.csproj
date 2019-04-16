@@ -120,24 +120,64 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Areas\AreasAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\AdminLTE\css\AdminLTE.css" />
+    <Content Include="Content\AdminLTE\css\AdminLTE.min.css" />
+    <Content Include="Content\AdminLTE\css\alt\AdminLTE-bootstrap-social.css" />
+    <Content Include="Content\AdminLTE\css\alt\AdminLTE-bootstrap-social.min.css" />
+    <Content Include="Content\AdminLTE\css\alt\AdminLTE-fullcalendar.css" />
+    <Content Include="Content\AdminLTE\css\alt\AdminLTE-fullcalendar.min.css" />
+    <Content Include="Content\AdminLTE\css\alt\AdminLTE-select2.css" />
+    <Content Include="Content\AdminLTE\css\alt\AdminLTE-select2.min.css" />
+    <Content Include="Content\AdminLTE\css\alt\AdminLTE-without-plugins.css" />
+    <Content Include="Content\AdminLTE\css\alt\AdminLTE-without-plugins.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-black-light.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-black-light.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-black.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-black.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-blue-light.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-blue-light.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-blue.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-blue.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-green-light.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-green-light.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-green.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-green.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-purple-light.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-purple-light.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-purple.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-purple.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-red-light.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-red-light.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-red.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-red.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-yellow-light.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-yellow-light.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-yellow.css" />
+    <Content Include="Content\AdminLTE\css\skins\skin-yellow.min.css" />
+    <Content Include="Content\AdminLTE\css\skins\_all-skins.css" />
+    <Content Include="Content\AdminLTE\css\skins\_all-skins.min.css" />
+    <Content Include="Content\AdminLTE\js\adminlte.js" />
+    <Content Include="Content\AdminLTE\js\adminlte.min.js" />
+    <Content Include="Content\AdminLTE\js\demo.js" />
+    <Content Include="Content\AdminLTE\js\pages\dashboard.js" />
+    <Content Include="Content\AdminLTE\js\pages\dashboard2.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\Areas\Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Public\Views\web.config" />
+    <Content Include="Content\AdminLTE\css\adminlte.css.map" />
+    <Content Include="Content\AdminLTE\css\adminlte.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -166,9 +206,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Areas\Controllers\" />
-    <Folder Include="Areas\Areas\Models\" />
-    <Folder Include="Areas\Areas\Views\Shared\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Public\Controllers\" />
+    <Folder Include="Areas\Public\Models\" />
+    <Folder Include="Areas\Public\Views\Shared\" />
+    <Folder Include="Content\AdminLTE\img\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -176,10 +220,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
