@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCC.Entity
+namespace TCC.Model.Base
 {
-    public class Class1
+    class Class1
     {
     }
 }
