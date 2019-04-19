@@ -13,18 +13,22 @@ namespace TCC.Controllers
             return View();
         }
 
-        public ActionResult About()
+        #region Usuário
+
+        public ActionResult Novo()
         {
-            ViewBag.Message = "Your application description page.";
+            //BLUser.Save();
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Entrar()
         {
-            ViewBag.Message = "Your contact page.";
+            //BLUser.Login();
 
             return View();
         }
+
+        #endregion
     }
 }

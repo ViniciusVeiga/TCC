@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using TCC.Domain.Entities;
+using TCC.Domain.Entities.Security;
 
 namespace TCC.Entity
 {
@@ -9,12 +10,14 @@ namespace TCC.Entity
     {
         public EFContext() : base("TCC.DB") { }
 
-        //public DbSet<Module> Modules { get; set; }
+        public DbSet<ETUser> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            
+            #region Configuração Base
 
             modelBuilder.Properties()
                 .Where(p => p.Name == nameof(ETBase.Id))
@@ -22,7 +25,31 @@ namespace TCC.Entity
                 {
                     p.IsKey();
                     p.HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+                    p.HasColumnName("BAS_N_ID");
                 });
+
+            modelBuilder.Properties()
+                .Where(p => p.Name == nameof(ETBase.AddedDate))
+                .Configure(p =>
+                {
+                    p.HasColumnName("BAS_D_ADDED_DATE");
+                });
+
+            modelBuilder.Properties()
+                .Where(p => p.Name == nameof(ETBase.ModifiedDate))
+                .Configure(p =>
+                {
+                    p.HasColumnName("BAS_D_MODIFIED_DATE");
+                });
+
+            modelBuilder.Properties()
+                .Where(p => p.Name == nameof(ETBase.Active))
+                .Configure(p =>
+                {
+                    p.HasColumnName("BAS_B_ACTIVE");
+                });
+
+            #endregion
 
             modelBuilder.Properties<string>()
                 .Configure(e => e.HasColumnType("VARCHAR"));
@@ -33,7 +60,7 @@ namespace TCC.Entity
             modelBuilder.Properties<decimal>()
                 .Configure(e => e.HasPrecision(4, 2));
 
-            //modelBuilder.Configurations.Add(new Maps.ModuleMap());
+            modelBuilder.Configurations.Add(new Maps.MPUser());
 
             base.OnModelCreating(modelBuilder);
         }
