@@ -6,6 +6,7 @@ namespace TCC.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
+
         {
             BLUser.Save();
 

@@ -52,7 +52,7 @@ namespace TCC.Entity
             #endregion
 
             modelBuilder.Properties<string>()
-                .Configure(e => e.HasColumnType("VARCHAR"));
+                .Configure(e => e.HasColumnType("varchar"));
 
             modelBuilder.Properties<string>()
                 .Configure(e => e.HasMaxLength(100));
