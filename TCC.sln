@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCC.Domain", "TCC.Domain\TC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCC", "TCC\TCC.csproj", "{D4831C58-D76D-456C-8AD1-F92ABD09CD94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCC.BusinessLayer", "TCC.BusinessLayer\TCC.BusinessLayer.csproj", "{67F9F1DC-D47B-4047-8F33-2A6A69B69C1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D4831C58-D76D-456C-8AD1-F92ABD09CD94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4831C58-D76D-456C-8AD1-F92ABD09CD94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4831C58-D76D-456C-8AD1-F92ABD09CD94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67F9F1DC-D47B-4047-8F33-2A6A69B69C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F9F1DC-D47B-4047-8F33-2A6A69B69C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F9F1DC-D47B-4047-8F33-2A6A69B69C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F9F1DC-D47B-4047-8F33-2A6A69B69C1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -81,3 +81,13 @@ C:\Users\Veiga\Desktop\TCC\TCC\TCC\obj\Debug\TCC.csproj.CoreCompileInputs.cache
 C:\Users\Veiga\Desktop\TCC\TCC\TCC\obj\Debug\TCC.csproj.CopyComplete
 C:\Users\Veiga\Desktop\TCC\TCC\TCC\obj\Debug\TCC.dll
 C:\Users\Veiga\Desktop\TCC\TCC\TCC\obj\Debug\TCC.pdb
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\TCC.BusinessLayer.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\TCC.Entity.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\TCC.Domain.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\EntityFramework.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\TCC.BusinessLayer.pdb
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\TCC.BusinessLayer.dll.config
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\TCC.Entity.pdb
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\TCC.Entity.dll.config
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\TCC.Domain.pdb
+C:\Users\Veiga\Desktop\TCC\TCC\TCC\bin\EntityFramework.xml
