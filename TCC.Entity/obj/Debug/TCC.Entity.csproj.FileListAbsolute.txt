@@ -1,0 +1,14 @@
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\bin\Debug\TCC.Entity.dll.config
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\bin\Debug\TCC.Entity.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\bin\Debug\TCC.Entity.pdb
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\bin\Debug\EntityFramework.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\bin\Debug\TCC.Domain.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\bin\Debug\TCC.Domain.pdb
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\bin\Debug\EntityFramework.xml
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\obj\Debug\TCC.Entity.csprojAssemblyReference.cache
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\obj\Debug\TCC.Entity.csproj.CoreCompileInputs.cache
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\obj\Debug\TCC.Entity.csproj.CopyComplete
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\obj\Debug\TCC.Entity.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.Entity\obj\Debug\TCC.Entity.pdb
