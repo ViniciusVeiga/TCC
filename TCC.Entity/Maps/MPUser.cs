@@ -11,16 +11,16 @@ namespace TCC.Entity.Maps
 
             Property(e => e.Name)
                 .HasMaxLength(50)
-                .HasColumnName("USE_C_NAME");
+                .HasColumnName("NAME_C");
 
             Property(e => e.Email)
                 .HasMaxLength(250)
-                .HasColumnName("USE_C_EMAIL");
+                .HasColumnName("EMAIL_C");
 
             Property(e => e.Password)
                 .IsRequired()
                 .HasMaxLength(150)
-                .HasColumnName("USE_C_PASSWORD");
+                .HasColumnName("PASSWORD_C");
         }
     }
 }
