@@ -61,9 +61,6 @@ C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\System.Web.WebPages.Razor.dll
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.BusinessLayer.dll
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.Domain.dll
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\WebGrease.dll
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.Entity.dll
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\EntityFramework.dll
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\EntityFramework.SqlServer.dll
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.BusinessLayer.pdb
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.BusinessLayer.dll.config
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.Domain.pdb
@@ -77,10 +74,6 @@ C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\System.Web.WebPages.Razor.xml
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\Newtonsoft.Json.xml
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\Antlr3.Runtime.pdb
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.Entity.pdb
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.Entity.dll.config
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\EntityFramework.xml
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\EntityFramework.SqlServer.xml
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\pt-br\System.Web.Helpers.resources.dll
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\pt-br\System.Web.Mvc.resources.dll
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\pt-br\System.Web.Optimization.resources.dll
@@ -93,3 +86,15 @@ C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\obj\Debug\TCC.UI.csproj.CoreCompileInputs.
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\obj\Debug\TCC.UI.csproj.CopyComplete
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\obj\Debug\TCC.UI.dll
 C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\obj\Debug\TCC.UI.pdb
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\AutoMapper.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\System.ValueTuple.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.Entity.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\EntityFramework.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\EntityFramework.SqlServer.dll
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\AutoMapper.pdb
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\AutoMapper.xml
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\System.ValueTuple.xml
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.Entity.pdb
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\TCC.Entity.dll.config
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\EntityFramework.xml
+C:\Users\Veiga\Desktop\TCC\TCC\TCC.UI\bin\EntityFramework.SqlServer.xml

@@ -1,21 +1,22 @@
 ﻿using System;
 using TCC.Domain.Entities.Security;
+using TCC.Domain.Interfaces.Repositories;
 using TCC.Entity;
+using TCC.Entity.Repositories;
 
 namespace TCC.BusinessLayer.Security
 {
-    public static class BLUser
+    public class BLUser
     {
-        public static EFContext context = new EFContext();
-        
+        private static readonly IRUser _users = new RUser(new EFContext());
+
         #region Save
 
-        public static bool Save(ETUser user)
+        public static bool NewUser(ETUser user)
         {
             try
             {
-                context.Users.Add(user);
-                context.SaveChanges();
+                _users.Add(user);
 
                 return true;
             }

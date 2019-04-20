@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using TCC.Domain.Entities;
-using TCC.Domain.Entities.Security;
 
 namespace TCC.Entity
 {
@@ -13,7 +12,7 @@ namespace TCC.Entity
 
         #region Gets do Entity
 
-        public DbSet<ETUser> Users { get; set; }
+        public DbSet<ETBase> Users { get; set; }
 
         #endregion
 

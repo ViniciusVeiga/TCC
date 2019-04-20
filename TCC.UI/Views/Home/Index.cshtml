@@ -1,7 +1,12 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Início";
 }
+
+<style>
+    .modal-dialog {
+        width: 400px;
+    }
+</style>
 
 <div class="content-header">
     <h1>
@@ -23,45 +28,15 @@
     <p>
         Você pode fazer os tutoriais mesmo sem criar uma conta, mas o seu progresso <strong>expirará em 2 dias</strong> sem usar o site.
     </p>
-    <br>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ModalLogin">Entrar</button>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalNewAccount">Criar Conta</button>
+    <p>
+        Para acessar sua conta <a href="#" data-toggle="modal" data-target="#ModalNewAccount"><strong>clique aqui</strong></a>.
+    </p>
 </div>
 
-<!-- Modal - Criar Conta -->
-<div class="modal modal-primary fade" id="ModalNewAccount">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Crie sua conta.</h4>
-            </div>
-            <div class="modal-body">
-                @using (Html.BeginForm("NewAccount", "Home", FormMethod.Post))
-                {
-                    <div class="form">
-                        <h4>Preencha os dados</h4>
-                        <hr />
-                        @Html.ValidationMessage("Error", new { @class = "text-danger" })
-                        <div class="form-row">
-                            <div class="form-group">
-                                @Html.Label()
-                                @Html.TextBoxFor(m => m.Number, new { @class = "form-control", placeholder = "Ex: 6582" })
-                                <small>
-                                    @Html.ValidationMessageFor(m => m.Number, null, new { @class = "text-danger" })
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-outline">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
+@Html.Partial("_Login")
+@Html.Partial("_NewAccount")
 
+
+@section scripts {
+    @Html.Partial("Scripts")
+}

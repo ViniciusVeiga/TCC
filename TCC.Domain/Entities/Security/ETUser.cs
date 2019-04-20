@@ -1,4 +1,5 @@
 ﻿using TCC.Domain.Interfaces;
+using TCC.Domain.Interfaces.Entities;
 
 namespace TCC.Domain.Entities.Security
 {
