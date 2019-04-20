@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Security;
+using TCC.Domain.Entities.Security;
 
 namespace TCC.UI.Controllers
 {
@@ -16,9 +17,9 @@ namespace TCC.UI.Controllers
 
         #region Usuário
 
-        public ActionResult Novo()
+        public ActionResult Novo(ETUser model)
         {
-            BLUser.Save();
+            BLUser.Save(model);
 
             return View();
         }

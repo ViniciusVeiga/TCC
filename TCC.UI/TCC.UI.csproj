@@ -6942,6 +6942,10 @@
       <Project>{67f9f1dc-d47b-4047-8f33-2a6a69b69c1f}</Project>
       <Name>TCC.BusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TCC.Domain\TCC.Domain.csproj">
+      <Project>{bcf39bcb-abd4-4c28-8715-f62b586b5270}</Project>
+      <Name>TCC.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

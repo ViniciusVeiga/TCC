@@ -10,18 +10,10 @@ namespace TCC.BusinessLayer.Security
         
         #region Save
 
-        public static bool Save()
+        public static bool Save(ETUser user)
         {
             try
             {
-                var user = new ETUser
-                {
-                    Name = "dsasa",
-                    Email = "dsa",
-                    Password = "123e",
-                    Active = true
-                };
-
                 context.Users.Add(user);
                 context.SaveChanges();
 
