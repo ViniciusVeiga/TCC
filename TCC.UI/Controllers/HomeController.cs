@@ -17,14 +17,14 @@ namespace TCC.UI.Controllers
 
         #region Usuário
 
-        public ActionResult Novo(ETUser model)
+        public ActionResult NewAccount(ETUser model)
         {
             BLUser.Save(model);
 
             return View();
         }
 
-        public ActionResult Entrar()
+        public ActionResult Login()
         {
             //BLUser.Login();
 
