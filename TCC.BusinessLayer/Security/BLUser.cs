@@ -7,6 +7,8 @@ namespace TCC.BusinessLayer.Security
     public static class BLUser
     {
         public static EFContext context = new EFContext();
+        
+        #region Save
 
         public static bool Save()
         {
@@ -31,5 +33,7 @@ namespace TCC.BusinessLayer.Security
                 return false;
             }
         }
+
+        #endregion
     }
 }
