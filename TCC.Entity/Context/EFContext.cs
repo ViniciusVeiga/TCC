@@ -8,7 +8,7 @@ namespace TCC.Entity
 {
     public class EFContext : DbContext
     {
-        public EFContext() : base("TCC.DB") { }
+        public EFContext() : base("TCCConnectionDB") { }
 
         public DbSet<ETUser> Users { get; set; }
 
