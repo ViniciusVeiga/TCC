@@ -21,6 +21,7 @@ namespace TCC.BusinessLayer.Security
                 };
 
                 context.Users.Add(user);
+                context.SaveChanges();
 
                 return true;
             }
