@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using TCC.Domain.Interfaces.Entities;
+using TCC.Domain.Interfaces;
 
 namespace TCC.UI.ViewsModels.Account
 {

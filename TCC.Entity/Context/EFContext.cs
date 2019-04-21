@@ -3,8 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using TCC.Domain.Entities;
+using TCC.Domain.Entities.Security;
 
-namespace TCC.Entity
+namespace TCC.Entity.Context
 {
     public class EFContext : DbContext
     {
@@ -12,7 +13,7 @@ namespace TCC.Entity
 
         #region Gets do Entity
 
-        public DbSet<ETBase> Users { get; set; }
+        public DbSet<ETUser> Users { get; set; }
 
         #endregion
 
@@ -31,28 +32,28 @@ namespace TCC.Entity
                 {
                     p.IsKey();
                     p.HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-                    p.HasColumnName($"ID_C");
+                    p.HasColumnName("ID_N");
                 });
 
             modelBuilder.Properties()
                 .Where(p => p.Name == nameof(ETBase.AddedDate))
                 .Configure(p =>
                 {
-                    p.HasColumnName($"ADDED_DATE_D");
+                    p.HasColumnName("ADDED_DATE_D");
                 });
 
             modelBuilder.Properties()
                 .Where(p => p.Name == nameof(ETBase.ModifiedDate))
                 .Configure(p =>
                 {
-                    p.HasColumnName($"MODIFIED_DATE_D");
+                    p.HasColumnName("MODIFIED_DATE_D");
                 });
 
             modelBuilder.Properties()
                 .Where(p => p.Name == nameof(ETBase.Active))
                 .Configure(p =>
                 {
-                    p.HasColumnName($"ACTIVE_D");
+                    p.HasColumnName("ACTIVE_B");
                 });
 
             #endregion
@@ -61,11 +62,11 @@ namespace TCC.Entity
                 .Configure(e => e.HasColumnType("varchar"));
 
             modelBuilder.Properties<string>()
-                .Configure(e => e.HasMaxLength(100));
+                .Configure(e => e.HasMaxLength(150));
 
             modelBuilder.Properties<decimal>()
-                .Configure(e => e.HasPrecision(4, 2));
-            
+                .Configure(e => e.HasPrecision(18, 0));
+
             #region Mapeamento
 
             modelBuilder.Configurations.Add(new Maps.MPUser());

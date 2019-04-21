@@ -43,10 +43,8 @@
   <ItemGroup>
     <Compile Include="Entities\ETBase.cs" />
     <Compile Include="Entities\Security\ETUser.cs" />
-    <Compile Include="Interfaces\Entities\IBase.cs" />
-    <Compile Include="Interfaces\Entities\IUser.cs" />
-    <Compile Include="Interfaces\Repositories\IRBase.cs" />
-    <Compile Include="Interfaces\Repositories\IRUser.cs" />
+    <Compile Include="Interfaces\IBase.cs" />
+    <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TCC.Domain.Interfaces.Entities;
+using TCC.Domain.Interfaces;
 
 namespace TCC.UI.ViewsModels.Account
 {
