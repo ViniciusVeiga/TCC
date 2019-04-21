@@ -1,15 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TCC.Domain.Interfaces;
 
 namespace TCC.UI.ViewsModels.Account
 {
-    public class VMLogin : IUser
+    public class VMLogin
     {
-        public string Name { get; set; }
-
         [Required]
         [Display(Name = "E-mail")]
-        [EmailAddress(ErrorMessage = "{0} inválido")]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]

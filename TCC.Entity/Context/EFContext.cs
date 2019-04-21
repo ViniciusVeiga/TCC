@@ -13,7 +13,7 @@ namespace TCC.Entity.Context
 
         #region Gets do Entity
 
-        public DbSet<ETUser> Users { get; set; }
+        public virtual DbSet<ETUser> Users { get; set; }
 
         #endregion
 

@@ -20,7 +20,7 @@ namespace TCC.UI
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/AdminLTE").Include(
-                      "~/Content/AdminLTE//css/AdminLTE.css",
+                      "~/Content/AdminLTE/css/AdminLTE.css",
                       "~/Content/AdminLTE/css/alt/AdminLTE-bootstrap-social.css",
                       "~/Content/AdminLTE/css/alt/AdminLTE-fullcalendar.css",
                       "~/Content/AdminLTE/css/alt/AdminLTE-select2.css",
