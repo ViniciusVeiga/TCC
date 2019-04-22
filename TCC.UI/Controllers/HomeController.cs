@@ -12,26 +12,5 @@ namespace TCC.UI.Controllers
         {
             return View();
         }
-
-        #region Usuário
-
-        [HttpPost]
-        public ActionResult NewAccount(VMNewAccount model)
-        {
-            if (ModelState.IsValid)
-            {
-                BLUser.NewUser(Mapper.Map<ETUser>(model));
-
-                ViewData["SuccessNewAccount"] = true;
-            }
-            else
-            {
-                ViewData["ErrorNewAccount"] = true;
-            }
-
-            return View("Index");
-        }
-
-        #endregion
     }
 }

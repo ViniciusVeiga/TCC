@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Test Tutorials</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+    @Styles.Render("~/Content/Site")
     @Styles.Render("~/Content/Components")
     @Styles.Render("~/Content/AdminLTE")
 </head>
@@ -20,11 +21,14 @@
         </div>
         <div class="main-footer">
         </div>
+        @Html.Partial("User/_Login")
+        @Html.Partial("User/_NewAccount")
     </div>
 
     @Scripts.Render("~/Scripts/jquery")
     @Scripts.Render("~/Scripts/bootstrap")
     @Scripts.Render("~/Scripts/site")
+    @Html.Partial("User/Scripts")
     @RenderSection("scripts", required: false)
 </body>
 </html>

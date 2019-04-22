@@ -132,6 +132,7 @@
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -6414,6 +6415,7 @@
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.css" />
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.js" />
     <Content Include="Content\Components\select2\vendor\jquery-2.1.0.js" />
+    <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -6926,10 +6928,10 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Views\Home\_Login.cshtml" />
+    <Content Include="Views\Shared\User\_Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\_NewAccount.cshtml" />
-    <Content Include="Views\Home\Scripts.cshtml" />
+    <Content Include="Views\Shared\User\_NewAccount.cshtml" />
+    <Content Include="Views\Shared\User\Scripts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

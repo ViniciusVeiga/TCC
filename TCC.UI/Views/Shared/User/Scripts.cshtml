@@ -13,10 +13,22 @@
     @if ((bool?)ViewData["SuccessNewAccount"] == true)
     {
         // Limpo todos os campos de Cadastro
-        @:$('input[type="text"]').each(function () { $(this).val('') })
+        @:clearAllTextInputs();
 
         // Abro model de Login
-        @:$('#ModalLogin').modal('show');
+        @:showLogin();
         @:$('#SuccessNewAccount').show();
+    }
+
+    function showLogin() {
+        clearValidations();
+        $('#ModalNewAccount').modal('hide');
+        $('#ModalLogin').modal('show');
+    }
+
+    function showNewAccount() {
+        clearValidations();
+        $('#ModalLogin').modal('hide');
+        $('#ModalNewAccount').modal('show');
     }
 </script>
