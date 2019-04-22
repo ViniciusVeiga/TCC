@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TCC.UI.CustomValidations;
 
 namespace TCC.UI.ViewsModels.Account
 {
@@ -11,6 +12,7 @@ namespace TCC.UI.ViewsModels.Account
 
         [Required]
         [EmailAddress(ErrorMessage = "{0} inválido")]
+        [EmailExist]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 

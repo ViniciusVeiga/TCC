@@ -8,9 +8,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Criar uma conta</h4>
+                <h4 class="modal-title"><strong>Criar uma conta</strong></h4>
             </div>
-            @using (Html.BeginForm("NewAccount", "Home", FormMethod.Post, new { @id = "FormNewAccount" }))
+            @using (Html.BeginForm("NewAccount", "Home", FormMethod.Post))
             {
                 <div class="modal-body">
                     <div class="form">
@@ -36,11 +36,12 @@
                                     @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-block" })
                                 </small>
                             </div>
-                            <div class="has-error form-group">
+                            <div class="form-group" >
                                 @Html.LabelFor(m => m.ConfirmPassword)
-                                @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @type="Password" })
- 
-                                @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "help-block" })
+                                @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @type = "Password" })
+                                <small>
+                                    @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "help-block" })
+                                </small>
                             </div>
                         </div>
                     </div>

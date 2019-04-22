@@ -6,6 +6,11 @@
     .modal-dialog {
         width: 400px;
     }
+    .modal-header {
+        background-color: #3c8dbc;
+        color: #ffffff;
+    }
+
 </style>
 
 <div class="content-header">
@@ -31,11 +36,9 @@
     <p>
         Para acessar sua conta <a href="#" data-toggle="modal" data-target="#ModalNewAccount"><strong>clique aqui</strong></a>.
     </p>
+    @Html.Partial("_Login")
+    @Html.Partial("_NewAccount")
 </div>
-
-@Html.Partial("_Login")
-@Html.Partial("_NewAccount")
-
 
 @section scripts {
     @Html.Partial("Scripts")
