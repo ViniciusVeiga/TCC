@@ -7,7 +7,7 @@ $(document).ready(function () {
     });
 });
 
-function clearValidations() {s
+function clearValidations() {
     $('.help-block').text('');
     $('.has-error').removeClass('has-error');
 }

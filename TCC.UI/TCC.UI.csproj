@@ -6928,10 +6928,10 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Views\Shared\User\_Login.cshtml" />
+    <Content Include="Views\Shared\Login\_Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\User\_NewAccount.cshtml" />
-    <Content Include="Views\Shared\User\Scripts.cshtml" />
+    <Content Include="Views\Shared\Login\_NewAccount.cshtml" />
+    <Content Include="Views\Shared\Login\Scripts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

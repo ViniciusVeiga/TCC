@@ -1,8 +1,5 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Security;
 using TCC.Domain.Entities.Security;
@@ -29,8 +26,6 @@ namespace TCC.UI.Controllers
                 ViewData["ErrorLogin"] = true;
             }
 
-            SetLastController();
-
             return View($"../{LastController}/{LastAction}");
         }
 
@@ -52,8 +47,6 @@ namespace TCC.UI.Controllers
                 ViewData["ErrorNewAccount"] = true;
             }
 
-            SetLastController();
-
             return View($"../{LastController}/{LastAction}");
         }
 
@@ -62,9 +55,9 @@ namespace TCC.UI.Controllers
         #region Guardar Controller
 
         /// <summary>
-        /// Guarda a última controller e action.
+        /// Guarda a última controller e action (Antes das Actions).
         /// </summary>
-        private void SetLastController()
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var lastController = (Request.UrlReferrer.Segments.Skip(1).Take(1).SingleOrDefault() ?? "Home").Trim('/');
             var thisController = this.ControllerContext.RouteData.Values["controller"].ToString();

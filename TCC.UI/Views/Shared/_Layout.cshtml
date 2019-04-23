@@ -21,14 +21,14 @@
         </div>
         <div class="main-footer">
         </div>
-        @Html.Partial("User/_Login")
-        @Html.Partial("User/_NewAccount")
+        @Html.Partial("Login/_Login")
+        @Html.Partial("Login/_NewAccount")
     </div>
 
     @Scripts.Render("~/Scripts/jquery")
     @Scripts.Render("~/Scripts/bootstrap")
     @Scripts.Render("~/Scripts/site")
-    @Html.Partial("User/Scripts")
+    @Html.Partial("Login/Scripts")
     @RenderSection("scripts", required: false)
 </body>
 </html>
