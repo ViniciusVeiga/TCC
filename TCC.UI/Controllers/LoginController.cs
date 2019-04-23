@@ -52,7 +52,7 @@ namespace TCC.UI.Controllers
 
         #endregion
 
-        #region Guardar Controller
+        #region Guardar Controller (Before Actions)
 
         /// <summary>
         /// Guarda a última controller e action (Antes das Actions).
