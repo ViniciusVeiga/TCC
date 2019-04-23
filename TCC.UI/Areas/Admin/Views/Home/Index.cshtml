@@ -1,7 +1,30 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "ADM";
 }
 
-<h2>Index</h2>
+<style>
+    .modal-dialog {
+        width: 400px;
+    }
 
+    .modal-header {
+        background-color: #3c8dbc;
+        color: #ffffff;
+    }
+</style>
+
+<div class="content-header">
+    <h1>
+        @ViewBag.Title
+    </h1>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#"><i class="fa fa-dashboard"></i> @ViewBag.Title</a>
+        </li>
+    </ul>
+</div>
+<div class="content">
+    <p>
+        Área <strong>Administrativas</strong>
+    </p>
+</div>
