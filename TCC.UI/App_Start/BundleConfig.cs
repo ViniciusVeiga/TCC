@@ -20,8 +20,11 @@ namespace TCC.UI
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                        "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/Scripts/jstree").Include(
+                        "~/Scripts/jstree/jstree.js"));
+                
             bundles.Add(new StyleBundle("~/Content/AdminLTE").Include(
                       "~/Content/AdminLTE/css/AdminLTE.css",
                       "~/Content/AdminLTE/css/alt/AdminLTE-bootstrap-social.css",

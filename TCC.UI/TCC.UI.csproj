@@ -6417,6 +6417,8 @@
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.css" />
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.js" />
     <Content Include="Content\Components\select2\vendor\jquery-2.1.0.js" />
+    <Content Include="Scripts\jstree\jstree.js" />
+    <Content Include="Scripts\jstree\jstree.min.js" />
     <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

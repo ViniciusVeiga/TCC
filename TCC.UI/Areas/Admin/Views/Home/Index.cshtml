@@ -1,17 +1,6 @@
 ﻿@{
-    ViewBag.Title = "ADM";
+    ViewBag.Title = "Menu";
 }
-
-<style>
-    .modal-dialog {
-        width: 400px;
-    }
-
-    .modal-header {
-        background-color: #3c8dbc;
-        color: #ffffff;
-    }
-</style>
 
 <div class="content-header">
     <h1>
@@ -24,7 +13,39 @@
     </ul>
 </div>
 <div class="content">
-    <p>
-        Área <strong>Administrativas</strong>
-    </p>
+    <div class="form-group col-md-12">
+        <a class="btn btn-success" id="Create" >Criar</a>
+        <a class="btn btn-warning" id="Rename" >Renomear</a>
+        <a class="btn btn-danger" id="Delete">Deletar</a>
+    </div>
+
+    <div id="jstree">
+    </div>
 </div>
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/jstree")
+    <script>
+
+        $(function () {
+            $("#jstree").jstree({
+                "core": {
+                    "multiple": false,
+                    "animation": 0
+                }
+            });
+        });
+
+        $('#Create').on('click', function () {
+            var ul = document.createElement("ul");
+            var li = document.createElement("li");
+
+            if (nodeSelected == null) {
+                $('#jstree').appendChild(ul);
+            }
+        });
+
+    </script>
+
+}
