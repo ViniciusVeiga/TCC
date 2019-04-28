@@ -23,10 +23,13 @@ namespace TCC.UI.Controllers
             {
                 var token = BLUser.Autentication(model.Email, model.Password);
 
-                var cookie = new HttpCookie("app_cookie") { Expires = DateTime.Now.AddYears(1) };
+                if (token != false)
+                {
+                    var cookie = new HttpCookie("t_user") { Expires = DateTime.Now.AddYears(1) };
 
-                cookie.Values.Add("t_user", token);
-                Response.Cookies.Add(cookie);
+                    cookie.Values.Add(token);
+                    Response.Cookies.Add(cookie);
+                }
 
                 ViewData["SuccessLogin"] = true;
             }

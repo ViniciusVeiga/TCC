@@ -10,17 +10,21 @@ namespace TCC.Entity.Maps
             ToTable("TCC_USER");
 
             Property(e => e.Name)
+                .IsRequired()
                 .HasMaxLength(50)
                 .HasColumnName("NAME_C");
 
             Property(e => e.Email)
+                .IsRequired()
                 .HasMaxLength(250)
                 .HasColumnName("EMAIL_C");
 
             Property(e => e.Password)
                 .IsRequired()
-                .HasMaxLength(150)
                 .HasColumnName("PASSWORD_C");
+
+            Property(e => e.Token)
+                .HasColumnName("TOKEN_C");
         }
     }
 }

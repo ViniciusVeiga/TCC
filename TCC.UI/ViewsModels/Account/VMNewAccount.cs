@@ -12,7 +12,6 @@ namespace TCC.UI.ViewsModels.Account
 
         [Required]
         [EmailAddress(ErrorMessage = "{0} inválido")]
-        [EmailExist]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
