@@ -1,9 +1,11 @@
-﻿using AutoMapper;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Security;
 using TCC.Domain.Entities.Security;
 using TCC.UI.ViewsModels.Account;
+using TCC.UI.Helpers;
+using System.Web;
+using System;
 
 namespace TCC.UI.Controllers
 {
@@ -19,6 +21,13 @@ namespace TCC.UI.Controllers
         {
             if (ModelState.IsValid)
             {
+                var token = BLUser.Autentication(model.Email, model.Password);
+
+                var cookie = new HttpCookie("app_cookie") { Expires = DateTime.Now.AddYears(1) };
+
+                cookie.Values.Add("t_user", token);
+                Response.Cookies.Add(cookie);
+
                 ViewData["SuccessLogin"] = true;
             }
             else
@@ -31,14 +40,14 @@ namespace TCC.UI.Controllers
 
         #endregion
 
-        #region Novo Usuário
+        #region Criar Nova Conta
 
         [HttpPost]
         public ActionResult NewAccount(VMNewAccount model)
         {
             if (ModelState.IsValid)
             {
-                BLUser.NewUser(Mapper.Map<ETUser>(model));
+                BLUser.Create(Helper.CopyValues<VMNewAccount, ETUser>(model));
 
                 ViewData["SuccessNewAccount"] = true;
             }

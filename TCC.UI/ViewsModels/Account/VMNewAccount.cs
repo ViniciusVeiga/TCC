@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TCC.UI.CustomValidations;
+using TCC.UI.Helpers;
 
 namespace TCC.UI.ViewsModels.Account
 {

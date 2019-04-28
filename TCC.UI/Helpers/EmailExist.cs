@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TCC.BusinessLayer.Security;
 
-namespace TCC.UI.CustomValidations
+namespace TCC.UI.Helpers
 {
     public class EmailExist : ValidationAttribute
     {

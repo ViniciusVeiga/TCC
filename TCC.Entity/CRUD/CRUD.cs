@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Linq.Expressions;
 using TCC.Domain.Entities;
 using TCC.Entity.Context;
 
@@ -14,15 +15,17 @@ namespace TCC.Entity.CRUD
         private static IDbSet<T> _entities;
         private static string _errorMessage = string.Empty;
 
-        public static IEnumerable<T> All => Entities.ToList();
+        public static List<T> All => Entities.ToList();
 
-        public static IEnumerable<T> Actives => Entities.Where(e => e.Active).ToList();
+        public static List<T> Actives => Entities.Where(e => e.Active).ToList();
 
         public static T Find(int id) => Entities.Find(id);
 
         public static T FindActive(int id) => Entities.First(e => e.Active && e.Id == id);
 
-        public static IEnumerable<T> Find(Func<T, bool> predicate) => Entities.Where(predicate);
+        public static T Find(Expression<Func<T, bool>> predicate) => Entities.Find(predicate);
+
+        public static List<T> List(Expression<Func<T, bool>> predicate) => Entities.Where(predicate).ToList();
 
         public static void Add(T entity)
         {

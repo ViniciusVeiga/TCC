@@ -8,9 +8,9 @@ namespace TCC.BusinessLayer.Security
 {
     public class BLUser
     {
-        #region Novo Usuário
+        #region Cria Usuário
 
-        public static bool NewUser(ETUser user)
+        public static bool Create(ETUser user)
         {
             try
             {
@@ -20,15 +20,15 @@ namespace TCC.BusinessLayer.Security
             }
             catch (Exception)
             {
-                throw;    
+                return false;
             }
         }
 
         #region Validação
 
-        public static bool CheckEmail(string email)
+        public static bool ValidationEmail(string email)
         {
-            var users = (List<ETUser>)CRUD<ETUser>.All;
+            var users = CRUD<ETUser>.All;
 
             if (users.Any(u => u.Email == email))
             {
@@ -39,6 +39,31 @@ namespace TCC.BusinessLayer.Security
         }
 
         #endregion
+
+        #endregion
+
+        #region Autenticação
+
+        public static dynamic Autentication(string email, string passaword)
+        {
+            try
+            {
+                var user = CRUD<ETUser>
+                    .Find(u => u.Email == email && u.Password == passaword && u.Active == true);
+
+                if (user == null)
+                    return false;
+
+                user.Token = Guid.NewGuid().ToString();
+                CRUD<ETUser>.Update(user);
+
+                return user.Token;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         #endregion
     }

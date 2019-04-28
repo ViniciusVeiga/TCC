@@ -1,4 +1,5 @@
-﻿using TCC.Domain.Interfaces;
+﻿using System;
+using TCC.Domain.Interfaces;
 
 namespace TCC.Domain.Entities.Security
 {
@@ -7,5 +8,6 @@ namespace TCC.Domain.Entities.Security
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Token { get; set; }
     }
 }
