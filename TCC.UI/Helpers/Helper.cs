@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
@@ -37,6 +36,13 @@ namespace TCC.UI.Helpers
 
             return modelDestiny;
         }
+
+        #endregion
+
+        #region Última Url
+
+        public static string GetLastUrl()
+            => $"../{(HttpContext.Current.Request.UrlReferrer.Segments.Skip(1).Take(1).SingleOrDefault() ?? "Home").Trim('/')}/{(HttpContext.Current.Request.UrlReferrer.Segments.Skip(2).Take(1).SingleOrDefault() ?? "Index").Trim('/')}";
 
         #endregion
     }

@@ -26,7 +26,7 @@
                                 @Html.LabelFor(m => m.Password)
                                 @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
                                 <small>
-                                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-block" })
+                                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-block", @type = "Password" })
                                 </small>
                             </div>
                             <small>

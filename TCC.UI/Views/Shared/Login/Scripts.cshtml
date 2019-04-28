@@ -10,7 +10,7 @@
         @:$('#ModalLogin').modal('show');
     }
 
-    @if ((bool?)ViewData["SuccessNewAccount"] == true)
+    @if ((bool?)TempData["SuccessNewAccount"] == true)
     {
         // Limpo todos os campos de Cadastro
         @:clearAllTextInputs();

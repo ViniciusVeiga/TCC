@@ -1,16 +1,37 @@
 ﻿
+@{
+    var user = TCC.BusinessLayer.Security.BLUser.GetLogged();
+}
+
 <div class="main-header">
     <a href="index2.html" class="logo">
         <span class="logo-mini"><strong>TT</strong></span>
         <span class="logo-lg"><strong>Test</strong> Tutorials</span>
     </a>
+
     <div class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"></a>
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <li class="btn-nav">
-                    <input type="button" class="btn btn-outline btn-top" data-toggle="modal" data-target="#ModalLogin" value="Entrar">
-                </li>
+                @if (user == null)
+                {
+                    <li class="btn-nav">
+                        <input type="button" class="btn btn-outline btn-top" data-toggle="modal" data-target="#ModalLogin" value="Entrar">
+                    </li>
+                }
+                else
+                {
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle">
+                            <span class="hidden-xs">@user.Name</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Login/Logoff" data-toggle="control-sidebar"><i class="fa fa-sign-out"></i></a>
+                    </li>
+                }
             </ul>
         </div>
     </div>
 </div>
+

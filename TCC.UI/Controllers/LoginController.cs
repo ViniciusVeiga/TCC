@@ -1,83 +1,83 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using TCC.BusinessLayer.Security;
 using TCC.Domain.Entities.Security;
 using TCC.UI.ViewsModels.Account;
 using TCC.UI.Helpers;
-using System.Web;
-using System;
+using TCC.UI.Helpers.Attributes.Login;
 
 namespace TCC.UI.Controllers
 {
     public class LoginController : Controller
     {
-        public static string LastController;
-        public static string LastAction;
+        public static string UrlToRedirect { get; set; }
 
         #region Login
 
         [HttpPost]
+        [NotLogged]
         public ActionResult Login(VMLogin model)
         {
             if (ModelState.IsValid)
             {
                 var token = BLUser.Autentication(model.Email, model.Password);
 
-                if (token != false)
-                {
-                    var cookie = new HttpCookie("t_user") { Expires = DateTime.Now.AddYears(1) };
-
-                    cookie.Values.Add(token);
-                    Response.Cookies.Add(cookie);
-                }
-
                 ViewData["SuccessLogin"] = true;
-            }
-            else
-            {
-                ViewData["ErrorLogin"] = true;
+
+                return RedirectToAction(UrlToRedirect);
             }
 
-            return View($"../{LastController}/{LastAction}");
+            ViewData["ErrorLogin"] = true;
+
+            return View(UrlToRedirect);
         }
 
         #endregion
 
-        #region Criar Nova Conta
+        #region Nova Conta
 
         [HttpPost]
+        [NotLogged]
         public ActionResult NewAccount(VMNewAccount model)
         {
             if (ModelState.IsValid)
             {
                 BLUser.Create(Helper.CopyValues<VMNewAccount, ETUser>(model));
 
-                ViewData["SuccessNewAccount"] = true;
-            }
-            else
-            {
-                ViewData["ErrorNewAccount"] = true;
+                TempData["SuccessNewAccount"] = true;
+
+                return RedirectToAction(UrlToRedirect);
             }
 
-            return View($"../{LastController}/{LastAction}");
+            ViewData["ErrorNewAccount"] = true;
+
+            return View(UrlToRedirect);
         }
 
         #endregion
 
-        #region Guardar Controller (Before Actions)
+        #region Sair
+
+        public ActionResult Logoff()
+        {
+            BLUser.Logoff();
+
+            return RedirectToAction(UrlToRedirect);
+        }
+
+        #endregion
+
+        #region Guardar Url (Before Actions)
 
         /// <summary>
-        /// Guarda a última controller e action (Antes das Actions).
+        /// Guarda a última url (Antes das Actions).
         /// </summary>
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var lastController = (Request.UrlReferrer.Segments.Skip(1).Take(1).SingleOrDefault() ?? "Home").Trim('/');
-            var thisController = this.ControllerContext.RouteData.Values["controller"].ToString();
+            var url = Helper.GetLastUrl();
 
-            if (lastController != thisController)
+            if (!url.Contains(this.ControllerContext.RouteData.Values["controller"].ToString()))
             {
-                LastController = lastController;
-                LastAction = (Request.UrlReferrer.Segments.Skip(2).Take(1).SingleOrDefault() ?? "Index").Trim('/');
+                UrlToRedirect = Helper.GetLastUrl();
             }
         }
 

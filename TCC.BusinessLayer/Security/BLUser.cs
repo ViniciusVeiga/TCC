@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using TCC.Domain.Entities.Security;
 using TCC.Entity.CRUD;
+using static System.Web.HttpContext;
 
 namespace TCC.BusinessLayer.Security
 {
     public class BLUser
     {
-        private static ETUser _user;
-
         #region Cria Usuário
 
         public static bool Create(ETUser user)
@@ -32,7 +31,7 @@ namespace TCC.BusinessLayer.Security
 
         #region Autenticação
 
-        public static dynamic Autentication(string email, string passaword)
+        public static bool Autentication(string email, string passaword)
         {
             try
             {
@@ -47,7 +46,13 @@ namespace TCC.BusinessLayer.Security
                 user.Token = Guid.NewGuid().ToString();
                 CRUD<ETUser>.Update(user);
 
-                return user.Token;
+                Current.Response.Cookies.Add(
+                    new HttpCookie("t_user", user.Token)
+                    {
+                        Expires = DateTime.Now.AddYears(1)
+                    });
+
+                return true;
             }
             catch (Exception)
             {
@@ -59,18 +64,18 @@ namespace TCC.BusinessLayer.Security
 
         #region Obter Logado
 
-        public ETUser GetLogged(string token)
+        public static ETUser GetLogged()
         {
             try
             {
-                if (string.IsNullOrEmpty(token))
+                var cookie = Current.Request.Cookies["t_user"];
+
+                if (cookie != null && !string.IsNullOrEmpty(cookie.Value))
                 {
                     var user = CRUD<ETUser>
-                        .Find(u => u.Token == token && u.Active == true);
+                        .Find(u => u.Token == cookie.Value && u.Active == true);
 
-                    _user = user;
-
-                    return _user;
+                    return user;
                 }
 
                 return null;
@@ -86,12 +91,14 @@ namespace TCC.BusinessLayer.Security
 
         #region Deslogar
 
-        public bool Logoff()
+        public static bool Logoff()
         {
             try
             {
-                _user.Token = null;
-                CRUD<ETUser>.Update(_user);
+                var user = GetLogged();
+
+                user.Token = null;
+                CRUD<ETUser>.Update(user);
 
                 return true;
             }

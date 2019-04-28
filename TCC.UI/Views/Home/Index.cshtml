@@ -1,6 +1,9 @@
 ﻿@{
     ViewBag.Title = "Início";
+
+    var user = TCC.BusinessLayer.Security.BLUser.GetLogged();
 }
+
 
 <style>
     .modal-dialog {
@@ -33,7 +36,10 @@
     <p>
         Você pode fazer os tutoriais mesmo sem criar uma conta, mas o seu progresso <strong>expirará em 2 dias</strong> sem usar o site.
     </p>
-    <p>
-        Precisando de uma conta? <a href="#" data-toggle="modal" data-target="#ModalNewAccount">Registre-se</a>
-    </p>
+    @if (user == null)
+    {
+        <p>
+            Precisando de uma conta? <a href="#" data-toggle="modal" data-target="#ModalNewAccount">Registre-se</a>
+        </p>
+    }
 </div>

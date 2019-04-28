@@ -132,6 +132,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Attributes\Login\NotLogged.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewsModels\Account\VMLogin.cs" />
@@ -6941,6 +6942,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Content\AdminLTE\img\" />
+    <Folder Include="Helpers\Attributes\Validations\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
