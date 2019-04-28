@@ -1,3 +1,12 @@
 ﻿.main-header .navbar-static-top .btn-top {
     margin: 8px;
 }
+
+.login .modal-dialog {
+    width: 400px;
+}
+
+.login .modal-header {
+    background-color: #3c8dbc;
+    color: #ffffff;
+}

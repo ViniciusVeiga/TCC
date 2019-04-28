@@ -7,36 +7,32 @@ namespace TCC.UI
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/Scripts/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/Js/jquery").Include(
+                "~/Content/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/validate").Include(
-                        "~/Scripts/jquery.validate*"));
+            //bundles.Add(new ScriptBundle("~/Scripts/validate").Include(
+            //            "~/Content/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/site").Include(
-                        "~/Scripts/site.js"));
+            bundles.Add(new ScriptBundle("~/Js/site").Include(
+                "~/Content/Scripts/site.js"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/Js/bootstrap").Include(
+                "~/Content/Scripts/bootstrap.js"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include(
-                        "~/Scripts/bootstrap.js"));
+            bundles.Add(new StyleBundle("~/Js/AdminLTE").Include(
+                "~/Content/AdminLTE/js/adminlte.js"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/jstree").Include(
-                        "~/Scripts/jstree/jstree.js"));
-                
-            bundles.Add(new StyleBundle("~/Content/AdminLTE").Include(
-                      "~/Content/AdminLTE/css/AdminLTE.css",
-                      "~/Content/AdminLTE/css/alt/AdminLTE-bootstrap-social.css",
-                      "~/Content/AdminLTE/css/skins/_all-skins.css"));
+            bundles.Add(new StyleBundle("~/Css/AdminLTE").Include(
+                "~/Content/AdminLTE/css/AdminLTE.css",
+                "~/Content/AdminLTE/css/alt/AdminLTE-bootstrap-social.css",
+                "~/Content/AdminLTE/css/skins/_all-skins.css"));
 
-            bundles.Add(new StyleBundle("~/Content/Components").Include(
-                      "~/Content/Components/bootstrap/dist/css/bootstrap.min.css",
-                      "~/Content/Components/font-awesome/css/font-awesome.min.css",
-                      "~/Content/Components/jvectormap/jquery-jvectormap.css"));
+            bundles.Add(new StyleBundle("~/Css/Components").Include(
+                "~/Content/Components/bootstrap/dist/css/bootstrap.min.css",
+                "~/Content/Components/font-awesome/css/font-awesome.min.css"));
 
-            bundles.Add(new StyleBundle("~/Content/Site").Include(
-                      "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Css/Site").Include(
+                "~/Content/site.css"));
         }
     }
 }

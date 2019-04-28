@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Menu";
+    ViewBag.Title = "Home Administrativo";
 }
 
 <div class="content-header">
@@ -13,39 +13,5 @@
     </ul>
 </div>
 <div class="content">
-    <div class="form-group col-md-12">
-        <a class="btn btn-success" id="Create" >Criar</a>
-        <a class="btn btn-warning" id="Rename" >Renomear</a>
-        <a class="btn btn-danger" id="Delete">Deletar</a>
-    </div>
 
-    <div id="jstree">
-    </div>
 </div>
-
-@section scripts{
-
-    @Scripts.Render("~/Scripts/jstree")
-    <script>
-
-        $(function () {
-            $("#jstree").jstree({
-                "core": {
-                    "multiple": false,
-                    "animation": 0
-                }
-            });
-        });
-
-        $('#Create').on('click', function () {
-            var ul = document.createElement("ul");
-            var li = document.createElement("li");
-
-            if (nodeSelected == null) {
-                $('#jstree').appendChild(ul);
-            }
-        });
-
-    </script>
-
-}

@@ -18,7 +18,7 @@ namespace TCC.UI.Helpers.Attributes.Login
 
             if (user != null)
             {
-                filterContext.Result = new RedirectResult(Helper.GetLastUrl());
+                filterContext.Result = new RedirectResult(HelpersMethods.GetLastUrl());
             }
         }
     }

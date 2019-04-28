@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace TCC.UI.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class MenuController : Controller
     {
         public ActionResult Index() => View();
     }

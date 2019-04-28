@@ -41,7 +41,7 @@ namespace TCC.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                BLUser.Create(Helper.CopyValues<VMNewAccount, ETUser>(model));
+                BLUser.Create(HelpersMethods.CopyValues<VMNewAccount, ETUser>(model));
 
                 TempData["SuccessNewAccount"] = true;
 
@@ -73,11 +73,11 @@ namespace TCC.UI.Controllers
         /// </summary>
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var url = Helper.GetLastUrl();
+            var url = HelpersMethods.GetLastUrl();
 
             if (!url.Contains(this.ControllerContext.RouteData.Values["controller"].ToString()))
             {
-                UrlToRedirect = Helper.GetLastUrl();
+                UrlToRedirect = HelpersMethods.GetLastUrl();
             }
         }
 

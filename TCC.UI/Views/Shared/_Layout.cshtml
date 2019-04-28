@@ -7,9 +7,9 @@
     <title>@ViewBag.Title - Test Tutorials</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    @Styles.Render("~/Content/Site")
-    @Styles.Render("~/Content/Components")
-    @Styles.Render("~/Content/AdminLTE")
+    @Styles.Render("~/Css/Components")
+    @Styles.Render("~/Css/AdminLTE")
+    @Styles.Render("~/Css/Site")
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -23,12 +23,15 @@
         </div>
         @Html.Partial("Login/_Login")
         @Html.Partial("Login/_NewAccount")
+        @Html.Partial("Login/_Logoff")
     </div>
 
-    @Scripts.Render("~/Scripts/jquery")
-    @Scripts.Render("~/Scripts/bootstrap")
-    @Scripts.Render("~/Scripts/site")
+    @Scripts.Render("~/Js/jquery")
+    @Scripts.Render("~/Js/bootstrap")
+    @Scripts.Render("~/Js/AdminLTE")
+    @Scripts.Render("~/Js/site")
     @Html.Partial("Login/Scripts")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

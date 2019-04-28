@@ -4,7 +4,7 @@ using System.Web;
 
 namespace TCC.UI.Helpers
 {
-    public static class Helper
+    public static class HelpersMethods
     {
         #region Mudando Classes
 
