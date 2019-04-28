@@ -24,9 +24,9 @@
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(m => m.Password)
-                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "Password" })
                                 <small>
-                                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-block", @type = "Password" })
+                                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-block" })
                                 </small>
                             </div>
                             <small>

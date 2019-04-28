@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web;
+using TCC.BusinessLayer.Base;
 using TCC.Domain.Entities.Security;
 using TCC.Entity.CRUD;
 using static System.Web.HttpContext;

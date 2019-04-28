@@ -61,7 +61,7 @@ namespace TCC.UI.Controllers
         {
             BLUser.Logoff();
 
-            return RedirectToAction(UrlToRedirect);
+            return RedirectToAction($"../Home/Index"); // Quando sair, reseta para a home.
         }
 
         #endregion

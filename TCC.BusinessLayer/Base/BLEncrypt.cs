@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace TCC.BusinessLayer.Security
+namespace TCC.BusinessLayer.Base
 {
     public class BLEncrypt
     {
