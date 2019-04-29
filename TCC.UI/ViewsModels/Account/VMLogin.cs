@@ -4,12 +4,12 @@ namespace TCC.UI.ViewsModels.Account
 {
     public class VMLogin
     {
-        [Required]
+        [Required(ErrorMessage = "Preencha esse campo.")]
         [Display(Name = "E-mail")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Endereço de e-mail inválido.")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Preencha esse campo.")]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string Password { get; set; }

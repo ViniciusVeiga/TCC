@@ -12,8 +12,8 @@ namespace TCC.UI
             bundles.Add(new ScriptBundle("~/Js/jquery").Include(
                 "~/Content/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/validate").Include(
-                        "~/Content/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/Js/validate").Include(
+                "~/Content/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/Js/site").Include(
                 "~/Content/Scripts/site.js"));

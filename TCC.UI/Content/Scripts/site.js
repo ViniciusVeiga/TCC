@@ -1,10 +1,14 @@
 ﻿
-$(document).ready(function () {
-    $('.help-block').each(function () {
-        if ($(this).text() !== '') {
-            $(this).closest('div.form-group').addClass('has-error');
-        }
-    });
+$.validator.setDefaults({
+    highlight: function (element) {
+        console.log(element);
+        $(element).closest('.form-group').addClass('has-error');
+        $(element).closest('.field-validation-error').addClass('help-block');
+    },
+    unhighlight: function (element) {
+        $(element).closest('.form-group').removeClass('has-error');
+        $(element).closest('.field-validation-error').removeClass('help-block');
+    }
 });
 
 function clearValidations() {
