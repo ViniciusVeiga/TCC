@@ -1,30 +1,27 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using TCC.Domain.Entities.Security;
+using TCC.Domain.Entities;
 
 namespace TCC.Entity.Maps
 {
-    public class MPUser : EntityTypeConfiguration<ETUser>
+    public class MPMenu : EntityTypeConfiguration<ETMenu>
     {
-        public MPUser()
+        public MPMenu()
         {
-            ToTable("TCC_USER");
+            ToTable("ADM_TCC_MENU");
 
             Property(e => e.Name)
                 .IsRequired()
-                .HasMaxLength(50)
                 .HasColumnName("NAME_C");
 
-            Property(e => e.Email)
+            Property(e => e.Url)
                 .IsRequired()
                 .HasMaxLength(250)
-                .HasColumnName("EMAIL_C");
+                .HasColumnName("URL_C");
 
-            Property(e => e.Password)
+            Property(e => e.Order)
                 .IsRequired()
-                .HasColumnName("PASSWORD_C");
-
-            Property(e => e.Token)
-                .HasColumnName("TOKEN_C");
+                .HasPrecision(18, 0)
+                .HasColumnName("ORDER_N");
         }
     }
 }

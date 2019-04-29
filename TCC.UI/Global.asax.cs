@@ -12,6 +12,7 @@ namespace TCC.UI
     {
         protected void Application_Start()
         {
+            DefaultModelBinder.ResourceClassKey = "ErrorMessages";
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

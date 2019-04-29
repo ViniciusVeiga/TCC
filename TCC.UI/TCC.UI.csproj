@@ -122,12 +122,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\ErrorMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorMessages.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenu.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -6969,6 +6975,12 @@
       <Project>{bcf39bcb-abd4-4c28-8715-f62b586b5270}</Project>
       <Name>TCC.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\ErrorMessages.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

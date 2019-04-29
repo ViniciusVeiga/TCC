@@ -23,7 +23,7 @@ namespace TCC.UI
                 "~/Content/AdminLTE/js/adminlte.js"));
 
             bundles.Add(new StyleBundle("~/Js/DataTable").Include(
-                "~/Content/AdminLTE/js/adminlte.js"));
+                "~/Content/Components/datatables.net/js/jquery.dataTables.js"));
 
             bundles.Add(new StyleBundle("~/Css/AdminLTE").Include(
                 "~/Content/AdminLTE/css/AdminLTE.css",
