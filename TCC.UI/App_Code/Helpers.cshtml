@@ -1,0 +1,27 @@
+﻿@using TCC.UI.Helpers.Toastrs
+
+@helper ShowToastMessages(Toastr toastr)
+{
+    if (toastr != null)
+    {
+        <script>
+            $(() => {
+            toastr.options.closeButton = '@toastr.ShowCloseButton';
+            toastr.options.newestOnTop = '@toastr.ShowNewestOnTop';
+            toastr.options.positionClass = '@toastr.PositionClass';
+
+            @foreach (var message in toastr.ToastMessages)
+            {
+                var toastTypeValue = message.ToastType.ToString("F").ToLower();
+                @: var optionsOverride = { /* Add message specific options here */ };
+                if (message.IsSticky)
+                {
+                  @: optionsOverride.timeOut = 0;
+                  @: optionsOverride.extendedTimeout = 0;
+                }
+                @: toastr['@toastTypeValue']('@message.Message', '@message.Title', optionsOverride);
+            }
+            });
+        </script>
+    }
+}

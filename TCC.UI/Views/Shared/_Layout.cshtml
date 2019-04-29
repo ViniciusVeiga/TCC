@@ -30,7 +30,10 @@
     @Scripts.Render("~/Js/bootstrap")
     @Scripts.Render("~/Js/AdminLTE")
     @Scripts.Render("~/Js/site")
+    @Scripts.Render("~/Js/toastr")
+
     @Html.Partial("Login/Scripts")
+    @Html.Partial("Toastr/_Toestr")
 
     @RenderSection("scripts", required: false)
 </body>

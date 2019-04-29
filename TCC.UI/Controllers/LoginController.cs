@@ -4,6 +4,7 @@ using TCC.Domain.Entities.Security;
 using TCC.UI.ViewsModels.Account;
 using TCC.UI.Helpers;
 using TCC.UI.Helpers.Attributes.Login;
+using TCC.UI.Helpers.Toastrs;
 
 namespace TCC.UI.Controllers
 {
@@ -19,9 +20,12 @@ namespace TCC.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var token = BLUser.Autentication(model.Email, model.Password);
-
-                ViewData["SuccessLogin"] = true;
+                if(BLUser.Autentication(model.Email, model.Password))
+                {
+                    TempData["SuccessLogin"] = true;
+                }
+                else
+                    this.AddToastMessage("Erro", "Erro ao autenticar, favor tentar novamente", ToastType.Error);
 
                 return RedirectToAction(UrlToRedirect);
             }
@@ -41,9 +45,14 @@ namespace TCC.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                BLUser.Create(HelpersMethods.CopyValues<VMNewAccount, ETUser>(model));
+                if(BLUser.Create(HelpersMethods.CopyValues<VMNewAccount, ETUser>(model)))
+                {
+                    TempData["SuccessNewAccount"] = true;
 
-                TempData["SuccessNewAccount"] = true;
+                    this.AddToastMessage("Sucesso", "Conta criada com sucesso, faça o login", ToastType.Success);
+                }
+                else
+                    this.AddToastMessage("Erro", "Erro ao registrar, favor tentar novamente", ToastType.Error);
 
                 return RedirectToAction(UrlToRedirect);
             }

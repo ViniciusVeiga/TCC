@@ -141,6 +141,10 @@
     </Compile>
     <Compile Include="Helpers\Attributes\Login\NotLogged.cs" />
     <Compile Include="Helpers\HelpersMethods.cs" />
+    <Compile Include="Helpers\Toastrs\MessagesController.cs" />
+    <Compile Include="Helpers\Toastrs\ToastMessage.cs" />
+    <Compile Include="Helpers\Toastrs\Toastr.cs" />
+    <Compile Include="Helpers\Toastrs\ToastType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewsModels\Account\VMLogin.cs" />
     <Compile Include="ViewsModels\Account\VMNewAccount.cs" />
@@ -6420,6 +6424,10 @@
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.js" />
     <Content Include="Content\Components\select2\vendor\jquery-2.1.0.js" />
     <Content Include="Content\site.css" />
+    <Content Include="Content\Toastr\css\toastr.css" />
+    <Content Include="Content\Toastr\css\toastr.min.css" />
+    <Content Include="Content\Toastr\js\toastr.js" />
+    <Content Include="Content\Toastr\js\toastr.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -6914,6 +6922,7 @@
     <Content Include="Areas\Admin\Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Sidebar.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
+    <Content Include="App_Code\Helpers.cshtml" />
     <None Include="Content\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.3.1.js" />
     <Content Include="Content\Scripts\jquery-3.3.1.min.js" />
@@ -6943,6 +6952,7 @@
     <Content Include="Views\Shared\Login\_NewAccount.cshtml" />
     <Content Include="Views\Shared\Login\Scripts.cshtml" />
     <Content Include="Views\Shared\Login\_Logoff.cshtml" />
+    <Content Include="Views\Shared\Toastr\_Toestr.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6955,6 +6965,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Toastr\css\toastr.less" />
+    <Content Include="Content\Toastr\css\toastr.scss" />
     <None Include="packages.config" />
     <Content Include="Content\Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Content\Scripts\jquery-3.3.1.min.map" />
