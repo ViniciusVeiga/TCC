@@ -22,6 +22,9 @@ namespace TCC.UI
             bundles.Add(new StyleBundle("~/Js/AdminLTE").Include(
                 "~/Content/AdminLTE/js/adminlte.js"));
 
+            bundles.Add(new StyleBundle("~/Js/DataTable").Include(
+                "~/Content/AdminLTE/js/adminlte.js"));
+
             bundles.Add(new StyleBundle("~/Css/AdminLTE").Include(
                 "~/Content/AdminLTE/css/AdminLTE.css",
                 "~/Content/AdminLTE/css/alt/AdminLTE-bootstrap-social.css",

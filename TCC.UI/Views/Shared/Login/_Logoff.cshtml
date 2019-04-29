@@ -13,8 +13,10 @@
             @using (Html.BeginForm("Logoff", "Login", FormMethod.Post))
             {
                 <div class="modal-body">
-                    <p>Se você estiver no meio do tutorial, perderá o progresso atual.</p>
-                    <p><strong>Clique em "Sair", para encerrar a sessão.</strong></p>
+                    <div class="login-box-body">
+                        <p><strong>Se você estiver no meio do tutorial, perderá seu progresso.</strong></p>
+                        <p>Clique em "Sair", para encerrar a sessão.</p>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-danger pull-left" data-dismiss="modal" value="Fechar">
