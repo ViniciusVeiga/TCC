@@ -111,18 +111,21 @@ namespace TCC.BusinessLayer.Security
 
         #endregion
 
-        #region Validações
+        #region Validação Remota
 
-        public static bool ValidationEmail(string email)
+        public static bool IsValid(string email)
         {
-            var users = CRUD<ETUser>.All;
-
-            if (users.Any(u => u.Email == email))
+            if (!string.IsNullOrEmpty(email))
             {
-                return true;
+                var users = CRUD<ETUser>.All;
+
+                if (users.Any(u => u.Email == email))
+                {
+                    return false;
+                }
             }
 
-            return false;
+            return true;
         }
 
         #endregion

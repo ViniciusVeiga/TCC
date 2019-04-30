@@ -19,28 +19,28 @@
                                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Digite seu nome" })
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                 <small>
-                                    @Html.ValidationMessageFor(m => m.Name, null, new { @class = "help-block" })
+                                    @Html.ValidationMessageFor(m => m.Name)
                                 </small>
                             </div>
                             <div class="form-group has-feedback">
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Digite um e-mail" })
                                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                 <small>
-                                    @Html.ValidationMessageFor(m => m.Email, null, new { @class = "help-block" })
+                                    @Html.ValidationMessageFor(m => m.Email)
                                 </small>
                             </div>
                             <div class="form-group has-feedback">
                                 @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Digite uma senha" })
                                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                 <small>
-                                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-block" })
+                                    @Html.ValidationMessageFor(m => m.Password)
                                 </small>
                             </div>
                             <div class="form-group has-feedback">
                                 @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confime sua senha" })
                                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                                 <small>
-                                    @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "help-block" })
+                                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
                                 </small>
                             </div>
                             <small>

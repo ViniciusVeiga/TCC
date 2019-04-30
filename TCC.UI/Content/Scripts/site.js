@@ -1,13 +1,12 @@
 ﻿
 $.validator.setDefaults({
     highlight: function (element) {
-        console.log(element);
         $(element).closest('.form-group').addClass('has-error');
-        $(element).closest('.field-validation-error').addClass('help-block');
+        $('[data-valmsg-for="' + element.name + '"]').addClass('help-block');
     },
     unhighlight: function (element) {
         $(element).closest('.form-group').removeClass('has-error');
-        $(element).closest('.field-validation-error').removeClass('help-block');
+        $('[data-valmsg-for="' + element.name + '"]').removeClass('help-block');
     }
 });
 

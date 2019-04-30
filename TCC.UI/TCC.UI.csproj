@@ -6956,7 +6956,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Helpers\Attributes\Validations\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -6985,6 +6984,10 @@
     <ProjectReference Include="..\TCC.Domain\TCC.Domain.csproj">
       <Project>{bcf39bcb-abd4-4c28-8715-f62b586b5270}</Project>
       <Name>TCC.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TCC.Entity\TCC.Entity.csproj">
+      <Project>{C9F5E89C-68B1-4AB1-BE62-4281EBAB4C49}</Project>
+      <Name>TCC.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

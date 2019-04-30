@@ -81,5 +81,14 @@ namespace TCC.UI.Controllers
         }
 
         #endregion
+
+        #region Validação Remota
+
+        public JsonResult IsValid(string email, ModelValidationResult result)
+        {
+            return Json(BLUser.IsValid(email),  JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
     }
 }
