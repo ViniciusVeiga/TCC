@@ -3,9 +3,9 @@ using TCC.Domain.Entities;
 
 namespace TCC.Entity.Maps
 {
-    public class MPMenu : EntityTypeConfiguration<ETMenuItem>
+    public class MPMenuItem : EntityTypeConfiguration<ETMenuItem>
     {
-        public MPMenu()
+        public MPMenuItem()
         {
             ToTable("ADM_TCC_MENU");
 

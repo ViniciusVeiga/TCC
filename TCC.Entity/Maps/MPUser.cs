@@ -7,7 +7,7 @@ namespace TCC.Entity.Maps
     {
         public MPUser()
         {
-            ToTable("TCC_USER");
+            ToTable("PUB_TCC_USER");
 
             Property(e => e.Name)
                 .IsRequired()
