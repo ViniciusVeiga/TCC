@@ -20,19 +20,13 @@ namespace TCC.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(BLUser.Autentication(model.Email, model.Password))
+                if(!BLUser.Autentication(model.Email, model.Password))
                 {
-                    TempData["SuccessLogin"] = true;
+                    this.AddToastMessage("Erro", "Erro ao autenticar, favor tentar novamente", ToastrType.Error);
                 }
-                else
-                    this.AddToastMessage("Erro", "Erro ao autenticar, favor tentar novamente", ToastType.Error);
-
-                return RedirectToAction(UrlToRedirect);
             }
 
-            ViewData["ErrorLogin"] = true;
-
-            return View(UrlToRedirect);
+            return RedirectToAction(UrlToRedirect);
         }
 
         #endregion
@@ -47,19 +41,15 @@ namespace TCC.UI.Controllers
             {
                 if(BLUser.Create(HelpersMethods.CopyValues<VMNewAccount, ETUser>(model)))
                 {
-                    TempData["SuccessNewAccount"] = true;
+                    TempData["OpenLogin"] = true;
 
-                    this.AddToastMessage("Sucesso", "Conta criada com sucesso, faça o login", ToastType.Success);
+                    this.AddToastMessage("Sucesso", "Conta criada com sucesso, faça o login", ToastrType.Success);
                 }
                 else
-                    this.AddToastMessage("Erro", "Erro ao registrar, favor tentar novamente", ToastType.Error);
-
-                return RedirectToAction(UrlToRedirect);
+                    this.AddToastMessage("Erro", "Erro ao registrar, favor tentar novamente", ToastrType.Error);
             }
 
-            ViewData["ErrorNewAccount"] = true;
-
-            return View(UrlToRedirect);
+            return RedirectToAction(UrlToRedirect);
         }
 
         #endregion

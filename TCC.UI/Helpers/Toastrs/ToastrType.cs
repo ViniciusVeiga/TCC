@@ -1,6 +1,6 @@
 ﻿namespace TCC.UI.Helpers.Toastrs
 {
-    public enum ToastType
+    public enum ToastrType
     {
         Error,
         Info,

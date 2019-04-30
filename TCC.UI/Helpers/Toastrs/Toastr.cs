@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace TCC.UI.Helpers.Toastrs
 {
@@ -12,11 +10,11 @@ namespace TCC.UI.Helpers.Toastrs
         public bool ShowCloseButton { get; set; }
         public string PositionClass { get; set; }
 
-        public List<ToastMessage> ToastMessages { get; set; }
+        public List<ToastrMessage> ToastMessages { get; set; }
 
-        public ToastMessage AddToastMessage(string title, string message, ToastType toastType, string toastPositionClass = "toast-bottom-right")
+        public ToastrMessage AddToastMessage(string title, string message, ToastrType toastType, string toastPositionClass = "toast-bottom-right")
         {
-            var toast = new ToastMessage()
+            var toast = new ToastrMessage()
             {
                 Title = title,
                 Message = message,
@@ -28,7 +26,7 @@ namespace TCC.UI.Helpers.Toastrs
 
         public Toastr()
         {
-            ToastMessages = new List<ToastMessage>();
+            ToastMessages = new List<ToastrMessage>();
             ShowNewestOnTop = false;
             ShowCloseButton = false;
             PositionClass = "toast-bottom-right";

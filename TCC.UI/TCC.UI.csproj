@@ -141,10 +141,10 @@
     </Compile>
     <Compile Include="Helpers\Attributes\Login\NotLogged.cs" />
     <Compile Include="Helpers\HelpersMethods.cs" />
-    <Compile Include="Helpers\Toastrs\MessagesController.cs" />
-    <Compile Include="Helpers\Toastrs\ToastMessage.cs" />
+    <Compile Include="Helpers\Toastrs\ToastrController.cs" />
+    <Compile Include="Helpers\Toastrs\ToastrMessage.cs" />
     <Compile Include="Helpers\Toastrs\Toastr.cs" />
-    <Compile Include="Helpers\Toastrs\ToastType.cs" />
+    <Compile Include="Helpers\Toastrs\ToastrType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewsModels\Account\VMLogin.cs" />
     <Compile Include="ViewsModels\Account\VMNewAccount.cs" />

@@ -1,23 +1,12 @@
 ﻿
 <script type="text/javascript">
-    @if ((bool?)ViewData["ErrorNewAccount"] == true)
-    {
-        @:$('#ModalNewAccount').modal('show');
-    }
-
-    @if ((bool?)ViewData["ErrorLogin"] == true)
-    {
-        @:$('#ModalLogin').modal('show');
-    }
-
-    @if ((bool?)TempData["SuccessNewAccount"] == true)
+    @if ((bool?)TempData["OpenLogin"] == true)
     {
         // Limpo todos os campos de Cadastro
         @:clearAllTextInputs();
 
         // Abro model de Login
         @:showLogin();
-        @:$('#SuccessNewAccount').show();
     }
 
     function showLogin() {

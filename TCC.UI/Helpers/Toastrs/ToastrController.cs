@@ -2,9 +2,9 @@
 
 namespace TCC.UI.Helpers.Toastrs
 {
-    public static class MessagesController
+    public static class ToastrController
     {
-        public static ToastMessage AddToastMessage(this Controller controller, string title, string message, ToastType toastType = ToastType.Info)
+        public static ToastrMessage AddToastMessage(this Controller controller, string title, string message, ToastrType toastType = ToastrType.Info)
         {
             var toastr = controller.TempData["Toastr"] as Toastr;
             toastr = toastr ?? new Toastr();
