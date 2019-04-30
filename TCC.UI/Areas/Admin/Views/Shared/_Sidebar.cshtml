@@ -21,7 +21,16 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="~/Admin/Menu/Index"><i class="fa fa-table"></i> Menu</a></li>
+                    <li>
+                        <a>
+                            @Ajax.ActionLink("Menu", "Index" , "Menu", null,
+                                new AjaxOptions {
+                                    HttpMethod = "POST",
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = "Ajax_Update_Menu"
+                                }, new { id = "Menu" })
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

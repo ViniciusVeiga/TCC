@@ -9,23 +9,18 @@ namespace TCC.UI
         {
             #region Js
 
-            bundles.Add(new ScriptBundle("~/Js/jquery").Include(
-                "~/Content/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/Js/Base").Include(
+                "~/Content/Scripts/jquery-{version}.js",
+                "~/Content/Scripts/jquery.validate*",
+                "~/Content/Scripts/bootstrap.js",
+                "~/Content/Toastr/js/toastr.js",
+                "~/Content/Scripts/jquery.unobtrusive-ajax.js"));
 
-            bundles.Add(new ScriptBundle("~/Js/validate").Include(
-                "~/Content/Scripts/jquery.validate*"));
-
-            bundles.Add(new ScriptBundle("~/Js/site").Include(
+            bundles.Add(new ScriptBundle("~/Js/Site").Include(
                 "~/Content/Scripts/site.js"));
-
-            bundles.Add(new ScriptBundle("~/Js/bootstrap").Include(
-                "~/Content/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Js/AdminLTE").Include(
                 "~/Content/AdminLTE/js/adminlte.js"));
-
-            bundles.Add(new ScriptBundle("~/Js/toastr").Include(
-                "~/Content/Toastr/js/toastr.js"));
 
             bundles.Add(new StyleBundle("~/Js/DataTable").Include(
                 "~/Content/Components/datatables.net/js/jquery.dataTables.js"));

@@ -7,28 +7,30 @@
     <title>@ViewBag.Title - Test Tutorials</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    @Styles.Render("~/Css/Site")
     @Styles.Render("~/Css/Components")
     @Styles.Render("~/Css/AdminLTE")
+    @Styles.Render("~/Css/Site")
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         @Html.Partial("_Header")
         @Html.Partial("_Sidebar")
 
-        <div class="content-wrapper">
+        <div id="Ajax_Update_Menu" class="content-wrapper">
             @RenderBody()
         </div>
         <div class="main-footer">
         </div>
     </div>
 
-    @Scripts.Render("~/Js/jquery")
-    @Scripts.Render("~/Js/bootstrap")
-    @Scripts.Render("~/Js/DataTable")
+    @Scripts.Render("~/Js/Base")
     @Scripts.Render("~/Js/AdminLTE")
-    @Scripts.Render("~/Js/site")
+    @Scripts.Render("~/Js/DataTable")
+    @Scripts.Render("~/Js/Site")
+
+    @Html.Partial("Toastr/_Toestr")
 
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

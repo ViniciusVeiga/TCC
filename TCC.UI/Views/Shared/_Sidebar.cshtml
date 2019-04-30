@@ -3,7 +3,7 @@
     <div class="sidebar">
         <form action="#" method="post" class="sidebar-form">
             <div class="input-group">
-                <input type="text" name="Search" class="form-control" placeholder="Procurar ...">
+                <input type="text" name="Search" class="form-control" placeholder="Pesquisar">
                 <span class="input-group-btn">
                     <button class="btn btn-flat">
                         <i class="fa fa-search"></i>
@@ -13,6 +13,27 @@
         </form>
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Menu de Tutoriais</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>Testes</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a>
+                            @Ajax.ActionLink("Teste 1", "Index" , "Teste", null,
+                                new AjaxOptions {
+                                    HttpMethod = "GET",
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = "Ajax_Update_Menu"
+                                }, new { @class = "", id = "Test" })
+                        </a>
+                    </li>
+                    <li><a href="~/Admin/Menu/Index"><i class="fa fa-table"></i> Teste 1</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>

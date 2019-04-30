@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TCC.UI.Areas.Admin.Controllers
+namespace TCC.UI.Controllers
 {
-    public class MenuController : Controller
+    public class TesteController : Controller
     {
+        // GET: Teste
         public ActionResult Index()
         {
             return PartialView();

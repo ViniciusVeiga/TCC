@@ -1,0 +1,7 @@
+﻿@using TCC.UI.Helpers.Toastrs
+
+@if (TempData.ContainsKey("Toastr"))
+{
+    var toastr = TempData["Toastr"] as Toastr;
+    @Helpers.ShowToastMessages(toastr);
+}
