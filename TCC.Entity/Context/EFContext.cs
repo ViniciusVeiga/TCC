@@ -14,6 +14,7 @@ namespace TCC.Entity.Context
         #region Gets do Entity
 
         public virtual DbSet<ETUser> Users { get; set; }
+        public virtual DbSet<ETMenu> Menus { get; set; }
         public virtual DbSet<ETMenuItem> MenusItens { get; set; }
 
         #endregion
@@ -71,6 +72,7 @@ namespace TCC.Entity.Context
             #region Mapeamento
 
             modelBuilder.Configurations.Add(new Maps.MPUser());
+            modelBuilder.Configurations.Add(new Maps.MPMenu());
             modelBuilder.Configurations.Add(new Maps.MPMenuItem());
 
             #endregion

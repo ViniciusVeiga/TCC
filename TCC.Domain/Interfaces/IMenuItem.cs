@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TCC.Domain.Interfaces
 {
-    interface IMenu
+    public interface IMenuItem
     {
         string Title { get; set; }
+        string Url { get; set; }
+        decimal? Order { get; set; }
     }
 }

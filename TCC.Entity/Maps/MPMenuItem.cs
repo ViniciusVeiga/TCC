@@ -7,11 +7,16 @@ namespace TCC.Entity.Maps
     {
         public MPMenuItem()
         {
-            ToTable("ADM_TCC_MENU");
+            ToTable("ADM_TCC_MENU_ITEM");
 
-            Property(e => e.Name)
+            Property(e => e.IdMenu)
+                .HasPrecision(18, 0)
                 .IsRequired()
-                .HasColumnName("NAME_C");
+                .HasColumnName("ID_MENU_C");
+
+            Property(e => e.Title)
+                .IsRequired()
+                .HasColumnName("TITLE_C");
 
             Property(e => e.Url)
                 .IsRequired()

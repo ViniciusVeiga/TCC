@@ -2,7 +2,7 @@
 
 namespace TCC.UI.Areas.Admin.ViewsModels.Menu
 {
-    public class VMMenu
+    public class VMMenuItem
     {
         [Required]
         [StringLength(100, ErrorMessage = "O Limite é de {1} caracteres")]
