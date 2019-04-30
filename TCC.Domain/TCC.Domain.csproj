@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\ETBase.cs" />
-    <Compile Include="Entities\ETMenu.cs" />
+    <Compile Include="Entities\ETMenuItem.cs" />
     <Compile Include="Entities\Security\ETUser.cs" />
     <Compile Include="Interfaces\IBase.cs" />
     <Compile Include="Interfaces\IMenu.cs" />

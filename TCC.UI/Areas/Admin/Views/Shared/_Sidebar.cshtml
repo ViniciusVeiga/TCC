@@ -22,14 +22,15 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a>
-                            @Ajax.ActionLink("Menu", "Index" , "Menu", null,
-                                new AjaxOptions {
-                                    HttpMethod = "POST",
-                                    InsertionMode = InsertionMode.Replace,
-                                    UpdateTargetId = "Ajax_Update_Menu"
-                                }, new { id = "Menu" })
-                        </a>
+                        @for (int i = 0; i < 4; i++)
+                        {
+                            @Ajax.ActionLink("Menu_" + i, "Index" , "Menu", null,
+                            new AjaxOptions {
+                                HttpMethod = "POST",
+                                InsertionMode = InsertionMode.Replace,
+                                UpdateTargetId = "Ajax_Update_Menu"
+                            }, new { id = "Menu" })
+                        }
                     </li>
                 </ul>
             </li>

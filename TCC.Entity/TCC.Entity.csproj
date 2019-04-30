@@ -52,8 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\EFContext.cs" />
-    <Compile Include="Maps\MPMenu.cs" />
     <Compile Include="Maps\MPUser.cs" />
+    <Compile Include="Maps\MPMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CRUD\CRUD.cs" />
   </ItemGroup>
