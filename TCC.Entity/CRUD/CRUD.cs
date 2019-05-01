@@ -19,9 +19,9 @@ namespace TCC.Entity.CRUD
 
         public static List<T> Actives => Entities.Where(e => e.Active).ToList();
 
-        public static T Find(int id) => Entities.Find(id);
+        public static T Find(decimal id) => Entities.Find(id);
 
-        public static T FindActive(int id) => Entities.First(e => e.Active && e.Id == id);
+        public static T FindActive(decimal id) => Entities.First(e => e.Active && e.Id == id);
 
         public static T Find(Expression<Func<T, bool>> predicate) => Entities.FirstOrDefault(predicate);
 

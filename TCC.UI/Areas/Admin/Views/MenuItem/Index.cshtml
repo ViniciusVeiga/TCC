@@ -1,21 +1,18 @@
-﻿@using TCC.UI.Helpers.Extensions
-@using TCC.UI.Areas.Admin.ViewsModels.Menu
+﻿@using TCC.UI.Areas.Admin.ViewsModels.Menu
 @model VMMenuItem
 
 @{
     ViewBag.Title = "Menu Item";
-    var urlEdit = "MenuItem/Item";
-    var urlMenuItem = "MenuItem/Index";
+
+    var urlEdit = "/Admin/MenuItem/Item";
 }
 
 <div class="content-header">
     <h1>
         @ViewBag.Title
     </h1>
-    <ul class="breadcrumb">
-        <li>
-            <a href="#"><i class="fa fa-table"></i> @ViewBag.Title</a>
-        </li>
+    @Ajax.ActionLink("Voltar", "Index", "Menu", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+    @Ajax.ActionLink("Adicionar", "Item", "MenuItem", null, new AjaxOptions { InsertionMode = InsertionM  ode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
     </ul>
 </div>
 <div class="content">
@@ -31,6 +28,8 @@
                             <tr>
                                 <th width="100px">@Html.DisplayNameFor(m => m.Id)</th>
                                 <th>@Html.DisplayNameFor(m => m.Title)</th>
+                                <th>@Html.DisplayNameFor(m => m.Url)</th>
+                                <th width="100px">@Html.DisplayNameFor(m => m.Order)</th>
                                 <th width="5px"></th>
                             </tr>
                         </thead>
@@ -42,21 +41,22 @@
     </div>
 </div>
 
-@section scripts {
+@section scripts {    
+    @Scripts.Render("~/Scripts/DataTable")
     <script type="text/javascript">
         $(document).ready(function () {
             $("#Table").DataTable({
                 data: @Html.Raw(Json.Encode(ViewBag.List)),
                 columnDefs: [{
-                    targets: 2,
+                    targets: 4,
                     orderable: false
                 }],
                 columns:
                 [
                     @Helpers.ColumnEdit("Id", urlEdit),
                     @Helpers.ColumnEdit("Title", urlEdit),
-                    @Helpers.ColumnEdit("Title", urlEdit),
-                    @Helpers.ColumnEdit("Title", urlEdit),
+                    @Helpers.ColumnEdit("Url", urlEdit),
+                    @Helpers.ColumnEdit("Order", urlEdit),
                     @Helpers.ColumnIcon("fa fa-table", "menuItem")
                 ],
                 @Helpers.LanguageTable()

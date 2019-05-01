@@ -6426,6 +6426,7 @@
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.css" />
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.js" />
     <Content Include="Content\Components\select2\vendor\jquery-2.1.0.js" />
+    <Content Include="Content\Scripts\jquery.validate-custom.js" />
     <Content Include="Content\site.css" />
     <Content Include="Content\Toastr\css\toastr.css" />
     <Content Include="Content\Toastr\css\toastr.min.css" />
@@ -6925,10 +6926,11 @@
     <Content Include="Areas\Admin\Views\Shared\_Sidebar.cshtml" />
     <Content Include="App_Code\Helpers.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Toastr\_Toestr.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_LayoutInternal.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MenuItem\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MenuItem\Item.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutInternal.cshtml" />
     <None Include="Content\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.3.1.js" />
     <Content Include="Content\Scripts\jquery-3.3.1.min.js" />

@@ -10,3 +10,7 @@
     background-color: #3c8dbc;
     color: #ffffff;
 }
+
+.content-header > .breadcrumb {
+    padding: 0px 5px;
+}

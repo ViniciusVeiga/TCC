@@ -19,5 +19,23 @@ namespace TCC.BusinessLayer.Admin
         }
 
         #endregion
+
+        #region Salvar
+
+        public static bool Save(ETMenuItem menu)
+        {
+            try
+            {
+                CRUD<ETMenuItem>.Add(menu);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        #endregion
     }
 }

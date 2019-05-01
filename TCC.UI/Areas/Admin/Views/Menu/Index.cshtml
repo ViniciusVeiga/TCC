@@ -3,8 +3,8 @@
 
 @{
     ViewBag.Title = "Menu";
-    var urlEdit = "Menu/Item";
-    var urlMenuItem = "Admin/MenuItem/Index";
+    var urlEdit = "/Admin/Menu/Item";
+    var urlMenuItem = "/Admin/MenuItem/Index";
 }
 
 <div class="content-header">
@@ -12,9 +12,7 @@
         @ViewBag.Title
     </h1>
     <ul class="breadcrumb">
-        <li>
-            <a href="#"><i class="fa fa-table"></i> @ViewBag.Title</a>
-        </li>
+        @Ajax.ActionLink("Adicionar", "Item", "Menu", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
     </ul>
 </div>
 <div class="content">
@@ -33,8 +31,7 @@
                                 <th width="5px"></th>
                             </tr>
                         </thead>
-                        <tbody>                       
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
@@ -43,6 +40,7 @@
 </div>
 
 @section scripts {
+    @Scripts.Render("~/Scripts/DataTable")
     <script type="text/javascript">
         $(document).ready(function () {
             $("#Table").DataTable({
@@ -52,7 +50,7 @@
                     orderable: false
                 }],
                 columns:
-                [ 
+                [
                     @Helpers.ColumnEdit("Id", urlEdit),
                     @Helpers.ColumnEdit("Title", urlEdit),
                     @Helpers.ColumnIcon("fa fa-table", "menuItem")

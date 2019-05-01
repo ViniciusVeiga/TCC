@@ -8,10 +8,10 @@
     <title>@ViewBag.Title - Test Tutorials</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    @Styles.Render("~/Css/Components")
-    @Styles.Render("~/Css/AdminLTE")
-    @Styles.Render("~/Css/DataTable")
-    @Styles.Render("~/Css/Site")
+    @Styles.Render("~/Styles/Components")
+    @Styles.Render("~/Styles/AdminLTE")
+    @Styles.Render("~/Styles/DataTable")
+    @Styles.Render("~/Styles/Site")
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -21,19 +21,17 @@
         <div id="Ajax_Update_Menu" class="content-wrapper">
             @RenderBody()
         </div>
+
         <div class="main-footer">
         </div>
+
+        @Scripts.Render("~/Scripts/Base")
+        @Scripts.Render("~/Scripts/AdminLTE")
+        @Scripts.Render("~/Scripts/Site")
+        @Html.Partial("Toastr/_Toestr")
+
+        @RenderSection("scripts", required: false)
     </div>
-
-    @Scripts.Render("~/Js/Base")
-    @Scripts.Render("~/Js/AdminLTE")
-    @Scripts.Render("~/Js/DataTable")
-    @Scripts.Render("~/Js/Site")
-
-    @Html.Partial("Toastr/_Toestr")
-
-    @RenderSection("scripts", required: false)
-    @this.WriteScriptBlocks()
 </body>
 </html>
 

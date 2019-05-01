@@ -7,12 +7,12 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Menu
         public decimal Id { get; set; }
 
         [Required(ErrorMessage = "Preencha esse campo.")]
-        [StringLength(100, ErrorMessage = "O Limite é de {1} caracteres")]
+        [StringLength(100, ErrorMessage = "Limite de caracteres é de {1} caracteres.")]
         [Display(Name = "Título")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Preencha esse campo.")]
-        [StringLength(250, ErrorMessage = "O Limite é de {1} caracteres")]
+        [StringLength(250, ErrorMessage = "Limite de caracteres é de {1} caracteres.")]
         [Display(Name = "Url")]
         public string Url { get; set; }
 
