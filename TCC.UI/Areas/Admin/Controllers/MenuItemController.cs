@@ -10,12 +10,15 @@ namespace TCC.UI.Areas.Admin.Controllers
 {
     public class MenuItemController : Controller
     {
+        public static decimal? IdMenu;
+
         #region Index
 
-        [HttpPost]
-        public ActionResult Index(decimal id)
+        public ActionResult Index(decimal? id)
         {
-            ViewBag.List = BLMenuItem.GetList(id);
+            IdMenu = id ?? IdMenu;
+
+            ViewBag.List = BLMenuItem.GetList(IdMenu);
 
             return View();
         }
@@ -24,14 +27,22 @@ namespace TCC.UI.Areas.Admin.Controllers
 
         #region Item
 
-        public ActionResult Item(decimal? id) => View(CRUD<ETMenuItem>.Find(id.GetValueOrDefault(0)));
+        public ActionResult Item(decimal? id)
+        {
+            var model = CRUD<ETMenuItem>.Find(id.GetValueOrDefault(0));
+
+            return View(HelpersMethods.CopyValues<ETMenuItem, VMMenuItem>(model));
+        }
 
         [HttpPost]
         public ActionResult Item(VMMenuItem model)
         {
             if (ModelState.IsValid)
             {
-                if (BLMenuItem.Save(HelpersMethods.CopyValues<VMMenuItem, ETMenuItem>(model)))
+                var menu = HelpersMethods.CopyValues<VMMenuItem, ETMenuItem>(model);
+                menu.IdMenu = IdMenu;
+
+                if (BLMenuItem.Save(menu))
                 {
                     this.AddToastMessage("Sucesso", "Menu salvo com sucesso.", ToastrType.Success);
                 }

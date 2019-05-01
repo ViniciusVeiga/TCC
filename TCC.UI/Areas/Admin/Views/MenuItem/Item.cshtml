@@ -10,7 +10,7 @@
         @ViewBag.Title
     </h1>
     <ul class="breadcrumb">
-        @Html.ActionLink("Voltar", "Index", null, "Menu", new { @class = "btn btn-warning" })
+        @Ajax.ActionLink("Voltar", "Index", "MenuItem", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
     </ul>
 </div>
 <div class="content">
@@ -21,7 +21,6 @@
         @using (Ajax.BeginForm(
             new AjaxOptions
             {
-                Url = "/Admin/MenuItem/Item",
                 HttpMethod = "POST",
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = "Ajax_Update_Menu"
@@ -37,16 +36,23 @@
                 </div>
                 <div class="col-md-6 form-group">
                     @Html.LabelFor(m => m.Order)
-                    @Html.TextBoxFor(m => m.Order, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Order, new { @class = "form-control", @type = "number" })
                     <small>
                         @Html.ValidationMessageFor(m => m.Order)
                     </small>
                 </div>
-                <div class="col-md-12 form-group">
+                <div class="col-md-6 form-group">
                     @Html.LabelFor(m => m.Url)
                     @Html.TextBoxFor(m => m.Url, new { @class = "form-control" })
                     <small>
                         @Html.ValidationMessageFor(m => m.Url)
+                    </small>
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(m => m.Icon)
+                    @Html.TextBoxFor(m => m.Icon, new { @class = "form-control" })
+                    <small>
+                        @Html.ValidationMessageFor(m => m.Icon)
                     </small>
                 </div>
             </div>

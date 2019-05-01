@@ -30,6 +30,8 @@
         @Scripts.Render("~/Scripts/Site")
         @Html.Partial("Toastr/_Toestr")
 
+        @this.WriteScriptBlocks()
+
         @RenderSection("scripts", required: false)
     </div>
 </body>

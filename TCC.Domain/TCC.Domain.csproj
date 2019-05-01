@@ -45,6 +45,7 @@
     <Compile Include="Entities\Admin\ETMenu.cs" />
     <Compile Include="Entities\Admin\ETMenuItem.cs" />
     <Compile Include="Entities\Public\Security\ETUser.cs" />
+    <Compile Include="Enums\ENMenu.cs" />
     <Compile Include="Interfaces\IBase.cs" />
     <Compile Include="Interfaces\IMenu.cs" />
     <Compile Include="Interfaces\IMenuItem.cs" />

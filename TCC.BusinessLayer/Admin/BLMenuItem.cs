@@ -13,9 +13,9 @@ namespace TCC.BusinessLayer.Admin
     {
         #region Listar
 
-        public static List<ETMenuItem> GetList(decimal id)
+        public static List<ETMenuItem> GetList(decimal? id, bool active = true)
         {
-            return CRUD<ETMenuItem>.FindAll(m => m.IdMenu == id && m.Active == true);
+            return CRUD<ETMenuItem>.FindAll(m => m.IdMenu == id && m.Active == active);
         }
 
         #endregion
@@ -26,11 +26,11 @@ namespace TCC.BusinessLayer.Admin
         {
             try
             {
-                CRUD<ETMenuItem>.Add(menu);
+                CRUD<ETMenuItem>.AddOrUpdate(menu);
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }

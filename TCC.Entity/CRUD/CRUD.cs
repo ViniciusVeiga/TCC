@@ -11,7 +11,7 @@ namespace TCC.Entity.CRUD
 {
     public static class CRUD<T> where T : ETBase
     {
-        private static readonly DbContext _ctx = new EFContext();
+        //private static readonly DbContext _ctx = new EFContext();
         private static IDbSet<T> _entities;
         private static string _errorMessage = string.Empty;
 
@@ -38,7 +38,27 @@ namespace TCC.Entity.CRUD
 
                 entity.AddedDate = DateTime.Now;
                 Entities.Add(entity);
-                _ctx.SaveChanges();
+                new EFContext().SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                dbEx.EntityValidationErrors.ToList().ForEach(eve => eve.ValidationErrors.ToList()
+                    .ForEach(vr => _errorMessage += $"Property: {vr.PropertyName} Error: {vr.ErrorMessage}" + Environment.NewLine));
+
+                throw new Exception(_errorMessage, dbEx);
+            }
+        }
+
+        public static void AddOrUpdate(T entity)
+        {
+            try
+            {
+                if (entity.Id.HasValue)
+                {
+                    Update(entity);
+                }
+                else
+                    Add(entity);
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -53,15 +73,17 @@ namespace TCC.Entity.CRUD
         {
             try
             {
+                var ctx = new EFContext();
+
                 if (entity == null)
                 {
                     throw new ArgumentNullException(nameof(entity));
                 }
 
-                _ctx.Set<T>().Attach(entity);
-                _ctx.Entry(entity).State = EntityState.Modified;
+                ctx.Set<T>().Attach(entity);
+                ctx.Entry(entity).State = EntityState.Modified;
                 entity.ModifiedDate = DateTime.Now;
-                _ctx.SaveChanges();
+                ctx.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -76,13 +98,15 @@ namespace TCC.Entity.CRUD
         {
             try
             {
+                var ctx = new EFContext();
+
                 if (entity == null)
                 {
                     throw new ArgumentNullException(nameof(entity));
                 }
 
                 entity.Active = false;
-                _ctx.SaveChanges();
+                ctx.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -103,7 +127,7 @@ namespace TCC.Entity.CRUD
                 }
 
                 Entities.Remove(entity);
-                _ctx.SaveChanges();
+                new EFContext().SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -114,10 +138,10 @@ namespace TCC.Entity.CRUD
             }
         }
 
-        public static void Dispose() => _ctx.Dispose();
+        public static void Dispose() => new EFContext().Dispose();
 
         //public static virtual IQueryable<T> Table => Entities;
 
-        private static IDbSet<T> Entities => _entities ?? (_entities = _ctx.Set<T>());
+        private static IDbSet<T> Entities => _entities ?? (_entities = new EFContext().Set<T>());
     }
 }

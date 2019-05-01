@@ -31,7 +31,7 @@
     @:  {
     @:      data: '@campo',
     @:      render: function(data, type, row) {
-    @:          return '<a href="@url?id=' + row.Id + '">' + data + '</a>';
+    @:          return '<a href="#" onclick="edit(' + row.Id + ', \'@url\')">' + data + '</a>';
     @:      }
     @:  }
 }
@@ -40,7 +40,7 @@
 {
     @:  {
     @:      render: function(data, type, row) {
-    @:          return '<a onclick="@ajax\(' + row.Id + '\)"><span class="@icon"></span></a>';
+    @:          return '<a href="#" onclick="@ajax\(' + row.Id + '\)"><span class="@icon"></span></a>';
     @:      }
     @:  }
 }
@@ -73,8 +73,35 @@
     @:  }
 }
 
+@helper  EditPageAjax()
+{
+    @:  function edit(id, url) {
+    @:      $.ajax({
+    @:          type: 'GET',
+    @:          url: url,
+    @:          data: { 'id': id },
+    @:          success: function(data) {
+    @:              $('#Ajax_Update_Menu').empty().html(data);
+    @:          }
+    @:      });
+    @:  }
+}
 
-@helper  AddPageAjax(string function, string url, string idReload)
+@helper  AddPageAjax(string function)
+{
+    @:  function @function (id, url) {
+    @:      $.ajax({
+    @:          type: 'POST',
+    @:          url: url,
+    @:          data: { 'id': id },
+    @:          success: function(data) {
+    @:              $('#Ajax_Update_Menu').empty().html(data);
+    @:          }
+    @:      });
+    @:  }
+}
+
+@helper  AddPageAjax(string function, string url)
 {
     @:  function @function (id) {
     @:      $.ajax({
@@ -82,8 +109,9 @@
     @:          url: '@url',
     @:          data: { 'id': id },
     @:          success: function(data) {
-    @:              $('#@idReload').empty().html(data);
+    @:              $('#Ajax_Update_Menu').empty().html(data);
     @:          }
     @:      });
     @:  }
 }
+

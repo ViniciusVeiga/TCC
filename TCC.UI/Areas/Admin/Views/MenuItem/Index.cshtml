@@ -11,8 +11,9 @@
     <h1>
         @ViewBag.Title
     </h1>
-    @Ajax.ActionLink("Voltar", "Index", "Menu", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-    @Ajax.ActionLink("Adicionar", "Item", "MenuItem", null, new AjaxOptions { InsertionMode = InsertionM  ode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+    <ul class="breadcrumb">
+        @Ajax.ActionLink("Voltar", "Index", "Menu", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+        @Ajax.ActionLink("Adicionar", "Item", "MenuItem", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
     </ul>
 </div>
 <div class="content">
@@ -57,10 +58,12 @@
                     @Helpers.ColumnEdit("Title", urlEdit),
                     @Helpers.ColumnEdit("Url", urlEdit),
                     @Helpers.ColumnEdit("Order", urlEdit),
-                    @Helpers.ColumnIcon("fa fa-table", "menuItem")
+                    @Helpers.ColumnIcon("fa fa-remove", "menuItem")
                 ],
                 @Helpers.LanguageTable()
             });
         });
+
+        @Helpers.EditPageAjax()
     </script>
 }
