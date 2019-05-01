@@ -49,9 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\BLEmail.cs" />
+    <Compile Include="Basic\BLEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Base\BLEncrypt.cs" />
+    <Compile Include="Basic\BLEncrypt.cs" />
+    <Compile Include="Admin\BLMenu.cs" />
     <Compile Include="Security\BLUser.cs" />
   </ItemGroup>
   <ItemGroup>

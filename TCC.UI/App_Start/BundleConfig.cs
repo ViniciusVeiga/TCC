@@ -23,7 +23,8 @@ namespace TCC.UI
                 "~/Content/AdminLTE/js/adminlte.js"));
 
             bundles.Add(new StyleBundle("~/Js/DataTable").Include(
-                "~/Content/Components/datatables.net/js/jquery.dataTables.js"));
+                "~/Content/Components/datatables.net/js/jquery.dataTables.js",
+                "~/Content/Components/datatables.net-bs/js/dataTables.bootstrap.js"));
 
             #endregion
 
@@ -38,6 +39,9 @@ namespace TCC.UI
                 "~/Content/Components/bootstrap/dist/css/bootstrap.min.css",
                 "~/Content/Components/font-awesome/css/font-awesome.min.css",
                 "~/Content/Toastr/css/toastr.css"));
+
+            bundles.Add(new StyleBundle("~/Css/DataTable").Include(
+                "~/Content/Components/datatables.net-bs/css/dataTables.bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Css/Site").Include(
                 "~/Content/site.css"));

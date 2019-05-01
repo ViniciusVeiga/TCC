@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using TCC.BusinessLayer.Security;
-using TCC.Domain.Entities.Security;
+using TCC.Domain.Entities.Public.Security;
 using TCC.UI.ViewsModels.Account;
 using TCC.UI.Helpers;
 using TCC.UI.Helpers.Attributes.Login;

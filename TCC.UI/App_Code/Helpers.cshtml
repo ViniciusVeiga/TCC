@@ -25,3 +25,50 @@
         </script>
     }
 }
+
+@helper ColumnEdit(string campo, string url)
+{
+    @:  {
+    @:      data: '@campo',
+    @:      render: function(data, type, row) {
+    @:          return '<a href="@url?id=' + row.Id + '">' + data + '</a>';
+    @:      }
+    @:  }
+}
+
+@helper ColumnIcon(string icon, string url)
+{
+    @:  {
+    @:      render: function(data, type, row) {
+    @:          return '<a href="@url"><span class="@icon"></span></a>';
+    @:      }
+    @:  }
+}
+
+@helper LanguageTable()
+{
+    @:  language: {
+    @:      decimal: "",
+    @:      emptyTable: "Sem dados disponíveis na tabela",
+    @:      info: "Página _PAGE_ de _PAGES_",
+    @:      infoEmpty: "Sem registros disponíveis",
+    @:      infoFiltered: "(filtrados do total de _MAX_ registros)",
+    @:      infoPostFix: "",
+    @:      thousands: ",",
+    @:      lengthMenu: "_MENU_",
+    @:      loadingRecords: "Carregando...",
+    @:      processing: "Processando...",
+    @:      search: "",
+    @:      zeroRecords: "Não encontrado",
+    @:      paginate: {
+    @:          first: "Primeiro",
+    @:          last: "Último",
+    @:          next: "Avançar",
+    @:          previous: "Voltar"
+    @:      },
+    @:      aria: {
+    @:          sortAscending: ":ativado para ordenação ascendente",
+    @:          sortDescending: ":ativado para ordenação descendente"
+    @:      }
+    @:  }
+}

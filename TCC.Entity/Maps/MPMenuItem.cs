@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using TCC.Domain.Entities;
+using TCC.Domain.Admin.Entities;
 
 namespace TCC.Entity.Maps
 {

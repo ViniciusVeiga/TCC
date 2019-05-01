@@ -133,6 +133,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenu.cs" />
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenuItem.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -141,6 +142,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Attributes\Login\NotLogged.cs" />
+    <Compile Include="Helpers\Extensions\ViewPageExtensions.cs" />
     <Compile Include="Helpers\HelpersMethods.cs" />
     <Compile Include="Helpers\Toastrs\ToastrController.cs" />
     <Compile Include="Helpers\Toastrs\ToastrMessage.cs" />

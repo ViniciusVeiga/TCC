@@ -1,7 +1,11 @@
-﻿@model TCC.UI.Areas.Admin.ViewsModels.Menu.VMMenuItem
+﻿@using TCC.UI.Helpers.Extensions
+@using TCC.UI.Areas.Admin.ViewsModels.Menu
+@model VMMenu
 
 @{
     ViewBag.Title = "Menu";
+    var urlEdit = "Menu/Item";
+    var urlMenuItem = "MenuItem/Index";
 }
 
 <div class="content-header">
@@ -17,26 +21,45 @@
 <div class="content">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Hover Data Table</h3>
+            <h3 class="box-title">Menus</h3>
         </div>
         <div class="box-body">
             <div class="dataTables_wrapper form-inline dt-bootstrap">
                 <div class="col-sm-12">
-                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
+                    <table id="Table" class="table table-bordered table-striped dataTable" role="grid">
                         <thead>
                             <tr>
-                                <th>@Html.DisplayNameFor(m => m.Name)</th>
-                                <th>@Html.DisplayNameFor(m => m.Url)</th>
-                                <th>@Html.DisplayNameFor(m => m.Order)</th>
+                                <th width="100px">@Html.DisplayNameFor(m => m.Id)</th>
+                                <th>@Html.DisplayNameFor(m => m.Title)</th>
+                                <th width="5px"></th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
-                        <tfoot>
-                        </tfoot>
+                        <tbody>                       
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+
+@this.ScriptBlock(
+    @<script type="text/javascript">
+        $(document).ready(function () {
+            $("#Table").DataTable({
+                data: @Html.Raw(Json.Encode(ViewBag.List)),
+                columnDefs: [{
+                    targets: 2,
+                    orderable: false
+                }],
+                columns:
+                [ 
+                    @Helpers.ColumnEdit("Id", urlEdit),
+                    @Helpers.ColumnEdit("Title", urlEdit),
+                    @Helpers.ColumnIcon("fa fa-table", urlMenuItem)
+                ],
+                @Helpers.LanguageTable()
+            });
+        });
+    </script>
+)

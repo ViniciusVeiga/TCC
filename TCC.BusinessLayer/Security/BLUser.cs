@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Web;
-using TCC.BusinessLayer.Base;
-using TCC.Domain.Entities.Security;
+using TCC.BusinessLayer.Basic;
+using TCC.Domain.Entities.Public.Security;
 using TCC.Entity.CRUD;
 using static System.Web.HttpContext;
 

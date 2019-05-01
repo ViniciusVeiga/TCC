@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using TCC.UI.Helpers.Extensions
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,6 +10,7 @@
 
     @Styles.Render("~/Css/Components")
     @Styles.Render("~/Css/AdminLTE")
+    @Styles.Render("~/Css/DataTable")
     @Styles.Render("~/Css/Site")
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -31,6 +33,7 @@
     @Html.Partial("Toastr/_Toestr")
 
     @RenderSection("scripts", required: false)
+    @this.WriteScriptBlocks()
 </body>
 </html>
 
