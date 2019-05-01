@@ -1,9 +1,10 @@
-﻿@using TCC.UI.Areas.Admin.ViewsModels.Menu
-@model VMMenu
+﻿@using TCC.UI.Helpers.Extensions
+@using TCC.UI.Areas.Admin.ViewsModels.Menu
+@model VMMenuItem
 
 @{
-    ViewBag.Title = "Menu";
-    var urlEdit = "Menu/Item";
+    ViewBag.Title = "Menu Item";
+    var urlEdit = "MenuItem/Item";
     var urlMenuItem = "MenuItem/Index";
 }
 
@@ -41,7 +42,6 @@
         </div>
     </div>
 </div>
-
 @section scripts {
     <script type="text/javascript">
         $(document).ready(function () {
@@ -54,6 +54,8 @@
                 columns:
                 [ 
                     @Helpers.ColumnEdit("Id", urlEdit),
+                    @Helpers.ColumnEdit("Title", urlEdit),
+                    @Helpers.ColumnEdit("Title", urlEdit),
                     @Helpers.ColumnEdit("Title", urlEdit),
                     @Helpers.ColumnIcon("fa fa-table", "menuItem")
                 ],

@@ -133,6 +133,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuItemController.cs" />
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenu.cs" />
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenuItem.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -6927,6 +6928,8 @@
     <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
     <Content Include="App_Code\Helpers.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Toastr\_Toestr.cshtml" />
+    <Content Include="Areas\Admin\Views\MenuItem\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutInternal.cshtml" />
     <None Include="Content\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.3.1.js" />
     <Content Include="Content\Scripts\jquery-3.3.1.min.js" />

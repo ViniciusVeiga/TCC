@@ -1,23 +1,22 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 using TCC.BusinessLayer.Admin;
 
 namespace TCC.UI.Areas.Admin.Controllers
 {
-    public class MenuController : Controller
+    public class MenuItemController : Controller
     {
         #region Index
 
-        public ActionResult Index()
+        [HttpPost]
+        public ActionResult Index(decimal id)
         {
-            ViewBag.List = BLMenu.GetList();
+            BLMenuItem.GetList(id);
 
-            return View();
+            return PartialView();
         }
 
         #endregion

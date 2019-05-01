@@ -36,11 +36,11 @@
     @:  }
 }
 
-@helper ColumnIcon(string icon, string url)
+@helper ColumnIcon(string icon, string ajax)
 {
     @:  {
     @:      render: function(data, type, row) {
-    @:          return '<a href="@url"><span class="@icon"></span></a>';
+    @:          return '<a onclick="@ajax\(' + row.Id + '\)"><span class="@icon"></span></a>';
     @:      }
     @:  }
 }
@@ -70,5 +70,21 @@
     @:          sortAscending: ":ativado para ordenação ascendente",
     @:          sortDescending: ":ativado para ordenação descendente"
     @:      }
+    @:  }
+}
+
+
+@helper  AddPageAjax(string function, string url, string idReload)
+{
+    @:  function @function (id) {
+    @:      $.ajax({
+    @:          type: 'POST',
+    @:          url: '@url',
+    @:          data: { 'id': id },
+    @:          dataType: 'json',
+    @:          success: function(data) {
+    @:              $('#@idReload').empty().html(data)
+    @:          }
+    @:      });
     @:  }
 }

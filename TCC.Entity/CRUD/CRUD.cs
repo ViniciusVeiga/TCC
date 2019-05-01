@@ -25,7 +25,7 @@ namespace TCC.Entity.CRUD
 
         public static T Find(Expression<Func<T, bool>> predicate) => Entities.FirstOrDefault(predicate);
 
-        public static List<T> List(Expression<Func<T, bool>> predicate) => Entities.Where(predicate).ToList();
+        public static List<T> FindAll(Expression<Func<T, bool>> predicate) => Entities.Where(predicate).ToList();
 
         public static void Add(T entity)
         {
