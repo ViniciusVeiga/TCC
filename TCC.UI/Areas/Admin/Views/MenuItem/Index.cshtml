@@ -34,14 +34,14 @@
                                 <th width="5px"></th>
                             </tr>
                         </thead>
-                        <tbody>                       
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @section scripts {
     <script type="text/javascript">
         $(document).ready(function () {
@@ -52,7 +52,7 @@
                     orderable: false
                 }],
                 columns:
-                [ 
+                [
                     @Helpers.ColumnEdit("Id", urlEdit),
                     @Helpers.ColumnEdit("Title", urlEdit),
                     @Helpers.ColumnEdit("Title", urlEdit),
@@ -62,7 +62,5 @@
                 @Helpers.LanguageTable()
             });
         });
-
-        @Helpers.AddPageAjax("menuItem", urlMenuItem, "Ajax_Update_Menu")
     </script>
 }

@@ -131,14 +131,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuItemController.cs" />
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenu.cs" />
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenuItem.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\TesteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -6922,14 +6921,14 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
     <Content Include="App_Code\Helpers.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Toastr\_Toestr.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuItem\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutInternal.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MenuItem\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Content\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.3.1.js" />
     <Content Include="Content\Scripts\jquery-3.3.1.min.js" />
@@ -6962,7 +6961,6 @@
     <Content Include="Views\Shared\Login\Scripts.cshtml" />
     <Content Include="Views\Shared\Login\_Logoff.cshtml" />
     <Content Include="Views\Shared\Toastr\_Toestr.cshtml" />
-    <Content Include="Views\Teste\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

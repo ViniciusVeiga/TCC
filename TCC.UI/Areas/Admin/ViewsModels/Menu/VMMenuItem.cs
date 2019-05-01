@@ -4,6 +4,8 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Menu
 {
     public class VMMenuItem
     {
+        public decimal Id { get; set; }
+
         [Required(ErrorMessage = "Preencha esse campo.")]
         [StringLength(100, ErrorMessage = "O Limite é de {1} caracteres")]
         [Display(Name = "Título")]

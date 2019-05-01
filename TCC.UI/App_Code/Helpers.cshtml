@@ -81,9 +81,8 @@
     @:          type: 'POST',
     @:          url: '@url',
     @:          data: { 'id': id },
-    @:          dataType: 'json',
     @:          success: function(data) {
-    @:              $('#@idReload').empty().html(data)
+    @:              $('#@idReload').empty().html(data);
     @:          }
     @:      });
     @:  }

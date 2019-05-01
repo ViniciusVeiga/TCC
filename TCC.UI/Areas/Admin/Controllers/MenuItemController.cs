@@ -16,7 +16,7 @@ namespace TCC.UI.Areas.Admin.Controllers
         {
             BLMenuItem.GetList(id);
 
-            return PartialView();
+            return View();
         }
 
         #endregion

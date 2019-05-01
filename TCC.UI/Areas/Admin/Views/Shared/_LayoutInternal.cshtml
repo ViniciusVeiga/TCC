@@ -1,9 +1,8 @@
-﻿<body>
-    @RenderBody()
+﻿
+@RenderBody()
     
-    @Scripts.Render("~/Js/DataTable")
-    @Html.Partial("Toastr/_Toestr")
+@Scripts.Render("~/Js/DataTable")
+@Html.Partial("Toastr/_Toestr")
 
-    @RenderSection("scripts", required: false)
-</body>
+@RenderSection("scripts", required: false)
 
