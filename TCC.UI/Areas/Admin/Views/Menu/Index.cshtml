@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Menu";
     var urlEdit = "/Admin/Menu/Item";
+    var urlMenuType = "/Admin/MenuType/Index";
     var urlMenuItem = "/Admin/MenuItem/Index";
 }
 
@@ -11,9 +12,6 @@
     <h1>
         @ViewBag.Title
     </h1>
-    <ul class="breadcrumb">
-        @Ajax.ActionLink("Adicionar", "Item", "Menu", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
-    </ul>
 </div>
 <div class="content">
     <div class="box">
@@ -26,9 +24,10 @@
                     <table id="Table" class="table table-bordered table-striped dataTable" role="grid">
                         <thead>
                             <tr>
-                                <th width="100px">@Html.DisplayNameFor(m => m.Id)</th>
+                                <th width="50px">@Html.DisplayNameFor(m => m.Id)</th>
                                 <th>@Html.DisplayNameFor(m => m.Title)</th>
-                                <th width="5px"></th>
+                                <th width="50px">Tipos</th>
+                                <th width="50px">Itens</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -46,19 +45,21 @@
             $("#Table").DataTable({
                 data: @Html.Raw(Json.Encode(ViewBag.List)),
                 columnDefs: [{
-                    targets: 2,
+                    targets: [2, 3],
                     orderable: false
                 }],
                 columns:
                 [
-                    @Helpers.ColumnEdit("Id", urlEdit),
-                    @Helpers.ColumnEdit("Title", urlEdit),
-                    @Helpers.ColumnIcon("fa fa-table", "menuItem")
+                    @Helpers.Column("Id"),
+                    @Helpers.Column("Title"),
+                    @Helpers.ColumnToAction("fa fa-list-ol", "menuType"),
+                    @Helpers.ColumnToAction("fa fa-th-large", "menuItem")
                 ],
                 @Helpers.LanguageTable()
             });
         });
 
+        @Helpers.AddPageAjax("menuType", urlMenuType)
         @Helpers.AddPageAjax("menuItem", urlMenuItem)
         @Helpers.EditPageAjax()
     </script>

@@ -26,6 +26,13 @@
     }
 }
 
+@helper Column(string campo)
+{
+    @:  {
+    @:      data: '@campo'
+    @:  }
+}
+
 @helper ColumnEdit(string campo, string url)
 {
     @:  {
@@ -36,11 +43,11 @@
     @:  }
 }
 
-@helper ColumnIcon(string icon, string ajax)
+@helper ColumnToAction(string icon, string ajax, string texto = "")
 {
     @:  {
     @:      render: function(data, type, row) {
-    @:          return '<a href="#" onclick="@ajax\(' + row.Id + '\)"><span class="@icon"></span></a>';
+    @:          return '<a href="#" onclick="@ajax\(' + row.Id + '\)"><span class="@icon"></span>@texto</a>';
     @:      }
     @:  }
 }

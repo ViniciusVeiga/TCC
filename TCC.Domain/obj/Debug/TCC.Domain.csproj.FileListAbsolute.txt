@@ -1,6 +1,0 @@
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.Domain\bin\Debug\TCC.Domain.dll
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.Domain\bin\Debug\TCC.Domain.pdb
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.Domain\obj\Debug\TCC.Domain.csproj.CoreCompileInputs.cache
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.Domain\obj\Debug\TCC.Domain.dll
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.Domain\obj\Debug\TCC.Domain.pdb
-C:\Users\Veiga\Desktop\TCC\TCC\TCC.Domain\obj\Debug\TCC.Domain.csprojAssemblyReference.cache
