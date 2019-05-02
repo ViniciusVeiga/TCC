@@ -3,35 +3,30 @@ using TCC.Domain.Admin.Entities;
 
 namespace TCC.Entity.Maps
 {
-    public class MPMenuItem : EntityTypeConfiguration<ETMenuItem>
+    public class MPMenuType : EntityTypeConfiguration<ETMenuType>
     {
-        public MPMenuItem()
+        public MPMenuType()
         {
-            ToTable("ADM_TCC_MENU_ITEM");
+            ToTable("ADM_TCC_MENU_TYPE");
 
             Property(e => e.IdMenu)
                 .HasPrecision(18, 0)
                 .IsRequired()
-                .HasColumnName("ID_MENU_N");
-
-            Property(e => e.IdMenuType)
-                .HasPrecision(18, 0)
-                .IsRequired()
-                .HasColumnName("ID_MENU_TYPE_N");
+                .HasColumnName("ID_MENU_C");
 
             Property(e => e.Title)
                 .IsRequired()
                 .HasColumnName("TITLE_C");
 
-            Property(e => e.Url)
-                .IsRequired()
-                .HasMaxLength(250)
-                .HasColumnName("URL_C");
-
             Property(e => e.Order)
                 .IsRequired()
                 .HasPrecision(18, 0)
                 .HasColumnName("ORDER_N");
+
+            Property(e => e.Icon)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasColumnName("ICON_C");
         }
     }
 }

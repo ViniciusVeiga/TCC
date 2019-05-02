@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace TCC.Domain.Interfaces
 {
     public interface IUser

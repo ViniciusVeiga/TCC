@@ -1,10 +1,7 @@
-﻿@using TCC.Domain.Admin.Entities
-@model TCC.UI.Areas.Admin.ViewsModels.Menu.VMMenuItem
+﻿@model TCC.UI.Areas.Admin.ViewsModels.Menu.VMMenuType
 
 @{
     ViewBag.Title = "Menu Item Detalhe";
-
-    var types = (List<ETMenuType>)ViewBag.MenuTypes;
 }
 
 
@@ -45,26 +42,10 @@
                     </small>
                 </div>
                 <div class="col-md-6 form-group">
-                    @Html.LabelFor(m => m.Url)
-                    @Html.TextBoxFor(m => m.Url, new { @class = "form-control" })
-                    <small>
-                        @Html.ValidationMessageFor(m => m.Url)
-                    </small>
-                </div>
-                <div class="col-md-6 form-group">
                     @Html.LabelFor(m => m.Icon)
                     @Html.TextBoxFor(m => m.Icon, new { @class = "form-control" })
                     <small>
                         @Html.ValidationMessageFor(m => m.Icon)
-                    </small>
-                </div>
-                <div class="col-md-6 form-group">
-                    @Html.LabelFor(m => m.IdMenuType)
-                    @Html.DropDownListFor(m => m.IdMenuType,
-                        new SelectList(types, "Id", "Title"),
-                        new { @class = "form-control" })
-                    <small>
-                        @Html.ValidationMessageFor(m => m.IdMenuType)
                     </small>
                 </div>
             </div>

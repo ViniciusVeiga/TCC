@@ -1,10 +1,10 @@
 ﻿@using TCC.UI.Areas.Admin.ViewsModels.Menu
-@model VMMenuItem
+@model VMMenuType
 
 @{
-    ViewBag.Title = "Menu Item";
+    ViewBag.Title = "Tipos Menu";
 
-    var urlEdit = "/Admin/MenuItem/Item";
+    var urlEdit = "/Admin/MenuType/Item";
 }
 
 <div class="content-header">
@@ -13,7 +13,7 @@
     </h1>
     <ul class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "Menu", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Adicionar", "Item", "MenuItem", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        @Ajax.ActionLink("Adicionar", "Item", "MenuType", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
     </ul>
 </div>
 <div class="content">
@@ -29,7 +29,6 @@
                             <tr>
                                 <th width="100px">@Html.DisplayNameFor(m => m.Id)</th>
                                 <th>@Html.DisplayNameFor(m => m.Title)</th>
-                                <th>@Html.DisplayNameFor(m => m.Url)</th>
                                 <th width="100px">@Html.DisplayNameFor(m => m.Order)</th>
                                 <th width="5px"></th>
                             </tr>
@@ -42,23 +41,22 @@
     </div>
 </div>
 
-@section scripts {    
+@section scripts {
     @Scripts.Render("~/Scripts/DataTable")
     <script type="text/javascript">
         $(document).ready(function () {
             $("#Table").DataTable({
                 data: @Html.Raw(Json.Encode(ViewBag.List)),
                 columnDefs: [{
-                    targets: 4,
+                    targets: 3,
                     orderable: false
                 }],
                 columns:
                 [
                     @Helpers.ColumnEdit("Id"),
                     @Helpers.ColumnEdit("Title"),
-                    @Helpers.ColumnEdit("Url"),
                     @Helpers.ColumnEdit("Order"),
-                    @Helpers.ColumnToAction("fa fa-remove", "menuItem")
+                    @Helpers.ColumnToAction("fa fa-remove", "remove")
                 ],
                 @Helpers.LanguageTable()
             });

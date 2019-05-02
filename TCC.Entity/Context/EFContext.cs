@@ -17,6 +17,7 @@ namespace TCC.Entity.Context
         public virtual DbSet<ETUser> Users { get; set; }
         public virtual DbSet<ETMenu> Menus { get; set; }
         public virtual DbSet<ETMenuItem> MenusItens { get; set; }
+        public virtual DbSet<ETMenuType> MenusTypes { get; set; }
 
         #endregion
 
@@ -75,6 +76,7 @@ namespace TCC.Entity.Context
             modelBuilder.Configurations.Add(new Maps.MPUser());
             modelBuilder.Configurations.Add(new Maps.MPMenu());
             modelBuilder.Configurations.Add(new Maps.MPMenuItem());
+            modelBuilder.Configurations.Add(new Maps.MPMenuType());
 
             #endregion
 

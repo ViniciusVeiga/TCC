@@ -33,12 +33,12 @@
     @:  }
 }
 
-@helper ColumnEdit(string campo, string url)
+@helper ColumnEdit(string campo)
 {
     @:  {
     @:      data: '@campo',
     @:      render: function(data, type, row) {
-    @:          return '<a href="#" onclick="edit(' + row.Id + ', \'@url\')">' + data + '</a>';
+    @:          return '<a href="#" onclick="edit(' + row.Id + ')">' + data + '</a>';
     @:      }
     @:  }
 }
@@ -80,12 +80,12 @@
     @:  }
 }
 
-@helper  EditPageAjax()
+@helper  EditPageAjax(string url)
 {
     @:  function edit(id, url) {
     @:      $.ajax({
     @:          type: 'GET',
-    @:          url: url,
+    @:          url: '@url',
     @:          data: { 'id': id },
     @:          success: function(data) {
     @:              $('#Ajax_Update_Menu').empty().html(data);

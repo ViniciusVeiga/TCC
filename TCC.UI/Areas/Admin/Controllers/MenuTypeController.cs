@@ -8,7 +8,7 @@ using TCC.UI.Helpers.Toastrs;
 
 namespace TCC.UI.Areas.Admin.Controllers
 {
-    public class MenuItemController : Controller
+    public class MenuTypeController : Controller
     {
         public static decimal? IdMenu;
 
@@ -18,7 +18,7 @@ namespace TCC.UI.Areas.Admin.Controllers
         {
             IdMenu = id ?? IdMenu;
 
-            ViewBag.List = BLMenuItem.GetList(IdMenu);
+            ViewBag.List = BLMenuType.GetList(IdMenu);
 
             return View();
         }
@@ -29,27 +29,25 @@ namespace TCC.UI.Areas.Admin.Controllers
 
         public ActionResult Item(decimal? id)
         {
-            var model = CRUD<ETMenuItem>.Find(id.GetValueOrDefault(0));
+            var model = CRUD<ETMenuType>.Find(id.GetValueOrDefault(0));
 
-            ViewBag.MenuTypes = BLMenuType.GetList(IdMenu);
-
-            return View(HelpersMethods.CopyValues<ETMenuItem, VMMenuItem>(model));
+            return View(HelpersMethods.CopyValues<ETMenuType, VMMenuType>(model));
         }
 
         [HttpPost]
-        public ActionResult Item(VMMenuItem model)
+        public ActionResult Item(VMMenuType model)
         {
             if (ModelState.IsValid)
             {
-                var menuItem = HelpersMethods.CopyValues<VMMenuItem, ETMenuItem>(model);
-                menuItem.IdMenu = IdMenu;
+                var menuType = HelpersMethods.CopyValues<VMMenuType, ETMenuType>(model);
+                menuType.IdMenu = IdMenu;
 
-                if (BLMenuItem.Save(menuItem))
+                if (BLMenuType.Save(menuType))
                 {
-                    this.AddToastMessage("Sucesso", "Menu salvo com sucesso.", ToastrType.Success);
+                    this.AddToastMessage("Sucesso", "Tipo menu salvo com sucesso.", ToastrType.Success);
                 }
                 else
-                    this.AddToastMessage("Erro", "Erro ao salvar o menu.", ToastrType.Error);
+                    this.AddToastMessage("Erro", "Erro ao salvar o tipo menu.", ToastrType.Error);
             }
 
             return RedirectToAction("Index");
