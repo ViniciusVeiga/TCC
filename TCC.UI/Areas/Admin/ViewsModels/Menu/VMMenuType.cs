@@ -19,7 +19,6 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Menu
         [Display(Name = "Ordem")]
         public decimal Order { get; set; }
 
-        [Required(ErrorMessage = "Preencha esse campo.")]
         [Display(Name = "Icone")]
         public string Icon { get; set; }
     }

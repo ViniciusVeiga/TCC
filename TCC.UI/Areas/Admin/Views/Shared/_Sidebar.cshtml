@@ -3,7 +3,8 @@
 @using TCC.UI.Helpers.Extensions
 
 @{
-    var menuItens = BLMenuItem.GetList((decimal?)ENMenu.Administrativo);
+    var itens = BLMenuItem.GetList((decimal?)ENMenu.Administrativo);
+    var types = BLMenuType.GetList((decimal?)ENMenu.Administrativo);
 }
 
 <div class="main-sidebar">
@@ -20,22 +21,25 @@
         </form>
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Área Administrativa</li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-user"></i> <span>Administradores</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        @foreach (var item in menuItens)
-                        {
-                            <a href="#" onclick="openPage(@item.Id, '@item.Url')"><span class="fa fa-table"></span>@item.Title</a>
-                        }
-                    </li>
-                </ul>
-            </li>
+            @foreach (var type in types)
+            {
+                <li class="treeview">
+                    <a href="#">
+                        <i class="@type.Icon"></i> <span>@type.Title</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    @foreach (var item in itens.Where(i => i.IdMenuType == type.Id))
+                    {
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="#" onclick="openPage(@item.Id, '@item.Url')"><span class="@item.Icon"></span>@item.Title</a>
+                            </li>
+                        </ul>
+                    }
+                </li>
+            }
         </ul>
     </div>
 </div>

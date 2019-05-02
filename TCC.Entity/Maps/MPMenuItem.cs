@@ -28,6 +28,10 @@ namespace TCC.Entity.Maps
                 .HasMaxLength(250)
                 .HasColumnName("URL_C");
 
+            Property(e => e.Icon)
+                .HasMaxLength(100)
+                .HasColumnName("ICON_C");
+
             Property(e => e.Order)
                 .IsRequired()
                 .HasPrecision(18, 0)

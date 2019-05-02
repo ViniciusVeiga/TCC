@@ -12,7 +12,7 @@ namespace TCC.Entity.Maps
             Property(e => e.IdMenu)
                 .HasPrecision(18, 0)
                 .IsRequired()
-                .HasColumnName("ID_MENU_C");
+                .HasColumnName("ID_MENU_N");
 
             Property(e => e.Title)
                 .IsRequired()
@@ -24,7 +24,6 @@ namespace TCC.Entity.Maps
                 .HasColumnName("ORDER_N");
 
             Property(e => e.Icon)
-                .IsRequired()
                 .HasMaxLength(50)
                 .HasColumnName("ICON_C");
         }
