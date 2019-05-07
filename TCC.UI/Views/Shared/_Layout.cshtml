@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using TCC.UI.Helpers.Extensions
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -7,9 +8,10 @@
     <title>@ViewBag.Title - Test Tutorials</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    @Styles.Render("~/Components")
-    @Styles.Render("~/AdminLTE")
-    @Styles.Render("~/Site")
+    @Styles.Render("~/Styles/Components")
+    @Styles.Render("~/Styles/AdminLTE")
+    @Styles.Render("~/Styles/DataTable")
+    @Styles.Render("~/Styles/Site")
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -26,13 +28,14 @@
         @Html.Partial("Login/_Logoff")
     </div>
 
-    @Scripts.Render("~/Base")
-    @Scripts.Render("~/AdminLTE")
-    @Scripts.Render("~/Site")
+    @Scripts.Render("~/Scripts/Base")
+    @Scripts.Render("~/Scripts/AdminLTE")
+    @Scripts.Render("~/Scripts/Site")
 
     @Html.Partial("Login/Scripts")
     @Html.Partial("Toastr/_Toestr")
 
+    @this.WriteScriptBlocks()
     @RenderSection("scripts", required: false)
 </body>
 </html>

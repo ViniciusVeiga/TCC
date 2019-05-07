@@ -1,9 +1,17 @@
-﻿
+﻿@using TCC.BusinessLayer.Admin
+@using TCC.Domain.Enums
+@using TCC.UI.Helpers.Extensions
+
+@{
+    var itens = BLMenuItem.GetList((decimal?)ENMenu.Publico);
+    var types = BLMenuType.GetList((decimal?)ENMenu.Publico);
+}
+
 <div class="main-sidebar">
     <div class="sidebar">
         <form action="#" method="post" class="sidebar-form">
             <div class="input-group">
-                <input type="text" name="Search" class="form-control" placeholder="Pesquisar">
+                <input type="text" name="Search" class="form-control" placeholder="Procurar...">
                 <span class="input-group-btn">
                     <button class="btn btn-flat">
                         <i class="fa fa-search"></i>
@@ -12,28 +20,33 @@
             </div>
         </form>
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">Menu de Tutoriais</li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-user"></i> <span>Testes</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a>
-                            @Ajax.ActionLink("Teste 1", "Index" , "Teste", null,
-                                new AjaxOptions {
-                                    HttpMethod = "GET",
-                                    InsertionMode = InsertionMode.Replace,
-                                    UpdateTargetId = "Ajax_Update_Menu"
-                                }, new { @class = "", id = "Test" })
-                        </a>
-                    </li>
-                    <li><a href="~/Admin/Menu/Index"><i class="fa fa-table"></i> Teste 1</a></li>
-                </ul>
-            </li>
+            <li class="header">Área Administrativa</li>
+            @foreach (var type in types)
+            {
+                <li class="treeview">
+                    <a href="#">
+                        <i class="@type.Icon"></i> <span>@type.Title</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    @foreach (var item in itens.Where(i => i.IdMenuType == type.Id))
+                    {
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="#" onclick="openPage(@item.Id, '@item.Url')"><span class="@item.Icon"></span>@item.Title</a>
+                            </li>
+                        </ul>
+                    }
+                </li>
+            }
         </ul>
     </div>
 </div>
+
+@this.ScriptBlock(
+    @<script type="text/javascript">
+        @Helpers.AddPageAjax("openPage")
+    </script>
+)
+

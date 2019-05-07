@@ -191,6 +191,8 @@
     <Content Include="Content\AdminLTE\css\skins\skin-yellow.min.css" />
     <Content Include="Content\AdminLTE\css\skins\_all-skins.css" />
     <Content Include="Content\AdminLTE\css\skins\_all-skins.min.css" />
+    <Content Include="Content\AdminLTE\img\loading.gif" />
+    <Content Include="Content\AdminLTE\img\loading.svg" />
     <Content Include="Content\AdminLTE\js\adminlte.js" />
     <Content Include="Content\AdminLTE\js\adminlte.min.js" />
     <Content Include="Content\AdminLTE\js\demo.js" />

@@ -14,3 +14,10 @@
 .content-header > .breadcrumb {
     padding: 0px 5px;
 }
+
+img.loading {
+    display: block;
+    margin: 150px auto auto auto;
+    width: 50%;
+    max-width: 100px;
+}
