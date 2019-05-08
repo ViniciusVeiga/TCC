@@ -124,7 +124,10 @@
 
 @helper LoadingPage()
 {
-    @:  '<div class="content">' +
-    @:      '<img class="loading" src="/Content/AdminLTE/img/loading.svg" alt="Loading Gif">' +
-    @:  '</div>'
+    @:      <div id="Loading" style="display: none;">
+    @:          <div class="overlay">
+    @:              <img class="loading" src="/Content/AdminLTE/img/loading.svg" alt="Loading Gif">
+    @:          </div>
+    @:          <div class="overlay background-loading"></div>
+    @:      </div>
 }

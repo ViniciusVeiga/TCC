@@ -9,3 +9,11 @@ function clearAllTextInputs() {
         $(this).val('');
     });
 }
+
+$(document).bind("ajaxSend", function () {
+    $("#Loading").show();
+}).bind("ajaxComplete", function () {
+    setTimeout(function () {
+        $("#Loading").hide();
+    }, 1000);
+});

@@ -18,6 +18,7 @@
         @Html.Partial("_Header")
         @Html.Partial("_Sidebar")
 
+        @Helpers.LoadingPage()
         <div id="Ajax_Update_Menu" class="content-wrapper">
             @RenderBody()
         </div>
