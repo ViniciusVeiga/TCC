@@ -7,5 +7,6 @@ $.validator.setDefaults({
     unhighlight: function (element) {
         $(element).closest('.form-group').removeClass('has-error');
         $('[data-valmsg-for="' + element.name + '"]').removeClass('help-block');
-    }
+    },
+    onkeyup: false
 });

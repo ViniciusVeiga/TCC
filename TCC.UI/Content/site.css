@@ -35,5 +35,5 @@ img.loading {
 .overlay.background-loading {
     background-color: #000;
     opacity: 0.8;
-    z-index: 1040;
+    z-index: 1090;
 }

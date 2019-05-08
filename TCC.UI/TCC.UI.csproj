@@ -6969,6 +6969,7 @@
     <Content Include="Views\Shared\Login\Scripts.cshtml" />
     <Content Include="Views\Shared\Login\_Logoff.cshtml" />
     <Content Include="Views\Shared\Toastr\_Toestr.cshtml" />
+    <Content Include="Views\Shared\_LayoutInternal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

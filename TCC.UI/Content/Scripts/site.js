@@ -15,5 +15,5 @@ $(document).bind("ajaxSend", function () {
 }).bind("ajaxComplete", function () {
     setTimeout(function () {
         $("#Loading").hide();
-    }, 1000);
+    }, 200);
 });

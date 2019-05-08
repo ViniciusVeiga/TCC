@@ -19,6 +19,7 @@
         @Html.Partial("_Sidebar")
 
         @Helpers.LoadingPage()
+
         <div id="Ajax_Update_Menu" class="content-wrapper">
             @RenderBody()
         </div>
@@ -29,7 +30,6 @@
         @Scripts.Render("~/Scripts/Base")
         @Scripts.Render("~/Scripts/AdminLTE")
         @Scripts.Render("~/Scripts/Site")
-        @Html.Partial("Toastr/_Toestr")
 
         @this.WriteScriptBlocks()
 

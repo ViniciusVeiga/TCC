@@ -10,7 +10,13 @@
                 </button>
                 <h4 class="modal-title">Boas-vindas de volta.</h4>
             </div>
-            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            @using (Ajax.BeginForm(
+                new AjaxOptions
+                {
+                    Url = "/Login/Login",
+                    HttpMethod = "POST",
+                    OnComplete = "reloadPage()"
+                }))
             {
                 <div class="modal-body">
                     <div class="login-box-body">

@@ -10,7 +10,13 @@
                 </button>
                 <h4 class="modal-title">Criar uma conta.</h4>
             </div>
-            @using (Html.BeginForm("NewAccount", "Login", FormMethod.Post))
+            @using (Ajax.BeginForm(
+                new AjaxOptions
+                {
+                    Url = "/Login/NewAccount",
+                    HttpMethod = "POST",
+                    OnComplete = "reloadPage()"
+                }))
             {
                 <div class="modal-body">
                     <div class="form">
@@ -30,14 +36,14 @@
                                 </small>
                             </div>
                             <div class="form-group has-feedback">
-                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Digite uma senha" })
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Digite uma senha" })
                                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                 <small>
                                     @Html.ValidationMessageFor(m => m.Password)
                                 </small>
                             </div>
                             <div class="form-group has-feedback">
-                                @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confime sua senha" })
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confime sua senha" })
                                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                                 <small>
                                     @Html.ValidationMessageFor(m => m.ConfirmPassword)

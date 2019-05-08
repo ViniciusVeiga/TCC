@@ -10,23 +10,19 @@ namespace TCC.UI.Controllers
 {
     public class LoginController : Controller
     {
-        public static string UrlToRedirect { get; set; }
-
         #region Login
 
         [HttpPost]
         [NotLogged]
-        public ActionResult Login(VMLogin model)
+        public void Login(VMLogin model)
         {
             if (ModelState.IsValid)
             {
-                if(!BLUser.Autentication(model.Email, model.Password))
+                if (!BLUser.Autentication(model.Email, model.Password))
                 {
                     this.AddToastMessage("Erro", "Erro ao autenticar, favor tentar novamente", ToastrType.Error);
                 }
             }
-
-            return RedirectToAction(UrlToRedirect);
         }
 
         #endregion
@@ -35,11 +31,11 @@ namespace TCC.UI.Controllers
 
         [HttpPost]
         [NotLogged]
-        public ActionResult NewAccount(VMNewAccount model)
+        public void NewAccount(VMNewAccount model)
         {
             if (ModelState.IsValid)
             {
-                if(BLUser.Create(HelpersMethods.CopyValues<VMNewAccount, ETUser>(model)))
+                if (BLUser.Create(HelpersMethods.CopyValues<VMNewAccount, ETUser>(model)))
                 {
                     TempData["OpenLogin"] = true;
 
@@ -48,36 +44,15 @@ namespace TCC.UI.Controllers
                 else
                     this.AddToastMessage("Erro", "Erro ao registrar, favor tentar novamente", ToastrType.Error);
             }
-
-            return RedirectToAction(UrlToRedirect);
         }
 
         #endregion
 
         #region Sair
 
-        public ActionResult Logoff()
+        public void Logoff()
         {
             BLUser.Logoff();
-
-            return RedirectToAction($"../Home/Index"); // Quando sair, reseta para a home.
-        }
-
-        #endregion
-
-        #region Guardar Url (Before Actions)
-
-        /// <summary>
-        /// Guarda a última url (Antes das Actions).
-        /// </summary>
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var url = HelpersMethods.GetLastUrl();
-
-            if (!url.Contains(this.ControllerContext.RouteData.Values["controller"].ToString()))
-            {
-                UrlToRedirect = HelpersMethods.GetLastUrl();
-            }
         }
 
         #endregion

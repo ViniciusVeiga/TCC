@@ -18,11 +18,15 @@
         @Html.Partial("_Header")
         @Html.Partial("_Sidebar")
 
-        <div id="Ajax_Update_Menu" class="content-wrapper">
+        @Helpers.LoadingPage()
+
+        <div id="Ajax_Update_Page" class="content-wrapper">
             @RenderBody()
         </div>
+
         <div class="main-footer">
         </div>
+
         @Html.Partial("Login/_Login")
         @Html.Partial("Login/_NewAccount")
         @Html.Partial("Login/_Logoff")
@@ -30,6 +34,7 @@
 
     @Scripts.Render("~/Scripts/Base")
     @Scripts.Render("~/Scripts/AdminLTE")
+    @Scripts.Render("~/Scripts/Validate")
     @Scripts.Render("~/Scripts/Site")
 
     @Html.Partial("Login/Scripts")
