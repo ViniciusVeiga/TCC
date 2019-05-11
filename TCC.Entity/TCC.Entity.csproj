@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Context\EFContext.cs" />
     <Compile Include="Maps\MPMenu.cs" />
+    <Compile Include="Maps\MPContent.cs" />
     <Compile Include="Maps\MPMenuType.cs" />
     <Compile Include="Maps\MPUser.cs" />
     <Compile Include="Maps\MPMenuItem.cs" />
@@ -68,9 +69,6 @@
       <Project>{BCF39BCB-ABD4-4C28-8715-F62B586B5270}</Project>
       <Name>TCC.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataBase\dbo.TCC.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

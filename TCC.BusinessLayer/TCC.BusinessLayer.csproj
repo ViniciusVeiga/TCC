@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\BLContent.cs" />
     <Compile Include="Admin\BLMenuIType.cs" />
     <Compile Include="Admin\BLMenuItem.cs" />
     <Compile Include="Basic\BLEmail.cs" />

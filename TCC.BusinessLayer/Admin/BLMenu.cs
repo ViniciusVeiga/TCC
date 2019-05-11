@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using TCC.Domain.Admin.Entities;
-using TCC.Domain.Entities.Public.Security;
+﻿using System.Collections.Generic;
+using TCC.Domain.Entities.Admin;
 using TCC.Entity.CRUD;
-using static System.Web.HttpContext;
 
 namespace TCC.BusinessLayer.Admin
 {

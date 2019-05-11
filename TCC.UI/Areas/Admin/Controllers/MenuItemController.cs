@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
-using TCC.Domain.Admin.Entities;
+using TCC.Domain.Entities.Admin;
 using TCC.Entity.CRUD;
 using TCC.UI.Areas.Admin.ViewsModels.Menu;
 using TCC.UI.Helpers;
