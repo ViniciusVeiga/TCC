@@ -21,6 +21,6 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Content
 
         [Required(ErrorMessage = "Preencha esse campo.")]
         [Display(Name = "Menu")]
-        public string IdMenuItem { get; set; }
+        public decimal? IdMenuItem { get; set; }
     }
 }

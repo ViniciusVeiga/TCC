@@ -42,7 +42,7 @@
 
 @section scripts {
     @Scripts.Render("~/Scripts/DataTable")
-    <script type="text/javascript">
+<script type="text/javascript">
         $(document).ready(function () {
             $("#Table").DataTable({
                 data: @Html.Raw(Json.Encode(ViewBag.List)),
@@ -54,12 +54,13 @@
                 [
                     @Helpers.ColumnEdit("Id"),
                     @Helpers.ColumnEdit("Name"),
-                    @Helpers.ColumnEdit("IdMenuItem")
+                    @Helpers.ColumnEdit("MenuItem.Title"),
+                    @Helpers.ColumnToAction("fa fa-remove", "menuItem")
                 ],
                 @Helpers.LanguageTable()
             });
         });
 
         @Helpers.EditPageAjax(urlEdit)
-    </script>
+</script>
 }

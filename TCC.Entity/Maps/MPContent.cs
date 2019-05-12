@@ -21,6 +21,10 @@ namespace TCC.Entity.Maps
             Property(e => e.Text)
                 .IsRequired()
                 .HasColumnName("TEXT_C");
+
+            HasRequired(m => m.MenuItem)
+                .WithMany()
+                .HasForeignKey(c => c.IdMenuItem);
         }
     }
 }

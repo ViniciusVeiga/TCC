@@ -9,7 +9,7 @@ using TCC.Entity.Context;
 
 namespace TCC.Entity.CRUD
 {
-    public static class CRUD<T> where T : ETBase
+    public static partial class CRUD<T> where T : ETBase
     {
         private static readonly DbContext _ctx = new EFContext();
         private static IDbSet<T> _entities;

@@ -13,6 +13,11 @@ namespace TCC.BusinessLayer.Admin
     {
         #region Listar
 
+        public static List<ETMenuItem> GetList()
+        {
+            return CRUD<ETMenuItem>.Actives;
+        }
+
         public static List<ETMenuItem> GetList(decimal? id, bool active = true)
         {
             return CRUD<ETMenuItem>.FindAll(m => m.IdMenu == id && m.Active == active);
