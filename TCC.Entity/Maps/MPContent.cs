@@ -7,7 +7,7 @@ namespace TCC.Entity.Maps
     {
         public MPContent()
         {
-            ToTable("ADM_TCC_MENU_TYPE");
+            ToTable("ADM_TCC_CONTENT");
 
             Property(e => e.IdMenuItem)
                 .HasPrecision(18, 0)
