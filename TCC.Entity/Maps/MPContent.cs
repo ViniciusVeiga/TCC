@@ -20,7 +20,7 @@ namespace TCC.Entity.Maps
 
             Property(e => e.Text)
                 .IsRequired()
-                .HasColumnName("TEXT_N");
+                .HasColumnName("TEXT_C");
         }
     }
 }
