@@ -35,7 +35,7 @@
                         {
 
                             <li>
-                                <a href="#" onclick="openPage(@item.Id, '@(item.Url ?? urlContent)')"><span class="@item.Icon"></span>@item.Title</a>
+                                <a name="MenuItem" href="#" onclick="openPage(@item.Id, '@(item.Url ?? urlContent)')"><span class="@item.Icon"></span>@item.Title</a>
                             </li>
 
                         }
