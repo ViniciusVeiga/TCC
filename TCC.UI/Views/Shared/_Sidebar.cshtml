@@ -5,6 +5,7 @@
 @{
     var itens = BLMenuItem.GetList((decimal?)ENMenu.Publico);
     var types = BLMenuType.GetList((decimal?)ENMenu.Publico);
+    var urlContent = "/Content/Index";
 }
 
 <div class="main-sidebar">
@@ -29,15 +30,16 @@
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
-                    </a>
-                    @foreach (var item in itens.Where(i => i.IdMenuType == type.Id))
-                    {
-                        <ul class="treeview-menu">
+                    </a>       <ul class="treeview-menu">
+                        @foreach (var item in itens.Where(i => i.IdMenuType == type.Id))
+                        {
+
                             <li>
-                                <a href="#" onclick="openPage(@item.Id, '@item.Url')"><span class="@item.Icon"></span>@item.Title</a>
+                                <a href="#" onclick="openPage(@item.Id, '@(item.Url ?? urlContent)')"><span class="@item.Icon"></span>@item.Title</a>
                             </li>
-                        </ul>
-                    }
+
+                        }
+                    </ul>
                 </li>
             }
         </ul>
@@ -48,5 +50,5 @@
     @<script type="text/javascript">
         @Helpers.AddPageAjax("openPage")
     </script>
-)
+        )
 

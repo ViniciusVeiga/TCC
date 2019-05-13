@@ -37,3 +37,7 @@ img.loading {
     opacity: 0.8;
     z-index: 1090;
 }
+
+pre {
+    border-radius: 0px;
+}

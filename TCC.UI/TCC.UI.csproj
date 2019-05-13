@@ -140,6 +140,7 @@
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenu.cs" />
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenuItem.cs" />
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenuType.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -6432,6 +6433,8 @@
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.css" />
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.js" />
     <Content Include="Content\Components\select2\vendor\jquery-2.1.0.js" />
+    <Content Include="Content\Prism\css\prism.css" />
+    <Content Include="Content\Prism\prism.js" />
     <Content Include="Content\Scripts\jquery.validate-custom.js" />
     <Content Include="Content\site.css" />
     <Content Include="Content\Toastr\css\toastr.css" />
@@ -6974,6 +6977,7 @@
     <Content Include="Views\Shared\Login\_Logoff.cshtml" />
     <Content Include="Views\Shared\Toastr\_Toestr.cshtml" />
     <Content Include="Views\Shared\_LayoutInternal.cshtml" />
+    <Content Include="Views\Content\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

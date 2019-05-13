@@ -64,7 +64,10 @@
 @section scripts {
     <script type="text/javascript">
         $(document).ready(function () {
-            CKEDITOR.replace('Editor');
+
+            CKEDITOR.replace('Editor', {
+                extraPlugins: 'codesnippet'
+            });
         });
     </script>
 }

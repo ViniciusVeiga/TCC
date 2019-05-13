@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System;
+using System.Data.Entity.ModelConfiguration;
 using TCC.Domain.Entities.Admin;
 
 namespace TCC.Entity.Maps
@@ -19,6 +20,7 @@ namespace TCC.Entity.Maps
                 .HasColumnName("NAME_C");
 
             Property(e => e.Text)
+                .HasMaxLength(Int32.MaxValue)
                 .IsRequired()
                 .HasColumnName("TEXT_C");
 

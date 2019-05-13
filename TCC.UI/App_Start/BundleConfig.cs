@@ -14,7 +14,8 @@ namespace TCC.UI
                 "~/Content/Scripts/jquery.validate-custom.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/CKEditor").Include(
-                "~/Content/Components/ckeditor/ckeditor.js"));
+                "~/Content/Components/ckeditor/ckeditor.js",
+                "~/Content/Components/ckeditor/plugins/codesnippet/plugin.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/Base").Include(
                 "~/Content/Scripts/jquery-{version}.js",
@@ -51,6 +52,7 @@ namespace TCC.UI
                 "~/Content/Components/datatables.net-bs/css/dataTables.bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Styles/Site").Include(
+                "~/Content/Prism/css/prism.css",
                 "~/Content/site.css"));
 
             #endregion

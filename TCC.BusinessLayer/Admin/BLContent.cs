@@ -16,6 +16,15 @@ namespace TCC.BusinessLayer.Admin
 
         #endregion
 
+        #region Obter
+
+        public static ETContent GetByMenu(decimal? idMenuItem)
+        {
+            return CRUD<ETContent>.Find(c => c.IdMenuItem == idMenuItem && c.Active == true);
+        }
+
+        #endregion
+
         #region Salvar
 
         public static bool Save(ETContent content)
@@ -26,7 +35,7 @@ namespace TCC.BusinessLayer.Admin
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }

@@ -24,7 +24,6 @@ namespace TCC.Entity.Maps
                 .HasColumnName("TITLE_C");
 
             Property(e => e.Url)
-                .IsRequired()
                 .HasMaxLength(250)
                 .HasColumnName("URL_C");
 
