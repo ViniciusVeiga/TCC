@@ -41,3 +41,13 @@ img.loading {
 pre {
     border-radius: 0px;
 }
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+    background-color: #ecf0f5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3c8dbc;
+}
