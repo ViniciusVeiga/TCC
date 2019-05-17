@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
 using TCC.Domain.Entities.Admin;
 using TCC.Entity.CRUD;
@@ -8,15 +9,15 @@ using TCC.UI.Helpers.Toastrs;
 
 namespace TCC.UI.Areas.Admin.Controllers
 {
-    public class MenuItemController : Controller
+    public class MenuItemController : AdminBaseController<ETMenuItem, VMMenuItem>
     {
         public static decimal? IdMenu;
 
         #region Index
 
-        public ActionResult Index(decimal? id)
+        public override ActionResult Index()
         {
-            IdMenu = id ?? IdMenu;
+            IdMenu = (decimal?)Convert.ToDecimal(Request.Form["id"]) ?? IdMenu;
 
             ViewBag.List = BLMenuItem.GetList(IdMenu);
 
@@ -27,29 +28,22 @@ namespace TCC.UI.Areas.Admin.Controllers
 
         #region Item
 
-        public ActionResult Item(decimal? id)
+        public override ActionResult Item(decimal? id)
         {
-            var model = CRUD<ETMenuItem>.Find(id.GetValueOrDefault(0));
-
             ViewBag.MenuTypes = BLMenuType.GetList(IdMenu);
 
-            return View(HelpersMethods.CopyValues<ETMenuItem, VMMenuItem>(model));
+            return base.Item(id);
         }
 
         [HttpPost]
-        public ActionResult Item(VMMenuItem model)
+        public override ActionResult Item(VMMenuItem model)
         {
             if (ModelState.IsValid)
             {
                 var menuItem = HelpersMethods.CopyValues<VMMenuItem, ETMenuItem>(model);
                 menuItem.IdMenu = IdMenu;
 
-                if (BLMenuItem.Save(menuItem))
-                {
-                    this.AddToastMessage("Sucesso", "Menu salvo com sucesso.", ToastrType.Success);
-                }
-                else
-                    this.AddToastMessage("Erro", "Erro ao salvar o menu.", ToastrType.Error);
+                return base.Item(model);
             }
 
             return RedirectToAction("Index");

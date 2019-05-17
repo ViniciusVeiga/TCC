@@ -6,20 +6,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using TCC.BusinessLayer.Admin;
+using TCC.Domain.Entities.Admin;
 
 namespace TCC.UI.Areas.Admin.Controllers
 {
-    public class MenuController : Controller
+    public class MenuController : AdminBaseController<ETMenu, ETMenu>
     {
-        #region Index
 
-        public ActionResult Index()
-        {
-            ViewBag.List = BLMenu.GetList();
-
-            return View();
-        }
-
-        #endregion
     }
 }
