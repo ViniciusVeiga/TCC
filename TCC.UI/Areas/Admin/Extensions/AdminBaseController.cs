@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
 using TCC.Domain.Entities;
-using TCC.Domain.Entities.Admin;
-using TCC.Domain.Enums;
 using TCC.Entity.CRUD;
-using TCC.UI.Areas.Admin.ViewsModels.Content;
 using TCC.UI.Helpers;
 using TCC.UI.Helpers.Toastrs;
 
-namespace TCC.UI.Areas.Admin.Controllers
+namespace TCC.UI.Areas.Admin.Extensions
 {
     public class AdminBaseController<ET, VM> : Controller where ET : ETBase 
     {
