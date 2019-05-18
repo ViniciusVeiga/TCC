@@ -13,15 +13,5 @@ namespace TCC.UI.Areas.Admin.Controllers
         public ActionResult Index() => View("Index", "_LayoutExternal", null);
 
         #endregion
-
-        #region Login
-
-        [HttpPost]
-        public override void Login(VMLogin model)
-        {
-            base.Login(model);
-        }
-
-        #endregion
     }
 }

@@ -13,6 +13,10 @@ namespace TCC.UI
                 "~/Content/Scripts/jquery.validate.*",
                 "~/Content/Scripts/jquery.validate-custom.js"));
 
+            bundles.Add(new ScriptBundle("~/Scripts/iCheck").Include(
+                "~/Content/Scripts/jquery.validate.*",
+                "~/Content/Scripts/jquery.validate-custom.js"));
+
             bundles.Add(new ScriptBundle("~/Scripts/CKEditor").Include(
                 "~/Content/Components/ckeditor/ckeditor.js",
                 "~/Content/Components/ckeditor/plugins/codesnippet/plugin.js"));

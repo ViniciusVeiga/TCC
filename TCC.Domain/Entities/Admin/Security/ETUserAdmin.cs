@@ -5,6 +5,6 @@ namespace TCC.Domain.Entities.Admin.Security
 {
     public class ETUserAdmin : ETUser, IUser
     {
-        public override string GetCookie() => "t_user_public";
+        public override string GetCookie() => "t_user_admin";
     }
 }

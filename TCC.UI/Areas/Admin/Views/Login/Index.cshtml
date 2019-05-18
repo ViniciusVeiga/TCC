@@ -14,7 +14,7 @@
             new AjaxOptions
             {
                 Url = "/Admin/Login/Login",
-                HttpMethod = "POST",         
+                HttpMethod = "POST",
                 OnComplete = "window.location.href = '/Admin';"
             }))
         {
@@ -32,11 +32,32 @@
                     @Html.ValidationMessageFor(m => m.Password)
                 </small>
             </div>
+
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label class="">
+                            <input type="checkbox" /> Relembrar
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
                 </div>
             </div>
         }
     </div>
 </div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/iCheck")
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
+            });
+        });
+    </script>
+}
