@@ -5,6 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using TCC.Domain.Entities.Admin;
 using TCC.Domain.Entities;
 using TCC.Domain.Entities.Public.Security;
+using TCC.Domain.Entities.Admin.Security;
 
 namespace TCC.Entity.Context
 {
@@ -14,7 +15,8 @@ namespace TCC.Entity.Context
 
         #region Gets do Entity
 
-        public virtual DbSet<ETUser> Users { get; set; }
+        public virtual DbSet<ETUserPublic> UsersPublic { get; set; }
+        public virtual DbSet<ETUserAdmin> UsersAdmin { get; set; }
         public virtual DbSet<ETMenu> Menus { get; set; }
         public virtual DbSet<ETMenuItem> MenusItens { get; set; }
         public virtual DbSet<ETMenuType> MenusTypes { get; set; }
@@ -74,7 +76,8 @@ namespace TCC.Entity.Context
 
             #region Mapeamento
 
-            modelBuilder.Configurations.Add(new Maps.MPUser());
+            modelBuilder.Configurations.Add(new Maps.MPUserPublic());
+            modelBuilder.Configurations.Add(new Maps.MPUserAdmin());
             modelBuilder.Configurations.Add(new Maps.MPMenu());
             modelBuilder.Configurations.Add(new Maps.MPMenuItem());
             modelBuilder.Configurations.Add(new Maps.MPMenuType());

@@ -2,12 +2,14 @@
 using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
 using TCC.Domain.Entities.Admin;
-using TCC.UI.Areas.Admin.Extensions;
 using TCC.UI.Areas.Admin.ViewsModels.Menu;
+using TCC.UI.Extensions;
 using TCC.UI.Helpers;
+using TCC.UI.Helpers.Attributes.Login;
 
 namespace TCC.UI.Areas.Admin.Controllers
 {
+    [PermissionAdmin]
     public class MenuTypeController : AdminBaseController<ETMenuType, VMMenuType>
     {
         public static decimal? IdMenu;

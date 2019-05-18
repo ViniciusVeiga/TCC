@@ -1,0 +1,30 @@
+﻿@using TCC.UI.Helpers.Extensions
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Área Administrativa</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    @Styles.Render("~/Styles/Components")
+    @Styles.Render("~/Styles/AdminLTE")
+    @Styles.Render("~/Styles/DataTable")
+    @Styles.Render("~/Styles/Site")
+</head>
+<body class="hold-transition login-page">
+    @Helpers.LoadingPage()
+
+    @RenderBody()
+
+    @Scripts.Render("~/Scripts/Base")
+    @Scripts.Render("~/Scripts/AdminLTE")
+    @Scripts.Render("~/Scripts/Validate")
+    @Scripts.Render("~/Scripts/Site")
+
+    @Html.Partial("Toastr/_Toestr")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

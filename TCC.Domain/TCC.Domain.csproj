@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="Entities\Admin\ETContent.cs" />
     <Compile Include="Entities\Admin\ETMenuType.cs" />
+    <Compile Include="Entities\Admin\Security\ETUserAdmin.cs" />
     <Compile Include="Entities\ETBase.cs" />
     <Compile Include="Entities\Admin\ETMenu.cs" />
     <Compile Include="Entities\Admin\ETMenuItem.cs" />
-    <Compile Include="Entities\Public\Security\ETUser.cs" />
+    <Compile Include="Entities\ETUser.cs" />
+    <Compile Include="Entities\Public\Security\ETUserPublic.cs" />
     <Compile Include="Enums\ENMenu.cs" />
     <Compile Include="Interfaces\IBase.cs" />
     <Compile Include="Interfaces\IContent.cs" />

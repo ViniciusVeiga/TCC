@@ -2,23 +2,25 @@
 using System.Linq;
 using System.Web;
 using TCC.BusinessLayer.Basic;
-using TCC.Domain.Entities.Public.Security;
+using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
 using static System.Web.HttpContext;
 
 namespace TCC.BusinessLayer.Security
 {
-    public class BLUser
+    public class BLUser<T> where T : ETUser
     {
+        private static readonly string _cookie = ((T)Activator.CreateInstance(typeof(T))).GetCookie();
+
         #region Cria Usuário
 
-        public static bool Create(ETUser user)
+        public static bool Create(T user)
         {
             try
             {
                 user.Password = BLEncrypt.Encrypt(user.Password);
 
-                CRUD<ETUser>.Add(user);
+                CRUD<T>.Add(user);
 
                 return true;
             }
@@ -38,17 +40,17 @@ namespace TCC.BusinessLayer.Security
             {
                 passaword = BLEncrypt.Encrypt(passaword);
 
-                var user = CRUD<ETUser>
+                var user = CRUD<T>
                     .Find(u => u.Email == email && u.Password == passaword && u.Active == true);
 
                 if (user == null)
                     return false;
 
                 user.Token = Guid.NewGuid().ToString();
-                CRUD<ETUser>.Update(user);
+                CRUD<T>.Update(user);
 
                 Current.Response.Cookies.Add(
-                    new HttpCookie("t_user", user.Token)
+                    new HttpCookie(_cookie, user.Token)
                     {
                         Expires = DateTime.Now.AddYears(1)
                     });
@@ -65,15 +67,15 @@ namespace TCC.BusinessLayer.Security
 
         #region Obter Logado
 
-        public static ETUser GetLogged()
+        public static T GetLogged()
         {
             try
             {
-                var cookie = Current.Request.Cookies["t_user"];
+                var cookie = Current.Request.Cookies[_cookie];
 
                 if (cookie != null && !string.IsNullOrEmpty(cookie.Value))
                 {
-                    var user = CRUD<ETUser>
+                    var user = CRUD<T>
                         .Find(u => u.Token == cookie.Value && u.Active == true);
 
                     return user;
@@ -99,7 +101,7 @@ namespace TCC.BusinessLayer.Security
                 var user = GetLogged();
 
                 user.Token = null;
-                CRUD<ETUser>.Update(user);
+                CRUD<T>.Update(user);
 
                 return true;
             }
@@ -117,7 +119,7 @@ namespace TCC.BusinessLayer.Security
         {
             if (!string.IsNullOrEmpty(email))
             {
-                var users = CRUD<ETUser>.All;
+                var users = CRUD<T>.All;
 
                 if (users.Any(u => u.Email == email))
                 {

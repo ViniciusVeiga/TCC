@@ -55,7 +55,8 @@
     <Compile Include="Maps\MPMenu.cs" />
     <Compile Include="Maps\MPContent.cs" />
     <Compile Include="Maps\MPMenuType.cs" />
-    <Compile Include="Maps\MPUser.cs" />
+    <Compile Include="Maps\MPUserAdmin.cs" />
+    <Compile Include="Maps\MPUserPublic.cs" />
     <Compile Include="Maps\MPMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CRUD\CRUD.cs" />

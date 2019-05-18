@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Security;
+using TCC.Domain.Entities.Public.Security;
 
 namespace TCC.UI.Helpers.Attributes.Login
 {
@@ -14,7 +15,7 @@ namespace TCC.UI.Helpers.Attributes.Login
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var user = BLUser.GetLogged();
+            var user = BLUser<ETUserPublic>.GetLogged();
 
             if (user != null)
             {

@@ -1,13 +1,13 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using TCC.Domain.Entities.Public.Security;
+using TCC.Domain.Entities.Admin.Security;
 
 namespace TCC.Entity.Maps
 {
-    public class MPUser : EntityTypeConfiguration<ETUser>
+    public class MPUserAdmin : EntityTypeConfiguration<ETUserAdmin>
     {
-        public MPUser()
+        public MPUserAdmin()
         {
-            ToTable("PUB_TCC_USER");
+            ToTable("ADM_TCC_USER");
 
             Property(e => e.Name)
                 .IsRequired()

@@ -5,7 +5,7 @@ using TCC.Entity.CRUD;
 using TCC.UI.Helpers;
 using TCC.UI.Helpers.Toastrs;
 
-namespace TCC.UI.Areas.Admin.Extensions
+namespace TCC.UI.Extensions
 {
     public class AdminBaseController<ET, VM> : Controller where ET : ETBase 
     {
