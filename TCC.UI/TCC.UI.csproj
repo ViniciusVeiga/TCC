@@ -6546,6 +6546,10 @@
     <Content Include="Content\Components\select2\vendor\jquery-2.1.0.js" />
     <Content Include="Content\Prism\css\prism.css" />
     <Content Include="Content\Prism\prism.js" />
+    <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Content\Scripts\jquery-3.4.1.js" />
+    <Content Include="Content\Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Content\Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Content\Scripts\jquery.validate-custom.js" />
     <Content Include="Content\site.css" />
     <Content Include="Content\Toastr\css\toastr.css" />
@@ -7057,11 +7061,8 @@
     <Content Include="Areas\Admin\Views\Content\Item.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutExternal.cshtml" />
-    <None Include="Content\Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Content\Scripts\jquery-3.3.1.js" />
-    <Content Include="Content\Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Content\Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Content\Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Content\Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Content\Scripts\jquery-3.4.1.slim.min.map" />
     <None Include="Content\Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Content\Scripts\jquery.validate.js" />
     <Content Include="Content\Scripts\jquery.validate.min.js" />
@@ -7071,8 +7072,7 @@
     <Content Include="Content\Scripts\site.js" />
     <Content Include="Content\Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Content\Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -7106,8 +7106,6 @@
     <Content Include="Content\Toastr\css\toastr.less" />
     <Content Include="Content\Toastr\css\toastr.scss" />
     <None Include="packages.config" />
-    <Content Include="Content\Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Content\Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Content\Components\fullcalendar\dist\fullcalendar.d.ts" />
