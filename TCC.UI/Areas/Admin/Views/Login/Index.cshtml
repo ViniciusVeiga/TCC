@@ -32,14 +32,10 @@
                     @Html.ValidationMessageFor(m => m.Password)
                 </small>
             </div>
-
             <div class="row">
                 <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label class="">
-                            <input type="checkbox" /> Relembrar
-                        </label>
-                    </div>
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.DisplayNameFor(m => m.RememberMe)
                 </div>
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>

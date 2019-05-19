@@ -14,8 +14,7 @@ namespace TCC.UI
                 "~/Content/Scripts/jquery.validate-custom.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/iCheck").Include(
-                "~/Content/Scripts/jquery.validate.*",
-                "~/Content/Scripts/jquery.validate-custom.js"));
+                "~/Content/Components/iCheck/icheck.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/CKEditor").Include(
                 "~/Content/Components/ckeditor/ckeditor.js",
@@ -58,6 +57,9 @@ namespace TCC.UI
             bundles.Add(new StyleBundle("~/Styles/Site").Include(
                 "~/Content/Prism/css/prism.css",
                 "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Styles/iCheck").Include(
+                "~/Content/Components/iCheck/square/blue.css"));
 
             #endregion
         }
