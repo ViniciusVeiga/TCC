@@ -1,16 +1,19 @@
-﻿@using TCC.UI.Areas.Admin.ViewsModels.Menu
-@model VMMenu
+﻿@using TCC.UI.Areas.Admin.ViewsModels.TechnicalTutorial
+@model VMTechnicalTutorial
 
 @{
-    var title = "Menu";
-    var urlMenuType = "/Admin/MenuType/Index";
-    var urlMenuItem = "/Admin/MenuItem/Index";
+    ViewBag.Title = "Tutorial Técnico";
+
+    var urlEdit = "/Admin/TechnicalTutorial/Item";
 }
 
 <div class="content-header">
     <h1>
-        @title
+        @ViewBag.Title
     </h1>
+    <ul class="breadcrumb">
+        @Ajax.ActionLink("Adicionar", "Item", "TechnicalTutorial", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+    </ul>
 </div>
 <div class="content">
     <div class="box">
@@ -23,10 +26,10 @@
                     <table id="Table" class="table table-bordered table-striped dataTable" role="grid">
                         <thead>
                             <tr>
-                                <th width="50px">@Html.DisplayNameFor(m => m.Id)</th>
+                                <th width="100px">@Html.DisplayNameFor(m => m.Id)</th>
                                 <th>@Html.DisplayNameFor(m => m.Title)</th>
-                                <th width="50px">Tipos</th>
-                                <th width="50px">Itens</th>
+                                <th>@Html.DisplayNameFor(m => m.IdContent)</th>
+                                <th width="5px"></th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -44,21 +47,20 @@
             $("#Table").DataTable({
                 data: @Html.Raw(Json.Encode(ViewBag.List)),
                 columnDefs: [{
-                    targets: [2, 3],
+                    targets: 3,
                     orderable: false
                 }],
                 columns:
                 [
-                    @Helpers.Column("Id"),
-                    @Helpers.Column("Title"),
-                    @Helpers.ColumnToAction("fa fa-list-ol", "menuType"),
-                    @Helpers.ColumnToAction("fa fa-th-large", "menuItem")
+                    @Helpers.ColumnEdit("Id"),
+                    @Helpers.ColumnEdit("Title"),
+                    @Helpers.ColumnEdit("Content.Title"),
+                    @Helpers.ColumnToAction("fa fa-remove", "menuItem")
                 ],
                 @Helpers.LanguageTable()
             });
         });
 
-        @Helpers.AddPageAjax("menuType", urlMenuType)
-        @Helpers.AddPageAjax("menuItem", urlMenuItem)
+        @Helpers.EditPageAjax(urlEdit)
     </script>
 }

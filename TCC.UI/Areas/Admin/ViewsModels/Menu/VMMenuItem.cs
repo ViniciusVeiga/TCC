@@ -5,6 +5,7 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Menu
     public class VMMenuItem
     {
         public decimal? Id { get; set; }
+        public decimal? IdMenu { get; set; }
 
         [Required(ErrorMessage = "Preencha esse campo.")]
         [Display(Name = "Tipo do Menu")]

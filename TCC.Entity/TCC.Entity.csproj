@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\EFContext.cs" />
+    <Compile Include="Maps\MPTechnicalTutorial.cs" />
     <Compile Include="Maps\MPMenu.cs" />
     <Compile Include="Maps\MPContent.cs" />
     <Compile Include="Maps\MPMenuType.cs" />

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TCC.Domain.Interfaces
 {
-    public interface IContent
+    public interface ITechnicalTutorial
     {
         string Title { get; set; }
         string Text { get; set; }
-        decimal? IdMenuItem { get; set; }
+        decimal? IdContent { get; set; }
     }
 }

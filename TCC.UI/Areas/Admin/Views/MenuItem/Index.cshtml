@@ -2,14 +2,14 @@
 @model VMMenuItem
 
 @{
-    ViewBag.Title = "Menu Item";
+    var title = "Menu Item";
 
     var urlEdit = "/Admin/MenuItem/Item";
 }
 
 <div class="content-header">
     <h1>
-        @ViewBag.Title
+        @title
     </h1>
     <ul class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "Menu", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })

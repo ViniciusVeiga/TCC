@@ -4,23 +4,23 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TCC.UI.Areas.Admin.ViewsModels.Menu
+namespace TCC.UI.Areas.Admin.ViewsModels.TechnicalTutorial
 {
-    public class VMMenuType
+    public class VMTechnicalTutorial
     {
         public decimal? Id { get; set; }
-        public decimal? IdMenu { get; set; }
 
         [Required(ErrorMessage = "Preencha esse campo.")]
         [StringLength(100, ErrorMessage = "Limite de caracteres é de {1} caracteres.")]
-        [Display(Name = "Título")]
+        [Display(Name = "Titulo")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Preencha esse campo.")]
-        [Display(Name = "Ordem")]
-        public decimal Order { get; set; }
+        [Display(Name = "Texto do Conteúdo")]
+        public string Text { get; set; }
 
-        [Display(Name = "Icone")]
-        public string Icon { get; set; }
+        [Required(ErrorMessage = "Preencha esse campo.")]
+        [Display(Name = "Conteúdo")]
+        public decimal? IdContent { get; set; }
     }
 }

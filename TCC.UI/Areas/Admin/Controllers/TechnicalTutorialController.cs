@@ -2,27 +2,27 @@
 using TCC.BusinessLayer.Admin;
 using TCC.Domain.Entities.Admin;
 using TCC.Domain.Enums;
-using TCC.UI.Areas.Admin.ViewsModels.Content;
+using TCC.UI.Areas.Admin.ViewsModels.TechnicalTutorial;
 using TCC.UI.Extensions;
 using TCC.UI.Helpers.Attributes.Login;
 
 namespace TCC.UI.Areas.Admin.Controllers
 {
     [PermissionAdmin]
-    public class ContentController : AdminBaseController<ETContent, VMContent>
+    public class TechnicalTutorialController : AdminBaseController<ETTechnicalTutorial, VMTechnicalTutorial>
     {
         #region Item
 
         public override ActionResult Item(decimal? id)
         {
-            ViewBag.MenuItens = BLMenuItem.GetList((decimal?)ENMenu.Publico);
+            ViewBag.Contents = BLAdminBase<ETContent>.GetList();
 
             return base.Item(id);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public override ActionResult Item(VMContent model)
+        public override ActionResult Item(VMTechnicalTutorial model)
         {
             return base.Item(model);
         }

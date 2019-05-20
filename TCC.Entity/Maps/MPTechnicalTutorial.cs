@@ -4,16 +4,16 @@ using TCC.Domain.Entities.Admin;
 
 namespace TCC.Entity.Maps
 {
-    public class MPContent : EntityTypeConfiguration<ETContent>
+    public class MPTechnicalTutorial : EntityTypeConfiguration<ETTechnicalTutorial>
     {
-        public MPContent()
+        public MPTechnicalTutorial()
         {
-            ToTable("ADM_TCC_CONTENT");
+            ToTable("ADM_TCC_TECHNICAL_TUTORIAL");
 
-            Property(e => e.IdMenuItem)
+            Property(e => e.IdContent)
                 .HasPrecision(18, 0)
                 .IsRequired()
-                .HasColumnName("ID_MENU_ITEM_N");
+                .HasColumnName("ID_CONTENT_N");
 
             Property(e => e.Title)
                 .IsRequired()
@@ -24,9 +24,9 @@ namespace TCC.Entity.Maps
                 .IsRequired()
                 .HasColumnName("TEXT_C");
 
-            HasRequired(m => m.MenuItem)
+            HasRequired(m => m.Content)
                 .WithMany()
-                .HasForeignKey(c => c.IdMenuItem);
+                .HasForeignKey(c => c.IdContent);
         }
     }
 }

@@ -12,8 +12,8 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Content
 
         [Required(ErrorMessage = "Preencha esse campo.")]
         [StringLength(100, ErrorMessage = "Limite de caracteres é de {1} caracteres.")]
-        [Display(Name = "Nome")]
-        public string Name { get; set; }
+        [Display(Name = "Titulo")]
+        public string Title { get; set; }
 
         [Required(ErrorMessage = "Preencha esse campo.")]
         [Display(Name = "Texto do Conteúdo")]

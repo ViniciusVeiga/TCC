@@ -18,7 +18,7 @@ namespace TCC.UI.Areas.Admin.Controllers
 
         public override ActionResult Index()
         {
-            IdMenu = (decimal?)Convert.ToDecimal(Request.Form["id"]) ?? IdMenu;
+            IdMenu = !string.IsNullOrEmpty(Request.Form["id"]) ? Convert.ToDecimal(Request.Form["id"]) : (decimal?)null ?? IdMenu;
 
             ViewBag.List = BLMenuItem.GetList(IdMenu);
 
@@ -41,8 +41,7 @@ namespace TCC.UI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var menuItem = HelpersMethods.CopyValues<VMMenuItem, ETMenuItem>(model);
-                menuItem.IdMenu = IdMenu;
+                model.IdMenu = IdMenu;
 
                 return base.Item(model);
             }

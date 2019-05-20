@@ -1,18 +1,18 @@
 ﻿@using TCC.Domain.Entities.Admin
-@model TCC.UI.Areas.Admin.ViewsModels.Content.VMContent
+@model TCC.UI.Areas.Admin.ViewsModels.TechnicalTutorial.VMTechnicalTutorial
 
 @{
-    var title = "Conteúdo";
+    ViewBag.Title = "Tutorial Técnico";
 
-    var itens = (List<ETMenuItem>)ViewBag.MenuItens;
+    var itens = (List<ETContent>)ViewBag.Contents;
 }
 
 <div class="content-header">
     <h1>
-        @title
+        @ViewBag.Title
     </h1>
     <ul class="breadcrumb">
-        @Ajax.ActionLink("Voltar", "Index", "Content", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+        @Ajax.ActionLink("Voltar", "Index", "TechnicalTutorial", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
     </ul>
 </div>
 <div class="content">
@@ -37,12 +37,12 @@
                     </small>
                 </div>
                 <div class="col-md-6 form-group">
-                    @Html.LabelFor(m => m.IdMenuItem)
-                    @Html.DropDownListFor(m => m.IdMenuItem,
+                    @Html.LabelFor(m => m.IdContent)
+                    @Html.DropDownListFor(m => m.IdContent,
                         new SelectList(itens, "Id", "Title"),
                         new { @class = "form-control" })
                     <small>
-                        @Html.ValidationMessageFor(m => m.IdMenuItem)
+                        @Html.ValidationMessageFor(m => m.IdContent)
                     </small>
                 </div>
                 <div class="col-md-12 form-group">

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Admin\ETTechnicalTutorial.cs" />
     <Compile Include="Entities\Admin\ETContent.cs" />
     <Compile Include="Entities\Admin\ETMenuType.cs" />
     <Compile Include="Entities\Admin\Security\ETUserAdmin.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Entities\Public\Security\ETUserPublic.cs" />
     <Compile Include="Enums\ENMenu.cs" />
     <Compile Include="Interfaces\IBase.cs" />
+    <Compile Include="Interfaces\ITechnicalTutorial.cs" />
     <Compile Include="Interfaces\IContent.cs" />
     <Compile Include="Interfaces\IMenu.cs" />
     <Compile Include="Interfaces\IMenuItem.cs" />

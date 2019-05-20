@@ -1,16 +1,15 @@
 ﻿@model TCC.UI.Areas.Admin.ViewsModels.Menu.VMMenuType
 
 @{
-    ViewBag.Title = "Menu Item Detalhe";
+    var title = "Menu Item Detalhe";
 }
-
 
 <div class="content-header">
     <h1>
-        @ViewBag.Title
+        @title
     </h1>
     <ul class="breadcrumb">
-        @Ajax.ActionLink("Voltar", "Index", "MenuItem", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+        @Ajax.ActionLink("Voltar", "Index", "MenuType", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
     </ul>
 </div>
 <div class="content">
@@ -56,4 +55,8 @@
         }
     </div>
 </div>
-@Scripts.Render("~/Scripts/Validate")
+
+@section scripts {
+    @Scripts.Render("~/Scripts/Validate")
+}
+

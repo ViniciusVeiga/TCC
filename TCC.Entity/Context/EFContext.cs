@@ -21,6 +21,7 @@ namespace TCC.Entity.Context
         public virtual DbSet<ETMenuItem> MenusItens { get; set; }
         public virtual DbSet<ETMenuType> MenusTypes { get; set; }
         public virtual DbSet<ETContent> Contents { get; set; }
+        public virtual DbSet<ETTechnicalTutorial> TechnicalTutorials { get; set; }
 
         #endregion
 
@@ -82,6 +83,7 @@ namespace TCC.Entity.Context
             modelBuilder.Configurations.Add(new Maps.MPMenuItem());
             modelBuilder.Configurations.Add(new Maps.MPMenuType());
             modelBuilder.Configurations.Add(new Maps.MPContent());
+            modelBuilder.Configurations.Add(new Maps.MPTechnicalTutorial());
 
             #endregion
 
