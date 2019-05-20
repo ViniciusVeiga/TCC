@@ -30,14 +30,14 @@
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
-                    </a>       <ul class="treeview-menu">
+                    </a>       
+                    <ul class="treeview-menu">
                         @foreach (var item in itens.Where(i => i.IdMenuType == type.Id))
                         {
 
                             <li>
-                                <a name="MenuItem" href="#" onclick="openPage(@item.Id, '@(item.Url ?? urlContent)')"><span class="@item.Icon"></span>@item.Title</a>
+                                <a name="MenuItem" href="#" onclick="newPage(@item.Id, '@(item.Url ?? urlContent)')"><span class="@item.Icon"></span>@item.Title</a>
                             </li>
-
                         }
                     </ul>
                 </li>
@@ -45,10 +45,3 @@
         </ul>
     </div>
 </div>
-
-@this.ScriptBlock(
-    @<script type="text/javascript">
-        @Helpers.AddPageAjax("openPage")
-    </script>
-)
-

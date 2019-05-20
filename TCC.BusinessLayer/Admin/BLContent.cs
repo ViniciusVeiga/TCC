@@ -9,9 +9,32 @@ namespace TCC.BusinessLayer.Admin
     {
         #region Obter
 
-        public static ETContent GetByMenu(decimal? idMenuItem)
+        public static ETContent GetByMenuItem(decimal? idMenuItem)
         {
             return CRUD<ETContent>.Find(c => c.IdMenuItem == idMenuItem && c.Active == true);
+        }
+
+        #endregion
+
+        #region Existe Tutorial Técnico
+
+        public static bool HasTechnicalTutorial(decimal? id)
+        {
+            try
+            {
+                var technicalTutorial = CRUD<ETTechnicalTutorial>.Find(t => t.IdContent == id);
+
+                if (technicalTutorial != null)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         #endregion

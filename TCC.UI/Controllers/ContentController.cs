@@ -9,7 +9,21 @@ namespace TCC.UI.Controllers
 {
     public class ContentController : Controller
     {
-        // GET: Content
-        public ActionResult Index(decimal? id) => View(BLContent.GetByMenu(id));
+        public static decimal? IdMenuItem;
+
+        #region Index
+
+        public ActionResult Index(decimal? id)
+        {
+            IdMenuItem = id ?? IdMenuItem;
+
+            var content = BLContent.GetByMenuItem(IdMenuItem);
+
+            ViewBag.HasTechnicalTutorial = BLContent.HasTechnicalTutorial(content.Id);
+
+            return View(content);
+        }
+
+        #endregion
     }
 }

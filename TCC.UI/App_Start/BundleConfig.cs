@@ -16,6 +16,9 @@ namespace TCC.UI
             bundles.Add(new ScriptBundle("~/Scripts/iCheck").Include(
                 "~/Content/Components/iCheck/icheck.js"));
 
+            bundles.Add(new ScriptBundle("~/Scripts/Prism").Include(
+                "~/Content/Prism/js/prism.js"));
+
             bundles.Add(new ScriptBundle("~/Scripts/CKEditor").Include(
                 "~/Content/Components/ckeditor/ckeditor.js",
                 "~/Content/Components/ckeditor/plugins/codesnippet/plugin.js"));

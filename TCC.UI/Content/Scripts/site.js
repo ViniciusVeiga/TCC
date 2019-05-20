@@ -26,3 +26,15 @@ $(document).bind("ajaxSend", function () {
         $("#Loading").hide();
     }, 200);
 });
+
+function newPage(id, url) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: { 'id': id },
+        success: function (data) {
+            $('#Ajax_Update_Menu').empty().html(data);
+        }
+    });
+}
+

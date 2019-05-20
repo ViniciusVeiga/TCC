@@ -126,6 +126,7 @@
     <Compile Include="Areas\Admin\Controllers\TechnicalTutorialController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\ViewsModels\TechnicalTutorial\VMTechnicalTutorial.cs" />
+    <Compile Include="Controllers\TechnicalTutorialController.cs" />
     <Compile Include="Extensions\AdminBaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -6547,7 +6548,7 @@
     <Content Include="Content\Components\select2\tests\vendor\qunit-1.23.1.js" />
     <Content Include="Content\Components\select2\vendor\jquery-2.1.0.js" />
     <Content Include="Content\Prism\css\prism.css" />
-    <Content Include="Content\Prism\prism.js" />
+    <Content Include="Content\Prism\js\prism.js" />
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Item.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
@@ -7097,6 +7098,7 @@
     <Content Include="Views\Shared\Toastr\_Toestr.cshtml" />
     <Content Include="Views\Shared\_LayoutInternal.cshtml" />
     <Content Include="Views\Content\Index.cshtml" />
+    <Content Include="Views\TechnicalTutorial\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
