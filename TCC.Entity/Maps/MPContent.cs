@@ -19,6 +19,9 @@ namespace TCC.Entity.Maps
                 .IsRequired()
                 .HasColumnName("TITLE_C");
 
+            Property(e => e.UrlDynamicTutorial)
+                .HasColumnName("URL_DYNAMIC_TUTORIAL_C");
+
             Property(e => e.Text)
                 .HasMaxLength(Int32.MaxValue)
                 .IsRequired()

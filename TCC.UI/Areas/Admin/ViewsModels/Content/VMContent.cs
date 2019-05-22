@@ -15,6 +15,10 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Content
         [Display(Name = "Titulo")]
         public string Title { get; set; }
 
+        [StringLength(100, ErrorMessage = "Limite de caracteres é de {1} caracteres.")]
+        [Display(Name = "Url Tutorial Dinâmico")]
+        public string UrlDynamicTutorial { get; set; }
+
         [Required(ErrorMessage = "Preencha esse campo.")]
         [Display(Name = "Texto do Conteúdo")]
         public string Text { get; set; }

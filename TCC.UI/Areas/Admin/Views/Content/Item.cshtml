@@ -29,11 +29,18 @@
             }))
         {
             <div class="box-body">
-                <div class="col-md-6 form-group">
+                <div class="col-md-12 form-group">
                     @Html.LabelFor(m => m.Title)
                     @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
                     <small>
                         @Html.ValidationMessageFor(m => m.Title)
+                    </small>
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(m => m.UrlDynamicTutorial)
+                    @Html.TextBoxFor(m => m.UrlDynamicTutorial, new { @class = "form-control" })
+                    <small>
+                        @Html.ValidationMessageFor(m => m.UrlDynamicTutorial)
                     </small>
                 </div>
                 <div class="col-md-6 form-group">
