@@ -8,6 +8,17 @@
     <h1>
         @Model.Title
     </h1>
+    <div class="breadcrumb">
+        @if (!string.IsNullOrEmpty(Model.UrlDynamicTutorial))
+        {
+            <a onclick="newPage(null, '@Model.UrlDynamicTutorial')" class="btn btn-warning">Tutorial Dinâmico</a>
+        }
+
+        @if ((bool)ViewBag.HasTechnicalTutorial == true)
+        {
+            <a onclick="newPage(@Model.Id, '@urlTechnicalTutorial')" class="btn btn-primary">Tutorial Técnico</a>
+        }
+    </div>
 </div>
 <div class="content">
     <div class="box">
@@ -15,16 +26,6 @@
             <div class="col-lg-12">
                 @Html.Raw(Model.Text)
             </div>
-
-            @if (!string.IsNullOrEmpty(Model.UrlDynamicTutorial))
-            {
-                <a onclick="newPage(null, '@Model.UrlDynamicTutorial')" class="btn btn-lg btn-warning pull-right">Tutorial Dinâmico</a>
-            }
-
-            @if ((bool)ViewBag.HasTechnicalTutorial == true)
-            {
-                <a onclick="newPage(@Model.Id, '@urlTechnicalTutorial')" class="btn btn-lg btn-primary pull-right" style="margin: 0px 15px 0px 0px">Tutorial Técnico</a>
-            }
         </div>
     </div>
 </div>
