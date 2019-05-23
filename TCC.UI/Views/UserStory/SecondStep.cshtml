@@ -1,10 +1,4 @@
 ﻿
-@{
-    /**/
-
-    var urlTechnicalTutorial = "/TechnicalTutorial/Index";
-}
-
 <style>
     .alert.actor {
         margin-bottom: 0px;
@@ -17,14 +11,13 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Continuar", "SecondStep", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary", @style = "display: none;", @name = "BtnContinue" })
+        @Ajax.ActionLink("Continuar", "ThirdStep", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
     </div>
 </div>
 <div class="content">
     <div class="box">
         <div class="box-header with-border">
             <div class="col-lg-12">
-
                 <div>
                     <h4>Após a escolha do projeto, é necessario definir qual atores podem existir em seu projeto.</h4>
                     <p>Segue o exemplo abaixo:</p>
@@ -32,36 +25,44 @@
             </div>
         </div>
         <div class="box-body">
-            <div class="col-lg-12" name="AppendActor">
-                <div class="col-lg-12">
-                    <div class="input-group">
+            <div class="col-lg-12">
+                <div>
+                    <div class="col-lg-4 input-group">
                         <input type="text" class="form-control" id="TextActor">
                         <span class="input-group-btn">
                             <button class="btn btn-flat" id="Send">
-                                <i class="fa fa-level-up"></i>
+                                <i class="fa fa-plus"></i>
                             </button>
                         </span>
                     </div>
+                </div>
+                <div class="row" id="AppendActor">
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-
 @section scripts {
     <script type="text/javascript">
-
         $('#Send').click(function () {
             var input = $('#TextActor');
             var text = input.val();
-            var example = @Helpers.ActorUserStory()
-            input.val('');
 
-            $('[name="AppendActor"]').append(example);
-            $('.userstory:last').text(text);
+            if (text != '') {
+                var example = $.parseHTML(@Helpers.ActorUserStory())
+                input.val('');
+
+                $('h4', example).append(text)
+                $('#AppendActor').append(example);
+            }
         });
 
+        // Quando apertar enter.
+        $('#TextActor').keypress(function (e) {
+            if (e.keyCode == 13) {
+                $('#Send').click();
+            }
+        });
     </script>
 }

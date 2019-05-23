@@ -7102,6 +7102,7 @@
     <Content Include="Views\TechnicalTutorial\Index.cshtml" />
     <Content Include="Views\UserStory\FirstStep.cshtml" />
     <Content Include="Views\UserStory\SecondStep.cshtml" />
+    <Content Include="Views\UserStory\ThirdStep.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

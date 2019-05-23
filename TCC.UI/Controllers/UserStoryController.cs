@@ -17,7 +17,13 @@ namespace TCC.UI.Controllers
 
         #region Etapa 2
 
-        public ActionResult SecondStep() => View("SecondStep");
+        public ActionResult SecondStep() => View();
+
+        #endregion
+
+        #region Etapa 3
+
+        public ActionResult ThirdStep() => View();
 
         #endregion
     }
