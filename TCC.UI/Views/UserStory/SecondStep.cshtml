@@ -35,7 +35,7 @@
             <div class="col-lg-12" name="AppendActor">
                 <div class="col-lg-12">
                     <div class="input-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="TextActor">
                         <span class="input-group-btn">
                             <button class="btn btn-flat" id="Send">
                                 <i class="fa fa-level-up"></i>
@@ -51,16 +51,16 @@
 
 
 @section scripts {
-    <script>
+    <script type="text/javascript">
 
         $('#Send').click(function () {
-            var input = $(this).find('.form-control');
+            var input = $('#TextActor');
             var text = input.val();
+            var example = @Helpers.ActorUserStory()
             input.val('');
 
-            var exemple = @Helpers.ActorUserStory()
-
-            $('[name="AppendActor"]').append(exemple);
+            $('[name="AppendActor"]').append(example);
+            $('.userstory:last').text(text);
         });
 
     </script>
