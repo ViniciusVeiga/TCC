@@ -57,11 +57,14 @@ pre {
 }
 
 .postit {
+    color: #333;
     background-color: #fbe364 !important;
     border-radius: 0px 0px 8px 8px;
     font-weight: bold;
     text-decoration: underline;
-    box-shadow: -4px -2px #efefef;
+    box-shadow: 0px 5px #0b4e2e;
+    border: 0px;
+    border-top: 10px solid #e6d05a;
 }
 
 .postit .input-group-btn > .btn {
@@ -110,4 +113,26 @@ pre {
 
 .postit .remove-line:hover {
     opacity: initial;
+}
+
+.board {
+    min-height: 515px;
+    background-color: #12834d;
+    border-radius: 3px;
+    border: 8px solid #222d32;
+    color: #fff;
+}
+
+.board .btn-board {
+    background-color: transparent;
+    border: 2px dashed #fff;
+    color: #fff;
+}
+
+div > .board {
+    padding: 10px 10px 10px 10px;
+}
+
+.board hr {
+    border-color: #fff;
 }

@@ -132,62 +132,7 @@
     </div>
 }
 
-@helper PostitCloseButtonJS()
-{
-    <text>
-        '<button type="button" class="close" data-dismiss="remove" aria-hidden="true"><i class="fa fa-map-pin"></i></button>'
-    </text>
-}
-
-@helper PostitRemoveLineJS()
-{
-    <text>
-        '<a class="remove-line" id="RemoveLine"><i class="fa fa-remove"></i></a>'
-    </text>
-}
-
-@helper PostitPlusButtonJS()
-{
-    <text>
-        '<button class="btn btn-flat btn-success" id="Plus" style="display:none">
-            ' +
-            '<i class="fa fa-plus"></i>' +
-            '
-        </button>'
-    </text>
-}
-
-@helper PostitCardUserStory()
-{
-    <text>
-        '<div class="col-lg-2">
-            ' +
-            '<div class="alert postit alert-dismissible">
-                ' +
-                '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-map-pin"></i></button>' +
-                '<p>Eu como</p>' +
-                '<div class="input-group">
-                    ' +
-                    '<input type="text" class="form-control" placeholder="ator..." id="TextActor">' +
-                    '<span class="input-group-btn">
-                        ' +
-                        '<button class="btn btn-flat" id="Send">
-                            ' +
-                            '<i class="fa fa-plus"></i>' +
-                            '
-                        </button>' +
-                        '
-                    </span>' +
-                    '
-                </div>' +
-                '
-            </div>' +
-            '
-        </div>'
-    </text>
-}
-
-@helper PostitExampleHTML()
+@helper PostitExampleHTML(string placeholder = "digite aqui...")
 {
     <div id="Example" style="display:none">
         <div id="Postit">
@@ -195,7 +140,7 @@
                 <div class="alert postit">
                     <div class="p"></div>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="eu como..." id="Text">
+                        <input type="text" class="form-control" placeholder="@placeholder" id="Text">
                         <span class="input-group-btn">
                             <button class="btn btn-flat" id="Send">
                                 <i class="fa fa-pencil"></i>
@@ -213,10 +158,42 @@
         </div>
         <div id="PlusPostit">
             <div class="col-lg-2">
-                <button id="AddPostit" class="btn btn-flat btn-success">
+                <button id="AddPostit" class="btn btn-flat btn-board">
                     <i class="fa fa-plus"></i>
                 </button>
             </div>
         </div>
     </div>
+}
+
+@helper CreatePostit(List<string> lines)
+{
+    if (lines.Count > 0)
+    {
+        <div class="col-lg-2 to-remove">
+            <div class="alert postit alert-dismissable">
+                <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
+                @foreach (var line in lines)
+                {
+                    <div class="p"><p>@line</p></div>
+                }
+            </div>
+        </div>
+    }
+}
+
+@helper CreatePostit(List<List<string>> postits)
+{
+    foreach (var lines in postits)
+    {
+        <div class="col-lg-2 to-remove">
+            <div class="alert postit alert-dismissable">
+                <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
+                @foreach (var line in lines)
+                {
+                    <div class="p"><p>@line</p></div>
+                }
+            </div>
+        </div>
+    }
 }

@@ -20,10 +20,12 @@ $('a[name="MenuItem"]').click(function () {
 });
 
 $(document).bind("ajaxSend", function () {
-    $("#Loading").show();
+    $("#Body").fadeOut();
+    $("#Loading").fadeIn();
 }).bind("ajaxComplete", function () {
     setTimeout(function () {
-        $("#Loading").hide();
+        $("#Loading").fadeOut();
+        $("#Body").fadeIn();
     }, 200);
 });
 
