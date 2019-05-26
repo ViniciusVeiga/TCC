@@ -38,3 +38,9 @@ function newPage(id, url) {
     });
 }
 
+// Quando apertar enter.
+$('.input-group .form-control').keypress(function (e) {
+    if (e.keyCode === 13) {
+        $('.input-group-btn button').click();
+    }
+});
