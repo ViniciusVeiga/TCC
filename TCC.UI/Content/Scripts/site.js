@@ -19,14 +19,18 @@ $('a[name="MenuItem"]').click(function () {
     $(this).parent().addClass('active');
 });
 
+$(document).ready(function () {
+    setTimeout(function () {
+        $('#LoadingInitial').fadeOut();
+    }, 2000);
+});
+
 $(document).bind("ajaxSend", function () {
-    $("#Body").fadeOut();
-    $("#Loading").fadeIn();
+    $("#Loading").show();
 }).bind("ajaxComplete", function () {
     setTimeout(function () {
-        $("#Loading").fadeOut();
-        $("#Body").fadeIn();
-    }, 200);
+        $("#Loading").hide();
+    }, 500);
 });
 
 function newPage(id, url) {

@@ -38,8 +38,24 @@ img.loading {
 
 .overlay.background-loading {
     background-color: #000;
-    opacity: 0.8;
     z-index: 1090;
+}
+
+.overlay.background-loading-start {
+    background-color: #222d32;
+    z-index: 1090;
+}
+
+.overlay.background-loading.opacity {
+    opacity: 0.8;
+}
+
+.overlay figcaption {
+    position: relative;
+    z-index: 2000;
+    text-align: center;
+    color: #fff;
+    margin-top: 35px;
 }
 
 pre {

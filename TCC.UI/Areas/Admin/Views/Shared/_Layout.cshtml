@@ -14,18 +14,21 @@
     @Styles.Render("~/Styles/Site")
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
-        @Html.Partial("_Header")
-        @Html.Partial("_Sidebar")
+    <div id="Body">
+        <div class="wrapper">
+            @Html.Partial("_Header")
+            @Html.Partial("_Sidebar")
 
-        @Helpers.LoadingPage()
+            @Helpers.LoadingPage()
 
-        <div id="Ajax_Update_Menu" class="content-wrapper">
-            @RenderBody()
+            <div id="Ajax_Update_Menu" class="content-wrapper">
+                @RenderBody()
+            </div>
+
+            <div class="main-footer">
+            </div>
         </div>
-
-        <div class="main-footer">
-        </div>
+        @Helpers.LoadingInitial()
 
         @Scripts.Render("~/Scripts/Base")
         @Scripts.Render("~/Scripts/AdminLTE")

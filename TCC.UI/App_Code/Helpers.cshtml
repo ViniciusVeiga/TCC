@@ -128,7 +128,21 @@
         <div class="overlay">
             <img class="loading" src="/Content/AdminLTE/img/loading.svg" alt="Loading Gif">
         </div>
-        <div class="overlay background-loading"></div>
+        <div class="overlay background-loading opacity"></div>
+    </div>
+}
+
+@helper LoadingInitial()
+{
+    <div id="LoadingInitial">
+        <figure class="overlay">
+            <img class="loading" src="/Content/AdminLTE/img/loading.svg" alt="Loading Gif">
+            <figcaption>
+                <h1>Easy Test</h1>
+                <h3>Teste em primeiro lugar</h3>
+            </figcaption>
+        </figure>
+        <div class="overlay background-loading-start"></div>
     </div>
 }
 

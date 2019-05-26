@@ -14,24 +14,27 @@
     @Styles.Render("~/Styles/Site")
     @Styles.Render("~/Styles/iCheck")
 </head>
-<body class="hold-transition skin-blue sidebar-mini" id="Body">
-    <div class="wrapper">
-        @Html.Partial("_Header")
-        @Html.Partial("_Sidebar")
+<body class="hold-transition skin-blue sidebar-mini">
+    <div id="Body">
+        <div class="wrapper">
+            @Helpers.LoadingPage()
 
-        @Helpers.LoadingPage()
+            @Html.Partial("_Header")
+            @Html.Partial("_Sidebar")
 
-        <div id="Ajax_Update_Menu" class="content-wrapper">
-            @RenderBody()
+            <div id="Ajax_Update_Menu" class="content-wrapper">
+                @RenderBody()
+            </div>
+
+            <div class="main-footer">
+            </div>
+
+            @Html.Partial("Login/_Login")
+            @Html.Partial("Login/_NewAccount")
+            @Html.Partial("Login/_Logoff")
         </div>
-
-        <div class="main-footer">
-        </div>
-
-        @Html.Partial("Login/_Login")
-        @Html.Partial("Login/_NewAccount")
-        @Html.Partial("Login/_Logoff")
     </div>
+    @Helpers.LoadingInitial()
 
     @Scripts.Render("~/Scripts/Base")
     @Scripts.Render("~/Scripts/AdminLTE")
