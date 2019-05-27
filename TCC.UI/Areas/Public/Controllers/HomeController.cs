@@ -2,7 +2,7 @@
 using TCC.BusinessLayer.Security;
 using TCC.UI.ViewsModels.Account;
 
-namespace TCC.UI.Areas.Learnboard.Controllers
+namespace TCC.UI.Areas.Public.Controllers
 {
     public class HomeController : Controller
     {

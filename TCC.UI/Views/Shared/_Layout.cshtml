@@ -1,0 +1,39 @@
+﻿@using TCC.UI.Helpers.Extensions
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Administrativa</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    @Styles.Render("~/Styles/Components")
+    @Styles.Render("~/Styles/AdminLTE")
+    @Styles.Render("~/Styles/DataTable")
+    @Styles.Render("~/Styles/Site")
+</head>
+<body class="skin-blue layout-top-nav">
+    <div id="Body">
+        <div class="wrapper">
+            @Html.Partial("_Header")
+
+            @Helpers.LoadingPage()
+
+            <div id="Ajax_Update_Menu" class="content-wrapper fixed">
+                @RenderBody()
+            </div>
+        </div>
+        @Helpers.LoadingInitial()
+
+        @Scripts.Render("~/Scripts/Base")
+        @Scripts.Render("~/Scripts/AdminLTE")
+        @Scripts.Render("~/Scripts/Site")
+
+        @this.WriteScriptBlocks()
+
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>
+

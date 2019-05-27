@@ -4,7 +4,7 @@ using TCC.UI.Extensions;
 using TCC.UI.Helpers.Attributes.Login;
 using TCC.UI.ViewsModels.Account;
 
-namespace TCC.UI.Areas.Learnboard.Controllers
+namespace TCC.UI.Areas.Public.Controllers
 {
     public class LoginController : LoginBaseController<ETUserPublic, VMLogin, VMNewAccount>
     {

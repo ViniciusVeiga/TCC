@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
 using TCC.UI.Helpers.Attributes.Login;
 
-namespace TCC.UI.Areas.Learnboard.Controllers
+namespace TCC.UI.Areas.Public.Controllers
 {
     [PermissionPublic]
     public class UserStoryController : Controller
