@@ -126,9 +126,10 @@
     <Compile Include="Areas\Admin\Controllers\TechnicalTutorialController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\ViewsModels\TechnicalTutorial\VMTechnicalTutorial.cs" />
-    <Compile Include="Controllers\AccessDeniedController.cs" />
-    <Compile Include="Controllers\UserStoryController.cs" />
-    <Compile Include="Controllers\TechnicalTutorialController.cs" />
+    <Compile Include="Areas\Learnboard\LearnboardAreaRegistration.cs" />
+    <Compile Include="Areas\Learnboard\Controllers\AccessDeniedController.cs" />
+    <Compile Include="Areas\Learnboard\Controllers\UserStoryController.cs" />
+    <Compile Include="Areas\Learnboard\Controllers\TechnicalTutorialController.cs" />
     <Compile Include="Extensions\AdminBaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -139,9 +140,9 @@
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenu.cs" />
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenuItem.cs" />
     <Compile Include="Areas\Admin\ViewsModels\Menu\VMMenuType.cs" />
-    <Compile Include="Controllers\ContentController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Areas\Learnboard\Controllers\ContentController.cs" />
+    <Compile Include="Areas\Learnboard\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Learnboard\Controllers\LoginController.cs" />
     <Compile Include="Extensions\LoginBaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -6553,6 +6554,7 @@
     <Content Include="Content\Prism\js\prism.js" />
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Item.cshtml" />
+    <Content Include="Areas\Learnboard\Views\web.config" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />
@@ -7088,27 +7090,28 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Views\Shared\Login\_Login.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Login\_NewAccount.cshtml" />
-    <Content Include="Views\Shared\Login\Scripts.cshtml" />
-    <Content Include="Views\Shared\Login\_Logoff.cshtml" />
-    <Content Include="Views\Shared\Toastr\_Toestr.cshtml" />
-    <Content Include="Views\Shared\_LayoutInternal.cshtml" />
-    <Content Include="Views\Content\Index.cshtml" />
-    <Content Include="Views\TechnicalTutorial\Index.cshtml" />
-    <Content Include="Views\UserStory\FirstStep.cshtml" />
-    <Content Include="Views\UserStory\SecondStep.cshtml" />
-    <Content Include="Views\UserStory\ThirdStep.cshtml" />
-    <Content Include="Views\AccessDenied\Index.cshtml" />
+    <Content Include="Areas\Learnboard\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Shared\_Header.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Shared\Login\_Login.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Shared\Login\_NewAccount.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Shared\Login\Scripts.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Shared\Login\_Logoff.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Shared\Toastr\_Toestr.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Shared\_LayoutInternal.cshtml" />
+    <Content Include="Areas\Learnboard\Views\Content\Index.cshtml" />
+    <Content Include="Areas\Learnboard\Views\TechnicalTutorial\Index.cshtml" />
+    <Content Include="Areas\Learnboard\Views\UserStory\FirstStep.cshtml" />
+    <Content Include="Areas\Learnboard\Views\UserStory\SecondStep.cshtml" />
+    <Content Include="Areas\Learnboard\Views\UserStory\ThirdStep.cshtml" />
+    <Content Include="Areas\Learnboard\Views\AccessDenied\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\LoginBase\" />
+    <Folder Include="Areas\Learnboard\Views\LoginBase\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
 
-namespace TCC.UI.Controllers
+namespace TCC.UI.Areas.Learnboard.Controllers
 {
     public class TechnicalTutorialController : Controller
     {

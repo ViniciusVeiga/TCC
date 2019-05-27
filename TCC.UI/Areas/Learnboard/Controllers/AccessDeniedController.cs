@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TCC.UI.Controllers
+namespace TCC.UI.Areas.Learnboard.Controllers
 {
     public class AccessDeniedController : Controller
     {
