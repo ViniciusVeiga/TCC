@@ -137,6 +137,7 @@ pre {
     border-radius: 3px;
     border: 8px solid #222d32;
     color: #fff;
+    padding: 10px;
 }
 
 .board .btn-board {
@@ -145,10 +146,11 @@ pre {
     color: #fff;
 }
 
-div > .board {
-    padding: 10px 10px 10px 10px;
-}
-
 .board hr {
     border-color: #fff;
+}
+
+.board .row {
+    margin-right: 0px;
+    margin-left: 0px;
 }

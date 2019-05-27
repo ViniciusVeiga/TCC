@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     var test = new List<List<string>>();
 }
 
@@ -24,23 +24,21 @@
         </div>
         <div class="box-body">
             <div class="board">
-                <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <h4>Segue o exemplo abaixo:</h4>
-                            <div class="to-remove">
-                                <div class="alert postit">
-                                    <p>Eu como << QUEM >></p>
-                                    <p>Quero << O QUÊ >></p>
-                                    <p>Para << POR QUÊ >></p>
-                                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <h4>Segue o exemplo abaixo:</h4>
+                        <div class="to-remove">
+                            <div class="alert postit">
+                                <p>Eu como << QUEM >></p>
+                                <p>Quero << O QUÊ >></p>
+                                <p>Para << POR QUÊ >></p>
                             </div>
                         </div>
                     </div>
-                    <hr />
-                    <div class="row" id="Append">
-                        @Helpers.CreatePostit(test)
-                    </div>
+                </div>
+                <hr />
+                <div class="row" id="Append">
+                    @Helpers.CreatePostit(test)
                 </div>
             </div>
         </div>
