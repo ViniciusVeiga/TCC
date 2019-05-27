@@ -126,6 +126,7 @@
     <Compile Include="Areas\Admin\Controllers\TechnicalTutorialController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\ViewsModels\TechnicalTutorial\VMTechnicalTutorial.cs" />
+    <Compile Include="Controllers\AccessDeniedController.cs" />
     <Compile Include="Controllers\UserStoryController.cs" />
     <Compile Include="Controllers\TechnicalTutorialController.cs" />
     <Compile Include="Extensions\AdminBaseController.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Attributes\Login\PermissionPublic.cs" />
     <Compile Include="Helpers\Attributes\Login\PermissionAdmin.cs" />
     <Compile Include="Helpers\Attributes\Login\NotLogged.cs" />
     <Compile Include="Helpers\Extensions\ViewPageExtensions.cs" />
@@ -7102,6 +7104,7 @@
     <Content Include="Views\UserStory\FirstStep.cshtml" />
     <Content Include="Views\UserStory\SecondStep.cshtml" />
     <Content Include="Views\UserStory\ThirdStep.cshtml" />
+    <Content Include="Views\AccessDenied\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
+using TCC.UI.Helpers.Attributes.Login;
 
 namespace TCC.UI.Controllers
 {
+    [PermissionPublic]
     public class UserStoryController : Controller
     {
         #region Etapa 1
