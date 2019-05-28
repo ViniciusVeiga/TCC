@@ -1,5 +1,15 @@
-﻿body {
-    font-family: auto;
+﻿@font-face {
+    font-family: 'Anivers';
+    /*src: url('webfont.eot');*/ /* IE9 Compat Modes */
+    src: /*url('webfont.eot?#iefix') format('embedded-opentype'),*/ /* IE6-IE8 */
+    /*url('webfont.woff2') format('woff2'),*/ /* Super Modern Browsers */
+    /*url('webfont.woff') format('woff'),*/ /* Pretty Modern Browsers */
+    url('../fonts/Anivers-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+    /*url('webfont.svg#svgFontName') format('svg');*/ /* Legacy iOS */
+}
+
+body {
+    font-family: 'Anivers', sans-serif;
 }
 
 .main-header .navbar-static-top .btn-top {
@@ -42,6 +52,7 @@ img.loading {
 }
 
 .overlay.background-loading-start {
+    position: fixed;
     background-color: #222d32;
     z-index: 1090;
 }
@@ -178,3 +189,67 @@ pre {
 .skin-blue .main-header .navbar .nav > li > a.skype:hover {
     background-color: #00aff0;
 }
+
+.wrapper.wrapper-fixed .home-content-wrapper {
+    position: fixed;
+    top: 0;
+    margin-top: 100px;
+    z-index: 90;
+    width: 100%;
+    height: 100%;
+    background-color: #222d32;
+}
+
+.wrapper.wrapper-fixed .main-header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.wrapper.wrapper-fixed .main-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #367fa9;
+    border: 0px;
+}
+
+.wrapper.wrapper-fixed .main-footer a {
+    color: #fff;
+}
+
+.wrapper.wrapper-fixed .main-footer i {
+    margin-left: 10px;
+}
+.wrapper.wrapper-lading-page {
+    z-index: 500;
+}
+
+ /*Hang 
+@keyframes hang {
+    50% {
+        transform: translateY(3px);
+    }
+
+    100% {
+        transform: translateY(6px);
+    }
+}
+
+.hang {
+    display: inline-block;
+    transition-duration: .5s;
+    transition-property: transform;
+    transform: translateY(6px);
+    animation-name: hang;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}*/

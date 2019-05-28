@@ -9,6 +9,7 @@ namespace TCC.Domain.Enums
     public enum ENMenu
     {
         Administrativo = 1,
-        Publico = 2
+        Publico = 2,
+        Home_Publico = 3
     }
 }

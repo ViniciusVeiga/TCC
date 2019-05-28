@@ -15,25 +15,24 @@
     @Styles.Render("~/Styles/iCheck")
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-    <div id="Body">
-        <div class="wrapper">
-            @Helpers.LoadingPage()
+    <div class="wrapper">
+        @Helpers.LoadingPage()
 
-            @Html.Partial("_Header")
-            @Html.Partial("_Sidebar")
+        @Html.Partial("_Header")
+        @Html.Partial("_Sidebar")
 
-            <div id="Ajax_Update_Menu" class="content-wrapper">
-                @RenderBody()
-            </div>
-
-            <div class="main-footer">
-            </div>
-
-            @Html.Partial("Login/_Login")
-            @Html.Partial("Login/_NewAccount")
-            @Html.Partial("Login/_Logoff")
+        <div id="Ajax_Update_Menu" class="content-wrapper">
+            @RenderBody()
         </div>
+
+        <div class="main-footer">
+        </div>
+
+        @Html.Partial("Login/_Login")
+        @Html.Partial("Login/_NewAccount")
+        @Html.Partial("Login/_Logoff")
     </div>
+
     @Helpers.LoadingInitial()
 
     @Scripts.Render("~/Scripts/Base")

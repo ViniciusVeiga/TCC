@@ -7124,6 +7124,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Toastr\css\toastr.less" />
     <Content Include="Content\Toastr\css\toastr.scss" />
+    <Content Include="fonts\ANIVERS-BOLD.OTF" />
+    <Content Include="fonts\Anivers-Regular.ttf" />
+    <Content Include="fonts\Anivers_Regular.otf" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

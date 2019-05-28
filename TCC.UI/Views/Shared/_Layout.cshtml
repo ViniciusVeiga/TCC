@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área Administrativa</title>
+    <title>Easy Test</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     @Styles.Render("~/Styles/Components")
@@ -14,26 +14,33 @@
     @Styles.Render("~/Styles/Site")
 </head>
 <body class="skin-blue layout-top-nav">
-    <div id="Body">
-        <div class="wrapper">
-            @Html.Partial("_Header")
+    <div class="wrapper wrapper-fixed">
+        @Html.Partial("_Header")
 
-            @Helpers.LoadingPage()
-
-            <div id="Ajax_Update_Menu" class="content-wrapper fixed">
-                @RenderBody()
-            </div>
-        </div>
-        @Helpers.LoadingInitial()
-
-        @Scripts.Render("~/Scripts/Base")
-        @Scripts.Render("~/Scripts/AdminLTE")
-        @Scripts.Render("~/Scripts/Site")
-
-        @this.WriteScriptBlocks()
-
-        @RenderSection("scripts", required: false)
+        @Helpers.ContentFixed()
+        @Helpers.Footer()
     </div>
+    <div class="wrapper wrapper-lading-page">
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <div class="main-footer">
+            <p>dsadsaasd</p>
+            <p>dsadsaasd</p>
+            <p>dsadsaasd</p>
+            <p>dsadsaasd</p>
+            <p>dsadsaasd</p>
+        </div>
+    </div>
+
+    @Scripts.Render("~/Scripts/Base")
+    @Scripts.Render("~/Scripts/AdminLTE")
+    @Scripts.Render("~/Scripts/Site")
+    @Helpers.ScriptLadingPage();
+
+    @this.WriteScriptBlocks()
+
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 

@@ -216,3 +216,36 @@
 {
     <li><a href="#" class="@name"><i class="fa fa-@name"></i></a></li>
 }
+
+@helper Footer()
+{
+    <div class="main-footer">
+        <a href="#" class="hang">Saiba Mais<i class="fa fa-hand-o-down"></i></a>
+    </div>
+}
+
+@helper ContentFixed()
+{
+    <div class="home-content-wrapper">
+        @*<div class="col-lg-6">
+            <img class="loading" src="/Content/AdminLTE/img/loading.svg" alt="Loading Gif">
+        </div>
+        <div class="col-lg-6">
+            <img class="loading" src="/Content/AdminLTE/img/loading.svg" alt="Loading Gif">
+        </div>*@
+    </div>
+}
+
+@helper ScriptLadingPage()
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.wrapper-lading-page').css('margin-top', $('.wrapper-fixed').height());
+
+            $(document).animate({
+                scrollTop: $('.wrapper-lading-page').height()
+            }, 2000);
+        });
+
+    </script>
+}
