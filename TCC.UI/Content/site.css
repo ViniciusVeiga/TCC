@@ -190,14 +190,14 @@ pre {
     background-color: #00aff0;
 }
 
-.wrapper.wrapper-fixed .home-content-wrapper {
+.wrapper.wrapper-fixed .content-wrapper-fixed {
     position: fixed;
     top: 0;
-    margin-top: 100px;
     z-index: 90;
     width: 100%;
     height: 100%;
     background-color: #222d32;
+    padding: 200px 0px;
 }
 
 .wrapper.wrapper-fixed .main-header{
@@ -231,25 +231,22 @@ pre {
     z-index: 500;
 }
 
- /*Hang 
-@keyframes hang {
-    50% {
-        transform: translateY(3px);
-    }
-
-    100% {
-        transform: translateY(6px);
-    }
+.start-learnboard {
+    color: #fff;
+    text-align: center;
 }
 
-.hang {
-    display: inline-block;
-    transition-duration: .5s;
-    transition-property: transform;
-    transform: translateY(6px);
-    animation-name: hang;
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}*/
+.start-learnboard a {
+    margin: 20px 0px;
+    font-size: 75px;
+    border: 7px dashed #fff;
+}
+
+.start-learnboard p {
+    font-size: 18px;
+}
+
+.start-learnboard h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+}

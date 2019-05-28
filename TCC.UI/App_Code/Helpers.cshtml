@@ -226,13 +226,17 @@
 
 @helper ContentFixed()
 {
-    <div class="home-content-wrapper">
-        @*<div class="col-lg-6">
-            <img class="loading" src="/Content/AdminLTE/img/loading.svg" alt="Loading Gif">
+    <div class="content-wrapper-fixed">
+        <div class="col-lg-6 start-learnboard">
+            <p>"Não sei testar..."</p>
+            <p>"Desenvolvedor não precisa testar..."</p>
+            <p>"Testar so é perda de tempo..."</p>
+            <h3>Chega de desculpas !!</h3>
+            <a href="/Learnboard" class="btn btn-outline">TESTE JÁ</a>
         </div>
         <div class="col-lg-6">
             <img class="loading" src="/Content/AdminLTE/img/loading.svg" alt="Loading Gif">
-        </div>*@
+        </div>
     </div>
 }
 
@@ -241,11 +245,20 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('.wrapper-lading-page').css('margin-top', $('.wrapper-fixed').height());
-
-            $(document).animate({
-                scrollTop: $('.wrapper-lading-page').height()
-            }, 2000);
+            defineHeaderColor();
         });
 
+        $(document).scroll(function () {
+            defineHeaderColor();
+        });
+
+        function defineHeaderColor() {
+            if ($(window).scrollTop() < $(window).height() - 100) {
+                $(".skin-blue .main-header .navbar").css("background-color", "transparent");
+            }
+            else {
+                $(".skin-blue .main-header .navbar").css("background-color", "#3c8dbc");
+            }
+        }
     </script>
 }
