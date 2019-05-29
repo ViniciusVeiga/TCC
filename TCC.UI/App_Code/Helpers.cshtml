@@ -234,8 +234,8 @@
             <h3>Chega de desculpas !!</h3>
             <a href="/Learnboard" class="btn btn-outline">TESTE JÁ</a>
         </div>
-        <div class="col-lg-6">
-            <img class="loading" src="/Content/AdminLTE/img/loading.svg" alt="Loading Gif">
+        <div class="col-lg-6 visible-lg-block">
+            <img class="wallpaper-lading-page" src="/Content/AdminLTE/img/wallpaper.svg" alt="Loading Gif">
         </div>
     </div>
 }
@@ -244,7 +244,8 @@
 {
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.wrapper-lading-page').css('margin-top', $('.wrapper-fixed').height());
+            $('.wrapper-lading-page').css('margin-top', $(window).height()); 
+
             defineHeaderColor();
         });
 
