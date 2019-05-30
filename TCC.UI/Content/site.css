@@ -227,8 +227,11 @@ pre {
 .wrapper.wrapper-fixed .main-footer i {
     margin-left: 10px;
 }
-.wrapper.wrapper-lading-page {
+
+.wrapper.wrapper-landing-page {
     z-index: 500;
+    position: absolute;
+    top: 100%;
 }
 
 .start-learnboard {
@@ -252,8 +255,7 @@ pre {
     font-weight: bold;
 }
 
-
-.wallpaper-lading-page {
+.wallpaper-fixed {
     position: relative;
     display: block;
     min-width: 130%;

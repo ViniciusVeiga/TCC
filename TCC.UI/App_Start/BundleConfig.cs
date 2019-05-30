@@ -31,7 +31,10 @@ namespace TCC.UI
                 "~/Content/Toastr/js/toastr.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/Site").Include(
-                "~/Content/Scripts/site.js"));
+                "~/Content/Scripts/custom-site.js"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/LandingPage").Include(
+                "~/Content/Scripts/custom-landing.page.js"));
 
             bundles.Add(new StyleBundle("~/Scripts/AdminLTE").Include(
                 "~/Content/AdminLTE/js/adminlte.js"));

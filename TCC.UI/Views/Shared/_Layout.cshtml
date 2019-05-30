@@ -20,7 +20,7 @@
         @Helpers.ContentFixed()
         @Helpers.Footer()
     </div>
-    <div class="wrapper wrapper-lading-page">
+    <div class="wrapper wrapper-landing-page">
         <div class="content-wrapper">
             @RenderBody()
         </div>
@@ -31,7 +31,7 @@
     @Scripts.Render("~/Scripts/Base")
     @Scripts.Render("~/Scripts/AdminLTE")
     @Scripts.Render("~/Scripts/Site")
-    @Helpers.ScriptLadingPage();
+    @Scripts.Render("~/Scripts/LandingPage")
 
     @this.WriteScriptBlocks()
 

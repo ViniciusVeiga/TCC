@@ -235,31 +235,7 @@
             <a href="/Learnboard" class="btn btn-outline">TESTE JÁ</a>
         </div>
         <div class="col-lg-6 visible-lg-block">
-            <img class="wallpaper-lading-page" src="/Content/AdminLTE/img/wallpaper.svg" alt="Loading Gif">
+            <img class="wallpaper-fixed" src="/Content/AdminLTE/img/wallpaper.svg" alt="Loading Gif">
         </div>
     </div>
-}
-
-@helper ScriptLadingPage()
-{
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.wrapper-lading-page').css('margin-top', $(window).height()); 
-
-            defineHeaderColor();
-        });
-
-        $(document).scroll(function () {
-            defineHeaderColor();
-        });
-
-        function defineHeaderColor() {
-            if ($(window).scrollTop() < $(window).height() - 100) {
-                $(".skin-blue .main-header .navbar").css("background-color", "transparent");
-            }
-            else {
-                $(".skin-blue .main-header .navbar").css("background-color", "#3c8dbc");
-            }
-        }
-    </script>
 }

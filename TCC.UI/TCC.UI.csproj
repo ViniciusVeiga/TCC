@@ -6562,6 +6562,7 @@
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Content\Scripts\jquery.validate-custom.js" />
+    <Content Include="Content\Scripts\custom-landing.page.js" />
     <Content Include="Content\site.css" />
     <Content Include="Content\Toastr\css\toastr.css" />
     <Content Include="Content\Toastr\css\toastr.min.css" />
@@ -7080,7 +7081,7 @@
     <Content Include="Content\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Scripts\modernizr-2.8.3.js" />
-    <Content Include="Content\Scripts\site.js" />
+    <Content Include="Content\Scripts\custom-site.js" />
     <Content Include="Content\Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Content\Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.slim.min.js" />
