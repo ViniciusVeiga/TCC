@@ -200,10 +200,21 @@ pre {
     /*padding: 200px 0px;*/
 }
 
-.wrapper.wrapper-fixed .main-header{
+.wrapper.wrapper-fixed .main-header {
     position: fixed;
     top: 0;
     width: 100%;
+}
+
+.skin-blue .main-header .navbar {
+    box-shadow: 0px 7px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.skin-blue .main-header .navbar.transparent {
+    background-color: transparent;
+    box-shadow: 0px 0px;
+    transition: all 0.3s ease;
 }
 
 .wrapper.wrapper-fixed .main-footer {
@@ -232,6 +243,8 @@ pre {
     z-index: 500;
     position: absolute;
     top: 100%;
+    left: 0;
+    right: 0;
 }
 
 .start-learnboard {
@@ -260,4 +273,22 @@ pre {
     display: block;
     min-width: 130%;
     max-width: 200%;
+}
+
+.small-box h3 {
+    font-size: 25px
+}
+
+.home-1 {
+    padding: 50px 15px;
+}
+
+.home-1 .content-header h2 {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.home-1 .content-header hr {
+    border-top: 1px solid #333;
 }
