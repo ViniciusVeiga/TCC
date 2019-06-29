@@ -22,7 +22,7 @@
         </form>
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Área Administrativa</li>
-            @foreach (var type in types)
+            @foreach (var type in types.OrderBy(i => i.Order))
             {
                 <li class="treeview">
                     <a href="#">
@@ -32,7 +32,7 @@
                         </span>
                     </a>       
                     <ul class="treeview-menu">
-                        @foreach (var item in itens.Where(i => i.IdMenuType == type.Id))
+                        @foreach (var item in itens.Where(i => i.IdMenuType == type.Id).OrderBy(i => i.Order))
                         {
 
                             <li>

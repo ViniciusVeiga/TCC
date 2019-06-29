@@ -297,7 +297,7 @@ pre {
 .wallpaper-fixed {
     position: relative;
     display: block;
-    width: 1250px;
+    width: 960px;
 }
 
 .small-box h3 {
@@ -319,7 +319,7 @@ pre {
 }
 
 .wallpaper-programmer {
-    width: 50%;
+    width: 45%;
     min-width: 275px;
 }
 
