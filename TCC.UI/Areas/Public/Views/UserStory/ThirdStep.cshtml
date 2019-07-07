@@ -1,5 +1,6 @@
 ﻿@{
     var test = new List<List<string>>();
+    var urlSave = "/UserStory/ThirdStep";
 }
 
 <div class="content-header">
@@ -8,7 +9,6 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "SecondStep", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Salvar", "ThirdStep", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-success" })
         @Ajax.ActionLink("Continuar", "ThirdStep", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
     </div>
 </div>
@@ -37,8 +37,14 @@
                     </div>
                 </div>
                 <hr />
+                <div class="row">
+                    <div class="col-lg-2 col-centered board-message" style="display: none;"></div>
+                </div>
                 <div class="row" id="Append">
                     @Helpers.CreatePostit(test)
+                </div>
+                <div class="bottom-board">
+                    <input id="BtnSave" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">
                 </div>
             </div>
         </div>
@@ -96,7 +102,7 @@
             $(this).closest('.to-remove').remove();
         });
 
-        $('#Append').on('click', '.remove-line', function() {
+        $('#Append').on('click', '.remove-line', function () {
             $(this).parent('p').remove();
             $('.postit:last p:last').append(eRemoveLinePostit);
 
@@ -125,6 +131,84 @@
                     input.attr("placeholder", "para...");
                     break;
             }
+        }
+
+        $('#BtnSave').click(function () {
+            var data = [];
+
+            var json = validations();
+
+            if (json.success != true) {
+                $('.board-message')
+                    .text(json.message)
+                    .fadeIn();
+
+                return null;
+            }
+
+            $('.postit.alert-dismissable', '#Append').each(function () {
+                var lines = [];
+                var length = $(this).find('p').length;
+
+                $(this).find('p').each(function () {
+                    lines.push($(this).text());
+                });
+
+                data.push(lines);            
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: '@urlSave',
+                data: {
+                    'Postits': data
+                },
+                dataType: "json",
+                success: function (data) {
+                    $('.board-message').text(data.message);
+                }
+            });
+        });
+
+        function validations() {
+            if ($('.postit', '#Append').length == 0)
+                return { success: false, message: 'Escreva pelo menos um card' };
+
+            var msg = 'Erro nos cards: '
+            var length = msg.length;
+
+            $('.postit', '#Append').each(function (index) {
+                index++;
+                var hasError;
+
+                $(this).find('p').each(function (i) {
+                    var error;
+                    var line = $(this).text().toLowerCase();
+
+                    switch (i) {
+                        case 0:
+                            error = line.startsWith('eu como') ? false : true;
+                            break;
+                        case 1:
+                            error = line.startsWith('quero') ? false : true;
+                            break;
+                        case 2:
+                            error = line.startsWith('para') ? false : true;
+                            break;
+                    }
+
+                    if (error == true)
+                        hasError = true;
+                });
+
+                if (hasError == true) 
+                    msg += index + ', ';
+            });
+
+            if (msg.length != length)
+                return { success: false, message: msg.substring(0, msg.length - 2) };
+
+            return { success: true };
         }
     </script>
 }

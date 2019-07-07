@@ -16,6 +16,11 @@ body {
     margin: 8px;
 }
 
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
 .login .modal-dialog {
     width: 400px;
 }
@@ -164,6 +169,20 @@ pre {
 .board .row {
     margin-right: 0px;
     margin-left: 0px;
+}
+
+.board .bottom-board {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.board .board-message {
+    border: 2px dashed #fff;
+    padding: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .skin-blue .main-header .navbar .nav > li > a {

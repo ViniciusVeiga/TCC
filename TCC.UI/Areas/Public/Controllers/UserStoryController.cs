@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
+using TCC.UI.Areas.Public.Views.ViewsModels.UserStory;
 using TCC.UI.Helpers.Attributes.Login;
 
 namespace TCC.UI.Areas.Public.Controllers
@@ -26,6 +27,12 @@ namespace TCC.UI.Areas.Public.Controllers
         #region Etapa 3
 
         public ActionResult ThirdStep() => View();
+
+        [HttpPost]
+        public ActionResult ThirdStep(VMThirdStep model)
+        {
+            return null;
+        }
 
         #endregion
     }

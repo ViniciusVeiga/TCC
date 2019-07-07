@@ -130,6 +130,7 @@
     <Compile Include="Areas\Public\Controllers\AccessDeniedController.cs" />
     <Compile Include="Areas\Public\Controllers\UserStoryController.cs" />
     <Compile Include="Areas\Public\Controllers\TechnicalTutorialController.cs" />
+    <Compile Include="Areas\Public\Views\ViewsModels\UserStory\VMThirdStep.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\AdminBaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
