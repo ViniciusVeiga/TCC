@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
 using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
@@ -7,7 +8,7 @@ using TCC.UI.Helpers.Toastrs;
 
 namespace TCC.UI.Extensions
 {
-    public class AdminBaseController<ET, VM> : Controller where ET : ETBase 
+    public class AdminBaseController<ET, VM> : Controller where ET : ETBase
     {
         #region Index
 
@@ -32,14 +33,18 @@ namespace TCC.UI.Extensions
         [HttpPost]
         public virtual ActionResult Item(VM model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (BLAdminBase<ET>.Save(HelpersMethods.CopyValues<VM, ET>(model)))
+                if (ModelState.IsValid)
                 {
+                    BLAdminBase<ET>.Save(HelpersMethods.CopyValues<VM, ET>(model));
+
                     this.AddToastMessage("Sucesso", "Salvo com sucesso.", ToastrType.Success);
                 }
-                else
-                    this.AddToastMessage("Erro", "Erro ao salvar.", ToastrType.Error);
+            }
+            catch (Exception)
+            {
+                this.AddToastMessage("Erro", "Erro ao salvar.", ToastrType.Error);
             }
 
             return RedirectToAction("Index");
@@ -51,12 +56,16 @@ namespace TCC.UI.Extensions
 
         public virtual ActionResult Delete(decimal id)
         {
-            if (BLAdminBase<ET>.Delete(id))
+            try
             {
+                BLAdminBase<ET>.Delete(id);
+
                 this.AddToastMessage("Sucesso", "Deletado com sucesso.", ToastrType.Success);
             }
-            else
+            catch (Exception)
+            {
                 this.AddToastMessage("Erro", "Erro ao deletar.", ToastrType.Error);
+            }
 
             return RedirectToAction("Index");
         }

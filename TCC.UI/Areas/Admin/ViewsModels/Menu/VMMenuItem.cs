@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TCC.UI.Areas.Admin.ViewsModels.Menu
 {
@@ -26,5 +27,9 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Menu
 
         [Display(Name = "Icone")]
         public string Icon { get; set; }
+
+        [Required(ErrorMessage = "Preencha esse campo.")]
+        [Display(Name = "Menu Pais")]
+        public List<decimal?> IdParents { get; set; }
     }
 }

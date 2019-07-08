@@ -81,6 +81,7 @@ namespace TCC.Entity.Context
             modelBuilder.Configurations.Add(new Maps.MPUserAdmin());
             modelBuilder.Configurations.Add(new Maps.MPMenu());
             modelBuilder.Configurations.Add(new Maps.MPMenuItem());
+            modelBuilder.Configurations.Add(new Maps.MPMenuParent());
             modelBuilder.Configurations.Add(new Maps.MPMenuType());
             modelBuilder.Configurations.Add(new Maps.MPContent());
             modelBuilder.Configurations.Add(new Maps.MPTechnicalTutorial());

@@ -3,7 +3,8 @@
 
 @{
     var title = "Menu Item Detalhe";
-    var types = (List<ETMenuType>)ViewBag.MenuTypes;
+    var types = ViewBag.MenuTypes;
+    var itens = ViewBag.MenuItens;
 }
 
 <div class="content-header">
@@ -60,6 +61,15 @@
                     @Html.LabelFor(m => m.IdMenuType)
                     @Html.DropDownListFor(m => m.IdMenuType,
                         new SelectList(types, "Id", "Title"),
+                        new { @class = "form-control" })
+                    <small>
+                        @Html.ValidationMessageFor(m => m.IdMenuType)
+                    </small>
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(m => m.IdParents)
+                    @Html.ListBoxFor(m => m.IdParents,
+                        new SelectList(itens, "Id", "Title"),
                         new { @class = "form-control" })
                     <small>
                         @Html.ValidationMessageFor(m => m.IdMenuType)

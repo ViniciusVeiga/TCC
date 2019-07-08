@@ -6,6 +6,7 @@ using TCC.UI.Areas.Admin.ViewsModels.Menu;
 using TCC.UI.Extensions;
 using TCC.UI.Helpers;
 using TCC.UI.Helpers.Attributes.Login;
+using TCC.UI.Helpers.Toastrs;
 
 namespace TCC.UI.Areas.Admin.Controllers
 {
@@ -32,6 +33,7 @@ namespace TCC.UI.Areas.Admin.Controllers
         public override ActionResult Item(decimal? id)
         {
             ViewBag.MenuTypes = BLMenuType.GetList(IdMenu);
+            ViewBag.MenuItens = BLMenuItem.GetList(IdMenu);
 
             return base.Item(id);
         }
@@ -39,11 +41,20 @@ namespace TCC.UI.Areas.Admin.Controllers
         [HttpPost]
         public override ActionResult Item(VMMenuItem model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                model.IdMenu = IdMenu;
+                if (ModelState.IsValid)
+                {
+                    model.IdMenu = IdMenu;
 
-                return base.Item(model);
+                    BLMenuItem.Save(HelpersMethods.CopyValues<VMMenuItem, ETMenuItem>(model));
+
+                    this.AddToastMessage("Sucesso", "Salvo com sucesso.", ToastrType.Success);
+                }
+            }
+            catch (Exception)
+            {
+                this.AddToastMessage("Erro", "Erro ao salvar.", ToastrType.Error);
             }
 
             return RedirectToAction("Index");

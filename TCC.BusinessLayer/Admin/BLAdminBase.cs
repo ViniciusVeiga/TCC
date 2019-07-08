@@ -27,9 +27,9 @@ namespace TCC.BusinessLayer.Admin
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return false;
+                throw;
             }
         }
 
@@ -47,7 +47,7 @@ namespace TCC.BusinessLayer.Admin
             }
             catch (Exception)
             {
-                return false;
+                throw;
             }
         }
 

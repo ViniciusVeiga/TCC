@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using TCC.Domain.Entities.Admin;
-using TCC.Domain.Entities.Public.Security;
 using TCC.Entity.CRUD;
-using static System.Web.HttpContext;
 
 namespace TCC.BusinessLayer.Admin
 {
@@ -16,6 +12,25 @@ namespace TCC.BusinessLayer.Admin
         public static List<ETMenuItem> GetList(decimal? id, bool active = true)
         {
             return CRUD<ETMenuItem>.FindAll(m => m.IdMenu == id && m.Active == active);
+        }
+
+        #endregion
+
+        #region Save
+
+        public static bool Save(ETMenuItem menuItem)
+        {
+            try
+            {
+                CRUD<ETMenuItem>.AddOrUpdate(menuItem);
+                BLMenuParent.Save(menuItem.IdParents, menuItem.Id);
+                
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         #endregion
