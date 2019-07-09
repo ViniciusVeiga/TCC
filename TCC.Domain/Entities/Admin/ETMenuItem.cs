@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TCC.Domain.Entities;
 using TCC.Domain.Interfaces;
 
@@ -12,7 +13,19 @@ namespace TCC.Domain.Entities.Admin
         public string Url { get; set; }
         public decimal? Order { get; set; }
         public string Icon { get; set; }
-        public virtual List<decimal?> IdParents { get; set; }
+
+        public virtual List<decimal?> IdParents
+        {
+            get
+            {
+                try
+                {
+                    return Parents.Select(x => x.IdMenuParent).ToList();
+                }
+                catch { return null; }
+            }
+        }
+
         public virtual List<ETMenuParent> Parents { get; set; }
     }
 

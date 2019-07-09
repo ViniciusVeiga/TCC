@@ -69,11 +69,8 @@
                 <div class="col-md-6 form-group">
                     @Html.LabelFor(m => m.IdParents)
                     @Html.ListBoxFor(m => m.IdParents,
-                        new SelectList(itens, "Id", "Title"),
+                        new MultiSelectList(itens, "Id", "Title"),
                         new { @class = "form-control" })
-                    <small>
-                        @Html.ValidationMessageFor(m => m.IdMenuType)
-                    </small>
                 </div>
             </div>
 

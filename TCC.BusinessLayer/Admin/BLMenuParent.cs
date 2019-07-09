@@ -13,14 +13,17 @@ namespace TCC.BusinessLayer.Admin
     {
         #region Save
 
-        public static bool Save(List<decimal?> idParents, decimal? idMenuItem)
+        public static bool Save(decimal? idMenuItem)
         {
             try
             {
-                foreach (var item in CRUD<ETMenuParent>.FindAll(p => p.IdMenuItem == idMenuItem))
+                var oldParents = CRUD<ETMenuParent>.FindAll(p => p.IdMenuItem == idMenuItem);
+                var newParents = Current.Request.Form.GetValues("IdParents").Select(p => decimal.Parse(p)).ToList();
+
+                foreach (var item in oldParents)
                     CRUD<ETMenuParent>.DeletePhysical(item);
 
-                foreach (var item in idParents)
+                foreach (var item in newParents)
                     CRUD<ETMenuParent>.Add(new ETMenuParent(idMenuItem, item));
 
                 return true;

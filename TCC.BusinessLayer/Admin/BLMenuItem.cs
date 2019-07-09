@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TCC.Domain.Entities.Admin;
 using TCC.Entity.CRUD;
 
@@ -23,7 +24,7 @@ namespace TCC.BusinessLayer.Admin
             try
             {
                 CRUD<ETMenuItem>.AddOrUpdate(menuItem);
-                BLMenuParent.Save(menuItem.IdParents, menuItem.Id);
+                BLMenuParent.Save(menuItem.Id);
                 
                 return true;
             }

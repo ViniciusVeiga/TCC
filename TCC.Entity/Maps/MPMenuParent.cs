@@ -7,7 +7,7 @@ namespace TCC.Entity.Maps
     {
         public MPMenuParent()
         {
-            ToTable("ADM_TCC_MENU_ITEM_X_MENU_PARENT");
+            ToTable("ADM_TCC_MENU_PARENT");
 
             Property(e => e.IdMenuItem)
                 .HasPrecision(18, 0)
@@ -19,9 +19,9 @@ namespace TCC.Entity.Maps
                 .IsRequired()
                 .HasColumnName("ID_MENU_PARENT_N");
 
-            HasRequired<ETMenuItem>(s => s.MenuItem)
-                .WithMany(g => g.Parents)
-                .HasForeignKey<decimal?>(s => s.IdMenuItem);
+            HasRequired(e => e.MenuItem)
+                .WithMany(e => e.Parents)
+                .HasForeignKey(e => e.IdMenuItem);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
 using TCC.Domain.Entities.Admin;
@@ -21,7 +23,7 @@ namespace TCC.UI.Areas.Admin.Controllers
         {
             IdMenu = !string.IsNullOrEmpty(Request.Form["id"]) ? Convert.ToDecimal(Request.Form["id"]) : (decimal?)null ?? IdMenu;
 
-            ViewBag.List = BLMenuItem.GetList(IdMenu);
+            ViewBag.List = HelpersMethods.CopyValues<ETMenuItem, VMMenuItem>(BLMenuItem.GetList(IdMenu));
 
             return View();
         }

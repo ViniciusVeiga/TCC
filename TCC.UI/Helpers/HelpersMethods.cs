@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
@@ -11,12 +12,12 @@ namespace TCC.UI.Helpers
         /// <summary>
         ///  Copia os valores de uma model para outra, os nomes das propriedades devem ser iguais.
         /// </summary>
-        public static T2 CopyValues<T, T2>(T modelOrigin)
+        public static Destiny CopyValues<Origin, Destiny>(Origin modelOrigin)
         {
-            T2 modelDestiny = (T2)Activator.CreateInstance(typeof(T2), new object[] { });
+            Destiny modelDestiny = (Destiny)Activator.CreateInstance(typeof(Destiny), new object[] { });
 
-            var propOrigin = typeof(T).GetProperties();
-            var propDestiny = typeof(T2).GetProperties();
+            var propOrigin = typeof(Origin).GetProperties();
+            var propDestiny = typeof(Destiny).GetProperties();
 
             foreach (var item in propOrigin)
             {
@@ -35,6 +36,19 @@ namespace TCC.UI.Helpers
             }
 
             return modelDestiny;
+        }
+
+        public static List<Destiny> CopyValues<Origin, Destiny>(List<Origin> listOrigin)
+        {
+            var listDestiny = new List<Destiny>();
+
+            foreach (var item in listOrigin)
+            {
+                var modelDestiny = CopyValues<Origin, Destiny>(item);
+                listDestiny.Add(modelDestiny);
+            }
+
+            return listDestiny;
         }
 
         #endregion

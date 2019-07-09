@@ -28,7 +28,6 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Menu
         [Display(Name = "Icone")]
         public string Icon { get; set; }
 
-        [Required(ErrorMessage = "Preencha esse campo.")]
         [Display(Name = "Menu Pais")]
         public List<decimal?> IdParents { get; set; }
     }
