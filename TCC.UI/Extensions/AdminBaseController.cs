@@ -14,7 +14,7 @@ namespace TCC.UI.Extensions
 
         public virtual ActionResult Index()
         {
-            ViewBag.List = BLAdminBase<ET>.GetList();
+            ViewBag.List = HelpersMethods.CopyValues<ET, VM>(BLAdminBase<ET>.GetList());
 
             return View();
         }
