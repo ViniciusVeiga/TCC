@@ -13,6 +13,7 @@ namespace TCC.Domain.Entities.Admin
         public string Url { get; set; }
         public decimal? Order { get; set; }
         public string Icon { get; set; }
+        public string Key { get; set; }
 
         public virtual List<decimal?> IdParents
         {

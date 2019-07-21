@@ -17,7 +17,7 @@ namespace TCC.BusinessLayer.Admin
 
         #endregion
 
-        #region Save
+        #region Salvar
 
         public static bool Save(ETMenuItem menuItem)
         {

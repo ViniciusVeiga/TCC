@@ -58,6 +58,7 @@
     <Compile Include="Maps\MPContent.cs" />
     <Compile Include="Maps\MPMenuType.cs" />
     <Compile Include="Maps\MPUserAdmin.cs" />
+    <Compile Include="Maps\MPUserPublicMenuItem.cs" />
     <Compile Include="Maps\MPUserPublic.cs" />
     <Compile Include="Maps\MPMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
