@@ -152,6 +152,7 @@
     <Compile Include="Helpers\Attributes\Login\PermissionPublic.cs" />
     <Compile Include="Helpers\Attributes\Login\PermissionAdmin.cs" />
     <Compile Include="Helpers\Attributes\Login\NotLogged.cs" />
+    <Compile Include="Helpers\Attributes\TutorialDynamic\CompleteTutorial.cs" />
     <Compile Include="Helpers\Attributes\TutorialDynamic\PermissionTutorialDynamic.cs" />
     <Compile Include="Helpers\Extensions\ViewPageExtensions.cs" />
     <Compile Include="Helpers\HelpersMethods.cs" />

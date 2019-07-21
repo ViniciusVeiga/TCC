@@ -5,6 +5,12 @@ namespace TCC.Domain.Entities.Public
 {
     public class ETUserPublicMenuItem : ETBase, IUserPublicMenuItem
     {
+        public ETUserPublicMenuItem(decimal? idUserPublic, decimal? idMenuItem)
+        {
+            IdUserPublic = idUserPublic;
+            IdMenuItem = idMenuItem;
+        }
+
         public decimal? IdUserPublic { get; set; }
         public decimal? IdMenuItem { get; set; }
     }

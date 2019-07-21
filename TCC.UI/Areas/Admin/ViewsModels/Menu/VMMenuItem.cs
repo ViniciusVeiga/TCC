@@ -30,5 +30,8 @@ namespace TCC.UI.Areas.Admin.ViewsModels.Menu
 
         [Display(Name = "Menu Pais")]
         public List<decimal?> IdParents { get; set; }
+
+        [Display(Name = "Chave")]
+        public string Key { get; set; }
     }
 }

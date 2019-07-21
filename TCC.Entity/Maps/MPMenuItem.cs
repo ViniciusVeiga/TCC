@@ -35,6 +35,10 @@ namespace TCC.Entity.Maps
                 .IsRequired()
                 .HasPrecision(18, 0)
                 .HasColumnName("ORDER_N");
+
+            Property(e => e.Key)
+                .HasMaxLength(100)
+                .HasColumnName("KEY_C");
         }
     }
 }

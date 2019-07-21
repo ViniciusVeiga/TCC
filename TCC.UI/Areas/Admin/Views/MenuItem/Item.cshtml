@@ -58,6 +58,11 @@
                     </small>
                 </div>
                 <div class="col-md-6 form-group">
+                    @Html.LabelFor(m => m.Key)
+                    @Html.TextBoxFor(m => m.Key, new { @class = "form-control" })
+                    <small>Exemplo de key: key_[[Nome do menu separado por _]]</small>
+                </div>
+                <div class="col-md-6 form-group">
                     @Html.LabelFor(m => m.IdMenuType)
                     @Html.DropDownListFor(m => m.IdMenuType,
                         new SelectList(types, "Id", "Title"),

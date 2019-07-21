@@ -5,17 +5,19 @@ using TCC.Domain.Entities.Public.Security;
 
 namespace TCC.UI.Helpers.Attributes.TutorialDynamic
 {
-    public class PermissionTutorialDynamic : ActionFilterAttribute
+    public class CompleteTutorial : ActionFilterAttribute
     {
         public string Key { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var permission = BLUserPublicMenuItem.HasPermissionOfTutorialDynamic(Key);
-
-            if (permission == true)
+            try
             {
-                filterContext.Result = new RedirectResult("../AccessDenied/");
+                BLUserPublicMenuItem.Save(Key);
+            }
+            catch (System.Exception)
+            {
+                filterContext.Result = new RedirectResult("../Error/");
             }
         }
     }

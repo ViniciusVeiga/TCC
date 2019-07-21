@@ -12,11 +12,11 @@ namespace TCC.Entity.Maps
 
             Property(e => e.IdUserPublic)
                 .IsRequired()
-                .HasColumnName("N_ID_USER_PUBLIC");
+                .HasColumnName("ID_USER_PUBLIC_N");
 
             Property(e => e.IdMenuItem)
                 .IsRequired()
-                .HasColumnName("N_ID_MENU_ITEM");
+                .HasColumnName("ID_MENU_ITEM_N");
         }
     }
 }

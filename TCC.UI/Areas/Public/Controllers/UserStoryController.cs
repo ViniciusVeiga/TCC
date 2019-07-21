@@ -30,6 +30,7 @@ namespace TCC.UI.Areas.Public.Controllers
         public ActionResult ThirdStep() => View();
 
         [HttpPost]
+        [CompleteTutorial(Key = "key_user_story")]
         public ActionResult ThirdStep(VMThirdStep model)
         {
             return null;
