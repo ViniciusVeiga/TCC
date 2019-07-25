@@ -6561,6 +6561,7 @@
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Item.cshtml" />
     <Content Include="Areas\Public\Views\web.config" />
+    <Content Include="Areas\Public\Views\UserStory\FinalStep.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />

@@ -35,5 +35,14 @@ namespace TCC.BusinessLayer.Admin
         }
 
         #endregion
+
+        #region Obter pela Chave
+
+        public static ETMenuItem GetByKey(string key)
+        {
+            return CRUD<ETMenuItem>.Find(i => i.Key == key);
+        }
+
+        #endregion
     }
 }

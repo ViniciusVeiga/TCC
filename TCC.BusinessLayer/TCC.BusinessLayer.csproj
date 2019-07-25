@@ -55,6 +55,7 @@
     <Compile Include="Admin\BLContent.cs" />
     <Compile Include="Admin\BLMenuIType.cs" />
     <Compile Include="Admin\BLMenuItem.cs" />
+    <Compile Include="Basic\BLConfiguration.cs" />
     <Compile Include="Basic\BLEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\BLEncrypt.cs" />

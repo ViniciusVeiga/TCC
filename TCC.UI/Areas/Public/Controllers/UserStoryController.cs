@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TCC.BusinessLayer.Admin;
 using TCC.BusinessLayer.Basic;
 using TCC.UI.Areas.Public.Views.ViewsModels.UserStory;
 using TCC.UI.Helpers.Attributes.Login;
@@ -35,6 +36,23 @@ namespace TCC.UI.Areas.Public.Controllers
         public ActionResult ThirdStep(VMThirdStep model)
         {
             return null;
+        }
+
+        #endregion
+
+        #region Etapa Final
+
+        public ActionResult FinalStep() => View();
+
+        #endregion
+
+        #region Próximo Tutorial
+
+        public ActionResult NextTutorial()
+        {
+            var id = BLMenuItem.GetByKey(BLConfiguration.Keys.BDD).Id;
+
+            return RedirectToAction("Index", "Content", id);
         }
 
         #endregion
