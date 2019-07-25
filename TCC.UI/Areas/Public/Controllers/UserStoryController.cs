@@ -52,7 +52,7 @@ namespace TCC.UI.Areas.Public.Controllers
         {
             var id = BLMenuItem.GetByKey(BLConfiguration.Keys.BDD).Id;
 
-            return RedirectToAction("Index", "Content", id);
+            return RedirectToAction("Index", "Content", new { id });
         }
 
         #endregion
