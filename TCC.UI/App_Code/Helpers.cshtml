@@ -38,7 +38,7 @@
     @:  {
     @:      data: '@campo',
     @:      render: function(data, type, row) {
-    @:          return '<a href="#" onclick="edit(' + row.Id + ')">' + data + '</a>';
+    @:          return '<a href="javascript:void(0);" onclick="edit(' + row.Id + ')">' + data + '</a>';
     @:      }
     @:  }
 }
@@ -47,7 +47,7 @@
 {
     @:  {
     @:      render: function(data, type, row) {
-    @:          return '<a href="#" onclick="@ajax\(' + row.Id + '\)"><span class="@icon"></span>@texto</a>';
+    @:          return '<a href="javascript:void(0);" onclick="@ajax\(' + row.Id + '\)"><span class="@icon"></span>@texto</a>';
     @:      }
     @:  }
 }
@@ -214,13 +214,13 @@
 
 @helper SocialMedias(string name)
 {
-    <li><a href="#" class="@name"><i class="fa fa-@name"></i></a></li>
+    <li><a href="javascript:void(0);" class="@name"><i class="fa fa-@name"></i></a></li>
 }
 
 @helper Footer()
 {
     <div class="main-footer">
-        <a href="#" id="KnowMore">Saiba Mais<i class="fa fa-hand-o-down"></i></a>
+        <a href="javascript:void(0);" id="KnowMore">Saiba Mais<i class="fa fa-hand-o-down"></i></a>
     </div>
 }
 
@@ -230,7 +230,7 @@
         <div class="col-lg-6 start-learnboard">
             <img class="wallpaper-programmer" src="/Content/AdminLTE/img/wallpaper-2.svg" alt="Loading Gif">
             <h3>Chega de desculpas !!</h3>
-            <a href="/Learnboard" class="btn btn-outline">TESTE JÁ</a>
+            <a href="/Learnboard" class="btn btn-outline btn-start-learnboard">TESTE JÁ</a>
         </div>
         <div class="col-lg-6 visible-lg-block">
             <img class="wallpaper-fixed" src="/Content/AdminLTE/img/wallpaper.svg" alt="Loading Gif">

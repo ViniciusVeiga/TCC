@@ -8,12 +8,8 @@
     /*url('webfont.svg#svgFontName') format('svg');*/ /* Legacy iOS */
 }
 
-body {
-    font-family: 'Anivers', sans-serif;
-}
-
-.main-header .navbar-static-top .btn-top {
-    margin: 8px;
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, .main-header .navbar-static-top .btn-top {
+    font-family: 'Anivers', sans-serif !important;
 }
 
 .login .modal-dialog {
@@ -279,10 +275,17 @@ pre {
     top: 15%;
 }
 
-.start-learnboard a {
+.start-learnboard .btn-start-learnboard {
     margin: 20px 0px;
-    font-size: 75px;
+    font-size: 72px;
     border: 7px dashed #fff;
+    transition: 0.4s;
+}
+
+.start-learnboard .btn-start-learnboard:hover {
+    transition: 0.4s;
+    font-size: 77px;
+    color: #fff;
 }
 
 .start-learnboard p {

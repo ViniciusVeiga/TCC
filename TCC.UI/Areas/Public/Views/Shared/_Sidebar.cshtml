@@ -25,7 +25,7 @@
             @foreach (var type in types.OrderBy(i => i.Order))
             {
                 <li class="treeview">
-                    <a href="#">
+                    <a href="javascript:void(0);">
                         <i class="@type.Icon"></i> <span>@type.Title</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
@@ -36,7 +36,7 @@
                         {
 
                             <li>
-                                <a name="MenuItem" href="#" onclick="newPage(@item.Id, '@(item.Url ?? urlContent)')"><span class="@item.Icon"></span>@item.Title</a>
+                                <a name="MenuItem" href="javascript:void(0);" onclick="newPage(@item.Id, '@(item.Url ?? urlContent)')"><span class="@item.Icon"></span>@item.Title</a>
                             </li>
                         }
                     </ul>
