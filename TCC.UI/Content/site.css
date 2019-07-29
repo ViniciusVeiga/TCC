@@ -186,8 +186,14 @@ pre {
 }
 
 .skin-blue .main-header .navbar .nav > li > a {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
+}
+
+@media (min-width: 1500px) {
+    .skin-blue .main-header .navbar .nav > li > a {
+        font-size: 16px;
+    }
 }
 
 .skin-blue .main-header .navbar .nav > li > a:hover {
@@ -326,7 +332,7 @@ pre {
     width: 960px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
     .wallpaper-fixed {
         width: 1250px;
     }
@@ -355,7 +361,7 @@ pre {
     min-width: 275px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
     .wallpaper-programmer {
         width: 50%;
     }
