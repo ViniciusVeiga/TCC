@@ -8,8 +8,8 @@
     /*url('webfont.svg#svgFontName') format('svg');*/ /* Legacy iOS */
 }
 
-body {
-    font-family: 'Anivers', sans-serif;
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, .main-header .navbar-static-top .btn-top {
+    font-family: 'Anivers', sans-serif !important;
 }
 
 .main-header .navbar-static-top .btn-top {
@@ -252,7 +252,7 @@ pre {
 }
 
 .skin-blue .main-header .navbar {
-    box-shadow: 0px 7px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -298,10 +298,17 @@ pre {
     top: 15%;
 }
 
-.start-learnboard a {
+.start-learnboard .btn-start-learnboard {
     margin: 20px 0px;
-    font-size: 75px;
+    font-size: 70px;
     border: 7px dashed #fff;
+    transition: 0.4s;
+}
+
+.start-learnboard .btn-start-learnboard:hover {
+    transition: 0.4s;
+    font-size: 72px;
+    color: #fff;
 }
 
 .start-learnboard p {
