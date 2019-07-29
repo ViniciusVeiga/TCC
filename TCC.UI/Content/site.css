@@ -229,7 +229,7 @@ pre {
 }
 
 .skin-blue .main-header .navbar {
-    box-shadow: 0px 7px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -277,14 +277,14 @@ pre {
 
 .start-learnboard .btn-start-learnboard {
     margin: 20px 0px;
-    font-size: 72px;
+    font-size: 70px;
     border: 7px dashed #fff;
     transition: 0.4s;
 }
 
 .start-learnboard .btn-start-learnboard:hover {
     transition: 0.4s;
-    font-size: 77px;
+    font-size: 72px;
     color: #fff;
 }
 
