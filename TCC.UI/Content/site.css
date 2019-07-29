@@ -319,6 +319,12 @@ pre {
     width: 960px;
 }
 
+@media (min-width: 1200px) {
+    .wallpaper-fixed {
+        width: 1250px;
+    }
+}
+
 .small-box h3 {
     font-size: 25px
 }
@@ -340,6 +346,12 @@ pre {
 .wallpaper-programmer {
     width: 45%;
     min-width: 275px;
+}
+
+@media (min-width: 1200px) {
+    .wallpaper-programmer {
+        width: 45%;
+    }
 }
 
 .navbar-brand {
