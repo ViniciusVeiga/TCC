@@ -43,6 +43,11 @@ namespace TCC.BusinessLayer.Admin
             return CRUD<ETMenuItem>.Find(i => i.Key == key);
         }
 
+        internal static object GetByKey()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

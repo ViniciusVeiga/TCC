@@ -36,23 +36,23 @@ namespace TCC.BusinessLayer.Admin
 
         #endregion
 
-        #region Existe Pais
+        #region Obtêm Pai
 
         /// <summary>
-        /// Verifica se menu contêm pais.
+        /// Obtêm pai.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static bool HasParent(decimal? id)
+        public static ETMenuItem GetParent(decimal? id)
         {
             try
             {
                 var menuItem = CRUD<ETMenuItem>.Find(i => i.Id == id);
 
                 if (menuItem.Parents.Count > 0)
-                    return true;
+                    return menuItem;
 
-                return false;
+                return null;
             }
             catch (Exception)
             {

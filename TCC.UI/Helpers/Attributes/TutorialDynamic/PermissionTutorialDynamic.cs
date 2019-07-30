@@ -1,6 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using System.Web.Routing;
 using TCC.BusinessLayer.Public;
 using TCC.BusinessLayer.Security;
+using TCC.Domain.Entities.Admin;
 using TCC.Domain.Entities.Public.Security;
 
 namespace TCC.UI.Helpers.Attributes.TutorialDynamic
@@ -11,11 +14,18 @@ namespace TCC.UI.Helpers.Attributes.TutorialDynamic
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var permission = BLUserPublicMenuItem.HasPermissionOfTutorialDynamic(Key);
+            var permission = BLUserPublicMenuItem.HasPermissionOfTutorialDynamic(Key, out List<ETMenuItem> remainingParents);
 
             if (permission == true)
             {
-                filterContext.Result = new RedirectResult("../AccessDenied/");
+                var values = new RouteValueDictionary(new
+                {
+                    action = "Index",
+                    controller = "PermissionTutorialDynamic",
+                    remainingParents
+                });
+
+                filterContext.Result = new RedirectToRouteResult(values);
             }
         }
     }

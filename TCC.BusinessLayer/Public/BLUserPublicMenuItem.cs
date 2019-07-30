@@ -25,23 +25,58 @@ namespace TCC.BusinessLayer.Public
         {
             try
             {
-                var user = BLUser<ETUserPublic>.GetLogged();
-                var menuItem = CRUD<ETMenuItem>.Find(m => m.Key == key);
-
-                if (BLMenuParent.HasParent(menuItem.Id))
-                {
-                    var has = CRUD<ETUserPublicMenuItem>.Find(p => p.IdUserPublic == user.Id && p.IdMenuItem == menuItem.Id);
-
-                    if (has != null)
-                        return true;
-                }
-
-                return false;
+                return HasPermissionOfTutorialDynamic(key, out List<ETMenuItem> menuItems);
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+
+        /// <summary>
+        /// Verifica se o usuário contêm permissão para realizar tutorial dinâmico e gera a lista de parents restantes.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static bool HasPermissionOfTutorialDynamic(string key, out List<ETMenuItem> remainingParents)
+        {
+            try
+            {
+                remainingParents = new List<ETMenuItem>(); 
+                var has = false;
+                var menuItem = BLMenuItem.GetByKey(key);
+
+                if (menuItem.Parents != null)
+                {
+                    foreach (var item in menuItem.Parents)
+                    {
+                        var historic = GetHistoric(item.Id);
+                            
+                        if (historic != null)
+                            has = true;
+                        else
+                            remainingParents.Add(CRUD<ETMenuItem>.Find(historic.IdMenuItem.GetValueOrDefault(0)));
+                    }
+                }
+
+                return has;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Obter Histórico
+
+        private static ETUserPublicMenuItem GetHistoric(decimal? id)
+        {
+            var user = BLUser<ETUserPublic>.GetLogged();
+
+            return CRUD<ETUserPublicMenuItem>.Find(p => p.IdUserPublic == user.Id && p.IdMenuItem == id);
         }
 
         #endregion

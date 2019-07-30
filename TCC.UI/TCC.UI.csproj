@@ -126,6 +126,7 @@
     <Compile Include="Areas\Admin\Controllers\TechnicalTutorialController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\ViewsModels\TechnicalTutorial\VMTechnicalTutorial.cs" />
+    <Compile Include="Areas\Public\Controllers\PermissionTutorialDynamicController.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Areas\Public\Controllers\AccessDeniedController.cs" />
     <Compile Include="Areas\Public\Controllers\UserStoryController.cs" />
@@ -6562,6 +6563,7 @@
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Item.cshtml" />
     <Content Include="Areas\Public\Views\web.config" />
     <Content Include="Areas\Public\Views\UserStory\FinalStep.cshtml" />
+    <Content Include="Areas\Public\Views\PermissionTutorialDynamic\Index.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />
@@ -7183,7 +7185,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57353</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61256/</IISUrl>
+          <IISUrl>http://localhost:55555/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
