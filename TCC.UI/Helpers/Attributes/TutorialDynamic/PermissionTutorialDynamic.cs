@@ -14,18 +14,18 @@ namespace TCC.UI.Helpers.Attributes.TutorialDynamic
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var nopermission = BLUserPublicMenuItem.HasPermissionOfTutorialDynamic(Key, out List<ETMenuItem> remainingParents);
+            var permission = BLUserPublicMenuItem.HasPermissionOfTutorialDynamic(Key, out List<ETMenuItem> remainingParents);
 
-            if (nopermission == true)
+            if (!permission)
             {
-                var values = new RouteValueDictionary(new
-                {
-                    action = "Index",
-                    controller = "PermissionTutorialDynamic",
-                    remainingParents
-                });
-
-                filterContext.Result = new RedirectToRouteResult(values);
+                filterContext.Controller.ViewBag.RemainingParents = remainingParents;
+                filterContext.Result = new RedirectToRouteResult(
+                    new RouteValueDictionary(new
+                    {
+                        action = "Index",
+                        controller = "PermissionTutorialDynamic",
+                    }
+                ));
             }
         }
     }

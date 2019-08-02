@@ -127,6 +127,7 @@
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\ViewsModels\TechnicalTutorial\VMTechnicalTutorial.cs" />
     <Compile Include="Areas\Public\Controllers\PermissionTutorialDynamicController.cs" />
+    <Compile Include="Areas\Public\Controllers\BDDController.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Areas\Public\Controllers\AccessDeniedController.cs" />
     <Compile Include="Areas\Public\Controllers\UserStoryController.cs" />

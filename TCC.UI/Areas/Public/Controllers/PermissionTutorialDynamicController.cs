@@ -9,6 +9,11 @@ namespace TCC.UI.Areas.Public.Controllers
 {
     public class PermissionTutorialDynamicController : Controller
     {
-        public ActionResult Index(List<ETMenuItem> model) => View(model);
+        public ActionResult Index(List<ETMenuItem> model)
+        {
+            var variable = ViewBag.RemainingParents;
+
+            return View();
+        }
     }
 }

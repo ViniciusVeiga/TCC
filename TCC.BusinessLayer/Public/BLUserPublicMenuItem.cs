@@ -52,13 +52,16 @@ namespace TCC.BusinessLayer.Public
                     foreach (var item in menuItem.Parents)
                     {
                         var historic = GetHistoric(item.Id);
-                            
-                        if (historic != null)
-                            has = true;
-                        else
-                            remainingParents.Add(CRUD<ETMenuItem>.Find(historic.IdMenuItem.GetValueOrDefault(0)));
+
+                        if (historic == null)
+                            remainingParents.Add(CRUD<ETMenuItem>.Find(item.IdMenuItem.GetValueOrDefault(0)));
                     }
+
+                    if (remainingParents.Count < 0)
+                        has = true;
                 }
+                else
+                    has = true;
 
                 return has;
             }
