@@ -14,7 +14,7 @@ namespace TCC.UI.Helpers.Attributes.TutorialDynamic
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var permission = BLUserPublicMenuItem.HasPermissionOfTutorialDynamic(Key, out List<ETMenuItem> remainingParents);
+            var permission = BLUserPublicMenuItem.HasPermissionOfTutorialDynamic(Key);
 
             if (!permission)
             {
