@@ -18,12 +18,12 @@ namespace TCC.UI.Helpers.Attributes.TutorialDynamic
 
             if (!permission)
             {
-                filterContext.Controller.ViewBag.RemainingParents = remainingParents;
                 filterContext.Result = new RedirectToRouteResult(
                     new RouteValueDictionary(new
                     {
                         action = "Index",
                         controller = "PermissionTutorialDynamic",
+                        key = Key
                     }
                 ));
             }

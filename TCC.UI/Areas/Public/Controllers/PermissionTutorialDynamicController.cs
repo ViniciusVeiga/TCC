@@ -9,11 +9,11 @@ namespace TCC.UI.Areas.Public.Controllers
 {
     public class PermissionTutorialDynamicController : Controller
     {
-        public ActionResult Index(List<ETMenuItem> model)
+        public ActionResult Index(string key)
         {
-            var variable = ViewBag.RemainingParents;
+            var model = BLUserPublicMenuItem.FindRemainingParents(key);
 
-            return View();
+            return View(model);
         }
     }
 }

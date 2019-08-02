@@ -14,6 +14,32 @@ namespace TCC.BusinessLayer.Public
 {
     public class BLUserPublicMenuItem
     {
+        #region Listar Tutoriais Faltantes
+
+        /// <summary>
+        /// Lista tutoriais dinâmicos faltantes.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static List<ETMenuItem> FindRemainingParents(string key)
+        {
+            try
+            {
+                var menuItem = BLMenuItem.GetByKey(key);
+
+                return menuItem.Parents
+                    .Select(i => CRUD<ETMenuItem>.Find(i.IdMenuParent.GetValueOrDefault(0)))
+                    .Where(i => GetHistoric(i.Id) != null)
+                    .ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
         #region Usuário Permissão Tutorial Dinâmico
 
         /// <summary>
@@ -49,13 +75,7 @@ namespace TCC.BusinessLayer.Public
 
                 if (menuItem.Parents != null)
                 {
-                    foreach (var item in menuItem.Parents)
-                    {
-                        var historic = GetHistoric(item.Id);
-
-                        if (historic == null)
-                            remainingParents.Add(CRUD<ETMenuItem>.Find(item.IdMenuItem.GetValueOrDefault(0)));
-                    }
+                    remainingParents = FindRemainingParents(key);
 
                     if (remainingParents.Count < 0)
                         has = true;
