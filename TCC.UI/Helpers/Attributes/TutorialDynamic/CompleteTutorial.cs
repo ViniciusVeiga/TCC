@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using TCC.BusinessLayer.Public;
 using TCC.BusinessLayer.Security;
 using TCC.Domain.Entities.Public.Security;
@@ -15,7 +16,7 @@ namespace TCC.UI.Helpers.Attributes.TutorialDynamic
             {
                 BLUserPublicMenuItem.Save(Key);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 filterContext.Result = new RedirectResult("../Error/");
             }

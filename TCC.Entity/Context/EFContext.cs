@@ -6,6 +6,7 @@ using TCC.Domain.Entities.Admin;
 using TCC.Domain.Entities;
 using TCC.Domain.Entities.Public.Security;
 using TCC.Domain.Entities.Admin.Security;
+using TCC.Domain.Entities.Public;
 
 namespace TCC.Entity.Context
 {
@@ -22,6 +23,7 @@ namespace TCC.Entity.Context
         public virtual DbSet<ETMenuType> MenusTypes { get; set; }
         public virtual DbSet<ETContent> Contents { get; set; }
         public virtual DbSet<ETTechnicalTutorial> TechnicalTutorials { get; set; }
+        public virtual DbSet<ETUserPublicMenuItem> UserPublicMenuItens { get; set; }
 
         #endregion
 
@@ -85,6 +87,7 @@ namespace TCC.Entity.Context
             modelBuilder.Configurations.Add(new Maps.MPMenuType());
             modelBuilder.Configurations.Add(new Maps.MPContent());
             modelBuilder.Configurations.Add(new Maps.MPTechnicalTutorial());
+            modelBuilder.Configurations.Add(new Maps.MPUserPublicMenuItem());
 
             #endregion
 

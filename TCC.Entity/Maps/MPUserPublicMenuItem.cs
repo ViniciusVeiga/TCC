@@ -8,7 +8,7 @@ namespace TCC.Entity.Maps
     {
         public MPUserPublicMenuItem()
         {
-            ToTable("PUC_TCC_USER_PUBLIC_MENU_ITEM");
+            ToTable("PUB_TCC_USER_PUBLIC_MENU_ITEM");
 
             Property(e => e.IdUserPublic)
                 .IsRequired()

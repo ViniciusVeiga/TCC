@@ -12,11 +12,11 @@ using TCC.UI.Helpers.Attributes.TutorialDynamic;
 namespace TCC.UI.Areas.Public.Controllers
 {
     [PermissionPublic]
-    [PermissionTutorialDynamic(Key = BLConfiguration.Keys.UserStory)]
     public class UserStoryController : Controller
     {
         #region Etapa 1
 
+        [PermissionTutorialDynamic(Key = BLConfiguration.Keys.UserStory)]
         public ActionResult Index() => View("FirstStep");
 
         #endregion

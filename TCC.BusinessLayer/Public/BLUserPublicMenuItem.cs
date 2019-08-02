@@ -89,14 +89,9 @@ namespace TCC.BusinessLayer.Public
             {
                 var user = BLUser<ETUserPublic>.GetLogged();
                 var menuItem = CRUD<ETMenuItem>.Find(m => m.Key == key);
-                var exist = CRUD<ETUserPublicMenuItem>.Find(i => i.IdUserPublic == user.Id && i.IdMenuItem == menuItem.Id) != null;
+                var model = new ETUserPublicMenuItem(user.Id, menuItem.Id);
 
-                if (!exist)
-                {
-                    var model = new ETUserPublicMenuItem(user.Id, menuItem.Id);
-
-                    CRUD<ETUserPublicMenuItem>.AddOrUpdate(model);
-                }
+                CRUD<ETUserPublicMenuItem>.AddOrUpdate(model);           
             }
             catch (Exception)
             {
