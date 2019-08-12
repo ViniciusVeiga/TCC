@@ -1,2 +1,12 @@
 ﻿
-@Html.Partial("FirstStep")
+@for (int i = 0; ; i++)
+{
+    try
+    {
+        Html.RenderPartial($"Page_{i}");
+    }
+    catch (Exception)
+    {
+        break;
+    }
+}
