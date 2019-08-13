@@ -29,7 +29,7 @@ namespace TCC.BusinessLayer.Public
 
                 return menuItem.Parents
                     .Select(i => CRUD<ETMenuItem>.Find(i.IdMenuParent.GetValueOrDefault(0)))
-                    .Where(i => GetHistoric(i.Id) != null)
+                    .Where(i => GetHistoric(i.Id) == null)
                     .ToList();
             }
             catch (Exception)
@@ -99,7 +99,9 @@ namespace TCC.BusinessLayer.Public
         {
             var user = BLUser<ETUserPublic>.GetLogged();
 
-            return CRUD<ETUserPublicMenuItem>.Find(p => p.IdUserPublic == user.Id && p.IdMenuItem == id);
+            var x = CRUD<ETUserPublicMenuItem>.Find(p => p.IdUserPublic == user.Id && p.IdMenuItem == id);
+
+            return x;
         }
 
         #endregion

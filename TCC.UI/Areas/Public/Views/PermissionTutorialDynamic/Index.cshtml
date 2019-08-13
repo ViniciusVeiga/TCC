@@ -1,11 +1,5 @@
 ﻿@model List<TCC.Domain.Entities.Admin.ETMenuItem>
 
-<style>
-    .error-page p {
-        font-size: 16px;
-    }
-</style>
-
 <div class="content-header">
 </div>
 <div class="content">
@@ -14,16 +8,15 @@
 
         <div class="error-content">
             <h2><strong>Oops! Espera um pouco...</strong></h2>
-            <p>
-                Para fazer esse tutorial, você precisa completar os tutoriais abaixo:
-                @foreach (var item in Model)
-                {
-                    <a>@item.Title;</a>
-                }
-            </p>
-            <p>
-                E seja <strong>bem-vindo</strong>.
-            </p>
+            <h4>
+                Para fazer esse tutorial, você precisa completar os tutoriais listados abaixo:
+            </h4>
+            @foreach (var item in Model)
+            {
+                <p>
+                    <a href="javascript:void(0);" onclick="newPage(@item.Id, 'Learnboard/Content/Index')">@item.Title</a>
+                </p>
+            }
         </div>
     </div>
 </div>
