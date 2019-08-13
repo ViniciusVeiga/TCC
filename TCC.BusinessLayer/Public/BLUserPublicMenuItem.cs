@@ -73,7 +73,7 @@ namespace TCC.BusinessLayer.Public
                 var has = false;
                 var menuItem = BLMenuItem.GetByKey(key);
 
-                if (menuItem.Parents != null)
+                if (menuItem.Parents.Count > 0)
                 {
                     remainingParents = FindRemainingParents(key);
 
