@@ -45,11 +45,9 @@ namespace TCC.UI.Areas.Public.Controllers
 
         [HttpPost]
         [CompleteTutorial(Key = Key)]
-        public ActionResult SaveCards(VMCard model)
+        public ActionResult SaveCards(List<VMCard> model)
         {
-            model.IdMenuItem = IdMenuItem;
-
-            if (BLCard.Save(HelpersMethods.CopyValues<VMCard, ETCard>(model)))
+            if (BLCard.Save(HelpersMethods.CopyValues<VMCard, ETCard>(model), IdMenuItem))
             {
                 this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
             }

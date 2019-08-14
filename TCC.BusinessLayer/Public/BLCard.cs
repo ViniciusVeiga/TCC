@@ -12,10 +12,31 @@ namespace TCC.BusinessLayer.Public
 {
     public class BLCard
     {
-        public static bool Save(ETCard card)
+        #region Salvar
+
+        public static bool Save(List<ETCard> cards, decimal? idMenuItem)
         {
-            throw new NotImplementedException();
+            try
+            {
+                foreach (var card in cards)
+                {
+                    BLCardLine.Save(card.CardLines);
+
+                    card.IdMenuItem = idMenuItem;
+                    CRUD<ETCard>.AddOrUpdate(card);
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+
+        #endregion
+
+        #region Listar
 
         public static object GetList(decimal? idMenuItem)
         {
@@ -30,5 +51,7 @@ namespace TCC.BusinessLayer.Public
                 throw;
             }
         }
+
+        #endregion
     }
 }
