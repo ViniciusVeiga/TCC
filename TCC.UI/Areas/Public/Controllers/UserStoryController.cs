@@ -5,36 +5,57 @@ using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
 using TCC.BusinessLayer.Basic;
+using TCC.BusinessLayer.Public;
+using TCC.Domain.Entities.Public;
 using TCC.UI.Areas.Public.Views.ViewsModels.UserStory;
+using TCC.UI.Helpers;
 using TCC.UI.Helpers.Attributes.Login;
 using TCC.UI.Helpers.Attributes.TutorialDynamic;
+using TCC.UI.Helpers.Toastrs;
 
 namespace TCC.UI.Areas.Public.Controllers
 {
     [PermissionPublic]
     public class UserStoryController : Controller
     {
-        #region Etapa 1
+        public const string Key = BLConfiguration.Keys.UserStory;
+        public static decimal? IdMenuItem = IdMenuItem.GetValueOrDefault((decimal)BLMenuItem.GetByKey(Key).Id);
 
-        [PermissionTutorialDynamic(Key = BLConfiguration.Keys.UserStory)]
+        #region Etapa 0
+
+        [PermissionTutorialDynamic(Key = Key)]
         public ActionResult Index() => View("Page_0");
 
         #endregion
 
-        #region Etapa 2
+        #region Etapa 1
 
         public ActionResult Page_1() => View();
 
         #endregion
 
-        #region Etapa 3
+        #region Etapa 2
 
-        public ActionResult Page_2() => View();
+        public ActionResult Page_2()
+        {
+            var model = BLCard.GetList(IdMenuItem);
+
+            return View();
+        }
 
         [HttpPost]
-        [CompleteTutorial(Key = BLConfiguration.Keys.UserStory)]
-        public ActionResult SaveUserStory(VMThirdStep model)
+        [CompleteTutorial(Key = Key)]
+        public ActionResult SaveCards(VMCard model)
         {
+            model.IdMenuItem = IdMenuItem;
+
+            if (BLCard.Save(HelpersMethods.CopyValues<VMCard, ETCard>(model)))
+            {
+                this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
+            }
+            else
+                this.AddToastMessage("Erro", "Erro ao salvar, favor tentar novamente", ToastrType.Error);
+
             return null;
         }
 
