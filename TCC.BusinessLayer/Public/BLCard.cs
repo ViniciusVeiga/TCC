@@ -18,6 +18,9 @@ namespace TCC.BusinessLayer.Public
         {
             try
             {
+                GetList(idMenuItem)
+                    .ForEach(i => CRUD<ETCard>.DeletePhysical(i)); // Deletando os cards antigos
+
                 foreach (var card in cards)
                 {
                     BLCardLine.Save(card.CardLines);
@@ -38,13 +41,13 @@ namespace TCC.BusinessLayer.Public
 
         #region Listar
 
-        public static object GetList(decimal? idMenuItem)
+        public static List<ETCard> GetList(decimal? idMenuItem)
         {
             try
             {
                 var user = BLUser<ETUserPublic>.GetLogged();
 
-                return CRUD<ETCard>.Find(i => i.IdUserPublic == user.Id && i.IdMenuItem == idMenuItem);
+                return CRUD<ETCard>.FindAll(i => i.IdUserPublic == user.Id && i.IdMenuItem == idMenuItem);
             }
             catch (Exception)
             {
