@@ -6563,7 +6563,7 @@
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Item.cshtml" />
     <Content Include="Areas\Public\Views\web.config" />
-    <Content Include="Areas\Public\Views\UserStory\FinalStep.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\Page_3.cshtml" />
     <Content Include="Areas\Public\Views\PermissionTutorialDynamic\Index.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
@@ -7114,9 +7114,9 @@
     <Content Include="Areas\Public\Views\Shared\_LayoutInternal.cshtml" />
     <Content Include="Areas\Public\Views\Content\Index.cshtml" />
     <Content Include="Areas\Public\Views\TechnicalTutorial\Index.cshtml" />
-    <Content Include="Areas\Public\Views\UserStory\FirstStep.cshtml" />
-    <Content Include="Areas\Public\Views\UserStory\SecondStep.cshtml" />
-    <Content Include="Areas\Public\Views\UserStory\ThirdStep.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\Page_0.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\Page_1.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\Page_2.cshtml" />
     <Content Include="Areas\Public\Views\AccessDenied\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

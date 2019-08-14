@@ -17,23 +17,23 @@ namespace TCC.UI.Areas.Public.Controllers
         #region Etapa 1
 
         [PermissionTutorialDynamic(Key = BLConfiguration.Keys.UserStory)]
-        public ActionResult Index() => View("FirstStep");
+        public ActionResult Index() => View("Page_0");
 
         #endregion
 
         #region Etapa 2
 
-        public ActionResult SecondStep() => View();
+        public ActionResult Page_1() => View();
 
         #endregion
 
         #region Etapa 3
 
-        public ActionResult ThirdStep() => View();
+        public ActionResult Page_2() => View();
 
         [HttpPost]
         [CompleteTutorial(Key = BLConfiguration.Keys.UserStory)]
-        public ActionResult ThirdStep(VMThirdStep model)
+        public ActionResult SaveUserStory(VMThirdStep model)
         {
             return null;
         }
@@ -42,7 +42,7 @@ namespace TCC.UI.Areas.Public.Controllers
 
         #region Etapa Final
 
-        public ActionResult FinalStep() => View();
+        public ActionResult Page_3() => View();
 
         #endregion
 
