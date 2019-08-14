@@ -99,9 +99,7 @@ namespace TCC.BusinessLayer.Public
         {
             var user = BLUser<ETUserPublic>.GetLogged();
 
-            var x = CRUD<ETUserPublicMenuItem>.Find(p => p.IdUserPublic == user.Id && p.IdMenuItem == id);
-
-            return x;
+            return CRUD<ETUserPublicMenuItem>.Find(p => p.IdUserPublic == user.Id && p.IdMenuItem == id);
         }
 
         #endregion
