@@ -123,8 +123,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProjectController.cs" />
     <Compile Include="Areas\Admin\Controllers\TechnicalTutorialController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\ViewsModels\Project\VMProject.cs" />
     <Compile Include="Areas\Admin\ViewsModels\TechnicalTutorial\VMTechnicalTutorial.cs" />
     <Compile Include="Areas\Public\Controllers\PermissionTutorialDynamicController.cs" />
     <Compile Include="Areas\Public\Controllers\BDDController.cs" />
@@ -6566,6 +6568,9 @@
     <Content Include="Areas\Public\Views\web.config" />
     <Content Include="Areas\Public\Views\UserStory\Page_3.cshtml" />
     <Content Include="Areas\Public\Views\PermissionTutorialDynamic\Index.cshtml" />
+    <Content Include="Areas\Public\Views\BDD\Page_0.cshtml" />
+    <Content Include="Areas\Admin\Views\Project\Item.cshtml" />
+    <Content Include="Areas\Admin\Views\Project\Index.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />
@@ -7127,7 +7132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Public\Views\LoginBase\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

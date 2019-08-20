@@ -1,0 +1,64 @@
+﻿@using TCC.UI.Areas.Admin.ViewsModels.Project
+@model VMProject
+
+@{
+    var title = "Conteúdo";
+
+    var urlEdit = "/Admin/Project/Item";
+}
+
+<div class="content-header">
+    <h1>
+        @title
+    </h1>
+    <ul class="breadcrumb">
+        @Ajax.ActionLink("Adicionar", "Item", "Project", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+    </ul>
+</div>
+<div class="content">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Tabela de @ViewBag.Title</h3>
+        </div>
+        <div class="box-body">
+            <div class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="col-sm-12">
+                    <table id="Table" class="table table-bordered table-striped dataTable" role="grid">
+                        <thead>
+                            <tr>
+                                <th width="100px">@Html.DisplayNameFor(m => m.Id)</th>
+                                <th>@Html.DisplayNameFor(m => m.Title)</th>
+                                <th width="5px"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/DataTable")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Table").DataTable({
+                data: @Html.Raw(Json.Encode(ViewBag.List)),
+                columnDefs: [{
+                    targets: 2,
+                    orderable: false
+                }],
+                columns:
+                [
+                    @Helpers.ColumnEdit("Id"),
+                    @Helpers.ColumnEdit("Title"),
+                    @Helpers.ColumnToAction("fa fa-remove", "menuItem")
+                ],
+                @Helpers.LanguageTable()
+            });
+        });
+
+        @Helpers.EditPageAjax(urlEdit)
+    </script>
+}

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Admin\ETProject.cs" />
     <Compile Include="Entities\Admin\ETTechnicalTutorial.cs" />
     <Compile Include="Entities\Admin\ETContent.cs" />
     <Compile Include="Entities\Admin\ETMenuType.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Interfaces\IBase.cs" />
     <Compile Include="Interfaces\ICardLine.cs" />
     <Compile Include="Interfaces\ICard.cs" />
+    <Compile Include="Interfaces\IProject.cs" />
     <Compile Include="Interfaces\ITechnicalTutorial.cs" />
     <Compile Include="Interfaces\IContent.cs" />
     <Compile Include="Interfaces\IMenu.cs" />

@@ -378,3 +378,12 @@ pre {
 .main-header .logo {
     font-family: 'Anivers', sans-serif;
 }
+
+.callout-success {
+    cursor: pointer;
+}
+
+.callout-success.active {
+    background-color: #dd4b39 !important;
+    border-color: #c23321;
+}

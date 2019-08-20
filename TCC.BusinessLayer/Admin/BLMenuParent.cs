@@ -18,7 +18,7 @@ namespace TCC.BusinessLayer.Admin
             try
             {
                 var oldParents = CRUD<ETMenuParent>.FindAll(p => p.IdMenuItem == idMenuItem);
-                var newParents = Current.Request.Form.GetValues("IdParents").Select(p => decimal.Parse(p)).ToList();
+                var newParents = Current.Request.Form.GetValues("IdParents")?.Select(p => decimal.Parse(p)).ToList() ?? new List<decimal>();
 
                 foreach (var item in oldParents)
                     CRUD<ETMenuParent>.DeletePhysical(item);

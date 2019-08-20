@@ -14,11 +14,15 @@ namespace TCC.UI.Areas.Public.Controllers
     [PermissionPublic]
     public class BDDController : Controller
     {
-        #region Etapa 1
+        public const string Key = BLConfiguration.Keys.BDD;
+        public static decimal? IdMenuItem = IdMenuItem.GetValueOrDefault((decimal)BLMenuItem.GetByKey(Key).Id);
 
-        [PermissionTutorialDynamic(Key = BLConfiguration.Keys.BDD)]
-        public ActionResult Index() => View("FirstStep");
+        #region Etapa 0
+
+        [PermissionTutorialDynamic(Key = Key)]
+        public ActionResult Index() => View("Page_0");
 
         #endregion
+
     }
 }
