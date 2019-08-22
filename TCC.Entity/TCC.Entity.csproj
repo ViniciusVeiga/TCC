@@ -52,16 +52,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\EFContext.cs" />
-    <Compile Include="Maps\MPProject.cs" />
-    <Compile Include="Maps\MPMenuParent.cs" />
-    <Compile Include="Maps\MPTechnicalTutorial.cs" />
-    <Compile Include="Maps\MPMenu.cs" />
-    <Compile Include="Maps\MPContent.cs" />
-    <Compile Include="Maps\MPMenuType.cs" />
-    <Compile Include="Maps\MPUserAdmin.cs" />
-    <Compile Include="Maps\MPUserPublicMenuItem.cs" />
-    <Compile Include="Maps\MPUserPublic.cs" />
-    <Compile Include="Maps\MPMenuItem.cs" />
+    <Compile Include="Maps\Public\BDD\MPCardBDD.cs" />
+    <Compile Include="Maps\Public\MPCard.cs" />
+    <Compile Include="Maps\Public\UserStory\MPCardActor.cs" />
+    <Compile Include="Maps\Public\UserStory\MPCardUserStory.cs" />
+    <Compile Include="Maps\Admin\MPProject.cs" />
+    <Compile Include="Maps\Admin\MPMenuParent.cs" />
+    <Compile Include="Maps\Admin\MPTechnicalTutorial.cs" />
+    <Compile Include="Maps\Admin\MPMenu.cs" />
+    <Compile Include="Maps\Admin\MPContent.cs" />
+    <Compile Include="Maps\Admin\MPMenuType.cs" />
+    <Compile Include="Maps\Admin\MPUserAdmin.cs" />
+    <Compile Include="Maps\Public\MPUserPublicMenuItem.cs" />
+    <Compile Include="Maps\Public\MPUserPublic.cs" />
+    <Compile Include="Maps\Admin\MPMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CRUD\CRUD.cs" />
   </ItemGroup>
