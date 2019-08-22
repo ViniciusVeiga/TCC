@@ -7,7 +7,7 @@ using TCC.Domain.Entities.Public.Security;
 using TCC.Entity.CRUD;
 using static System.Web.HttpContext;
 
-namespace TCC.BusinessLayer.Admin
+namespace TCC.BusinessLayer
 {
     public class BLMenuParent
     {

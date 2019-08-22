@@ -1,7 +1,7 @@
 ﻿using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
 
-namespace TCC.BusinessLayer.Admin
+namespace TCC.BusinessLayer
 {
     public class BLTechnicalTutorial
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
-using TCC.BusinessLayer.Admin;
+using TCC.BusinessLayer;
 using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
 using TCC.UI.Helpers;

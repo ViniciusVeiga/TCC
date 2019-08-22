@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
-using TCC.BusinessLayer.Public;
-using TCC.BusinessLayer.Security;
-using TCC.Domain.Entities.Public.Security;
+using TCC.BusinessLayer;
 
 namespace TCC.UI.Helpers.Attributes.TutorialDynamic
 {

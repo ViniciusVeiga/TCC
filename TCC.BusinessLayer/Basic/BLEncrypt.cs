@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace TCC.BusinessLayer.Basic
+namespace TCC.BusinessLayer
 {
     public class BLEncrypt
     {

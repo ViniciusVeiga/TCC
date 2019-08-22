@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using TCC.BusinessLayer.Public;
+using TCC.BusinessLayer;
 
 namespace TCC.UI.Helpers.Attributes.TutorialDynamic
 {

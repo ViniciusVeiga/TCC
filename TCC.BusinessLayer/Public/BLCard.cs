@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using TCC.BusinessLayer.Security;
+using TCC.BusinessLayer;
 using TCC.Domain.Entities;
 using TCC.Domain.Entities.Public.Security;
 using TCC.Entity.CRUD;
 
-namespace TCC.BusinessLayer.Public
+namespace TCC.BusinessLayer
 {
     public class BLCard
     {

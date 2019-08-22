@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using TCC.BusinessLayer.Admin;
+using TCC.BusinessLayer;
 using TCC.Domain.Entities;
 using TCC.Domain.Enums;
 using TCC.UI.Areas.Admin.ViewsModels.Content;

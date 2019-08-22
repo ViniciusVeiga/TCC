@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Web;
-using TCC.BusinessLayer.Basic;
+using TCC.BusinessLayer;
 using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
 using static System.Web.HttpContext;
 
-namespace TCC.BusinessLayer.Security
+namespace TCC.BusinessLayer
 {
     public class BLUser<T> where T : ETUser
     {

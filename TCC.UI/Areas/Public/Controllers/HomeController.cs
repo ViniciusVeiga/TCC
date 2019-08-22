@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using TCC.BusinessLayer.Security;
+using TCC.BusinessLayer;
 using TCC.UI.ViewsModels.Account;
 
 namespace TCC.UI.Areas.Public.Controllers

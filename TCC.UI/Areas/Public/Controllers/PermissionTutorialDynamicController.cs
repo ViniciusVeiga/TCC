@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using TCC.BusinessLayer.Public;
-using TCC.Domain.Entities;
+﻿using System.Web.Mvc;
+using TCC.BusinessLayer;
 
 namespace TCC.UI.Areas.Public.Controllers
 {

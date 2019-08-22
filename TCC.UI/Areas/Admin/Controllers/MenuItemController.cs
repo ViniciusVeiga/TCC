@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using TCC.BusinessLayer.Admin;
+using TCC.BusinessLayer;
 using TCC.Domain.Entities;
 using TCC.UI.Areas.Admin.ViewsModels.Menu;
 using TCC.UI.Extensions;
