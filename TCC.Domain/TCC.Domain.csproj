@@ -50,11 +50,13 @@
     <Compile Include="Entities\Admin\ETMenu.cs" />
     <Compile Include="Entities\Admin\ETMenuItem.cs" />
     <Compile Include="Entities\ETUser.cs" />
+    <Compile Include="Entities\Public\BDD\ETCardBDD.cs" />
     <Compile Include="Entities\Public\ETCard.cs" />
     <Compile Include="Entities\Public\ETCardLine.cs" />
     <Compile Include="Entities\Public\ETUserPublicMenuItem.cs" />
     <Compile Include="Entities\Public\Security\ETUserPublic.cs" />
-    <Compile Include="Entities\Public\UserStory\ETCard.cs" />
+    <Compile Include="Entities\Public\UserStory\ETCardActor.cs" />
+    <Compile Include="Entities\Public\UserStory\ETCardUserStory.cs" />
     <Compile Include="Enums\ENMenu.cs" />
     <Compile Include="Interfaces\IBase.cs" />
     <Compile Include="Interfaces\ICardLine.cs" />
