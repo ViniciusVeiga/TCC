@@ -7129,6 +7129,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Home\Page_0.cshtml" />
+    <Content Include="Views\Home\Page_1.cshtml" />
+    <Content Include="Views\Home\Page_3.cshtml" />
+    <Content Include="Views\Home\Page_4.cshtml" />
+    <Content Include="Views\Home\Page_2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

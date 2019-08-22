@@ -7,9 +7,10 @@ using TCC.Domain.Interfaces;
 
 namespace TCC.Domain.Entities
 {
-    public class ETCardLine : ETBase, ICardLine
+    public class ETCardUserStory : ETBase, ICard
     {
-        public decimal? IdCard { get; set; }
-        public string Line { get; set; }
+        public decimal? IdUserPublic { get; set; }
+
+        public virtual List<ETCardLine> CardLines { get; set; }
     }
 }

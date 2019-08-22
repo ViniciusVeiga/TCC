@@ -1,7 +1,7 @@
 ﻿using TCC.Domain.Entities;
 using TCC.Domain.Interfaces;
 
-namespace TCC.Domain.Entities.Admin
+namespace TCC.Domain.Entities
 {
     public class ETMenu : ETBase, IMenu
     {

@@ -1,6 +1,6 @@
 ﻿using TCC.Domain.Interfaces;
 
-namespace TCC.Domain.Entities.Admin
+namespace TCC.Domain.Entities
 {
     public class ETTechnicalTutorial : ETBase, ITechnicalTutorial
     {

@@ -54,6 +54,7 @@
     <Compile Include="Entities\Public\ETCardLine.cs" />
     <Compile Include="Entities\Public\ETUserPublicMenuItem.cs" />
     <Compile Include="Entities\Public\Security\ETUserPublic.cs" />
+    <Compile Include="Entities\Public\UserStory\ETCard.cs" />
     <Compile Include="Enums\ENMenu.cs" />
     <Compile Include="Interfaces\IBase.cs" />
     <Compile Include="Interfaces\ICardLine.cs" />

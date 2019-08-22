@@ -1,7 +1,7 @@
 ﻿using System;
 using TCC.Domain.Interfaces;
 
-namespace TCC.Domain.Entities.Public
+namespace TCC.Domain.Entities
 {
     public class ETUserPublicMenuItem : ETBase, IUserPublicMenuItem
     {

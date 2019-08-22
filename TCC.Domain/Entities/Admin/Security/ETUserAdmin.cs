@@ -1,7 +1,7 @@
 ﻿using System;
 using TCC.Domain.Interfaces;
 
-namespace TCC.Domain.Entities.Admin.Security
+namespace TCC.Domain.Entities
 {
     public class ETUserAdmin : ETUser, IUser
     {
