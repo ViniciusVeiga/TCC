@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
 using TCC.BusinessLayer.Basic;
 using TCC.BusinessLayer.Public;
-using TCC.Domain.Entities.Admin;
+using TCC.Domain.Entities;
 using TCC.Domain.Entities.Public;
 using TCC.UI.Areas.Public.Views.ViewsModels.UserStory;
 using TCC.UI.Helpers;

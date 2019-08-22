@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using TCC.Domain.Entities;
-using TCC.Domain.Entities.Admin;
 using TCC.Entity.CRUD;
 
 namespace TCC.BusinessLayer.Admin

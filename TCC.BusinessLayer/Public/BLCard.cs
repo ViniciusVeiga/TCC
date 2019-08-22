@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TCC.BusinessLayer.Security;
-using TCC.Domain.Entities.Public;
+using TCC.Domain.Entities;
 using TCC.Domain.Entities.Public.Security;
 using TCC.Entity.CRUD;
 
@@ -25,7 +22,6 @@ namespace TCC.BusinessLayer.Public
                 {
                     BLCardLine.Save(card.CardLines);
 
-                    card.IdMenuItem = idMenuItem;
                     CRUD<ETCard>.AddOrUpdate(card);
                 }
 
@@ -47,7 +43,7 @@ namespace TCC.BusinessLayer.Public
             {
                 var user = BLUser<ETUserPublic>.GetLogged();
 
-                return CRUD<ETCard>.FindAll(i => i.IdUserPublic == user.Id && i.IdMenuItem == idMenuItem);
+                return CRUD<ETCard>.FindAll(i => i.IdUserPublic == user.Id);
             }
             catch (Exception)
             {

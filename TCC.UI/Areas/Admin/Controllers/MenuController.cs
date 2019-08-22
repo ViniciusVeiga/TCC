@@ -1,4 +1,4 @@
-﻿using TCC.Domain.Entities.Admin;
+﻿using TCC.Domain.Entities;
 using TCC.UI.Extensions;
 using TCC.UI.Helpers.Attributes.Login;
 

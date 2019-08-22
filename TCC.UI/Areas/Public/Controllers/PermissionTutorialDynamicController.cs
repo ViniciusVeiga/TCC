@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer.Public;
-using TCC.Domain.Entities.Admin;
+using TCC.Domain.Entities;
 
 namespace TCC.UI.Areas.Public.Controllers
 {

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using TCC.BusinessLayer.Admin;
-using TCC.Domain.Entities.Admin;
+using TCC.Domain.Entities;
 using TCC.Domain.Enums;
 using TCC.UI.Areas.Admin.ViewsModels.Content;
 using TCC.UI.Extensions;

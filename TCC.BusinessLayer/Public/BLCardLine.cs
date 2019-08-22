@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TCC.BusinessLayer.Security;
-using TCC.Domain.Entities.Public;
-using TCC.Domain.Entities.Public.Security;
+using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
 
 namespace TCC.BusinessLayer.Public

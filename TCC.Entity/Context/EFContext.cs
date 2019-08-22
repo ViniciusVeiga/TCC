@@ -2,11 +2,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using TCC.Domain.Entities.Admin;
 using TCC.Domain.Entities;
 using TCC.Domain.Entities.Public.Security;
-using TCC.Domain.Entities.Admin.Security;
-using TCC.Domain.Entities.Public;
 
 namespace TCC.Entity.Context
 {
