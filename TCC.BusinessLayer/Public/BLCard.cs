@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TCC.BusinessLayer;
 using TCC.Domain.Entities;
-using TCC.Domain.Entities.Public.Security;
+using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
 
 namespace TCC.BusinessLayer

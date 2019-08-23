@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using TCC.Domain.Entities.Public.Security;
+using TCC.Domain.Entities;
 using TCC.UI.Extensions;
 using TCC.UI.Helpers.Attributes.Login;
 using TCC.UI.ViewsModels.Account;

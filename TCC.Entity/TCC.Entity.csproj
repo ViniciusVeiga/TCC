@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Context\EFContext.cs" />
     <Compile Include="Maps\Public\BDD\MPCardBDD.cs" />
+    <Compile Include="Maps\Public\Historic\MPCard.cs" />
     <Compile Include="Maps\Public\MPCard.cs" />
     <Compile Include="Maps\Public\UserStory\MPCardActor.cs" />
     <Compile Include="Maps\Public\UserStory\MPCardUserStory.cs" />

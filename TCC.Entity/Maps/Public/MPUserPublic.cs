@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using TCC.Domain.Entities.Public.Security;
+using TCC.Domain.Entities;
 
 namespace TCC.Entity.Maps
 {

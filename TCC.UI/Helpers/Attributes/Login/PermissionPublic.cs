@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using TCC.BusinessLayer;
-using TCC.Domain.Entities.Public.Security;
+using TCC.Domain.Entities;
 
 namespace TCC.UI.Helpers.Attributes.Login
 {

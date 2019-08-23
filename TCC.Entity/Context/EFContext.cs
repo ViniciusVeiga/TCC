@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using TCC.Domain.Entities;
-using TCC.Domain.Entities.Public.Security;
 
 namespace TCC.Entity.Context
 {
@@ -75,22 +74,32 @@ namespace TCC.Entity.Context
             modelBuilder.Properties<decimal>()
                 .Configure(e => e.HasPrecision(18, 0));
 
-            #region Mapeamento
+            MapAdmin(ref modelBuilder);
+            MapPublic(ref modelBuilder);
+         
+            base.OnModelCreating(modelBuilder);
+        }
 
+        #region Mapeamento
+
+        public void MapPublic(ref DbModelBuilder modelBuilder)
+        {
             modelBuilder.Configurations.Add(new Maps.MPUserPublic());
+            modelBuilder.Configurations.Add(new Maps.MPProject());
+            modelBuilder.Configurations.Add(new Maps.MPUserPublicMenuItem());
+        }
+
+        public void MapAdmin(ref DbModelBuilder modelBuilder)
+        {
             modelBuilder.Configurations.Add(new Maps.MPUserAdmin());
             modelBuilder.Configurations.Add(new Maps.MPMenu());
             modelBuilder.Configurations.Add(new Maps.MPMenuItem());
             modelBuilder.Configurations.Add(new Maps.MPMenuParent());
             modelBuilder.Configurations.Add(new Maps.MPMenuType());
             modelBuilder.Configurations.Add(new Maps.MPContent());
-            modelBuilder.Configurations.Add(new Maps.MPProject());
             modelBuilder.Configurations.Add(new Maps.MPTechnicalTutorial());
-            modelBuilder.Configurations.Add(new Maps.MPUserPublicMenuItem());
-
-            #endregion
-
-            base.OnModelCreating(modelBuilder);
         }
+
+        #endregion
     }
 }
