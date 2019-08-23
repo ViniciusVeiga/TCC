@@ -1,8 +1,8 @@
 ﻿@using TCC.UI.Helpers.Extensions
-@using TCC.Domain.Entities.Admin.Security
+@using TCC.Domain.Entities
 
 @{
-    var user = TCC.BusinessLayer.Security.BLUser<ETUserAdmin>.GetLogged();
+    var user = TCC.BusinessLayer.BLUser<ETUserAdmin>.GetLogged();
 }
 
 <div class="main-header">
