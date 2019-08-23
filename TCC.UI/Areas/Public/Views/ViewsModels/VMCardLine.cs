@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TCC.UI.Areas.Public.Views.ViewsModels.UserStory
+namespace TCC.UI.Areas.Public.Views.ViewsModels
 {
     public class VMCardLine
     {

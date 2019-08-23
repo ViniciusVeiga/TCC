@@ -134,8 +134,8 @@
     <Compile Include="Areas\Public\Controllers\AccessDeniedController.cs" />
     <Compile Include="Areas\Public\Controllers\UserStoryController.cs" />
     <Compile Include="Areas\Public\Controllers\TechnicalTutorialController.cs" />
-    <Compile Include="Areas\Public\Views\ViewsModels\Card\VMCardLine.cs" />
-    <Compile Include="Areas\Public\Views\ViewsModels\Card\VMCard.cs" />
+    <Compile Include="Areas\Public\Views\ViewsModels\VMCardLine.cs" />
+    <Compile Include="Areas\Public\Views\ViewsModels\UserStory\VMCard.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\AdminBaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />

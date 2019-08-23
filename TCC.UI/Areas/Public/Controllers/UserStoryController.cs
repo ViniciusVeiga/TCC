@@ -5,8 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer;
 using TCC.Domain.Entities;
-using TCC.Domain.Entities.Public;
-using TCC.UI.Areas.Public.Views.ViewsModels.UserStory;
+using TCC.UI.Areas.Public.Views.ViewsModels;
 using TCC.UI.Helpers;
 using TCC.UI.Helpers.Attributes.Login;
 using TCC.UI.Helpers.Attributes.TutorialDynamic;
@@ -25,9 +24,9 @@ namespace TCC.UI.Areas.Public.Controllers
         [PermissionTutorialDynamic(Key = Key)]
         public ActionResult Index()
         {
-            var model = BLAdminBase<ETProject>.GetList();
+            ViewData["Projects"] = BLAdminBase<ETProject>.GetList();
 
-            return View("Page_0", model);
+            return View("Page_0");
         }
 
         #endregion

@@ -149,11 +149,11 @@
     </div>
 }
 
-@helper PostitExampleHTML(string placeholder = "digite aqui...")
+@helper PostitExampleHTML(string placeholder = "digite aqui...", string classCol = "col-sm-12 col-md-3")
 {
     <div id="Example" style="display:none">
         <div id="Postit">
-            <div class="col-sm-12 col-md-4 col-lg-2 to-remove postit-send">
+            <div class="@classCol to-remove postit-send">
                 <div class="alert postit">
                     <div class="p"></div>
                     <div class="input-group">
