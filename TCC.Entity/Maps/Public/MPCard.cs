@@ -9,9 +9,9 @@ namespace TCC.Entity.Maps
     {
         public MPCard()
         {
-            Property(e => e.IdUserPublic)
+            Property(e => e.IdHistoric)
                 .IsRequired()
-                .HasColumnName("ID_USER_PUBLIC");
+                .HasColumnName("ID_HISTORIC_N");
         }
     }
 }

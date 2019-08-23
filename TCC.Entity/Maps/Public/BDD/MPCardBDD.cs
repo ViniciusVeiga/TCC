@@ -9,6 +9,10 @@ namespace TCC.Entity.Maps
         public MPCardBDD()
         {
             ToTable("ADM_TCC_CARD_USER_STORY");
+
+            HasRequired(e => e.Historic)
+                .WithMany(e => e.CardBDDs)
+                .HasForeignKey(e => e.IdHistoric);
         }
     }
 }

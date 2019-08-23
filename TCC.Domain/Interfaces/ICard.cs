@@ -9,7 +9,7 @@ namespace TCC.Domain.Interfaces
 {
     public interface ICard
     {
-        decimal? IdUserPublic { get; set; }
+        decimal? IdHistoric { get; set; }
 
         List<ETCardLine> CardLines { get; set; }
     }

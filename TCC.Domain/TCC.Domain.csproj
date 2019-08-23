@@ -54,12 +54,13 @@
     <Compile Include="Entities\Public\ETCard.cs" />
     <Compile Include="Entities\Public\ETCardLine.cs" />
     <Compile Include="Entities\Public\ETUserPublicMenuItem.cs" />
-    <Compile Include="Entities\Public\Historic\Historic.cs" />
+    <Compile Include="Entities\Public\Historic\ETHistoric.cs" />
     <Compile Include="Entities\Public\Security\ETUserPublic.cs" />
     <Compile Include="Entities\Public\UserStory\ETCardActor.cs" />
     <Compile Include="Entities\Public\UserStory\ETCardUserStory.cs" />
     <Compile Include="Enums\ENMenu.cs" />
     <Compile Include="Interfaces\IBase.cs" />
+    <Compile Include="Interfaces\IHistoric.cs" />
     <Compile Include="Interfaces\ICardLine.cs" />
     <Compile Include="Interfaces\ICard.cs" />
     <Compile Include="Interfaces\IProject.cs" />

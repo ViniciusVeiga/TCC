@@ -87,6 +87,10 @@ namespace TCC.Entity.Context
             modelBuilder.Configurations.Add(new Maps.MPUserPublic());
             modelBuilder.Configurations.Add(new Maps.MPProject());
             modelBuilder.Configurations.Add(new Maps.MPUserPublicMenuItem());
+            //modelBuilder.Configurations.Add(new Maps.MPHistoric<ETHistoric>());
+            //modelBuilder.Configurations.Add(new Maps.MPHistoric<ETHistoric_0>());
+            //modelBuilder.Configurations.Add(new Maps.MPHistoric<ETHistoric_1>());
+            //modelBuilder.Configurations.Add(new Maps.MPHistoric<ETHistoric_2>());
         }
 
         public void MapAdmin(ref DbModelBuilder modelBuilder)

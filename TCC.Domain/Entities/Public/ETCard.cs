@@ -9,8 +9,9 @@ namespace TCC.Domain.Entities
 {
     public class ETCard : ETBase, ICard
     {
-        public decimal? IdUserPublic { get; set; }
+        public decimal? IdHistoric { get; set; }
 
         public virtual List<ETCardLine> CardLines { get; set; }
+        public virtual IHistoric Historic { get; set; }
     }
 }
