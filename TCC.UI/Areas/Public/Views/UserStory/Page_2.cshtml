@@ -1,6 +1,6 @@
 ﻿@{
     var test = new List<List<string>>();
-    var urlSave = "/UserStory/ThirdStep";
+    var urlSave = "/UserStory/SaveCards";
 }
 
 <div class="content-header">
@@ -146,7 +146,7 @@
                 return null;
             }
 
-            $('.postit.alert-dismissable', '#Append').each(function () {
+            $('.postit', '#Append').each(function () {
                 var lines = [];
                 var length = $(this).find('p').length;
 

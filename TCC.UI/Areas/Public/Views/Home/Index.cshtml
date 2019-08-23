@@ -1,7 +1,7 @@
 ﻿@using TCC.Domain.Entities.Public.Security
 
 @{
-    var user = TCC.BusinessLayer.Security.BLUser<ETUserPublic>.GetLogged();
+    var user = TCC.BusinessLayer.BLUser<ETUserPublic>.GetLogged();
 }
 
 <div class="content-header">
