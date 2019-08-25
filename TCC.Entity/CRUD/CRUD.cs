@@ -49,6 +49,14 @@ namespace TCC.Entity.CRUD
             }
         }
 
+        public static void AddOrUpdate(List<T> entities)
+        {
+            foreach (var entity in entities)
+            {
+                AddOrUpdate(entity);
+            }
+        }
+
         public static void AddOrUpdate(T entity)
         {
             try

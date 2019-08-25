@@ -21,6 +21,10 @@ namespace TCC.Entity.Context
         public virtual DbSet<ETProject> Projects { get; set; }
         public virtual DbSet<ETTechnicalTutorial> TechnicalTutorials { get; set; }
         public virtual DbSet<ETUserPublicMenuItem> UserPublicMenuItens { get; set; }
+        public virtual DbSet<ETHistoric> Historics { get; set; }
+        public virtual DbSet<ETHistoric_0> Historics_0 { get; set; }
+        public virtual DbSet<ETHistoric_1> Historics_1 { get; set; }
+        public virtual DbSet<ETHistoric_2> Historics_2 { get; set; }
 
         #endregion
 
@@ -74,9 +78,18 @@ namespace TCC.Entity.Context
             modelBuilder.Properties<decimal>()
                 .Configure(e => e.HasPrecision(18, 0));
 
-            MapAdmin(ref modelBuilder);
-            MapPublic(ref modelBuilder);
-         
+            modelBuilder.Configurations.Add(new Maps.MPUserPublic());
+            modelBuilder.Configurations.Add(new Maps.MPProject());
+            modelBuilder.Configurations.Add(new Maps.MPUserPublicMenuItem());
+            modelBuilder.Configurations.Add(new Maps.MPHistoric());
+            modelBuilder.Configurations.Add(new Maps.MPUserAdmin());
+            modelBuilder.Configurations.Add(new Maps.MPMenu());
+            modelBuilder.Configurations.Add(new Maps.MPMenuItem());
+            modelBuilder.Configurations.Add(new Maps.MPMenuParent());
+            modelBuilder.Configurations.Add(new Maps.MPMenuType());
+            modelBuilder.Configurations.Add(new Maps.MPContent());
+            modelBuilder.Configurations.Add(new Maps.MPTechnicalTutorial());
+
             base.OnModelCreating(modelBuilder);
         }
 
@@ -87,7 +100,7 @@ namespace TCC.Entity.Context
             modelBuilder.Configurations.Add(new Maps.MPUserPublic());
             modelBuilder.Configurations.Add(new Maps.MPProject());
             modelBuilder.Configurations.Add(new Maps.MPUserPublicMenuItem());
-            //modelBuilder.Configurations.Add(new Maps.MPHistoric<ETHistoric>());
+            modelBuilder.Configurations.Add(new Maps.MPHistoric());
             //modelBuilder.Configurations.Add(new Maps.MPHistoric<ETHistoric_0>());
             //modelBuilder.Configurations.Add(new Maps.MPHistoric<ETHistoric_1>());
             //modelBuilder.Configurations.Add(new Maps.MPHistoric<ETHistoric_2>());

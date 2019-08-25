@@ -24,9 +24,11 @@ namespace TCC.UI.Areas.Public.Controllers
         [PermissionTutorialDynamic(Key = Key)]
         public ActionResult Index()
         {
+            //var model = BLHistoric<ETHistoric>.GetActive();
+
             ViewData["Projects"] = BLAdminBase<ETProject>.GetList();
 
-            return View("Page_0");
+            return View("Page_0", model);
         }
 
         #endregion
@@ -50,6 +52,7 @@ namespace TCC.UI.Areas.Public.Controllers
 
         #region Etapa Final
 
+        [CompleteTutorial(Key = Key)]
         public ActionResult Page_3() => View();
 
         #endregion
@@ -68,15 +71,14 @@ namespace TCC.UI.Areas.Public.Controllers
         #region Salvar Historico
 
         [HttpPost]
-        [CompleteTutorial(Key = Key)]
         public ActionResult SaveHistoric(ETHistoric historic)
         {
-            //if (BLCard.Save(historic))
-            //{
-            //    this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
-            //}
-            //else
-            //    this.AddToastMessage("Erro", "Erro ao salvar, favor tentar novamente", ToastrType.Error);
+            if (BLHistoric<ETHistoric>.Save(historic))
+            {
+                this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
+            }
+            else
+                this.AddToastMessage("Erro", "Erro ao salvar, favor tentar novamente", ToastrType.Error);
 
             return null;
         }

@@ -1,4 +1,5 @@
 ﻿@using TCC.Domain.Entities
+@model ETHistoric_0
 
 @{
     var projects = (List<ETProject>)ViewData["Projects"];
@@ -11,7 +12,11 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "Content/Index", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Continuar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        
+        @if (Model.IdProject != null)
+        {
+            @Ajax.ActionLink("Continuar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        }
     </div>
 </div>
 <div class="content">
