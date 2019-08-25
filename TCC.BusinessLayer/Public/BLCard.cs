@@ -42,7 +42,7 @@ namespace TCC.BusinessLayer
             try
             {
                 var user = BLUser<ETUserPublic>.GetLogged();
-
+                
                 return CRUD<ETCard>.FindAll(i => i.IdHistoric == user.Id);
             }
             catch (Exception)

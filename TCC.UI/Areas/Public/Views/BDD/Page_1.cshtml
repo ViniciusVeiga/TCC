@@ -1,0 +1,57 @@
+﻿@{
+    var userstorys = (List<List<string>>)ViewData["UsersStorys"];
+}
+
+<div class="content-header">
+    <h1>
+        User Storys projeto escolhido.
+    </h1>
+    <div class="breadcrumb">
+        @Ajax.ActionLink("Voltar", "Page_0", "Views/BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+        @Ajax.ActionLink("Continuar", "Page_2", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary", @id = "btnContinuar" })
+    </div>
+</div>
+<div class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <div class="col-lg-12">
+                <div>
+                    <h4>Na lousa abaixo tem o(s) User Story referente ao seu projeto.</h4>
+                    <p>Escolha um deles para começarmos o tutorial do BDD.</p>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="board">
+                <div class="row">
+
+                    @foreach (var userstory in userstorys)
+                    {
+                        <div class="col-sm-4">
+                            <div class="alert postit callout callout-success">
+                                @foreach (var line in userstory)
+                                {
+                                    <p>@line</p>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnContinuar').attr('disabled','disabled');
+        });
+        $('.callout').click(function () {
+            $('.callout').removeClass('active');
+            $(this).addClass('active');
+            $('#btnContinuar').removeAttr('disabled');
+        });
+    </script>
+}
