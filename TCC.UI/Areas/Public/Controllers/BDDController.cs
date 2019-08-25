@@ -22,6 +22,7 @@ namespace TCC.UI.Areas.Public.Controllers
 
             return View("Page_0");
         }
+
         #endregion
 
         #region Etapa 1

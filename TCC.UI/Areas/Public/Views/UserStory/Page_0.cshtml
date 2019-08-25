@@ -2,6 +2,7 @@
 
 @{
     var projects = (List<ETProject>)ViewData["Projects"];
+    var urlSave = "/UserStory/SaveHistoric";
 }
 
 <div class="content-header">
@@ -112,5 +113,22 @@
         function count() {
             countP = $('.postit:last p, .postit:last h4').length;
         }
+
+        $('#BtnSave').click(function () {
+            var idProject = $('.postit.active').children('input[name=IdProject]').val();
+
+            var data = {
+                'historic': {
+                    'IdProject': idProject
+                }
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '@urlSave',
+                data: data,
+                dataType: "json",
+            });
+        });
     </script>
 }

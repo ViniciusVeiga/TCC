@@ -1,5 +1,7 @@
 ﻿@{
-    var postits = (List<List<string>>)ViewData["UserStorys"];
+                /**/
+
+                var postits = (List<List<string>>)ViewData["UserStorys"];
 }
 
 <div class="content-header">
@@ -7,7 +9,7 @@
         User Storys projeto escolhido.
     </h1>
     <div class="breadcrumb">
-        @Ajax.ActionLink("Voltar", "Page_0", "Views/BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+        @Ajax.ActionLink("Voltar", "Index", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
         @Ajax.ActionLink("Continuar", "Page_2", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary", @id = "btnContinuar" })
     </div>
 </div>
@@ -42,6 +44,8 @@
         </div>
     </div>
 </div>
+
+@Helpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4", addClassPostit: "select")
 
 @section scripts {
     <script type="text/javascript">

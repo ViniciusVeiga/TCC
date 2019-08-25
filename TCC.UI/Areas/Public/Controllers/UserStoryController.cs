@@ -46,20 +46,6 @@ namespace TCC.UI.Areas.Public.Controllers
             return View();
         }
 
-        [HttpPost]
-        [CompleteTutorial(Key = Key)]
-        public ActionResult SaveCards(List<VMCard> model)
-        {
-            if (BLCard.Save(HelpersMethods.CopyValues<VMCard, ETCard>(model), IdMenuItem))
-            {
-                this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
-            }
-            else
-                this.AddToastMessage("Erro", "Erro ao salvar, favor tentar novamente", ToastrType.Error);
-
-            return null;
-        }
-
         #endregion
 
         #region Etapa Final
@@ -75,6 +61,24 @@ namespace TCC.UI.Areas.Public.Controllers
             var id = BLMenuItem.GetByKey(BLConfiguration.Keys.BDD).Id;
 
             return RedirectToAction("Index", "Content", new { id });
+        }
+
+        #endregion
+
+        #region Salvar Historico
+
+        [HttpPost]
+        [CompleteTutorial(Key = Key)]
+        public ActionResult SaveHistoric(ETHistoric historic)
+        {
+            //if (BLCard.Save(historic))
+            //{
+            //    this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
+            //}
+            //else
+            //    this.AddToastMessage("Erro", "Erro ao salvar, favor tentar novamente", ToastrType.Error);
+
+            return null;
         }
 
         #endregion
