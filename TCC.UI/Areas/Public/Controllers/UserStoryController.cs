@@ -28,7 +28,7 @@ namespace TCC.UI.Areas.Public.Controllers
 
             ViewData["Projects"] = BLAdminBase<ETProject>.GetList();
 
-            return View("Page_0", model);
+            return View("Page_0");
         }
 
         #endregion
