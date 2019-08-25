@@ -99,6 +99,15 @@ pre {
     border-top: 10px solid #e6d05a;
 }
 
+.postit.select {
+    cursor: pointer;
+}
+
+    .postit.active {
+        background-color: #73cac4 !important;
+        border-color: #66b9b3;
+    }
+
 .postit .input-group-btn > .btn {
     background-color: transparent !important;
     color: #333;
@@ -377,13 +386,4 @@ pre {
 
 .main-header .logo {
     font-family: 'Anivers', sans-serif;
-}
-
-.callout-success {
-    cursor: pointer;
-}
-
-.callout-success.active {
-    background-color: #dd4b39 !important;
-    border-color: #c23321;
 }

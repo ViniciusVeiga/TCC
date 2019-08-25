@@ -149,12 +149,12 @@
     </div>
 }
 
-@helper PostitExampleHTML(string placeholder = "digite aqui...", string classCol = "col-sm-12 col-md-3")
+@helper PostitExampleHTML(string placeholder = "digite aqui...", string classCol = "col-sm-12 col-md-3", string addClassPostit = "")
 {
     <div id="Example" style="display:none">
         <div id="Postit">
             <div class="@classCol to-remove postit-send">
-                <div class="alert postit">
+                <div class="alert postit @addClassPostit">
                     <div class="p"></div>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="@placeholder" id="Text">
@@ -181,6 +181,13 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        var ePostit = $('#Postit').html();
+        var eRemovePostit = $('#RemovePostit').html();
+        var eRemoveLinePostit = $('#RemoveLinePostit').html();
+        var ePlusPostit = $('#PlusPostit').html();
+    </script>
 }
 
 @helper CreatePostit(List<string> lines)

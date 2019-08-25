@@ -24,10 +24,11 @@ namespace TCC.UI.Areas.Public.Controllers
         }
         #endregion
 
-        #region Etapa 1 - Escolha do UserStory
+        #region Etapa 1
+
         public ActionResult Page_1()
         {
-            List<List<string>> userStory = new List<List<string>>()
+            List<List<string>> userStorys = new List<List<string>>()
             {
                 new List<string>(){"Eu como Desenvolvedor", "Quero aprender C#", "Então devo começar a estudar"},
                 new List<string>(){"Eu como Operador do Brasanitas", "Quero digitalizar o documento Status", "Para depois coloca-lo no suporte técnico"},
@@ -38,10 +39,11 @@ namespace TCC.UI.Areas.Public.Controllers
             };
 
            
-            ViewData["UsersStorys"] = userStory;
+            ViewData["UserStorys"] = userStorys;
 
             return View("Page_1");
         }
+
         #endregion
     }
 }

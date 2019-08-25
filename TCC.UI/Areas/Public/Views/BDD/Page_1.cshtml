@@ -1,5 +1,5 @@
 ﻿@{
-    var userstorys = (List<List<string>>)ViewData["UsersStorys"];
+    var postits = (List<List<string>>)ViewData["UserStorys"];
 }
 
 <div class="content-header">
@@ -16,7 +16,7 @@
         <div class="box-header with-border">
             <div class="col-lg-12">
                 <div>
-                    <h4>Na lousa abaixo tem o(s) User Story referente ao seu projeto.</h4>
+                    <h4>A lousa abaixo, contem os Projetos referente ao seu projeto.</h4>
                     <p>Escolha um deles para começarmos o tutorial do BDD.</p>
                 </div>
             </div>
@@ -24,19 +24,19 @@
         <div class="box-body">
             <div class="board">
                 <div class="row">
-
-                    @foreach (var userstory in userstorys)
+                    @foreach (var lines in postits)
                     {
-                        <div class="col-sm-4">
-                            <div class="alert postit callout callout-success">
-                                @foreach (var line in userstory)
+                        <div class="col-sm-12 col-md-4 col-lg-2">
+                            <div class="alert postit select">
+                                @foreach (var line in lines)
                                 {
-                                    <p>@line</p>
+                                    <div class="p">
+                                        <p>@line</p>
+                                    </div>
                                 }
                             </div>
                         </div>
                     }
-
                 </div>
             </div>
         </div>
@@ -45,13 +45,9 @@
 
 @section scripts {
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#btnContinuar').attr('disabled','disabled');
-        });
-        $('.callout').click(function () {
-            $('.callout').removeClass('active');
+        $('.postit').click(function () {
+            $('.postit').removeClass('active');
             $(this).addClass('active');
-            $('#btnContinuar').removeAttr('disabled');
         });
     </script>
 }

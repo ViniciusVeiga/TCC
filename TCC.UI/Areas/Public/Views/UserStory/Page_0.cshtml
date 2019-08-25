@@ -10,7 +10,7 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "Content/Index", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Continuar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary", @id = "btnContinuar" })
+        @Ajax.ActionLink("Continuar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
     </div>
 </div>
 <div class="content">
@@ -18,7 +18,7 @@
         <div class="box-header with-border">
             <div class="col-lg-12">
                 <div>
-                    <h4>Para iniciarmos o tutorial é necessario a escolha de algum projeto para o ensino.<br>Ou se quiser você pode criar seu projeto do zero!</h4>
+                    <h4>Para iniciarmos o tutorial é necessario a escolha de algum projeto para o ensino, ou, se desejar, crie o seu proprio projeto!</h4>
                     <p>Selecione algum projeto abaixo:</p>
                 </div>
             </div>
@@ -29,33 +29,31 @@
                     @foreach (var item in projects)
                     {
                         <div class="col-lg-4">
-                            <div class="alert postit callout callout-success">
+                            <div class="alert postit select">
+                                <input type="hidden" name="IdProject" value="@item.Id" />
                                 <h4>@item.Title</h4>
                                 <p>@item.Text</p>
                             </div>
                         </div>
                     }
+                    <div class="bottom-board">
+                        <input id="BtnSave" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-@Helpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4")
+@Helpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4", addClassPostit: "select")
 
 @section scripts {
     <script type="text/javascript">
-        var ePostit = $('#Postit').html();
-        var eRemovePostit = $('#RemovePostit').html();
-        var eRemoveLinePostit = $('#RemoveLinePostit').html();
-        var ePlusPostit = $('#PlusPostit').html();
         var countP = 0;
 
         $(document).ready(function () {
             $('#Example').remove();
             $('#Append').append(ePlusPostit)
-            $('#btnContinuar').attr('disabled','disabled');
-
         });
 
         $('#Append').on('click', '#AddPostit', function () {
@@ -66,17 +64,16 @@
         });
 
         $('#Append').on('click', '#Send', function () {
+            count();
             var input = $('#Text');
             var text = input.val();
             input.val('');
 
             if (text != '') {
                 $('.remove-line').remove();
-                $('.p:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
+                $('.p:last').append($((countP == 0) ? '<h4></h4>' : '<p></p>').text(text).append(eRemoveLinePostit));     
 
-                definePlaceholder();
-
-                if (countP > 2) {
+                if (countP == 1) {
                     if (!$('.postit:last').hasClass('alert-dismissible')) {
                         $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
                     }
@@ -98,7 +95,7 @@
             $(this).parent('p').remove();
             $('.postit:last p:last').append(eRemoveLinePostit);
 
-            definePlaceholder();
+            count();
         });
 
         $('#Append').on('keypress', '#Text', function (e) {
@@ -107,12 +104,13 @@
             }
         });
 
-        $('.callout').click(function () {
-            $('.callout').removeClass('active');
+        $('#Append').on('click', '.postit', function () {
+            $('.postit').removeClass('active');
             $(this).addClass('active');
-            $('#btnContinuar').removeAttr('disabled');
-
-
         });
+
+        function count() {
+            countP = $('.postit:last p, .postit:last h4').length;
+        }
     </script>
 }
