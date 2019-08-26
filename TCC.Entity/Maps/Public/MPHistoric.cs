@@ -15,6 +15,10 @@ namespace TCC.Entity.Maps
 
             Property(e => e.IdProject)
                 .HasColumnName("ID_PROJECT_N");
+
+            HasRequired(m => m.Project)
+                .WithMany()
+                .HasForeignKey(c => c.IdProject);
         }
     }
 }

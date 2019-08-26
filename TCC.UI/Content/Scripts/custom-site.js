@@ -39,7 +39,7 @@ function newPage(id, url) {
         url: url,
         data: { 'id': id },
         success: function (data) {
-            $('#Ajax_Update_Menu').empty().html(data);
+            changeContent(data);
         }
     });
 }
@@ -50,3 +50,7 @@ $('.input-group .form-control').keypress(function (e) {
         $('.input-group-btn button').click();
     }
 });
+
+function changeContent(data) {
+    changeContent(data);
+}

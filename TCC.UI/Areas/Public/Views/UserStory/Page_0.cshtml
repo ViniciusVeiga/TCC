@@ -1,9 +1,10 @@
 ﻿@using TCC.Domain.Entities
-@model ETHistoric_0
+@model ETHistoric
 
 @{
     var projects = (List<ETProject>)ViewData["Projects"];
     var urlSave = "/UserStory/SaveHistoric";
+    var page = "Page_0";
 }
 
 <div class="content-header">
@@ -13,7 +14,7 @@
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "Content/Index", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
         
-        @if (Model.IdProject != null)
+        @if (Model?.IdProject != null)
         {
             @Ajax.ActionLink("Continuar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
         }
@@ -125,7 +126,8 @@
             var data = {
                 'historic': {
                     'IdProject': idProject
-                }
+                },
+                'page': '@page'
             };
 
             $.ajax({
@@ -133,6 +135,10 @@
                 url: '@urlSave',
                 data: data,
                 dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    changeContent(data);
+                }
             });
         });
     </script>

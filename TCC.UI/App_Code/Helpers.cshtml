@@ -88,7 +88,7 @@
     @:          url: '@url',
     @:          data: { 'id': id },
     @:          success: function(data) {
-    @:              $('#Ajax_Update_Menu').empty().html(data);
+    @:              changeContent(data);
     @:          }
     @:      });
     @:  }
@@ -102,7 +102,7 @@
     @:          url: url,
     @:          data: { 'id': id },
     @:          success: function(data) {
-    @:              $('#Ajax_Update_Menu').empty().html(data);
+    @:              changeContent(data);
     @:          }
     @:      });
     @:  }
@@ -116,7 +116,7 @@
     @:          url: '@url',
     @:          data: { 'id': id },
     @:          success: function(data) {
-    @:              $('#Ajax_Update_Menu').empty().html(data);
+    @:              changeContent(data);
     @:          }
     @:      });
     @:  }
