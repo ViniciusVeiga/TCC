@@ -6579,6 +6579,7 @@
     <Content Include="Content\Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Content\Scripts\jquery.validate-custom.js" />
     <Content Include="Content\Scripts\custom-landing.page.js" />
+    <Content Include="Content\Scripts\Postits\scripts-postit.js" />
     <Content Include="Content\site.css" />
     <Content Include="Content\Toastr\css\toastr.css" />
     <Content Include="Content\Toastr\css\toastr.min.css" />

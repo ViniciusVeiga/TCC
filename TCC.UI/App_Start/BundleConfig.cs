@@ -9,6 +9,9 @@ namespace TCC.UI
         {
             #region Js
 
+            bundles.Add(new ScriptBundle("~/Scripts/Postit").Include(
+                "~/Content/Scripts/Postits/scripts-postit.js"));
+
             bundles.Add(new ScriptBundle("~/Scripts/Validate").Include(
                 "~/Content/Scripts/jquery.validate.*",
                 "~/Content/Scripts/jquery.validate-custom.js"));
