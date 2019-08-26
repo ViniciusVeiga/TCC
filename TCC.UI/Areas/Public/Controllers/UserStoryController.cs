@@ -33,7 +33,12 @@ namespace TCC.UI.Areas.Public.Controllers
 
         #region Etapa 1
 
-        public ActionResult Page_1() => View();
+        public ActionResult Page_1()
+        {
+            var model = BLHistoric<ETHistoric>.GetActive();
+
+            return View(model);
+        }
 
         #endregion
 
@@ -41,9 +46,9 @@ namespace TCC.UI.Areas.Public.Controllers
 
         public ActionResult Page_2()
         {
-            var model = BLCard.GetList(IdMenuItem);
+            var model = BLHistoric<ETHistoric>.GetActive();
 
-            return View();
+            return View(model);
         }
 
         #endregion

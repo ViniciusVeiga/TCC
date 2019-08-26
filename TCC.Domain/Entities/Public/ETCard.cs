@@ -12,6 +12,6 @@ namespace TCC.Domain.Entities
         public decimal? IdHistoric { get; set; }
 
         public virtual List<ETCardLine> CardLines { get; set; }
-        public virtual IHistoric Historic { get; set; }
+        public virtual ETHistoric Historic { get; set; }
     }
 }

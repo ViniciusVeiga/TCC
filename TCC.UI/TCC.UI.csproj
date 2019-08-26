@@ -6573,6 +6573,7 @@
     <Content Include="Areas\Admin\Views\Project\Index.cshtml" />
     <Content Include="Areas\Public\Views\BDD\Page_1.cshtml" />
     <Content Include="Areas\Public\Views\UserStory\_ScriptPage_0.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\_ScriptPage_1.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />

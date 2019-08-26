@@ -122,6 +122,14 @@ namespace TCC.Entity.CRUD
             }
         }
 
+        public static void DeletePhysical(List<T> entities)
+        {
+            foreach (var entity in entities)
+            {
+                DeletePhysical(entity);
+            }
+        }
+
         public static void DeletePhysical(T entity)
         {
             try

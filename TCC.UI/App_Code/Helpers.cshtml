@@ -183,30 +183,14 @@
     </div>
 }
 
-@helper CreatePostit(List<string> lines)
+@helper CreatePostit(List<TCC.Domain.Interfaces.ICard> postits)
 {
-    if (lines.Count > 0)
+    foreach (var postit in postits)
     {
         <div class="col-sm-12 col-md-4 col-lg-2 to-remove">
             <div class="alert postit alert-dismissable">
                 <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
-                @foreach (var line in lines)
-                {
-                    <div class="p"><p>@line</p></div>
-                }
-            </div>
-        </div>
-    }
-}
-
-@helper CreatePostit(List<List<string>> postits)
-{
-    foreach (var lines in postits)
-    {
-        <div class="col-sm-12 col-md-4 col-lg-2 to-remove">
-            <div class="alert postit alert-dismissable">
-                <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
-                @foreach (var line in lines)
+                @foreach (var line in postit.CardLines)
                 {
                     <div class="p"><p>@line</p></div>
                 }
@@ -241,7 +225,7 @@
     </div>
 }
 
-@helper MessageBoard(string classCol = "col-lg-2")
+@helper MessageBoard(string classCol = "col-lg-4")
 {
     <div class="row">
         <div class="@classCol col-centered board-message" style="display: none;"></div>

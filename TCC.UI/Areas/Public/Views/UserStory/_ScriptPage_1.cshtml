@@ -1,0 +1,77 @@
+﻿
+@{
+    var urlSave = "Learnboard/UserStory/SaveHistoric";
+    var page = "Page_1";
+}
+
+@Scripts.Render("~/Scripts/Postit")
+
+<script type="text/javascript">
+    // Events
+    $(document).ready(function () {
+        $('#Example').remove();
+        $('#Append').append(ePlusPostit)
+    });
+
+    $('#Append').on('click', '#Send', function () {
+        count();
+        var input = $('#Text');
+        var text = input.val();
+        input.val('');
+
+        if (text != '') {
+            $('.remove-line').remove();
+            $('.p:last').append($((countLines == 0) ? '<h4></h4>' : '<p></p>').text(text).append(eRemoveLinePostit));
+
+            if (countLines == 0)
+                finishCard();
+        }
+
+        input.focus();
+    });
+
+    $('#SaveButton').click(function () {
+        var result = validationsByJs();
+
+        if (result == true){
+            var idProject = $('.postit.active').children('input[name=IdProject]').val();
+
+            var data = {
+                'model': {
+                    'IdProject': idProject
+                },
+                'page': '@page'
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '@urlSave',
+                data: data,
+                success: function (data) {
+                    changeContent(data);
+                }
+            });
+        }
+        else
+            $('.board-message')
+                .text(result)
+                .fadeIn();
+    });
+
+    // Functions
+    function count() {
+        countLines = $('.postit:last p').length;
+    }
+
+    function validationsByJs() {
+    }
+
+    function finishCard() {
+        if (!$('.postit:last').hasClass('alert-dismissible')) 
+            $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
+        
+        $('#Append').append(ePlusPostit);
+        $('.postit:last .input-group').remove();
+        $('.remove-line').remove();
+    }
+</script>

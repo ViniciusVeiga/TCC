@@ -1,54 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using TCC.BusinessLayer.BusinessLayers;
+using System.Linq;
 using TCC.Domain.Entities;
-using TCC.Domain.Entities;
-using TCC.Entity.CRUD;
 
 namespace TCC.BusinessLayer.BusinessLayers
 {
-    public class BLCard
+    public class BLCard<T> where T : ETCard
     {
-        #region Salvar
+        #region Obter Diferença
 
-        public static bool Save(List<ETCard> cards, decimal? idMenuItem)
+        public static List<T> GetDifference(List<T> newCards, List<T> oldCards)
         {
-            try
-            {
-                GetList(idMenuItem)
-                    .ForEach(i => CRUD<ETCard>.DeletePhysical(i)); // Deletando os cards antigos
-
-                foreach (var card in cards)
-                {
-                    BLCardLine.Save(card.CardLines);
-
-                    CRUD<ETCard>.AddOrUpdate(card);
-                }
-
-                return true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        #endregion
-
-        #region Listar
-
-        public static List<ETCard> GetList(decimal? idMenuItem)
-        {
-            try
-            {
-                var user = BLUser<ETUserPublic>.GetLogged();
-                
-                return CRUD<ETCard>.FindAll(i => i.IdHistoric == user.Id);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return oldCards.Except(newCards, new BLClassCompare<T>()).ToList();
         }
 
         #endregion

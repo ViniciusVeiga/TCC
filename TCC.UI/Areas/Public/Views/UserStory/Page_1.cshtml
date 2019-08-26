@@ -1,12 +1,7 @@
-﻿@{
-    var test1 = new List<string>();
-}
+﻿@model ETHistoric
 
-<style>
-    .alert.actor {
-        margin-bottom: 0px;
-    }
-</style>
+@using TCC.Domain.Entities
+@using TCC.Domain.Interfaces
 
 <div class="content-header">
     <h1>
@@ -14,8 +9,11 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Salvar", "SaveUserStory", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-success" })
-        @Ajax.ActionLink("Continuar", "Page_2", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        
+        @if (Model.CardActors?.Count > 0)
+        {
+            @Ajax.ActionLink("Continuar", "Page_2", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        }
     </div>
 </div>
 <div class="content">
@@ -42,7 +40,13 @@
                 </div>
                 <hr />
                 <div class="row" id="Append">
-                    @Helpers.CreatePostit(test1)
+                    @Helpers.MessageBoard()
+
+                    @Helpers.CreatePostit(Model.CardActors?.Cast<ICard>().ToList())
+
+                    <div class="bottom-board">
+                        @Helpers.SaveButtonBoard()
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,47 +56,5 @@
 @Helpers.PostitExampleHTML()
 
 @section scripts {
-    <script type="text/javascript">
-        var ePostit = $('#Postit').html();
-        var eRemovePostit = $('#RemovePostit').html();
-        var eRemoveLinePostit = $('#RemoveLinePostit').html();
-        var ePlusPostit = $('#PlusPostit').html();
-        var countP = 0;
-
-        $(document).ready(function () {
-            $('#Example').remove();
-            $('#Append').append(ePlusPostit)
-        });
-
-        $('#Append').on('click', '#AddPostit', function () {
-            $(this).parent().remove();
-            $('#Append').append(ePostit);
-
-            $('#Text').focus();
-        });
-
-        $('#Append').on('click', '#Send', function () {
-            var input = $('#Text');
-            var text = input.val();
-            input.val('');
-
-            if (text != '') {
-                $('.p:last').append($('<p></p>').text(text));
-
-                $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
-                $('#Append').append(ePlusPostit);
-                $('.postit:last .input-group').remove();
-            }
-        });
-
-        $('#Append').on('click', '.close', function () {
-            $(this).closest('.to-remove').remove();
-        });
-
-        $('#Append').on('keypress', '#Text', function (e) {
-            if (e.keyCode == 13) {
-                $('#Send').click();
-            }
-        });
-    </script>
+    @Html.Partial("_ScriptPage_1")
 }

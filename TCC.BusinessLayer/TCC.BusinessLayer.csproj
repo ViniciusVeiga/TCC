@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuisinessLayers\Basic\BLClassCompare.cs" />
     <Compile Include="BuisinessLayers\BLBase.cs" />
     <Compile Include="BuisinessLayers\Admin\BLMenuParent.cs" />
     <Compile Include="BuisinessLayers\Admin\BLTechnicalTutorial.cs" />
@@ -57,12 +58,13 @@
     <Compile Include="BuisinessLayers\Admin\BLMenuItem.cs" />
     <Compile Include="BuisinessLayers\Basic\BLConfiguration.cs" />
     <Compile Include="BuisinessLayers\Basic\BLEmail.cs" />
+    <Compile Include="BuisinessLayers\Public\BLCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BuisinessLayers\Basic\BLEncrypt.cs" />
     <Compile Include="BuisinessLayers\Admin\BLMenu.cs" />
     <Compile Include="BuisinessLayers\Public\BLHistoric.cs" />
     <Compile Include="BuisinessLayers\Public\BLCardLine.cs" />
-    <Compile Include="BuisinessLayers\Public\BLCard.cs" />
+    <Compile Include="BuisinessLayers\Public\UserStory\BLCardActor.cs" />
     <Compile Include="BuisinessLayers\Public\BLUserPublicMenuItem.cs" />
     <Compile Include="BuisinessLayers\Security\BLUser.cs" />
   </ItemGroup>

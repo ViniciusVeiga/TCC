@@ -17,12 +17,17 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                var oldId = GetByProject(historic.IdProject)?.Id;
-                historic.Id = oldId;
-                historic.IdUserPublic = user.Id;
+                if (historic.IdProject != null)
+                {
+                    var oldId = GetByProject(historic.IdProject)?.Id;
+                    historic.Id = oldId;
+                    historic.IdUserPublic = user.Id;
 
-                InativeOthers(historic.Id);
-                CRUD<T>.AddOrUpdate(historic);
+                    InativeOthers(historic.Id);
+                    CRUD<T>.AddOrUpdate(historic);
+                }
+
+                BLCardActor.Save(historic.CardActors);
             }
             catch (Exception)
             {
