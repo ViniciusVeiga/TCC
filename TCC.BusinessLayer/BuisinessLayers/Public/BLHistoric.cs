@@ -21,7 +21,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
                 if (AbleToSave(historic, oldHistoric))
                 {
-                    historic.Id = oldHistoric.Id;
+                    historic.Id = oldHistoric?.Id;
                     historic.IdUserPublic = user.Id;
 
                     InativeOthers(historic.Id);
@@ -36,7 +36,7 @@ namespace TCC.BusinessLayer.BusinessLayers
             }
         }
 
-        private static bool AbleToSave(T historic, T oldHistoric) => historic.Id != null && oldHistoric.Id != historic.Id && historic.IdProject != oldHistoric.IdProject;
+        private static bool AbleToSave(T historic, T oldHistoric) => historic?.Id == null || oldHistoric?.Id != historic?.Id && historic?.IdProject != oldHistoric?.IdProject;
 
         #endregion
 
