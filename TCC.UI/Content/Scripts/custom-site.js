@@ -39,7 +39,6 @@ function newPage(id, url) {
         url: url,
         data: { 'id': id },
         success: function (data) {
-            console.log(data);
             changeContent(data);
         }
     });
