@@ -13,7 +13,9 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                var difference = BLCard<ETCardActor>.GetDifference(cardActors, CRUD<ETCardActor>.All);
+                var oldCards = CRUD<ETCardActor>.All;
+
+                var difference = BLCard<ETCardActor>.GetDifference(cardActors, oldCards);
 
                 foreach (var card in difference)
                 {
@@ -25,7 +27,7 @@ namespace TCC.BusinessLayer.BusinessLayers
                         CRUD<ETCardActor>.Add(card);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

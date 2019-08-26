@@ -5,6 +5,11 @@ namespace TCC.Domain.Entities
 {
     public class ETHistoric : ETBase
     {
+        public ETHistoric()
+        {
+            CardActors = new List<ETCardActor>();
+        }
+
         public decimal? IdUserPublic { get; set; }
         public decimal? IdProject { get; set; }
 

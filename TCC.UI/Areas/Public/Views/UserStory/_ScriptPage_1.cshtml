@@ -1,4 +1,8 @@
-﻿
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+@using TCC.BusinessLayer.BusinessLayers
+
 @{
     var urlSave = "Learnboard/UserStory/SaveHistoric";
     var page = "Page_1";
@@ -21,7 +25,7 @@
 
         if (text != '') {
             $('.remove-line').remove();
-            $('.p:last').append($((countLines == 0) ? '<h4></h4>' : '<p></p>').text(text).append(eRemoveLinePostit));
+            $('.p:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
 
             if (countLines == 0)
                 finishCard();
@@ -38,15 +42,28 @@
 
             var data = {
                 'model': {
-                    'IdProject': idProject
+                    'Id': '@Model.Id',
+                    'IdProject': '@Model.IdProject',
+                    'CardActors': []
                 },
                 'page': '@page'
             };
 
+            $('.postit', '#Append').each(function () {
+                var cardLine = [];
+
+                $(this).find('p').each(function () {
+                    cardLine.push({ 'Line': $(this).text() });
+                });
+
+                data.model.CardActors.push({ 'IdHistoric': '@Model.Id', 'CardLines': cardLine });
+            });
+
             $.ajax({
+                contentType: 'application/json; charset=utf-8',
                 type: 'POST',
                 url: '@urlSave',
-                data: data,
+                data: JSON.stringify(data),
                 success: function (data) {
                     changeContent(data);
                 }
@@ -64,12 +81,13 @@
     }
 
     function validationsByJs() {
+        return true;
     }
 
     function finishCard() {
-        if (!$('.postit:last').hasClass('alert-dismissible')) 
+        if (!$('.postit:last').hasClass('alert-dismissible'))
             $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
-        
+
         $('#Append').append(ePlusPostit);
         $('.postit:last .input-group').remove();
         $('.remove-line').remove();

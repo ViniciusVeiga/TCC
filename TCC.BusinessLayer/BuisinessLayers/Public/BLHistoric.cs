@@ -17,10 +17,11 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                if (historic.IdProject != null)
+                var oldHistoric = GetByProject(historic.IdProject);
+
+                if (AbleToSave(historic, oldHistoric))
                 {
-                    var oldId = GetByProject(historic.IdProject)?.Id;
-                    historic.Id = oldId;
+                    historic.Id = oldHistoric.Id;
                     historic.IdUserPublic = user.Id;
 
                     InativeOthers(historic.Id);
@@ -35,13 +36,15 @@ namespace TCC.BusinessLayer.BusinessLayers
             }
         }
 
+        private static bool AbleToSave(T historic, T oldHistoric) => historic.Id != null && oldHistoric.Id != historic.Id && historic.IdProject != oldHistoric.IdProject;
+
         #endregion
 
         #region Obter Pelo Projeto
 
-        public static ETHistoric GetByProject(decimal? idProject)
+        public static T GetByProject(decimal? idProject)
         {
-            return CRUD<ETHistoric>.Find(i => i.IdUserPublic == user.Id && i.IdProject == idProject);
+            return CRUD<T>.Find(i => i.IdUserPublic == user.Id && i.IdProject == idProject);
         }
 
         #endregion

@@ -11,7 +11,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static List<T> GetDifference(List<T> newCards, List<T> oldCards)
         {
-            return oldCards.Except(newCards, new BLClassCompare<T>()).ToList();
+            return newCards.Except(oldCards, new BLClassCompare<T>()).ToList();
         }
 
         #endregion
