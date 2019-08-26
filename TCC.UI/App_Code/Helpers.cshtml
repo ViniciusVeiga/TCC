@@ -247,3 +247,15 @@
         </div>
     </div>
 }
+
+@helper MessageBoard()
+{
+    <div class="row">
+        <div class="col-lg-2 col-centered board-message" style="display: none;"></div>
+    </div>
+}
+
+@helper SaveButtonBoard(string id = "SaveButton")
+{
+    <input id="@id" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">
+}

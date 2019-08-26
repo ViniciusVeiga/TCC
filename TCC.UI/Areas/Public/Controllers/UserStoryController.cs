@@ -71,14 +71,18 @@ namespace TCC.UI.Areas.Public.Controllers
         [HttpPost]
         public ActionResult SaveHistoric(ETHistoric model, string page)
         {
-            if (BLHistoric<ETHistoric>.Save(model))
+            try
             {
+                BLHistoric<ETHistoric>.Save(model);
+
                 this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
             }
-            else
+            catch (Exception)
+            {
                 this.AddToastMessage("Erro", "Erro ao salvar, favor tentar novamente", ToastrType.Error);
+            }
 
-            return View("Page_0", model);
+            return View(page, model);
         }
 
         #endregion

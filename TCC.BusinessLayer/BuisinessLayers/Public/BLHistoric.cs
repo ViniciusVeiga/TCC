@@ -13,7 +13,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         #region Salvar
 
-        public static bool Save(T historic)
+        public static void Save(T historic)
         {
             try
             {
@@ -23,8 +23,6 @@ namespace TCC.BusinessLayer.BusinessLayers
 
                 InativeOthers(historic.Id);
                 CRUD<T>.AddOrUpdate(historic);
-
-                return true;
             }
             catch (Exception)
             {

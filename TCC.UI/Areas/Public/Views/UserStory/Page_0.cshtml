@@ -5,8 +5,6 @@
 
 @{
     var projects = BLBase<ETProject>.GetList();
-    var urlSave = "Learnboard/UserStory/SaveHistoric";
-    var page = "Page_0";
 }
 
 <div class="content-header">
@@ -15,7 +13,7 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "Content/Index", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        
+
         @if (Model?.IdProject != null)
         {
             @Ajax.ActionLink("Continuar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
@@ -35,18 +33,21 @@
         <div class="box-body">
             <div class="board">
                 <div class="row" id="Append">
+                    @Helpers.MessageBoard();
+
                     @foreach (var item in projects)
                     {
                         <div class="col-lg-4">
-                            <div class="alert postit select">
+                            <div class="alert postit select @(Model.IdProject == item.Id ? "active" : string.Empty)">
                                 <input type="hidden" name="IdProject" value="@item.Id" />
                                 <h4>@item.Title</h4>
                                 <p>@item.Text</p>
                             </div>
                         </div>
                     }
+
                     <div class="bottom-board">
-                        <input id="BtnSave" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">
+                        @Helpers.SaveButtonBoard();
                     </div>
                 </div>
             </div>
@@ -56,90 +57,7 @@
 
 @Helpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4", addClassPostit: "select")
 
+
 @section scripts {
-    <script type="text/javascript">
-        var countP = 0;
-
-        $(document).ready(function () {
-            $('#Example').remove();
-            $('#Append').append(ePlusPostit)
-        });
-
-        $('#Append').on('click', '#AddPostit', function () {
-            $(this).parent().remove();
-            $('#Append').append(ePostit);
-
-            $('#Text').focus();
-        });
-
-        $('#Append').on('click', '#Send', function () {
-            count();
-            var input = $('#Text');
-            var text = input.val();
-            input.val('');
-
-            if (text != '') {
-                $('.remove-line').remove();
-                $('.p:last').append($((countP == 0) ? '<h4></h4>' : '<p></p>').text(text).append(eRemoveLinePostit));     
-
-                if (countP == 1) {
-                    if (!$('.postit:last').hasClass('alert-dismissible')) {
-                        $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
-                    }
-
-                    $('#Append').append(ePlusPostit);
-                    $('.postit:last .input-group').remove();
-                    $('.remove-line').remove();
-                }
-            }
-
-            input.focus();
-        });
-
-        $('#Append').on('click', '.close', function () {
-            $(this).closest('.to-remove').remove();
-        });
-
-        $('#Append').on('click', '.remove-line', function () {
-            $(this).parent('p').remove();
-            $('.postit:last p:last').append(eRemoveLinePostit);
-
-            count();
-        });
-
-        $('#Append').on('keypress', '#Text', function (e) {
-            if (e.keyCode == 13) {
-                $('#Send').click();
-            }
-        });
-
-        $('#Append').on('click', '.postit', function () {
-            $('.postit').removeClass('active');
-            $(this).addClass('active');
-        });
-
-        function count() {
-            countP = $('.postit:last p, .postit:last h4').length;
-        }
-
-        $('#BtnSave').click(function () {
-            var idProject = $('.postit.active').children('input[name=IdProject]').val();
-
-            var data = {
-                'historic': {
-                    'IdProject': idProject
-                },
-                'page': '@page'
-            };
-
-            $.ajax({
-                type: 'POST',
-                url: '@urlSave',
-                data: data,
-                success: function (data) {
-                    changeContent(data);
-                }
-            });
-        });
-    </script>
+    @Html.Partial("_ScriptPage_0")
 }
