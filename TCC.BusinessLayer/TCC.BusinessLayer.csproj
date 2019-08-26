@@ -49,22 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\BLAdminBase.cs" />
-    <Compile Include="Admin\BLMenuParent.cs" />
-    <Compile Include="Admin\BLTechnicalTutorial.cs" />
-    <Compile Include="Admin\BLContent.cs" />
-    <Compile Include="Admin\BLMenuIType.cs" />
-    <Compile Include="Admin\BLMenuItem.cs" />
-    <Compile Include="Basic\BLConfiguration.cs" />
-    <Compile Include="Basic\BLEmail.cs" />
+    <Compile Include="BuisinessLayers\BLBase.cs" />
+    <Compile Include="BuisinessLayers\Admin\BLMenuParent.cs" />
+    <Compile Include="BuisinessLayers\Admin\BLTechnicalTutorial.cs" />
+    <Compile Include="BuisinessLayers\Admin\BLContent.cs" />
+    <Compile Include="BuisinessLayers\Admin\BLMenuIType.cs" />
+    <Compile Include="BuisinessLayers\Admin\BLMenuItem.cs" />
+    <Compile Include="BuisinessLayers\Basic\BLConfiguration.cs" />
+    <Compile Include="BuisinessLayers\Basic\BLEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Basic\BLEncrypt.cs" />
-    <Compile Include="Admin\BLMenu.cs" />
-    <Compile Include="Public\BLHistoric.cs" />
-    <Compile Include="Public\BLCardLine.cs" />
-    <Compile Include="Public\BLCard.cs" />
-    <Compile Include="Public\BLUserPublicMenuItem.cs" />
-    <Compile Include="Security\BLUser.cs" />
+    <Compile Include="BuisinessLayers\Basic\BLEncrypt.cs" />
+    <Compile Include="BuisinessLayers\Admin\BLMenu.cs" />
+    <Compile Include="BuisinessLayers\Public\BLHistoric.cs" />
+    <Compile Include="BuisinessLayers\Public\BLCardLine.cs" />
+    <Compile Include="BuisinessLayers\Public\BLCard.cs" />
+    <Compile Include="BuisinessLayers\Public\BLUserPublicMenuItem.cs" />
+    <Compile Include="BuisinessLayers\Security\BLUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TCC.Domain\TCC.Domain.csproj">

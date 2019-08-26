@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using TCC.BusinessLayer;
+using TCC.BusinessLayer.BusinessLayers;
 using TCC.Domain.Entities;
 using TCC.UI.Helpers.Attributes.Login;
 using TCC.UI.Helpers.Attributes.TutorialDynamic;
@@ -18,7 +18,7 @@ namespace TCC.UI.Areas.Public.Controllers
         [PermissionTutorialDynamic(Key = Key)]
         public ActionResult Index()
         {
-            ViewData["Projects"] = BLAdminBase<ETProject>.GetList();
+            ViewData["Projects"] = BLBase<ETProject>.GetList();
 
             return View("Page_0");
         }

@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace TCC.BusinessLayer
+namespace TCC.BusinessLayer.BusinessLayers
 {
     public class BLConfiguration
     {

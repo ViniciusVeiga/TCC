@@ -1,9 +1,11 @@
-﻿@using TCC.Domain.Entities
-@model ETHistoric
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+@using TCC.BusinessLayer.BusinessLayers
 
 @{
-    var projects = (List<ETProject>)ViewData["Projects"];
-    var urlSave = "/UserStory/SaveHistoric";
+    var projects = BLBase<ETProject>.GetList();
+    var urlSave = "Learnboard/UserStory/SaveHistoric";
     var page = "Page_0";
 }
 
@@ -136,7 +138,6 @@
                 data: data,
                 dataType: "json",
                 success: function (data) {
-                    console.log(data);
                     changeContent(data);
                 }
             });

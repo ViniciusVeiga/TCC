@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TCC.BusinessLayer;
+using TCC.BusinessLayer.BusinessLayers;
 using TCC.Domain.Entities;
 using TCC.UI.Areas.Public.Views.ViewsModels;
 using TCC.UI.Helpers;
@@ -25,8 +25,6 @@ namespace TCC.UI.Areas.Public.Controllers
         public ActionResult Index()
         {
             var model = BLHistoric<ETHistoric>.GetActive();
-
-            ViewData["Projects"] = BLAdminBase<ETProject>.GetList();
 
             return View("Page_0", model);
         }

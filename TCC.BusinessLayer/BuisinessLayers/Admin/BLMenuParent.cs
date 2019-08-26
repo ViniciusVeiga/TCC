@@ -7,7 +7,7 @@ using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
 using static System.Web.HttpContext;
 
-namespace TCC.BusinessLayer
+namespace TCC.BusinessLayer.BusinessLayers
 {
     public class BLMenuParent
     {

@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using TCC.BusinessLayer;
+using TCC.BusinessLayer.BusinessLayers;
 
 namespace TCC.UI.Areas.Public.Controllers
 {

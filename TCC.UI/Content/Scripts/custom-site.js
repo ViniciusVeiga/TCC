@@ -39,6 +39,7 @@ function newPage(id, url) {
         url: url,
         data: { 'id': id },
         success: function (data) {
+            console.log(data);
             changeContent(data);
         }
     });
@@ -52,5 +53,5 @@ $('.input-group .form-control').keypress(function (e) {
 });
 
 function changeContent(data) {
-    changeContent(data);
+    $('#Ajax_Update_Menu').empty().html(data);
 }

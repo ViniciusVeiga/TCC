@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
-using TCC.BusinessLayer;
+using TCC.BusinessLayer.BusinessLayers;
 using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
 using TCC.UI.Helpers;
@@ -14,7 +14,7 @@ namespace TCC.UI.Extensions
 
         public virtual ActionResult Index()
         {
-            ViewBag.List = HelpersMethods.CopyValues<ET, VM>(BLAdminBase<ET>.GetList());
+            ViewBag.List = HelpersMethods.CopyValues<ET, VM>(BLBase<ET>.GetList());
 
             return View();
         }
@@ -37,7 +37,7 @@ namespace TCC.UI.Extensions
             {
                 if (ModelState.IsValid)
                 {
-                    BLAdminBase<ET>.Save(HelpersMethods.CopyValues<VM, ET>(model));
+                    BLBase<ET>.Save(HelpersMethods.CopyValues<VM, ET>(model));
 
                     this.AddToastMessage("Sucesso", "Salvo com sucesso.", ToastrType.Success);
                 }
@@ -58,7 +58,7 @@ namespace TCC.UI.Extensions
         {
             try
             {
-                BLAdminBase<ET>.Delete(id);
+                BLBase<ET>.Delete(id);
 
                 this.AddToastMessage("Sucesso", "Deletado com sucesso.", ToastrType.Success);
             }

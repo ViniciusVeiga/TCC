@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using TCC.BusinessLayer;
+using TCC.BusinessLayer.BusinessLayers;
 using TCC.Domain.Entities;
 using TCC.Domain.Enums;
 using TCC.UI.Areas.Admin.ViewsModels.TechnicalTutorial;
@@ -15,7 +15,7 @@ namespace TCC.UI.Areas.Admin.Controllers
 
         public override ActionResult Item(decimal? id)
         {
-            ViewBag.Contents = BLAdminBase<ETContent>.GetList();
+            ViewBag.Contents = BLBase<ETContent>.GetList();
 
             return base.Item(id);
         }

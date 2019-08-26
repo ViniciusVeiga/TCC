@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCC.BusinessLayer
+namespace TCC.BusinessLayer.BusinessLayers
 {
     public class BLEmail
     {

@@ -2,7 +2,7 @@
 using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
 
-namespace TCC.BusinessLayer
+namespace TCC.BusinessLayer.BusinessLayers
 {
     public class BLMenu
     {
