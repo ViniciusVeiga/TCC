@@ -24,7 +24,7 @@ namespace TCC.UI.Areas.Public.Controllers
         [PermissionTutorialDynamic(Key = Key)]
         public ActionResult Index()
         {
-            //var model = BLHistoric<ETHistoric>.GetActive();
+            var model = BLHistoric<ETHistoric_0>.GetActive();
 
             ViewData["Projects"] = BLAdminBase<ETProject>.GetList();
 
