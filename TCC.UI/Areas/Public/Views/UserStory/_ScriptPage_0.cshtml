@@ -14,7 +14,6 @@
     });
 
     $('#Append').on('click', '#Send', function () {
-        count();
         var input = $('#Text');
         var text = input.val();
         input.val('');
@@ -22,6 +21,8 @@
         if (text != '') {
             $('.remove-line').remove();
             $('.p:last').append($((countLines == 0) ? '<h4></h4>' : '<p></p>').text(text).append(eRemoveLinePostit));
+
+            count();
 
             if (countLines == 1)
                 finishCard();

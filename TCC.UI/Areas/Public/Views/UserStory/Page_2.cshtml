@@ -1,7 +1,7 @@
-﻿@{
-    var test = new List<List<string>>();
-    var urlSave = "/UserStory/SaveCards";
-}
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+@using TCC.Domain.Interfaces
 
 <div class="content-header">
     <h1>
@@ -9,7 +9,11 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Page_2", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Continuar", "Page_3", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        
+        @if (Model.CardUserStorys?.Count > 0)
+        {
+            @Ajax.ActionLink("Continuar", "Page_3", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        }
     </div>
 </div>
 <div class="content">
@@ -41,7 +45,7 @@
                     <div class="col-lg-2 col-centered board-message" style="display: none;"></div>
                 </div>
                 <div class="row" id="Append">
-                    @Helpers.CreatePostit(test)
+                    @Helpers.CreatePostit(Model.CardUserStorys?.Cast<ICard>().ToList())
                 </div>
                 <div class="bottom-board">
                     <input id="BtnSave" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">
@@ -54,157 +58,5 @@
 @Helpers.PostitExampleHTML("eu como...")
 
 @section scripts {
-    <script type="text/javascript">
-        var countP = 0;
-
-        $(document).ready(function () {
-            $('#Example').remove();
-            $('#Append').append(ePlusPostit)
-        });
-
-        $('#Append').on('click', '#AddPostit', function () {
-            $(this).parent().remove();
-            $('#Append').append(ePostit);
-
-            $('#Text').focus();
-        });
-
-        $('#Append').on('click', '#Send', function () {
-            var input = $('#Text');
-            var text = input.val();
-            input.val('');
-
-            if (text != '') {
-                $('.remove-line').remove();
-                $('.p:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
-
-                definePlaceholder();
-
-                if (countP > 2) {
-                    if (!$('.postit:last').hasClass('alert-dismissible')) {
-                        $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
-                    }
-
-                    $('#Append').append(ePlusPostit);
-                    $('.postit:last .input-group').remove();
-                    $('.remove-line').remove();
-                }
-            }
-
-            input.focus();
-        });
-
-        $('#Append').on('click', '.close', function () {
-            $(this).closest('.to-remove').remove();
-        });
-
-        $('#Append').on('click', '.remove-line', function () {
-            $(this).parent('p').remove();
-            $('.postit:last p:last').append(eRemoveLinePostit);
-
-            definePlaceholder();
-        });
-
-        $('#Append').on('keypress', '#Text', function (e) {
-            if (e.keyCode == 13) {
-                $('#Send').click();
-            }
-        });
-
-        function definePlaceholder() {
-            var input = $('#Text');
-
-            countP = $('.postit:last p').length;
-
-            switch (parseInt(countP)) {
-                case 0:
-                    input.attr("placeholder", "eu como...");
-                    break;
-                case 1:
-                    input.attr("placeholder", "quero...");
-                    break;
-                case 2:
-                    input.attr("placeholder", "para...");
-                    break;
-            }
-        }
-
-        $('#BtnSave').click(function () {
-            var data = [];
-
-            var json = validations();
-
-            if (json.success != true) {
-                $('.board-message')
-                    .text(json.message)
-                    .fadeIn();
-
-                return null;
-            }
-
-            $('.postit', '#Append').each(function () {
-                var lines = [];
-                var length = $(this).find('p').length;
-
-                $(this).find('p').each(function () {
-                    lines.push($(this).text());
-                });
-
-                data.push(lines);            
-            });
-
-            $.ajax({
-                type: 'POST',
-                url: '@urlSave',
-                data: {
-                    'Postits': data
-                },
-                dataType: "json",
-                success: function (data) {
-                    $('.board-message').text(data.message);
-                }
-            });
-        });
-
-        function validations() {
-            if ($('.postit', '#Append').length == 0)
-                return { success: false, message: 'Escreva pelo menos um card' };
-
-            var msg = 'Erro nos cards: '
-            var length = msg.length;
-
-            $('.postit', '#Append').each(function (index) {
-                index++;
-                var hasError;
-
-                $(this).find('p').each(function (i) {
-                    var error;
-                    var line = $(this).text().toLowerCase();
-
-                    switch (i) {
-                        case 0:
-                            error = line.startsWith('eu como') ? false : true;
-                            break;
-                        case 1:
-                            error = line.startsWith('quero') ? false : true;
-                            break;
-                        case 2:
-                            error = line.startsWith('para') ? false : true;
-                            break;
-                    }
-
-                    if (error == true)
-                        hasError = true;
-                });
-
-                if (hasError == true) 
-                    msg += index + ', ';
-            });
-
-            if (msg.length != length)
-                return { success: false, message: msg.substring(0, msg.length - 2) };
-
-            return { success: true };
-        }
-    </script>
+    @Html.Partial("_ScriptPage_2")
 }

@@ -5,7 +5,7 @@
 
 @{
     var urlSave = "Learnboard/UserStory/SaveHistoric";
-    var page = "Page_1";
+    var page = "Page_2";
 }
 
 @Scripts.Render("~/Scripts/Postit")
@@ -27,12 +27,17 @@
             $('.p:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
 
             count();
+            definePlaceholder();
 
-            if (countLines == 0)
+            if (countP > 2)
                 finishCard();
         }
 
         input.focus();
+    });
+
+    $('#Append').on('click', '.remove-line', function () {
+        definePlaceholder();
     });
 
     $('#SaveButton').click(function () {
@@ -82,6 +87,43 @@
     }
 
     function validationsByJs() {
+        if ($('.postit', '#Append').length == 0)
+            return 'Escreva pelo menos um card';
+
+        var msg = 'Erro nos cards: '
+        var length = msg.length;
+
+        $('.postit', '#Append').each(function (index) {
+            index++;
+            var hasError;
+
+            $(this).find('p').each(function (i) {
+                var error;
+                var line = $(this).text().toLowerCase();
+
+                switch (i) {
+                    case 0:
+                        error = line.startsWith('eu como') ? false : true;
+                        break;
+                    case 1:
+                        error = line.startsWith('quero') ? false : true;
+                        break;
+                    case 2:
+                        error = line.startsWith('para') ? false : true;
+                        break;
+                }
+
+                if (error == true)
+                    hasError = true;
+            });
+
+            if (hasError == true)
+                msg += index + ', ';
+        });
+
+        if (msg.length != length)
+            return msg.substring(0, msg.length - 2);
+
         return true;
     }
 
@@ -92,5 +134,23 @@
         $('#Append').append(ePlusPostit);
         $('.postit:last .input-group').remove();
         $('.remove-line').remove();
+    }
+
+    function definePlaceholder() {
+        var input = $('#Text');
+
+        countP = $('.postit:last p').length;
+
+        switch (parseInt(countP)) {
+            case 0:
+                input.attr("placeholder", "eu como...");
+                break;
+            case 1:
+                input.attr("placeholder", "quero...");
+                break;
+            case 2:
+                input.attr("placeholder", "para...");
+                break;
+        }
     }
 </script>
