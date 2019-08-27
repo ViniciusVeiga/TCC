@@ -38,7 +38,7 @@
                     @foreach (var item in projects)
                     {
                         <div class="col-lg-4">
-                            <div class="alert postit select @(Model.IdProject == item.Id ? "active" : string.Empty)">
+                            <div class="alert postit select @(Model?.IdProject == item.Id ? "active" : string.Empty)">
                                 <input type="hidden" name="IdProject" value="@item.Id" />
                                 <h4>@item.Title</h4>
                                 <p>@item.Text</p>
