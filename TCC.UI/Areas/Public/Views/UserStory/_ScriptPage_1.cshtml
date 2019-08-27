@@ -82,6 +82,9 @@
     }
 
     function validationsByJs() {
+        if ($('.postit', '#Append').length == 0)
+            return 'Escreva pelo menos um card';
+
         return true;
     }
 
