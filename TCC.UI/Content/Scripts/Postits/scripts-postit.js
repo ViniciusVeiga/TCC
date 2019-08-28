@@ -4,22 +4,28 @@ var eRemoveLinePostit = $('#RemoveLinePostit').html();
 var ePlusPostit = $('#PlusPostit').html();
 var countLines = 0;
 
-$('#Append').on('click', '#AddPostit', function () {
-    $(this).parent().remove();
-    $('#Append').append(ePostit);
+$(document).ready(function () {
+    start();
+});
 
-    $('#Text').focus();
+$('#Append').on('click', '#Send', function () {
+    writeLine();
+});
+
+$('#SaveButton').click(function () {
+    sendToSave();
+});
+
+$('#Append').on('click', '#AddPostit', function () {
+    appendPostit();
 });
 
 $('#Append').on('click', '.close', function () {
-    $(this).closest('.to-remove').remove();
+    removePostit();
 });
 
 $('#Append').on('click', '.remove-line', function () {
-    $(this).parent('p').remove();
-    $('.postit:last p:last').append(eRemoveLinePostit);
-
-    count();
+    removeLine();
 });
 
 $('#Append').on('keypress', '#Text', function (e) {

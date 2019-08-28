@@ -7,13 +7,13 @@
 @Scripts.Render("~/Scripts/Postit")
 
 <script type="text/javascript">
-    // Events
-    $(document).ready(function () {
-        $('#Example').remove();
-        $('#Append').append(ePlusPostit)
-    });
 
-    $('#Append').on('click', '#Send', function () {
+    function start() {
+        $('#Example').remove();
+        $('#Append').append(ePlusPostit);
+    }
+
+    function writeLine() {
         var input = $('#Text');
         var text = input.val();
         input.val('');
@@ -29,9 +29,9 @@
         }
 
         input.focus();
-    });
+    }
 
-    $('#SaveButton').click(function () {
+    function sendToSave() {
         var result = validationsByJs();
 
         if (result == true){
@@ -57,9 +57,8 @@
             $('.board-message')
                 .text(result)
                 .fadeIn();
-    });
+    }
 
-    // Functions
     function count() {
         countLines = $('.postit:last p, .postit:last h4').length;
     }
@@ -74,11 +73,29 @@
     }
 
     function finishCard() {
-        if (!$('.postit:last').hasClass('alert-dismissible')) 
+        if (!$('.postit:last').hasClass('alert-dismissible'))
             $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
-        
+
         $('#Append').append(ePlusPostit);
         $('.postit:last .input-group').remove();
         $('.remove-line').remove();
+    }
+
+    function appendPostit() {
+        $(this).parent().remove();
+        $('#Append').append(ePostit);
+
+        $('#Text').focus();
+    }
+
+    function removePostit() {
+        $(this).closest('.to-remove').remove();
+    }
+
+    function removeLine() {
+        $(this).parent('p').remove();
+        $('.postit:last p:last').append(eRemoveLinePostit);
+
+        count();
     }
 </script>
