@@ -8,14 +8,22 @@ namespace TCC.BusinessLayer.BusinessLayers
 {
     public class BLClassCompare<T> : IEqualityComparer<T> where T : ETBase
     {
-        public bool Equals(T x, T y)
+        public bool Equals(T t1, T t2)
         {
-            if (x == null)
-                return y == null;
-            else if (y == null)
-                return false;
-            else
-                return x.Id == y.Id && x.Id == y.Id;
+            try
+            {
+                if (t1.Id == null)
+                    return false;
+
+                if (t2.Id == null)
+                    return false;
+
+                if (t1.Id == t2.Id)
+                    return true;
+            }
+            catch { }
+
+            return false;
         }
 
         public int GetHashCode(T obj)

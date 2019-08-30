@@ -13,21 +13,16 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                var oldCards = CRUD<ETCardActor>.All;
-
-                var difference = BLCard<ETCardActor>.GetDifference(cardActors, oldCards);
-
-                foreach (var card in difference)
-                {
-                    if (card.Id.HasValue)
+                BLCard<ETCardActor>.GetDifference(cardActors, CRUD<ETCardActor>.All)
+                    .ForEach(i =>
                     {
-                        CRUD<ETCardActor>.DeleteLogical(card);
-                    }
-                    else
-                        CRUD<ETCardActor>.Add(card);
-                }
+                        if (i.Id.HasValue)
+                            CRUD<ETCardActor>.DeletePhysical(i);
+                        else
+                            CRUD<ETCardActor>.Add(i);
+                    });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

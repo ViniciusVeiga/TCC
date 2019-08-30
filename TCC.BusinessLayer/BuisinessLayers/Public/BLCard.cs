@@ -9,9 +9,15 @@ namespace TCC.BusinessLayer.BusinessLayers
     {
         #region Obter Diferença
 
-        public static List<T> GetDifference(List<T> newCards, List<T> oldCards)
+        public static List<T> GetDifference(List<T> news, List<T> olds)
         {
-            return newCards.Except(oldCards, new BLClassCompare<T>()).ToList();
+            var cards = new List<T>();
+            var compare = new BLClassCompare<T>();
+
+            cards.AddRange(news.Except(olds, compare));
+            cards.AddRange(olds.Except(news, compare));
+
+            return cards;
         }
 
         #endregion
