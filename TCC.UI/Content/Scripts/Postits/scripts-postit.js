@@ -12,24 +12,24 @@ $('#Append').on('click', '#Send', function () {
     writeLine();
 });
 
-$('#SaveButton').click(function () {
-    sendToSave();
+$('#SaveButton').click(function (event) {
+    sendToSave(event);
 });
 
-$('#Append').on('click', '#AddPostit', function () {
-    appendPostit();
+$('#Append').on('click', '#AddPostit', function (event) {
+    appendPostit(event);
 });
 
-$('#Append').on('click', '.close', function () {
-    removePostit();
+$('#Append').on('click', '.close', function (event) {
+    removePostit(event);
 });
 
-$('#Append').on('click', '.remove-line', function () {
-    removeLine();
+$('#Append').on('click', '.remove-line', function (event) {
+    removeLine(event);
 });
 
 $('#Append').on('keypress', '#Text', function (e) {
-    if (e.keyCode == 13)
+    if (e.keyCode === 13)
         $('#Send').click();
 });
 

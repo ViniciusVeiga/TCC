@@ -35,7 +35,7 @@
         input.focus();
     }
 
-   function sendToSave() {
+    function sendToSave(event) {
         var result = validationsByJs();
 
         if (result == true) {
@@ -52,8 +52,8 @@
             $('.postit', '#Append').each(function () {
                 var cardLine = [];
 
-                $(this).find('p').each(function () {
-                    cardLine.push({ 'Line': $(this).text() });
+                $(event.target).find('p').each(function (eventLine) {
+                    cardLine.push({ 'Line': $(eventLine.target).text() });
                 });
 
                 data.model.CardActors.push({ 'IdHistoric': '@Model.Id', 'CardLines': cardLine });
@@ -82,13 +82,13 @@
         var msg = 'Erro nos cards: '
         var length = msg.length;
 
-        $('.postit', '#Append').each(function (index) {
+        $('.postit', '#Append').each(function (event, index) {
             index++;
             var hasError;
 
-            $(this).find('p').each(function (i) {
+            $(event.target).find('p').each(function (e, i) {
                 var error;
-                var line = $(this).text().toLowerCase();
+                var line = $(e.target).text().toLowerCase();
 
                 switch (i) {
                     case 0:
@@ -117,7 +117,7 @@
     }
 
     function count() {
-        countLines = $('.postit:last p, .postit:last h4').length;
+        countLines = $('.postit:last p').length;
     }
 
     function validationsByJs() {
@@ -138,19 +138,19 @@
         $('.remove-line').remove();
     }
 
-    function appendPostit() {
-        $(this).parent().remove();
+    function appendPostit(event) {
+        $(event.target).parent().remove();
         $('#Append').append(ePostit);
 
         $('#Text').focus();
     }
 
-    function removePostit() {
-        $(this).closest('.to-remove').remove();
+    function removePostit(event) {
+        $(event.target).closest('.to-remove').remove();
     }
 
-    function removeLine() {
-        $(this).parent('p').remove();
+    function removeLine(event) {
+        $(event.target).parent('p').remove();
         $('.postit:last p:last').append(eRemoveLinePostit);
 
         count();

@@ -81,19 +81,19 @@
         $('.remove-line').remove();
     }
 
-    function appendPostit() {
-        $(this).parent().remove();
+    function appendPostit(event) {
+        $(event.target).parent().remove();
         $('#Append').append(ePostit);
 
         $('#Text').focus();
     }
 
     function removePostit() {
-        $(this).closest('.to-remove').remove();
+        $(event.target).closest('.to-remove').remove();
     }
 
     function removeLine() {
-        $(this).parent('p').remove();
+        $(event.target).parent('p').remove();
         $('.postit:last p:last').append(eRemoveLinePostit);
 
         count();
