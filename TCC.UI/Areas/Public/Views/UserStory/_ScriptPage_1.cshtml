@@ -11,13 +11,12 @@
 @Scripts.Render("~/Scripts/Postit")
 
 <script type="text/javascript">
-    // Events
-    $(document).ready(function () {
+    function start() {
         $('#Example').remove();
-        $('#Append').append(ePlusPostit)
-    });
+        $('#Append').append(ePlusPostit);
+    }
 
-    $('#Append').on('click', '#Send', function () {
+    function writeLine() {
         var input = $('#Text');
         var text = input.val();
         input.val('');
@@ -33,13 +32,12 @@
         }
 
         input.focus();
-    });
+    }
 
-    $('#SaveButton').click(function () {
+    function sendToSave() {
         var result = validationsByJs();
 
-        if (result == true){
-            var idProject = $('.postit.active').children('input[name=IdProject]').val();
+        if (result == true) {
 
             var data = {
                 'model': {
@@ -74,16 +72,17 @@
             $('.board-message')
                 .text(result)
                 .fadeIn();
-    });
+    }
 
-    // Functions
     function count() {
-        countLines = $('.postit:last p').length;
+        countLines = $('.postit:last p, .postit:last h4').length;
     }
 
     function validationsByJs() {
-        if ($('.postit', '#Append').length == 0)
-            return 'Escreva pelo menos um card';
+        var countActive = $('.postit.active').length;
+
+        if (countActive == 0)
+            return 'Selecione um projeto para salvar!';
 
         return true;
     }
@@ -95,5 +94,23 @@
         $('#Append').append(ePlusPostit);
         $('.postit:last .input-group').remove();
         $('.remove-line').remove();
+    }
+
+    function appendPostit() {
+        $(this).parent().remove();
+        $('#Append').append(ePostit);
+
+        $('#Text').focus();
+    }
+
+    function removePostit() {
+        $(this).closest('.to-remove').remove();
+    }
+
+    function removeLine() {
+        $(this).parent('p').remove();
+        $('.postit:last p:last').append(eRemoveLinePostit);
+
+        count();
     }
 </script>
