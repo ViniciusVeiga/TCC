@@ -10,7 +10,5 @@ namespace TCC.Domain.Interfaces
     public interface ICard
     {
         decimal? IdHistoric { get; set; }
-
-        List<ICardLine> CardLines { get; set; }
     }
 }

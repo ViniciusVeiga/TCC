@@ -5,21 +5,25 @@ using TCC.Entity.CRUD;
 
 namespace TCC.BusinessLayer.BusinessLayers
 {
-    public class BLCardLine<T> 
+    public class BLCardLine<T>
         where T : ETCardLine
     {
         #region Salvar
 
-        public static bool Save(List<T> cardLines)
+        public static bool Save(List<T> cardLines, decimal? idCard)
         {
             try
             {
                 cardLines
-                    .ForEach(i => CRUD<T>.Add(i));
+                    .ForEach(i =>
+                    {
+                        i.IdCard = idCard;
+                        CRUD<T>.Add(i);
+                    });
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

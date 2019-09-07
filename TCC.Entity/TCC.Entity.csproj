@@ -53,9 +53,12 @@
   <ItemGroup>
     <Compile Include="Context\EFContext.cs" />
     <Compile Include="Maps\Public\BDD\MPCardBDD.cs" />
+    <Compile Include="Maps\Public\MPCardLine.cs" />
     <Compile Include="Maps\Public\MPHistoric.cs" />
     <Compile Include="Maps\Public\MPCard.cs" />
+    <Compile Include="Maps\Public\UserStory\MPCardLineActor.cs" />
     <Compile Include="Maps\Public\UserStory\MPCardActor.cs" />
+    <Compile Include="Maps\Public\UserStory\MPCardLineUserStory.cs" />
     <Compile Include="Maps\Public\UserStory\MPCardUserStory.cs" />
     <Compile Include="Maps\Admin\MPProject.cs" />
     <Compile Include="Maps\Admin\MPMenuParent.cs" />

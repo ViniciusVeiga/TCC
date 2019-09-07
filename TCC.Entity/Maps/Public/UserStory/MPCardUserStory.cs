@@ -8,7 +8,7 @@ namespace TCC.Entity.Maps
     {
         public MPCardUserStory()
         {
-            ToTable("ADM_TCC_CARD_USER_STORY");
+            ToTable("PUB_TCC_CARD_USER_STORY");
 
             HasRequired(e => e.Historic)
                 .WithMany(e => e.CardUserStorys)

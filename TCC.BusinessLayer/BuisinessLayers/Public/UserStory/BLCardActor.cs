@@ -21,13 +21,13 @@ namespace TCC.BusinessLayer.BusinessLayers
                         {
                             CRUD<ETCardActor>.Add(i);
 
-                            BLCardLine<ETCardLineActor>.Save(i.CardLines.Cast<ETCardLineActor>().ToList());
+                            BLCardLine<ETCardLineActor>.Save(i.CardLines, i.Id);
                         }
                         else
                             CRUD<ETCardActor>.DeletePhysical(i);
                     });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
