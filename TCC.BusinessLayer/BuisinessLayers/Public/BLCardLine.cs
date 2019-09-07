@@ -5,16 +5,17 @@ using TCC.Entity.CRUD;
 
 namespace TCC.BusinessLayer.BusinessLayers
 {
-    public class BLCardLine
+    public class BLCardLine<T> 
+        where T : ETCardLine
     {
         #region Salvar
 
-        public static bool Save(List<ETCardLine> cardLines)
+        public static bool Save(List<T> cardLines)
         {
             try
             {
                 cardLines
-                    .ForEach(i => CRUD<ETCardLine>.Add(i));
+                    .ForEach(i => CRUD<T>.Add(i));
 
                 return true;
             }

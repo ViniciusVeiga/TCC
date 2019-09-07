@@ -11,6 +11,6 @@ namespace TCC.Domain.Interfaces
     {
         decimal? IdHistoric { get; set; }
 
-        List<ETCardLine> CardLines { get; set; }
+        List<ICardLine> CardLines { get; set; }
     }
 }
