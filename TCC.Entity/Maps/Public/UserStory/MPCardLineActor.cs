@@ -9,6 +9,10 @@ namespace TCC.Entity.Maps
         public MPCardLineActor()
         {
             ToTable("PUB_TCC_CARD_LINE_ACTOR");
+
+            HasRequired(e => e.Card)
+                .WithMany(e => e.CardLines)
+                .HasForeignKey(e => e.IdCard);
         }
     }
 }
