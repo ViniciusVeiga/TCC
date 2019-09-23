@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TCC.BusinessLayer.BusinessLayers;
 using TCC.Domain.Entities;
+using TCC.Entity.CRUD;
 using TCC.UI.Areas.Public.Views.ViewsModels;
 using TCC.UI.Helpers;
 using TCC.UI.Helpers.Attributes.Login;
@@ -36,6 +37,8 @@ namespace TCC.UI.Areas.Public.Controllers
         public ActionResult Page_1()
         {
             var model = BLHistoric<ETHistoric>.GetActive();
+
+            var x = CRUD<ETCardActor>.Find()
 
             return View(model);
         }

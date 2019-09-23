@@ -141,7 +141,7 @@
                 <h1>
                     <i class="fa fa-gears"></i>
                     <strong>EASY TEST</strong>
-                </h1>   
+                </h1>
                 <p>TESTE EM PRIMEIRO LUGAR</p>
             </figcaption>
         </figure>
@@ -183,7 +183,23 @@
     </div>
 }
 
-@helper CreatePostit(List<TCC.Domain.Interfaces.ICard> postits)
+@helper CreatePostit(List<TCC.Domain.Entities.ETCardActor> postits)
+{
+    foreach (var postit in postits)
+    {
+        <div class="col-sm-12 col-md-4 col-lg-2 to-remove">
+            <div class="alert postit alert-dismissable">
+                <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
+                @foreach (var line in postit.CardLines)
+                {
+                    <div class="p"><p>@line.Line</p></div>
+                }
+            </div>
+        </div>
+    }
+}
+
+@helper CreatePostit(List<TCC.Domain.Entities.ETCardBDD> postits)
 {
     @*foreach (var postit in postits)
     {

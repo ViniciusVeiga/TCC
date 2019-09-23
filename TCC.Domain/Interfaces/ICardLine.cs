@@ -4,6 +4,5 @@
     {
         decimal? IdCard { get; set; }
         string Line { get; set; }
-        int Order { get; set; }
     }
 }

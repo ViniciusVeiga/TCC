@@ -23,6 +23,7 @@ namespace TCC.Entity.Context
         public virtual DbSet<ETUserPublicMenuItem> UserPublicMenuItens { get; set; }
         public virtual DbSet<ETHistoric> Historics { get; set; }
         public virtual DbSet<ETCardActor> CardActors { get; set; }
+        public virtual DbSet<ETCardLineActor> CardLineActors { get; set; }
 
         #endregion
 
@@ -91,6 +92,7 @@ namespace TCC.Entity.Context
             modelBuilder.Configurations.Add(new Maps.MPUserPublicMenuItem());
             modelBuilder.Configurations.Add(new Maps.MPHistoric());
             modelBuilder.Configurations.Add(new Maps.MPCardActor());
+            modelBuilder.Configurations.Add(new Maps.MPCardLineActor());
         }
 
         public void MapAdmin(ref DbModelBuilder modelBuilder)

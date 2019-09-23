@@ -12,10 +12,6 @@ namespace TCC.Entity.Maps
             Property(e => e.Line)
                 .IsRequired()
                 .HasColumnName("LINE_C");
-
-            Property(e => e.IdCard)
-                .IsRequired()
-                .HasColumnName("ID_CARD_N");
         }
     }
 }

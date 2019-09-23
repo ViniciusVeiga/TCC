@@ -6,6 +6,5 @@ namespace TCC.Domain.Entities
     {
         public decimal? IdCard { get; set; }
         public string Line { get; set; }
-        public int Order { get; set; }
     }
 }

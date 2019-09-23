@@ -42,7 +42,7 @@
                 <div class="row" id="Append">
                     @Helpers.MessageBoard()
 
-                    @Helpers.CreatePostit(Model.CardActors?.Cast<ICard>().ToList())
+                    @Helpers.CreatePostit(Model.CardActors)
 
                     <div class="bottom-board">
                         @Helpers.SaveButtonBoard()
