@@ -38,8 +38,6 @@ namespace TCC.UI.Areas.Public.Controllers
         {
             var model = BLHistoric<ETHistoric>.GetActive();
 
-            var x = CRUD<ETCardActor>.Find()
-
             return View(model);
         }
 
