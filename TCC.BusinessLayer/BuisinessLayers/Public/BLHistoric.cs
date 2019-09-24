@@ -61,7 +61,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static void InativeOthers(decimal? newId)
         {
-            var otherHistorics = CRUD<ETHistoric>.FindAll(i => i.IdUserPublic == user.Id && i.Active == true && i.Id != newId);
+            var otherHistorics = CRUDHistoric.FindAll(i => i.IdUserPublic == user.Id && i.Active == true && i.Id != newId);
 
             otherHistorics.ForEach(i => i.Active = false);
 

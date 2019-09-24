@@ -188,7 +188,7 @@
 {
     foreach (var postit in postits)
     {
-        <div class="to-remove">
+        <div class="col-sm-12 col-md-3">
             <div class="alert postit">
                 @foreach (var line in postit.CardLines)
                 {
@@ -224,7 +224,7 @@
                 <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
                 @foreach (var line in postit.CardLines)
                 {
-                    <div class="p"><p>@line</p></div>
+                    <div class="p"><p>@line.Line</p></div>
                 }
             </div>
         </div>

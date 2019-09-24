@@ -4,15 +4,15 @@ using TCC.Domain.Entities;
 
 namespace TCC.Entity.Maps
 {
-    public class MPCardLineUserStory : MPCardLine<ETCardLineUserStory>
+    public class MPCardLineBDD : MPCardLine<ETCardLineBDD>
     {
-        public MPCardLineUserStory()
+        public MPCardLineBDD()
         {
-            ToTable("PUB_TCC_CARD_LINE_USER_STORY");
+            ToTable("PUB_TCC_CARD_LINE_BDD");
 
             Property(e => e.IdCard)
                 .IsRequired()
-                .HasColumnName("ID_CARD_USER_STORY_N");
+                .HasColumnName("ID_CARD_BDD_N");
 
             HasRequired(e => e.Card)
                 .WithMany(e => e.CardLines)

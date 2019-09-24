@@ -24,6 +24,10 @@ namespace TCC.Entity.Context
         public virtual DbSet<ETHistoric> Historics { get; set; }
         public virtual DbSet<ETCardActor> CardActors { get; set; }
         public virtual DbSet<ETCardLineActor> CardLineActors { get; set; }
+        public virtual DbSet<ETCardUserStory> CardUserStories { get; set; }
+        public virtual DbSet<ETCardLineUserStory> CardLineUserStories { get; set; }
+        public virtual DbSet<ETCardBDD> CardBDDs { get; set; }
+        public virtual DbSet<ETCardLineBDD> CardLineBDDs { get; set; }
 
         #endregion
 
@@ -93,6 +97,10 @@ namespace TCC.Entity.Context
             modelBuilder.Configurations.Add(new Maps.MPHistoric());
             modelBuilder.Configurations.Add(new Maps.MPCardActor());
             modelBuilder.Configurations.Add(new Maps.MPCardLineActor());
+            modelBuilder.Configurations.Add(new Maps.MPCardUserStory());
+            modelBuilder.Configurations.Add(new Maps.MPCardLineUserStory());
+            modelBuilder.Configurations.Add(new Maps.MPCardBDD());
+            modelBuilder.Configurations.Add(new Maps.MPCardLineBDD());
         }
 
         public void MapAdmin(ref DbModelBuilder modelBuilder)

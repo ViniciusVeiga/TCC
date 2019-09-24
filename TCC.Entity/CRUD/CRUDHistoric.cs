@@ -20,8 +20,17 @@ namespace TCC.Entity.CRUD
 
             return Entities
                 .Include(i => i.Project)
-                .Include(i => i.CardActors)
+                .Include(i => i.CardActors.Select(o => o.CardLines))
+                .Include(i => i.CardUserStorys.Select(o => o.CardLines))
+                .Include(i => i.CardBDDs.Select(o => o.CardLines))
                 .FirstOrDefault(predicate);
+        }
+
+        public new static List<ETHistoric> FindAll(Expression<Func<ETHistoric, bool>> predicate)
+        {
+            _ctx.Configuration.LazyLoadingEnabled = false;
+
+            return Entities.Where(predicate).ToList();
         }
     }
 }
