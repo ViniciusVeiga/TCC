@@ -6566,7 +6566,7 @@
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Item.cshtml" />
     <Content Include="Areas\Public\Views\web.config" />
-    <Content Include="Areas\Public\Views\UserStory\Page_3.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\Page_4.cshtml" />
     <Content Include="Areas\Public\Views\PermissionTutorialDynamic\Index.cshtml" />
     <Content Include="Areas\Public\Views\BDD\Page_0.cshtml" />
     <Content Include="Areas\Admin\Views\Project\Item.cshtml" />
@@ -6575,6 +6575,9 @@
     <Content Include="Areas\Public\Views\UserStory\_ScriptPage_0.cshtml" />
     <Content Include="Areas\Public\Views\UserStory\_ScriptPage_1.cshtml" />
     <Content Include="Areas\Public\Views\UserStory\_ScriptPage_2.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\Page_3.cshtml" />
+    <Content Include="App_Code\PostitHelpers.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\_ScriptPage_3.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />

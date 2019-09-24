@@ -1,24 +1,56 @@
-﻿
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+@using TCC.Domain.Interfaces
+
 <div class="content-header">
-    <ul class="breadcrumb">
+    <h1>
+        Criação do User Story
+    </h1>
+    <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Page_2", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-    </ul>
+        @Ajax.ActionLink("Continuar", "Page_4", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })      
+    </div>
 </div>
 <div class="content">
-    <div class="error-page">
-        <h2 class="headline text-yellow"><i class="fa fa-trophy text-yellow"></i></h2>
+    <div class="box">
+        <div class="box-header with-border">
+            <div class="col-lg-12">
+                <div>
+                    <h4>Após a seleção dos atores, é que se começa a contruir os cartões do User Story.</h4>
+                    <p>Utilize a lousa para escrever os cartões.</p>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="board">
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <h4>Cores disponiveis para marcar os cartões:</h4>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Atores</h4>
+                    </div>
+                    @PostitHelpers.CreatePostit_3(Model.CardActors)
+                </div>
+                <hr />
+                <div class="row" id="Append">
+                    @PostitHelpers.CreatePostit_3(Model.CardUserStorys)
 
-        <div class="error-content">
-            <h2><strong>Parabéns... Finalizado com sucesso</strong></h2>
-            <p>
-                Você completou o <strong>User Story</strong> com sucesso,
-                seus cards foram armazenados,
-                clique em exportar tenha acesso a todos os cards realizados nesse tutorial ou siga para o <strong>BDD</strong>.
-            </p>
-            <p>
-                @Ajax.ActionLink("BDD", "NextTutorial", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary btn-lg" })
-                @Ajax.ActionLink("Exportar", "NextTutorial", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-danger btn-lg" })
-            </p>
+                    <div class="bottom-board">
+                        @Helpers.SaveButtonBoard()
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+@PostitHelpers.PostitExampleHTML("eu como...")
+
+@section scripts {
+    @Html.Partial("_ScriptPage_3")
+}

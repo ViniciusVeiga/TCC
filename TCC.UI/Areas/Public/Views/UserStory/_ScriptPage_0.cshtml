@@ -98,4 +98,9 @@
 
         count();
     }
+
+    $('#Append').on('click', '.postit.select', function () {
+        $('.postit').removeClass('active');
+        $(this).addClass('active');
+    });
 </script>

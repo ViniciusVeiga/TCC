@@ -9,10 +9,10 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-
+        
         @if (Model.CardUserStorys?.Count > 0)
         {
-            @Ajax.ActionLink("Continuar", "Page_2", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+            @Ajax.ActionLink("Continuar", "Page_3", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
         }
     </div>
 </div>
@@ -31,10 +31,12 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-3">
                         <h4>Segue o exemplo abaixo:</h4>
-                        <div class="alert postit">
-                            <p>Eu como << QUEM >></p>
-                            <p>Quero << O QUÊ >></p>
-                            <p>Para << POR QUÊ >></p>
+                        <div class="to-remove">
+                            <div class="alert postit">
+                                <p>Eu como << QUEM >></p>
+                                <p>Quero << O QUÊ >></p>
+                                <p>Para << POR QUÊ >></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,24 +45,25 @@
                     <div class="col-sm-12">
                         <h4>Atores</h4>
                     </div>
-                    @Helpers.CreatePostit_1(Model.CardActors)
+
+                    @PostitHelpers.CreatePostit_1(Model.CardActors)
                 </div>
                 <hr />
-                <div class="row">
-                    <div class="col-lg-2 col-centered board-message" style="display: none;"></div>
-                </div>
                 <div class="row" id="Append">
-                    @Helpers.CreatePostit_2(Model.CardUserStorys)
-                </div>
-                <div class="bottom-board">
-                    <input id="BtnSave" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">
+                    @Helpers.MessageBoard()
+
+                    @PostitHelpers.CreatePostit_2(Model.CardUserStorys)
+
+                    <div class="bottom-board">
+                        @Helpers.SaveButtonBoard()
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-@Helpers.PostitExampleHTML("eu como...")
+@PostitHelpers.PostitExampleHTML("eu como...")
 
 @section scripts {
     @Html.Partial("_ScriptPage_2")

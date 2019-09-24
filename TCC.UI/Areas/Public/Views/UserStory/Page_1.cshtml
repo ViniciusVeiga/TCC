@@ -40,7 +40,7 @@
                 <div class="row" id="Append">
                     @Helpers.MessageBoard()
 
-                    @Helpers.CreatePostit_2(Model.CardActors)
+                    @PostitHelpers.CreatePostit_2(Model.CardActors)
 
                     <div class="bottom-board">
                         @Helpers.SaveButtonBoard()
@@ -51,7 +51,7 @@
     </div>
 </div>
 
-@Helpers.PostitExampleHTML()
+@PostitHelpers.PostitExampleHTML()
 
 @section scripts {
     @Html.Partial("_ScriptPage_1")

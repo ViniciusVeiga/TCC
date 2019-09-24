@@ -1,0 +1,24 @@
+﻿
+<div class="content-header">
+    <ul class="breadcrumb">
+        @Ajax.ActionLink("Voltar", "Page_2", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+    </ul>
+</div>
+<div class="content">
+    <div class="error-page">
+        <h2 class="headline text-yellow"><i class="fa fa-trophy text-yellow"></i></h2>
+
+        <div class="error-content">
+            <h2><strong>Parabéns... Finalizado com sucesso</strong></h2>
+            <p>
+                Você completou o <strong>User Story</strong> com sucesso,
+                seus cards foram armazenados,
+                clique em exportar tenha acesso a todos os cards realizados nesse tutorial ou siga para o <strong>BDD</strong>.
+            </p>
+            <p>
+                @Ajax.ActionLink("BDD", "NextTutorial", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary btn-lg" })
+                @Ajax.ActionLink("Exportar", "NextTutorial", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-danger btn-lg" })
+            </p>
+        </div>
+    </div>
+</div>

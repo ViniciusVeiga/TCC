@@ -32,8 +32,3 @@ $('#Append').on('keypress', '#Text', function (e) {
     if (e.keyCode === 13)
         $('#Send').click();
 });
-
-$('#Append').on('click', '.postit.select', function () {
-    $('.postit').removeClass('active');
-    $(this).addClass('active');
-});
