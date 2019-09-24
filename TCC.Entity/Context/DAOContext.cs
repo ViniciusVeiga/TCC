@@ -22,7 +22,8 @@ namespace TCC.Entity.Context
                     context = new EFContext();
                     HttpContext.Current.Session["CONTEXT"] = context;
                 }
-          
+
+                context.Configuration.LazyLoadingEnabled = true;
                 return context;
             }
             catch (Exception)
@@ -30,6 +31,7 @@ namespace TCC.Entity.Context
                 EFContext context = new EFContext();
                 HttpContext.Current.Session["CONTEXT"] = context;
 
+                context.Configuration.LazyLoadingEnabled = true;
                 return context;
             }
         }

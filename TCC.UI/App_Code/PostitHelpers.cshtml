@@ -89,7 +89,8 @@
     foreach (var postit in postits)
     {
         <div class="col-sm-12 col-md-3">
-            <div class="alert postit select">
+            <div class="alert postit select alert-dismissable">
+                <button type="button" class="close"></button>
                 @foreach (var line in postit.CardLines)
                 {
                     <p>@line.Line</p>
@@ -105,6 +106,7 @@
     {
         <div class="col-sm-12 col-md-3">
             <div class="alert postit select">
+                <button type="button" class="close"></button>
                 @foreach (var line in postit.CardLines)
                 {
                     <p>@line.Line</p>

@@ -29,6 +29,14 @@
         <div class="box-body">
             <div class="board">
                 <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Cartões de Atores:</h4>
+                    </div>
+
+                    @PostitHelpers.CreatePostit_1(Model.CardActors)
+                </div>
+                <hr />
+                <div class="row">
                     <div class="col-sm-12 col-md-3">
                         <h4>Segue o exemplo abaixo:</h4>
                         <div class="to-remove">
@@ -39,14 +47,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4>Atores</h4>
-                    </div>
-
-                    @PostitHelpers.CreatePostit_1(Model.CardActors)
                 </div>
                 <hr />
                 <div class="row" id="Append">

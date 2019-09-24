@@ -11,8 +11,12 @@
 @Scripts.Render("~/Scripts/Postit")
 
 <script type="text/javascript">
+    var button;
 
-    function start() { }
+    function start() {
+        button = '';
+        //setRandomColor();
+    }
 
     function writeLine() { }
 
@@ -30,7 +34,29 @@
 
     function removePostit(event) {  }
 
-    function removeLine(event) {   }
+    function removeLine(event) { }
 
-    function definePlaceholder() { }
+    $('.postit.select').on('click', function () {
+        $(this).children('.close').html(button);
+    });
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function setRandomColor() {
+        var color = getRandomColor();
+
+        $('#ColorButton i').css("color", color);
+        button = $('#ColorButton').html();
+    }
+
+    $('#ColorButton').click(function () {
+        setRandomColor();
+    });
 </script>
