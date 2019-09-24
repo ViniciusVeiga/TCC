@@ -20,15 +20,14 @@ namespace TCC.BusinessLayer.BusinessLayers
                 var oldParents = CRUD<ETMenuParent>.FindAll(p => p.IdMenuItem == idMenuItem);
                 var newParents = Current.Request.Form.GetValues("IdParents")?.Select(p => decimal.Parse(p)).ToList() ?? new List<decimal>();
 
-                foreach (var item in oldParents)
-                    CRUD<ETMenuParent>.DeletePhysical(item);
+                CRUD<ETMenuParent>.DeletePhysical(oldParents);
 
                 foreach (var item in newParents)
                     CRUD<ETMenuParent>.Add(new ETMenuParent(idMenuItem, item));
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

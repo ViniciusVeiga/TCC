@@ -119,7 +119,7 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             if (!string.IsNullOrEmpty(email))
             {
-                var users = CRUD<T>.All;
+                var users = CRUD<T>.All();
 
                 if (users.Any(u => u.Email == email))
                 {

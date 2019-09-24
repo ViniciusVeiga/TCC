@@ -42,10 +42,17 @@
                 </div>
                 <hr />
                 <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <h4>Atores</h4>
+                        @Helpers.CreatePostit_1(Model.CardActors)
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
                     <div class="col-lg-2 col-centered board-message" style="display: none;"></div>
                 </div>
                 <div class="row" id="Append">
-                    @Helpers.CreatePostit(Model.CardUserStorys?.Cast<ICard>().ToList())
+                    @Helpers.CreatePostit_2(Model.CardUserStorys)
                 </div>
                 <div class="bottom-board">
                     <input id="BtnSave" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">

@@ -9,15 +9,15 @@ using TCC.Entity.Context;
 
 namespace TCC.Entity.CRUD
 {
-    public static class CRUD<T> where T : ETBase
+    public class CRUD<T> where T : ETBase
     {
-        private static readonly DbContext _ctx = new EFContext();
-        private static IDbSet<T> _entities;
+        private static readonly DbContext _ctx = DAOContext.GetContext();
+        private static IDbSet<T> Entities => _ctx.Set<T>();
         private static string _errorMessage = string.Empty;
 
-        public static List<T> All => Entities.ToList();
+        public static List<T> All() => Entities.ToList();
 
-        public static List<T> Actives => Entities.Where(e => e.Active).ToList();
+        public static List<T> Actives() => Entities.Where(e => e.Active).ToList();
 
         public static T Find(decimal id) => Entities.Find(id);
 
@@ -150,11 +150,5 @@ namespace TCC.Entity.CRUD
                 throw new Exception(_errorMessage, dbEx);
             }
         }
-
-        public static void Dispose() => _ctx.Dispose();
-
-        //public static virtual IQueryable<T> Table => Entities;
-
-        private static IDbSet<T> Entities => _entities ?? (_entities = _ctx.Set<T>());
     }
 }

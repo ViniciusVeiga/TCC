@@ -25,7 +25,7 @@ namespace TCC.UI.Areas.Public.Controllers
         [PermissionTutorialDynamic(Key = Key)]
         public ActionResult Index()
         {
-            var model = BLHistoric<ETHistoric>.GetActive();
+            var model = BLHistoric.GetActive();
 
             return View("Page_0", model);
         }
@@ -36,7 +36,7 @@ namespace TCC.UI.Areas.Public.Controllers
 
         public ActionResult Page_1()
         {
-            var model = BLHistoric<ETHistoric>.GetActive();
+            var model = BLHistoric.GetActive();
 
             return View(model);
         }
@@ -47,7 +47,7 @@ namespace TCC.UI.Areas.Public.Controllers
 
         public ActionResult Page_2()
         {
-            var model = BLHistoric<ETHistoric>.GetActive();
+            var model = BLHistoric.GetActive();
 
             return View(model);
         }
@@ -79,7 +79,7 @@ namespace TCC.UI.Areas.Public.Controllers
         {
             try
             {
-                BLHistoric<ETHistoric>.Save(model);
+                BLHistoric.Save(model);
 
                 this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
             }

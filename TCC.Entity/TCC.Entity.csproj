@@ -44,6 +44,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,7 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\DAOContext.cs" />
     <Compile Include="Context\EFContext.cs" />
+    <Compile Include="CRUD\CRUDHistoric.cs" />
     <Compile Include="Maps\Public\BDD\MPCardBDD.cs" />
     <Compile Include="Maps\Public\MPCardLine.cs" />
     <Compile Include="Maps\Public\MPHistoric.cs" />

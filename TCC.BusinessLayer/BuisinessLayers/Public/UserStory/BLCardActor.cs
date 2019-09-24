@@ -14,7 +14,7 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                BLCard<ETCardActor>.GetDifference(cardActors, CRUD<ETCardActor>.All)
+                BLCard<ETCardActor>.GetDifference(cardActors, CRUD<ETCardActor>.All())
                     .ForEach(i =>
                     {
                         if (!i.Id.HasValue)

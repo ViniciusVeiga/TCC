@@ -183,7 +183,23 @@
     </div>
 }
 
-@helper CreatePostit(List<TCC.Domain.Entities.ETCardActor> postits)
+
+@helper CreatePostit_1(List<TCC.Domain.Entities.ETCardActor> postits)
+{
+    foreach (var postit in postits)
+    {
+        <div class="to-remove">
+            <div class="alert postit">
+                @foreach (var line in postit.CardLines)
+                {
+                    <p>@line.Line</p>
+                }
+            </div>
+        </div>
+    }
+}
+
+@helper CreatePostit_2(List<TCC.Domain.Entities.ETCardActor> postits)
 {
     foreach (var postit in postits)
     {
@@ -199,9 +215,9 @@
     }
 }
 
-@helper CreatePostit(List<TCC.Domain.Entities.ETCardBDD> postits)
+@helper CreatePostit_2(List<TCC.Domain.Entities.ETCardUserStory> postits)
 {
-    @*foreach (var postit in postits)
+    foreach (var postit in postits)
     {
         <div class="col-sm-12 col-md-4 col-lg-2 to-remove">
             <div class="alert postit alert-dismissable">
@@ -212,7 +228,7 @@
                 }
             </div>
         </div>
-    }*@
+    }
 }
 
 @helper SocialMedias(string name)

@@ -11,7 +11,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static List<T> GetList()
         {
-            return CRUD<T>.Actives;
+            return CRUD<T>.Actives();
         }
 
         #endregion

@@ -10,7 +10,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static List<ETMenu> GetList()
         {
-            return CRUD<ETMenu>.Actives;
+            return CRUD<ETMenu>.Actives();
         }
 
         #endregion

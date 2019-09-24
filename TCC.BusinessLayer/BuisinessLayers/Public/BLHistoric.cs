@@ -6,14 +6,13 @@ using TCC.Entity.CRUD;
 
 namespace TCC.BusinessLayer.BusinessLayers
 {
-    public class BLHistoric<T>
-        where T : ETHistoric
+    public class BLHistoric
     {
         private static ETUserPublic user = BLUser<ETUserPublic>.GetLogged();
 
         #region Salvar
 
-        public static void Save(T historic)
+        public static void Save(ETHistoric historic)
         {
             try
             {
@@ -25,7 +24,7 @@ namespace TCC.BusinessLayer.BusinessLayers
                     historic.IdUserPublic = user.Id;
 
                     InativeOthers(historic.Id);
-                    CRUD<T>.AddOrUpdate(historic);
+                    CRUD<ETHistoric>.AddOrUpdate(historic);
                 }
 
                 BLCardActor.Save(historic.CardActors);
@@ -36,24 +35,24 @@ namespace TCC.BusinessLayer.BusinessLayers
             }
         }
 
-        private static bool AbleToSave(T historic, T oldHistoric) => historic?.Id == null || oldHistoric?.Id != historic?.Id && historic?.IdProject != oldHistoric?.IdProject;
+        private static bool AbleToSave(ETHistoric historic, ETHistoric oldHistoric) => historic?.Id == null || oldHistoric?.Id != historic?.Id && historic?.IdProject != oldHistoric?.IdProject;
 
         #endregion
 
         #region Obter Pelo Projeto
 
-        public static T GetByProject(decimal? idProject)
+        public static ETHistoric GetByProject(decimal? idProject)
         {
-            return CRUD<T>.Find(i => i.IdUserPublic == user.Id && i.IdProject == idProject);
+            return CRUD<ETHistoric>.Find(i => i.IdUserPublic == user.Id && i.IdProject == idProject);
         }
 
         #endregion
 
         #region Obter Ativo
 
-        public static T GetActive()
+        public static ETHistoric GetActive()
         {
-            return CRUD<T>.Find(i => i.IdUserPublic == user.Id && i.Active == true);
+            return CRUDHistoric.Find(i => i.IdUserPublic == user.Id && i.Active == true);
         }
 
         #endregion
@@ -62,11 +61,11 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static void InativeOthers(decimal? newId)
         {
-            var otherHistorics = CRUD<T>.FindAll(i => i.IdUserPublic == user.Id && i.Active == true && i.Id != newId);
+            var otherHistorics = CRUD<ETHistoric>.FindAll(i => i.IdUserPublic == user.Id && i.Active == true && i.Id != newId);
 
             otherHistorics.ForEach(i => i.Active = false);
 
-            CRUD<T>.AddOrUpdate(otherHistorics);
+            CRUD<ETHistoric>.AddOrUpdate(otherHistorics);
         }
 
         #endregion
