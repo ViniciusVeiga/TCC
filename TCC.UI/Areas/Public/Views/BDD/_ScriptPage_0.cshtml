@@ -1,0 +1,106 @@
+﻿
+@{
+    var urlSave = "Learnboard/UserStory/SaveHistoric";
+    var page = "Page_0";
+}
+
+@Scripts.Render("~/Scripts/Postit")
+
+<script type="text/javascript">
+
+    function start() {
+        $('#Example').remove();
+        $('#Append').append(ePlusPostit);
+    }
+
+    function writeLine() {
+        var input = $('#Text');
+        var text = input.val();
+        input.val('');
+
+        if (text != '') {
+            $('.remove-line').remove();
+            $('.p:last').append($((countLines == 0) ? '<h4></h4>' : '<p></p>').text(text).append(eRemoveLinePostit));
+
+            count();
+
+            if (countLines > 1)
+                finishCard();
+        }
+
+        input.focus();
+    }
+
+    function sendToSave() {
+        var result = validationsByJs();
+
+        if (result == true){
+            var idProject = $('.postit.active').children('input[name=IdProject]').val();
+
+            var data = {
+                'model': {
+                    'IdProject': idProject
+                },
+                'page': '@page'
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '@urlSave',
+                data: data,
+                success: function (data) {
+                    changeContent(data);
+                }
+            });
+        }
+        else
+            $('.board-message')
+                .text(result)
+                .fadeIn();
+    }
+
+    function count() {
+        countLines = $('.postit:last p, .postit:last h4').length;
+    }
+
+    function validationsByJs() {
+        var countActive = $('.postit.active').length;
+
+        if (countActive == 0)
+            return 'Selecione um projeto para salvar!';
+
+        return true;
+    }
+
+    function finishCard() {
+        if (!$('.postit:last').hasClass('alert-dismissible'))
+            $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
+
+        $('#Append').append(ePlusPostit);
+        $('.postit:last .input-group').remove();
+        $('.remove-line').remove();
+    }
+
+    function appendPostit(event) {
+        $('#AddPostit').parent().remove();
+        $('#Append').append(ePostit);
+
+        $('#Text').focus();
+    }
+
+    function removePostit() {
+        $(event.target).closest('.to-remove').remove();
+    }
+
+    function removeLine() {
+        $(event.target).parent('p').remove();
+        $('.postit:last p:last').append(eRemoveLinePostit);
+
+        count();
+    }
+
+    $('#Append').on('click', '.postit.select', function () {
+        $('.postit').removeClass('active');
+        $(this).addClass('active');
+    });
+</script>

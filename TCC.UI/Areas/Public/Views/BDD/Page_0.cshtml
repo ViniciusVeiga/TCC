@@ -1,7 +1,10 @@
-﻿@using TCC.Domain.Entities
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+@using TCC.BusinessLayer.BusinessLayers
 
 @{
-    var projects = (List<ETProject>)ViewData["Projects"];
+    var projects = BLBase<ETProject>.GetList();
 }
 
 <div class="content-header">
@@ -10,7 +13,11 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "Content/Index", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Continuar", "Page_1", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary", @id = "btnContinuar" })
+
+        @if (Model?.IdProject != null)
+        {
+            @Ajax.ActionLink("Continuar", "Page_1", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        }
     </div>
 </div>
 <div class="content">
@@ -18,7 +25,7 @@
         <div class="box-header with-border">
             <div class="col-lg-12">
                 <div>
-                    <h4>Para iniciarmos o tutorial do Behavior Driven Development (BDD) é necessario a escolha de algum projeto para o ensino.<br>Ou se quiser você pode escolher seu próprio projeto, caso tenha cadastrado na primeira etapa do User Story.</h4>
+                    <h4>Para iniciarmos o tutorial continue com o projeto atual ou escolha um entre os projetos que já foram feitos no tutorial anterior!</h4>
                     <p>Selecione algum projeto abaixo:</p>
                 </div>
             </div>
@@ -26,31 +33,30 @@
         <div class="box-body">
             <div class="board">
                 <div class="row" id="Append">
+                    @Helpers.MessageBoard()
+
                     @foreach (var item in projects)
                     {
-                        <div class="col-sm-12 col-md-4 col-lg-2">
-                            <div class="alert postit select">
+                        <div class="col-lg-4">
+                            <div class="alert postit select @(Model?.IdProject == item.Id ? "active" : string.Empty)">
+                                <input type="hidden" name="IdProject" value="@item.Id" />
                                 <h4>@item.Title</h4>
                                 <p>@item.Text</p>
                             </div>
                         </div>
                     }
+
+                    <div class="bottom-board">
+                        @Helpers.SaveButtonBoard()
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-@section scripts {
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#btnContinuar').attr('disabled','disabled');
-        });
+@PostitHelpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4", addClassPostit: "select")
 
-        $('.callout').click(function () {
-            $('.callout').removeClass('active');
-            $(this).addClass('active');
-            $('#btnContinuar').removeAttr('disabled');
-        });
-    </script>
+@section scripts {
+    @Html.Partial("_ScriptPage_0")
 }

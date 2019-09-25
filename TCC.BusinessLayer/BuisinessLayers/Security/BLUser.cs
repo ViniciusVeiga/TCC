@@ -20,7 +20,7 @@ namespace TCC.BusinessLayer.BusinessLayers
             {
                 user.Password = BLEncrypt.Encrypt(user.Password);
 
-                CRUD<T>.Add(user);
+                CRUD<T>.Instance.Add(user);
 
                 return true;
             }
@@ -41,13 +41,14 @@ namespace TCC.BusinessLayer.BusinessLayers
                 passaword = BLEncrypt.Encrypt(passaword);
 
                 var user = CRUD<T>
+                    .Instance
                     .Find(u => u.Email == email && u.Password == passaword && u.Active == true);
 
                 if (user == null)
                     return false;
 
                 user.Token = Guid.NewGuid().ToString();
-                CRUD<T>.Update(user);
+                CRUD<T>.Instance.Update(user);
 
                 Current.Response.Cookies.Add(
                     new HttpCookie(_cookie, user.Token)
@@ -76,6 +77,7 @@ namespace TCC.BusinessLayer.BusinessLayers
                 if (cookie != null && !string.IsNullOrEmpty(cookie.Value))
                 {
                     var user = CRUD<T>
+                        .Instance
                         .Find(u => u.Token == cookie.Value && u.Active == true);
 
                     return user;
@@ -101,7 +103,7 @@ namespace TCC.BusinessLayer.BusinessLayers
                 var user = GetLogged();
 
                 user.Token = null;
-                CRUD<T>.Update(user);
+                CRUD<T>.Instance.Update(user);
 
                 return true;
             }
@@ -119,7 +121,7 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             if (!string.IsNullOrEmpty(email))
             {
-                var users = CRUD<T>.All();
+                var users = CRUD<T>.Instance.All();
 
                 if (users.Any(u => u.Email == email))
                 {

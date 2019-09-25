@@ -24,7 +24,7 @@ namespace TCC.BusinessLayer.BusinessLayers
                 var menuItem = BLMenuItem.GetByKey(key);
 
                 return menuItem.Parents
-                    .Select(i => CRUD<ETMenuItem>.Find(i.IdMenuParent.GetValueOrDefault(0)))
+                    .Select(i => CRUD<ETMenuItem>.Instance.Find(i.IdMenuParent.GetValueOrDefault(0)))
                     .Where(i => GetHistoric(i.Id) == null)
                     .ToList();
             }
@@ -95,7 +95,7 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             var user = BLUser<ETUserPublic>.GetLogged();
 
-            return CRUD<ETUserPublicMenuItem>.Find(p => p.IdUserPublic == user.Id && p.IdMenuItem == id);
+            return CRUD<ETUserPublicMenuItem>.Instance.Find(p => p.IdUserPublic == user.Id && p.IdMenuItem == id);
         }
 
         #endregion
@@ -107,10 +107,10 @@ namespace TCC.BusinessLayer.BusinessLayers
             try
             {
                 var user = BLUser<ETUserPublic>.GetLogged();
-                var menuItem = CRUD<ETMenuItem>.Find(m => m.Key == key);
+                var menuItem = CRUD<ETMenuItem>.Instance.Find(m => m.Key == key);
                 var model = new ETUserPublicMenuItem(user.Id, menuItem.Id);
 
-                CRUD<ETUserPublicMenuItem>.AddOrUpdate(model);           
+                CRUD<ETUserPublicMenuItem>.Instance.AddOrUpdate(model);           
             }
             catch (Exception)
             {

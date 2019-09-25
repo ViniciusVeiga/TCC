@@ -6578,6 +6578,7 @@
     <Content Include="Areas\Public\Views\UserStory\Page_3.cshtml" />
     <Content Include="App_Code\PostitHelpers.cshtml" />
     <Content Include="Areas\Public\Views\UserStory\_ScriptPage_3.cshtml" />
+    <Content Include="Areas\Public\Views\BDD\_ScriptPage_0.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />

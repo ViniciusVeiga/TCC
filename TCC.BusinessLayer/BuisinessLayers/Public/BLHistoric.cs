@@ -24,7 +24,7 @@ namespace TCC.BusinessLayer.BusinessLayers
                     historic.IdUserPublic = user.Id;
 
                     InativeOthers(historic.Id);
-                    CRUD<ETHistoric>.AddOrUpdate(historic);
+                    CRUD<ETHistoric>.Instance.AddOrUpdate(historic);
                 }
 
                 BLCardActor.Save(historic.CardActors);
@@ -43,7 +43,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static ETHistoric GetByProject(decimal? idProject)
         {
-            return CRUD<ETHistoric>.Find(i => i.IdUserPublic == user.Id && i.IdProject == idProject);
+            return CRUDHistoric.Instance.Find(i => i.IdUserPublic == user.Id && i.IdProject == idProject);
         }
 
         #endregion
@@ -52,7 +52,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static ETHistoric GetActive()
         {
-            return CRUDHistoric.Find(i => i.IdUserPublic == user.Id && i.Active == true);
+            return CRUDHistoric.Instance.Find(i => i.IdUserPublic == user.Id && i.Active == true);
         }
 
         #endregion
@@ -61,11 +61,11 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static void InativeOthers(decimal? newId)
         {
-            var otherHistorics = CRUDHistoric.FindAll(i => i.IdUserPublic == user.Id && i.Active == true && i.Id != newId);
+            var otherHistorics = CRUDHistoric.Instance.FindAll(i => i.IdUserPublic == user.Id && i.Active == true && i.Id != newId);
 
             otherHistorics.ForEach(i => i.Active = false);
 
-            CRUD<ETHistoric>.AddOrUpdate(otherHistorics);
+            CRUD<ETHistoric>.Instance.AddOrUpdate(otherHistorics);
         }
 
         #endregion

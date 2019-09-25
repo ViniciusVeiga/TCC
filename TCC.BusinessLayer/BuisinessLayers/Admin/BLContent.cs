@@ -11,7 +11,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static ETContent GetByMenuItem(decimal? idMenuItem)
         {
-            return CRUD<ETContent>.Find(c => c.IdMenuItem == idMenuItem && c.Active == true);
+            return CRUD<ETContent>.Instance.Find(c => c.IdMenuItem == idMenuItem && c.Active == true);
         }
 
         #endregion
@@ -22,7 +22,7 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                var technicalTutorial = CRUD<ETTechnicalTutorial>.Find(t => t.IdContent == id);
+                var technicalTutorial = CRUD<ETTechnicalTutorial>.Instance.Find(t => t.IdContent == id);
 
                 if (technicalTutorial != null)
                 {

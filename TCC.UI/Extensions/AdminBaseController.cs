@@ -25,7 +25,7 @@ namespace TCC.UI.Extensions
 
         public virtual ActionResult Item(decimal? id)
         {
-            var model = CRUD<ET>.Find(id.GetValueOrDefault(0));
+            var model = CRUD<ET>.Instance.Find(id.GetValueOrDefault(0));
 
             return View(HelpersMethods.CopyValues<ET, VM>(model));
         }

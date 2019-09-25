@@ -11,11 +11,16 @@ namespace TCC.Entity.CRUD
 {
     public class CRUDHistoric : CRUD<ETHistoric>
     {
-        private static readonly DbContext _ctx = DAOContext.GetContext();
-        private static IDbSet<ETHistoric> Entities => _ctx.Set<ETHistoric>();
+        public new static CRUDHistoric Instance => new CRUDHistoric();
 
-        public new static ETHistoric Find(Expression<Func<ETHistoric, bool>> predicate)
+        public CRUDHistoric() : base()
         {
+            _ctx.Configuration.LazyLoadingEnabled = false;
+        }
+
+        public override ETHistoric Find(Expression<Func<ETHistoric, bool>> predicate)
+        {
+
             _ctx.Configuration.LazyLoadingEnabled = false;
 
             return Entities
@@ -26,11 +31,13 @@ namespace TCC.Entity.CRUD
                 .FirstOrDefault(predicate);
         }
 
-        public new static List<ETHistoric> FindAll(Expression<Func<ETHistoric, bool>> predicate)
+        public override List<ETHistoric> FindAll(Expression<Func<ETHistoric, bool>> predicate)
         {
             _ctx.Configuration.LazyLoadingEnabled = false;
 
             return Entities.Where(predicate).ToList();
         }
+
+
     }
 }

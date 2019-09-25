@@ -14,18 +14,19 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                BLCard<ETCardActor>.GetDifference(cardActors, CRUD<ETCardActor>.All())
-                    .ForEach(i =>
-                    {
-                        if (!i.Id.HasValue)
+                if (cardActors.Count > 0)
+                {
+                    BLCard<ETCardActor>.GetDifference(cardActors, CRUD<ETCardActor>.Instance.All())
+                        .ForEach(i =>
                         {
-                            CRUD<ETCardActor>.Add(i);
-
-                            BLCardLine<ETCardLineActor>.Save(i.CardLines, i.Id);
-                        }
-                        else
-                            CRUD<ETCardActor>.DeletePhysical(i);
-                    });
+                            if (!i.Id.HasValue)
+                            {
+                                CRUD<ETCardActor>.Instance.Add(i);
+                            }
+                            else
+                                CRUD<ETCardActor>.Instance.DeletePhysical(i);
+                        });
+                }
             }
             catch (Exception ex)
             {

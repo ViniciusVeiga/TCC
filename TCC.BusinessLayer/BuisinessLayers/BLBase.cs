@@ -11,7 +11,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static List<T> GetList()
         {
-            return CRUD<T>.Actives();
+            return CRUD<T>.Instance.Actives();
         }
 
         #endregion
@@ -22,7 +22,7 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                CRUD<T>.AddOrUpdate(content);
+                CRUD<T>.Instance.AddOrUpdate(content);
 
                 return true;
             }
@@ -40,7 +40,7 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                CRUD<T>.DeletePhysical(CRUD<T>.Find(id));
+                CRUD<T>.Instance.DeletePhysical(CRUD<T>.Instance.Find(id));
 
                 return true;
             }

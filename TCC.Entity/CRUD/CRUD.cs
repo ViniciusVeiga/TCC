@@ -11,23 +11,33 @@ namespace TCC.Entity.CRUD
 {
     public class CRUD<T> where T : ETBase
     {
-        private static readonly DbContext _ctx = DAOContext.GetContext();
-        private static IDbSet<T> Entities => _ctx.Set<T>();
-        private static string _errorMessage = string.Empty;
+        protected readonly DbContext _ctx;
+        protected IDbSet<T> Entities => _ctx.Set<T>();
+        protected static string _errorMessage = string.Empty;
 
-        public static List<T> All() => Entities.ToList();
+        public static CRUD<T> Instance => new CRUD<T>();
 
-        public static List<T> Actives() => Entities.Where(e => e.Active).ToList();
+        public CRUD()
+        {
+            _ctx = DAOContext.GetContext();
+            _ctx.Configuration.LazyLoadingEnabled = true;
+        }
 
-        public static T Find(decimal id) => Entities.Find(id);
+        #region Methods
 
-        public static T FindActive(decimal id) => Entities.First(e => e.Active && e.Id == id);
+        public virtual List<T> All() => Entities.ToList();
 
-        public static T Find(Expression<Func<T, bool>> predicate) => Entities.FirstOrDefault(predicate);
+        public virtual List<T> Actives() => Entities.Where(e => e.Active).ToList();
 
-        public static List<T> FindAll(Expression<Func<T, bool>> predicate) => Entities.Where(predicate).ToList();
+        public virtual T Find(decimal id) => Entities.Find(id);
 
-        public static void Add(T entity)
+        public virtual T FindActive(decimal id) => Entities.First(e => e.Active && e.Id == id);
+
+        public virtual T Find(Expression<Func<T, bool>> predicate) => Entities.FirstOrDefault(predicate);
+
+        public virtual List<T> FindAll(Expression<Func<T, bool>> predicate) => Entities.Where(predicate).ToList();
+
+        public virtual void Add(T entity)
         {
             try
             {
@@ -49,7 +59,7 @@ namespace TCC.Entity.CRUD
             }
         }
 
-        public static void AddOrUpdate(List<T> entities)
+        public virtual void AddOrUpdate(List<T> entities)
         {
             foreach (var entity in entities)
             {
@@ -57,7 +67,7 @@ namespace TCC.Entity.CRUD
             }
         }
 
-        public static void AddOrUpdate(T entity)
+        public virtual void AddOrUpdate(T entity)
         {
             try
             {
@@ -77,7 +87,7 @@ namespace TCC.Entity.CRUD
             }
         }
 
-        public static void Update(T entity)
+        public virtual void Update(T entity)
         {
             try
             {
@@ -101,7 +111,7 @@ namespace TCC.Entity.CRUD
             }
         }
 
-        public static void DeleteLogical(T entity)
+        public virtual void DeleteLogical(T entity)
         {
             try
             {
@@ -122,7 +132,7 @@ namespace TCC.Entity.CRUD
             }
         }
 
-        public static void DeletePhysical(List<T> entities)
+        public virtual void DeletePhysical(List<T> entities)
         {
             foreach (var entity in entities)
             {
@@ -130,7 +140,7 @@ namespace TCC.Entity.CRUD
             }
         }
 
-        public static void DeletePhysical(T entity)
+        public virtual void DeletePhysical(T entity)
         {
             try
             {
@@ -150,5 +160,7 @@ namespace TCC.Entity.CRUD
                 throw new Exception(_errorMessage, dbEx);
             }
         }
+
+        #endregion
     }
 }

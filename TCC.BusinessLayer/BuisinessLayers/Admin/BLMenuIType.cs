@@ -11,7 +11,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static List<ETMenuType> GetList(decimal? id, bool active = true)
         {
-            return CRUD<ETMenuType>.FindAll(m => m.IdMenu == id && m.Active == active);
+            return CRUD<ETMenuType>.Instance.FindAll(m => m.IdMenu == id && m.Active == active);
         }
 
         #endregion

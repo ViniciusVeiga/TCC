@@ -17,13 +17,13 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                var oldParents = CRUD<ETMenuParent>.FindAll(p => p.IdMenuItem == idMenuItem);
+                var oldParents = CRUD<ETMenuParent>.Instance.FindAll(p => p.IdMenuItem == idMenuItem);
                 var newParents = Current.Request.Form.GetValues("IdParents")?.Select(p => decimal.Parse(p)).ToList() ?? new List<decimal>();
 
-                CRUD<ETMenuParent>.DeletePhysical(oldParents);
+                CRUD<ETMenuParent>.Instance.DeletePhysical(oldParents);
 
                 foreach (var item in newParents)
-                    CRUD<ETMenuParent>.Add(new ETMenuParent(idMenuItem, item));
+                    CRUD<ETMenuParent>.Instance.Add(new ETMenuParent(idMenuItem, item));
 
                 return true;
             }
@@ -46,7 +46,7 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                var menuItem = CRUD<ETMenuItem>.Find(i => i.Id == id);
+                var menuItem = CRUD<ETMenuItem>.Instance.Find(i => i.Id == id);
 
                 if (menuItem.Parents.Count > 0)
                     return menuItem;

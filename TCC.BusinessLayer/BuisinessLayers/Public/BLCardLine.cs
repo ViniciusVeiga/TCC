@@ -18,7 +18,7 @@ namespace TCC.BusinessLayer.BusinessLayers
                     .ForEach(i =>
                     {
                         i.IdCard = idCard;
-                        CRUD<T>.Add(i);
+                        CRUD<T>.Instance.Add(i);
                     });
 
                 return true;

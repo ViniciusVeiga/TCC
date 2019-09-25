@@ -9,7 +9,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static ETTechnicalTutorial GetByContent(decimal? idContent)
         {
-            return CRUD<ETTechnicalTutorial>.Find(c => c.IdContent == idContent && c.Active == true);
+            return CRUD<ETTechnicalTutorial>.Instance.Find(c => c.IdContent == idContent && c.Active == true);
         }
 
         #endregion

@@ -12,7 +12,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static List<ETMenuItem> GetList(decimal? id, bool active = true)
         {
-            return CRUD<ETMenuItem>.FindAll(m => m.IdMenu == id && m.Active == active);
+            return CRUD<ETMenuItem>.Instance.FindAll(m => m.IdMenu == id && m.Active == active);
         }
 
         #endregion
@@ -23,7 +23,7 @@ namespace TCC.BusinessLayer.BusinessLayers
         {
             try
             {
-                CRUD<ETMenuItem>.AddOrUpdate(menuItem);
+                CRUD<ETMenuItem>.Instance.AddOrUpdate(menuItem);
                 BLMenuParent.Save(menuItem.Id);
                 
                 return true;
@@ -40,7 +40,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static ETMenuItem GetByKey(string key)
         {
-            return CRUD<ETMenuItem>.Find(i => i.Key == key);
+            return CRUD<ETMenuItem>.Instance.Find(i => i.Key == key);
         }
 
         #endregion
