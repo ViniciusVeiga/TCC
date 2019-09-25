@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using TCC.BusinessLayer.BusinessLayers;
-using TCC.Domain.Entities;
-using TCC.Entity.CRUD;
-using TCC.UI.Areas.Public.Views.ViewsModels;
-using TCC.UI.Helpers;
+using TCC.UI.Extensions;
 using TCC.UI.Helpers.Attributes.Login;
 using TCC.UI.Helpers.Attributes.TutorialDynamic;
-using TCC.UI.Helpers.Toastrs;
 
 namespace TCC.UI.Areas.Public.Controllers
 {
     [PermissionPublic]
-    public class UserStoryController : Controller
+    public class UserStoryController : TutorialDynamicBaseController
     {
         public const string Key = BLConfiguration.Keys.UserStory;
-        public static decimal? IdMenuItem = IdMenuItem.GetValueOrDefault((decimal)BLMenuItem.GetByKey(Key).Id);
 
         #region Etapa 0
 
@@ -68,7 +59,7 @@ namespace TCC.UI.Areas.Public.Controllers
         #region Etapa Final
 
         [CompleteTutorial(Key = Key)]
-        public ActionResult Page_4() => View();
+        public ActionResult Page_Final() => View();
 
         #endregion
 
@@ -79,27 +70,6 @@ namespace TCC.UI.Areas.Public.Controllers
             var id = BLMenuItem.GetByKey(BLConfiguration.Keys.BDD).Id;
 
             return RedirectToAction("Index", "Content", new { id });
-        }
-
-        #endregion
-
-        #region Salvar Historico
-
-        [HttpPost]
-        public ActionResult SaveHistoric(ETHistoric model, string page)
-        {
-            try
-            {
-                BLHistoric.Save(model);
-
-                this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
-            }
-            catch (Exception)
-            {
-                this.AddToastMessage("Erro", "Erro ao salvar, favor tentar novamente", ToastrType.Error);
-            }
-
-            return View(page, model);
         }
 
         #endregion

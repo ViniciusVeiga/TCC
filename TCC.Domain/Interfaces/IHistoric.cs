@@ -14,7 +14,7 @@ namespace TCC.Domain.Interfaces
 
         ETProject Project { get; set; }
         List<ETCardActor> CardActors { get; set; }
-        List<ETCardUserStory> CardUserStorys { get; set; }
+        List<ETCardUserStory> CardUserStories { get; set; }
         List<ETCardBDD> CardBDDs { get; set; }
     }
 }

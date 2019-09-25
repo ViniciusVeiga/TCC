@@ -150,6 +150,7 @@
     <Compile Include="Areas\Public\Controllers\ContentController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Controllers\LoginController.cs" />
+    <Compile Include="Extensions\TutorialDynamicBaseController.cs" />
     <Compile Include="Extensions\LoginBaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -6566,7 +6567,7 @@
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TechnicalTutorial\Item.cshtml" />
     <Content Include="Areas\Public\Views\web.config" />
-    <Content Include="Areas\Public\Views\UserStory\Page_4.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\Page_Final.cshtml" />
     <Content Include="Areas\Public\Views\PermissionTutorialDynamic\Index.cshtml" />
     <Content Include="Areas\Public\Views\BDD\Page_0.cshtml" />
     <Content Include="Areas\Admin\Views\Project\Item.cshtml" />

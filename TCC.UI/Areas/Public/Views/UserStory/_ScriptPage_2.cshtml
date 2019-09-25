@@ -35,16 +35,16 @@
         input.focus();
     }
 
-    function sendToSave(event) {
+   function sendToSave(event) {
         var result = validationsByJs();
 
-        if (result == true) {
+       if (result == true) {
 
             var data = {
                 'model': {
                     'Id': '@Model.Id',
                     'IdProject': '@Model.IdProject',
-                    'CardActors': []
+                    'CardUserStories': []
                 },
                 'page': '@page'
             };
@@ -52,11 +52,11 @@
             $('.postit', '#Append').each(function () {
                 var cardLine = [];
 
-                $(event.target).find('p').each(function (eventLine) {
-                    cardLine.push({ 'Line': $(eventLine.target).text() });
+                $(this).find('p').each(function () {
+                    cardLine.push({ 'Line': $(this).text() });
                 });
 
-                data.model.CardActors.push({ 'IdHistoric': '@Model.Id', 'CardLines': cardLine });
+                data.model.CardUserStories.push({ 'IdHistoric': '@Model.Id', 'CardLines': cardLine });
             });
 
             $.ajax({
@@ -118,15 +118,6 @@
 
     function count() {
         countLines = $('.postit:last p').length;
-    }
-
-    function validationsByJs() {
-        var countActive = $('.postit.active').length;
-
-        if (countActive == 0)
-            return 'Selecione um projeto para salvar!';
-
-        return true;
     }
 
     function finishCard() {

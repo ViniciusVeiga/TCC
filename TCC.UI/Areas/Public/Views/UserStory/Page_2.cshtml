@@ -10,7 +10,7 @@
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
         
-        @if (Model.CardUserStorys?.Count > 0)
+        @if (Model.CardUserStories?.Count > 0)
         {
             @Ajax.ActionLink("Continuar", "Page_3", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
         }
@@ -52,7 +52,7 @@
                 <div class="row" id="Append">
                     @Helpers.MessageBoard()
 
-                    @PostitHelpers.CreatePostit_2(Model.CardUserStorys)
+                    @PostitHelpers.CreatePostit_2(Model.CardUserStories)
 
                     <div class="bottom-board">
                         @Helpers.SaveButtonBoard()

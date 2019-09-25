@@ -22,7 +22,7 @@
     </h1>
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Page_2", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Continuar", "Page_4", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })      
+        @Ajax.ActionLink("Continuar", "Page_Final", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })      
     </div>
 </div>
 <div class="content">
@@ -58,7 +58,7 @@
                         <h4>Cartões de User Stories:</h4>
                     </div>
 
-                    @PostitHelpers.CreatePostit_3(Model.CardUserStorys)
+                    @PostitHelpers.CreatePostit_3(Model.CardUserStories)
 
                     <div class="bottom-board">
                         @Helpers.SaveButtonBoard()

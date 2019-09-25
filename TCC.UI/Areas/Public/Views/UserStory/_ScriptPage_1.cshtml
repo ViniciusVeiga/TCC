@@ -55,13 +55,8 @@
                     cardLine.push({ 'Line': $(this).text() });
                 });
 
-                console.log(cardLine);
-
                 data.model.CardActors.push({ 'IdHistoric': '@Model.Id', 'CardLines': cardLine });
             });
-
-
-            console.log(data);
 
             $.ajax({
                 contentType: 'application/json; charset=utf-8',

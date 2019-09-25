@@ -15,7 +15,7 @@ namespace TCC.Domain.Entities
 
         public virtual ETProject Project { get; set; }
         public virtual List<ETCardActor> CardActors { get; set; }
-        public virtual List<ETCardUserStory> CardUserStorys { get; set; }
+        public virtual List<ETCardUserStory> CardUserStories { get; set; }
         public virtual List<ETCardBDD> CardBDDs { get; set; }
     }
 }

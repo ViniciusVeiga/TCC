@@ -11,7 +11,7 @@ namespace TCC.Entity.Maps
             ToTable("PUB_TCC_CARD_USER_STORY");
 
             HasRequired(e => e.Historic)
-                .WithMany(e => e.CardUserStorys)
+                .WithMany(e => e.CardUserStories)
                 .HasForeignKey(e => e.IdHistoric);
         }
     }

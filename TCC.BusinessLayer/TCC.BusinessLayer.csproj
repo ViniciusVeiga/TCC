@@ -63,8 +63,6 @@
     <Compile Include="BuisinessLayers\Basic\BLEncrypt.cs" />
     <Compile Include="BuisinessLayers\Admin\BLMenu.cs" />
     <Compile Include="BuisinessLayers\Public\BLHistoric.cs" />
-    <Compile Include="BuisinessLayers\Public\BLCardLine.cs" />
-    <Compile Include="BuisinessLayers\Public\UserStory\BLCardActor.cs" />
     <Compile Include="BuisinessLayers\Public\BLUserPublicMenuItem.cs" />
     <Compile Include="BuisinessLayers\Security\BLUser.cs" />
   </ItemGroup>

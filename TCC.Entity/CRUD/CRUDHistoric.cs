@@ -20,24 +20,17 @@ namespace TCC.Entity.CRUD
 
         public override ETHistoric Find(Expression<Func<ETHistoric, bool>> predicate)
         {
-
-            _ctx.Configuration.LazyLoadingEnabled = false;
-
             return Entities
                 .Include(i => i.Project)
                 .Include(i => i.CardActors.Select(o => o.CardLines))
-                .Include(i => i.CardUserStorys.Select(o => o.CardLines))
+                .Include(i => i.CardUserStories.Select(o => o.CardLines))
                 .Include(i => i.CardBDDs.Select(o => o.CardLines))
                 .FirstOrDefault(predicate);
         }
 
         public override List<ETHistoric> FindAll(Expression<Func<ETHistoric, bool>> predicate)
         {
-            _ctx.Configuration.LazyLoadingEnabled = false;
-
-            return Entities.Where(predicate).ToList();
+             return Entities.Where(predicate).ToList();
         }
-
-
     }
 }
