@@ -93,11 +93,11 @@
         var msg = 'Erro nos cards: '
         var length = msg.length;
 
-        $('.postit', '#Append').each(function (event, index) {
+        $('.postit', '#Append').each(function (index) {
             index++;
             var hasError;
 
-            $(this).find('p').each(function (e, i) {
+            $(this).find('p').each(function (i) {
                 var error;
                 var line = $(this).text().toLowerCase();
 
