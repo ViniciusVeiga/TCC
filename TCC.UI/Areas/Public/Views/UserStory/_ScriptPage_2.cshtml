@@ -11,8 +11,11 @@
 @Scripts.Render("~/Scripts/Postit")
 
 <script type="text/javascript">
+    var actorSelected;
 
     function start() {
+        resetActorSelected();
+
         $('#Example').remove();
         $('#Append').append(ePlusPostit);
     }
@@ -23,10 +26,7 @@
         input.val('');
 
         if (text != '') {
-            $('.remove-line').remove();
-            $('.p:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
-
-            count();
+            addLine(text)
 
             if (countLines > 2)
                 finishCard();
@@ -35,10 +35,19 @@
         input.focus();
     }
 
-   function sendToSave(event) {
+    function addLine(text) {
+        $('.remove-line').remove();
+        $('.p:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
+
+        count();
+        definePlaceholder();
+    }
+
+    function sendToSave(event) {
         var result = validationsByJs();
 
-       if (result == true) {
+        if (result == true) {
+            hideMessage();
 
             var data = {
                 'model': {
@@ -56,7 +65,11 @@
                     cardLine.push({ 'Line': $(this).text() });
                 });
 
-                data.model.CardUserStories.push({ 'IdHistoric': '@Model.Id', 'CardLines': cardLine });
+                data.model.CardUserStories.push({
+                    'Id': $(this).children('#Id').val(),
+                    'IdHistoric': '@Model.Id',
+                    'CardLines': cardLine
+                });
             });
 
             $.ajax({
@@ -70,9 +83,7 @@
             });
         }
         else
-            $('.board-message')
-                .text(result)
-                .fadeIn();
+            writeMessage(result);
     }
 
     function validationsByJs() {
@@ -86,9 +97,9 @@
             index++;
             var hasError;
 
-            $(event.target).find('p').each(function (e, i) {
+            $(this).find('p').each(function (e, i) {
                 var error;
-                var line = $(e.target).text().toLowerCase();
+                var line = $(this).text().toLowerCase();
 
                 switch (i) {
                     case 0:
@@ -129,19 +140,35 @@
         $('.remove-line').remove();
     }
 
-    function appendPostit(event) {
-        $('#AddPostit').parent().remove();
-        $('#Append').append(ePostit);
+    function appendPostit(element) {
+        var result = validationsToAppend();
 
-        $('#Text').focus();
+        if (result == true) {
+            element.parent().remove();
+            $('#Append').append(ePostit);
+            addLine('Eu como ' + actorSelected.Text.toLowerCase());
+
+            $('#Text').focus();
+        }
+        else
+            writeMessage(result);
     }
 
-    function removePostit(event) {
-        $(event.target).closest('.to-remove').remove();
+    function validationsToAppend() {
+        var countActive = $('.postit.active').length;
+
+        if (countActive == 0)
+            return 'Selecione um ator para adicionar um cartão!';
+
+        return true;
     }
 
-    function removeLine(event) {
-        $(event.target).parent('p').remove();
+    function removePostit(element) {
+        element.closest('.to-remove').remove();
+    }
+
+    function removeLine(element) {
+        element.parent('p').remove();
         $('.postit:last p:last').append(eRemoveLinePostit);
 
         count();
@@ -151,7 +178,7 @@
     function definePlaceholder() {
         var input = $('#Text');
 
-        switch (parseInt(countP)) {
+        switch (parseInt(countLines)) {
             case 0:
                 input.attr("placeholder", "eu como...");
                 break;
@@ -162,5 +189,21 @@
                 input.attr("placeholder", "para...");
                 break;
         }
+    }
+
+    $('#Actors').on('click', '.postit.select', function () {
+        hideMessage();
+
+        actorSelected = {
+            'Id': $(this).children('#Id').val(),
+            'Text': $(this).children('p').text()
+        }
+
+        $('#Actors .postit.select').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    function resetActorSelected() {
+        actorSelected = null;
     }
 </script>

@@ -16,19 +16,29 @@ $('#SaveButton').click(function (event) {
     sendToSave(event);
 });
 
-$('#Append').on('click', '#AddPostit', function (event) {
-    appendPostit(event);
+$('#Append').on('click', '#AddPostit', function () {
+    appendPostit($(this));
 });
 
-$('#Append').on('click', '.close', function (event) {
-    removePostit(event);
+$('#Append').on('click', '.close', function () {
+    removePostit($(this));
 });
 
-$('#Append').on('click', '.remove-line', function (event) {
-    removeLine(event);
+$('#Append').on('click', '.remove-line', function () {
+    removeLine($(this));
 });
 
 $('#Append').on('keypress', '#Text', function (e) {
     if (e.keyCode === 13)
         $('#Send').click();
 });
+
+function writeMessage(text) {
+    $('.board-message')
+        .text(text)
+        .fadeIn();
+}
+
+function hideMessage() {
+    $('.board-message').fadeOut();
+}

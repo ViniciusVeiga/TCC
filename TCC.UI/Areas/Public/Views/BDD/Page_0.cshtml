@@ -4,7 +4,7 @@
 @using TCC.BusinessLayer.BusinessLayers
 
 @{
-    var projects = BLBase<ETProject>.GetList();
+    var projects = BLHistoric.GetProjectsOfUserForBDD();
 }
 
 <div class="content-header">
@@ -25,7 +25,7 @@
         <div class="box-header with-border">
             <div class="col-lg-12">
                 <div>
-                    <h4>Para iniciarmos o tutorial continue com o projeto atual ou escolha um entre os projetos que já foram feitos no tutorial anterior!</h4>
+                    <h4>Para iniciarmos o tutorial, escolha um dos projetos já feitos.</h4>
                     <p>Selecione algum projeto abaixo:</p>
                 </div>
             </div>

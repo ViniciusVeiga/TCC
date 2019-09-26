@@ -1,6 +1,6 @@
 ﻿
 @{
-    var urlSave = "Learnboard/UserStory/SaveHistoric";
+    var urlSave = "Learnboard/BDD/SaveHistoric";
     var page = "Page_0";
 }
 
@@ -10,25 +10,6 @@
 
     function start() {
         $('#Example').remove();
-        $('#Append').append(ePlusPostit);
-    }
-
-    function writeLine() {
-        var input = $('#Text');
-        var text = input.val();
-        input.val('');
-
-        if (text != '') {
-            $('.remove-line').remove();
-            $('.p:last').append($((countLines == 0) ? '<h4></h4>' : '<p></p>').text(text).append(eRemoveLinePostit));
-
-            count();
-
-            if (countLines > 1)
-                finishCard();
-        }
-
-        input.focus();
     }
 
     function sendToSave() {
@@ -59,10 +40,6 @@
                 .fadeIn();
     }
 
-    function count() {
-        countLines = $('.postit:last p, .postit:last h4').length;
-    }
-
     function validationsByJs() {
         var countActive = $('.postit.active').length;
 
@@ -70,33 +47,6 @@
             return 'Selecione um projeto para salvar!';
 
         return true;
-    }
-
-    function finishCard() {
-        if (!$('.postit:last').hasClass('alert-dismissible'))
-            $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
-
-        $('#Append').append(ePlusPostit);
-        $('.postit:last .input-group').remove();
-        $('.remove-line').remove();
-    }
-
-    function appendPostit(event) {
-        $('#AddPostit').parent().remove();
-        $('#Append').append(ePostit);
-
-        $('#Text').focus();
-    }
-
-    function removePostit() {
-        $(event.target).closest('.to-remove').remove();
-    }
-
-    function removeLine() {
-        $(event.target).parent('p').remove();
-        $('.postit:last p:last').append(eRemoveLinePostit);
-
-        count();
     }
 
     $('#Append').on('click', '.postit.select', function () {

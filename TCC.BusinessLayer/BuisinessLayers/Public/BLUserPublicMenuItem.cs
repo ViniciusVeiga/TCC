@@ -73,7 +73,7 @@ namespace TCC.BusinessLayer.BusinessLayers
                 {
                     remainingParents = FindRemainingParents(key);
 
-                    if (remainingParents.Count < 0)
+                    if (remainingParents.Count == 0)
                         has = true;
                 }
                 else

@@ -1,16 +1,19 @@
-﻿@{
-                /**/
+﻿@model ETHistoric
 
-                var postits = (List<List<string>>)ViewData["UserStorys"];
-}
+@using TCC.Domain.Entities
+@using TCC.Domain.Interfaces
 
 <div class="content-header">
     <h1>
-        User Storys projeto escolhido.
+        Criação do BDD
     </h1>
     <div class="breadcrumb">
-        @Ajax.ActionLink("Voltar", "Index", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-        @Ajax.ActionLink("Continuar", "Page_2", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary", @id = "btnContinuar" })
+        @Ajax.ActionLink("Voltar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+
+        @if (Model.CardUserStories?.Count > 0)
+        {
+            @Ajax.ActionLink("Continuar", "Page_3", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        }
     </div>
 </div>
 <div class="content">
@@ -18,40 +21,58 @@
         <div class="box-header with-border">
             <div class="col-lg-12">
                 <div>
-                    <h4>A lousa abaixo, contem os Projetos referente ao seu projeto.</h4>
-                    <p>Escolha um deles para começarmos o tutorial do BDD.</p>
+                    <h4>Após a seleção dos atores, é que se começa a contruir os cartões do User Story.</h4>
+                    <p>Utilize a lousa para escrever os cartões.</p>
                 </div>
             </div>
         </div>
         <div class="box-body">
             <div class="board">
                 <div class="row">
-                    @foreach (var lines in postits)
-                    {
-                        <div class="col-sm-12 col-md-4 col-lg-2">
-                            <div class="alert postit select">
-                                @foreach (var line in lines)
-                                {
-                                    <div class="p">
-                                        <p>@line</p>
-                                    </div>
-                                }
+                    <div class="col-sm-12">
+                        <h4>Cartões de Atores:</h4>
+                    </div>
+
+                    @PostitHelpers.CreatePostit_1(Model.CardActors)
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Cartões de Atores:</h4>
+                    </div>
+
+                    @PostitHelpers.CreatePostit_3(Model.CardUserStories)
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <h4>Segue o exemplo abaixo:</h4>
+                        <div class="to-remove">
+                            <div class="alert postit">
+                                <p>Eu como << QUEM >></p>
+                                <p>Quero << O QUÊ >></p>
+                                <p>Para << POR QUÊ >></p>
                             </div>
                         </div>
-                    }
+                    </div>
+                </div>
+                <hr />
+                <div class="row" id="Append">
+                    @Helpers.MessageBoard()
+
+                    @PostitHelpers.CreatePostit_2(Model.CardBDDs)
+
+                    <div class="bottom-board">
+                        @Helpers.SaveButtonBoard()
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-@Helpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4", addClassPostit: "select")
+@PostitHelpers.PostitExampleHTML("eu como...")
 
 @section scripts {
-    <script type="text/javascript">
-        $('.postit').click(function () {
-            $('.postit').removeClass('active');
-            $(this).addClass('active');
-        });
-    </script>
+    @Html.Partial("_ScriptPage_2")
 }

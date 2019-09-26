@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TCC.BusinessLayer.BusinessLayers;
 using TCC.Domain.Entities;
 using TCC.Entity.CRUD;
@@ -67,6 +68,24 @@ namespace TCC.BusinessLayer.BusinessLayers
             otherHistorics.ForEach(i => i.Active = false);
 
             CRUD<ETHistoric>.Instance.AddOrUpdate(otherHistorics);
+        }
+
+        #endregion
+
+        #region Obter Projetos ou Histórico Do Usuário
+
+        public static List<ETHistoric> GetHistoricsOfUser()
+        {
+            return CRUDHistoric.Instance.FindAll(i => i.IdUserPublic == user.Id);
+        }
+
+
+        public static List<ETProject> GetProjectsOfUserForBDD()
+        {
+            return GetHistoricsOfUser()
+                .Where(i => i.CardActors.Count > 0 && i.CardUserStories.Count > 0)
+                .Select(i => CRUD<ETProject>.Instance.Find(i.IdProject.GetValueOrDefault(0)))
+                .ToList(); ;
         }
 
         #endregion

@@ -45,17 +45,6 @@ namespace TCC.UI.Areas.Public.Controllers
 
         #endregion
 
-        #region Etapa 3
-
-        public ActionResult Page_3()
-        {
-            var model = BLHistoric.GetActive();
-
-            return View(model);
-        }
-
-        #endregion
-
         #region Etapa Final
 
         [CompleteTutorial(Key = Key)]
