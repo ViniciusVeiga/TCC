@@ -10,6 +10,10 @@ namespace TCC.Entity.Maps
         {
             ToTable("PUB_TCC_CARD_USER_STORY");
 
+            Property(e => e.IdCardActor)
+                .IsRequired()
+                .HasColumnName("ID_CARD_ACTOR_N");
+
             HasRequired(e => e.Historic)
                 .WithMany(e => e.CardUserStories)
                 .HasForeignKey(e => e.IdHistoric);

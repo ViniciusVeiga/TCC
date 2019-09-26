@@ -37,7 +37,14 @@
 
     function addLine(text) {
         $('.remove-line').remove();
-        $('.p:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
+        $('.lines:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
+
+        count();
+        definePlaceholder();
+    }
+
+    function addLineWithoutRemove(text) {
+        $('.lines:last').append($('<p></p>').text(text));
 
         count();
         definePlaceholder();
@@ -59,14 +66,16 @@
             };
 
             $('.postit', '#Append').each(function () {
+                var thisPostit = $(this);
                 var cardLine = [];
 
-                $(this).find('p').each(function () {
+                thisPostit.find('p').each(function () {
                     cardLine.push({ 'Line': $(this).text() });
                 });
 
                 data.model.CardUserStories.push({
-                    'Id': $(this).children('#Id').val(),
+                    'Id': thisPostit.children('#Id').val(),
+                    'IdCardActor': thisPostit.children('#IdCardActor').val(),
                     'IdHistoric': '@Model.Id',
                     'CardLines': cardLine
                 });
@@ -132,8 +141,13 @@
     }
 
     function finishCard() {
-        if (!$('.postit:last').hasClass('alert-dismissible'))
-            $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
+        var lastPostit = $('.postit:last');
+
+        if (!lastPostit.hasClass('alert-dismissible')) {
+            lastPostit.addClass('alert-dismissible').prepend(eRemovePostit);
+            lastPostit.removeClass('postit-send');
+            appendIdCardActor(lastPostit);
+        }
 
         $('#Append').append(ePlusPostit);
         $('.postit:last .input-group').remove();
@@ -141,12 +155,12 @@
     }
 
     function appendPostit(element) {
-        var result = validationsToAppend();
+        var result = validationsToAppendPostit();
 
         if (result == true) {
             element.parent().remove();
             $('#Append').append(ePostit);
-            addLine('Eu como ' + actorSelected.Text.toLowerCase());
+            addLineWithoutRemove('Eu como ' + actorSelected.Text.toLowerCase());
 
             $('#Text').focus();
         }
@@ -154,7 +168,7 @@
             writeMessage(result);
     }
 
-    function validationsToAppend() {
+    function validationsToAppendPostit() {
         var countActive = $('.postit.active').length;
 
         if (countActive == 0)
@@ -169,10 +183,11 @@
 
     function removeLine(element) {
         element.parent('p').remove();
-        $('.postit:last p:last').append(eRemoveLinePostit);
-
         count();
         definePlaceholder();
+
+        if (countLines == 1) // Adiciona o botão de excluir linha se não for a primeira linha (Especifico para regra de User Story)
+            $('.postit:last p:last').append(eRemoveLinePostit); 
     }
 
     function definePlaceholder() {
@@ -191,6 +206,14 @@
         }
     }
 
+    function resetActorSelected() {
+        actorSelected = null;
+    }
+
+    function appendIdCardActor(postit) {
+        postit.prepend($('<input type="hidden" id="IdCardActor" value="' + actorSelected.Id + '">'));
+    }
+
     $('#Actors').on('click', '.postit.select', function () {
         hideMessage();
 
@@ -201,9 +224,11 @@
 
         $('#Actors .postit.select').removeClass('active');
         $(this).addClass('active');
-    });
 
-    function resetActorSelected() {
-        actorSelected = null;
-    }
+        $('.postit-send')
+            .children('.lines')
+            .children('p')
+            .first()
+            .text('Eu como ' + actorSelected.Text.toLowerCase())
+    });
 </script>

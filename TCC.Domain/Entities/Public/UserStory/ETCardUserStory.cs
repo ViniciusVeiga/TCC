@@ -4,6 +4,8 @@ namespace TCC.Domain.Entities
 {
     public class ETCardUserStory : ETCard
     {
+        public decimal? IdCardActor { get; set; }
+
         public virtual List<ETCardLineUserStory> CardLines { get; set; }
     }
 }

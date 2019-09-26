@@ -3,9 +3,9 @@
 {
     <div id="Example" style="display:none">
         <div id="Postit">
-            <div class="@classCol to-remove postit-send">
-                <div class="alert postit @addClassPostit">
-                    <div class="p"></div>
+            <div class="@classCol to-remove">
+                <div class="alert postit @addClassPostit  postit-send">
+                    <div class="lines"></div>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="@placeholder" id="Text">
                         <span class="input-group-btn">
@@ -60,7 +60,7 @@
                 <input type="hidden" id="Id" value="@postit.Id" />
                 @foreach (var line in postit.CardLines)
                 {
-                    <div class="p"><p>@line.Line</p></div>
+                    <div class="lines"><p>@line.Line</p></div>
                 }
             </div>
         </div>
@@ -74,10 +74,11 @@
         <div class="col-sm-12 col-md-3 to-remove">
             <div class="alert postit alert-dismissable">
                 <input type="hidden" id="Id" value="@postit.Id" />
+                <input type="hidden" id="IdCardActor" value="@postit.IdCardActor" />
                 <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
                 @foreach (var line in postit.CardLines)
                 {
-                    <div class="p"><p>@line.Line</p></div>
+                    <div class="lines"><p>@line.Line</p></div>
                 }
             </div>
         </div>
@@ -94,7 +95,7 @@
                 <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
                 @foreach (var line in postit.CardLines)
                 {
-                    <div class="p"><p>@line.Line</p></div>
+                    <div class="lines"><p>@line.Line</p></div>
                 }
             </div>
         </div>
