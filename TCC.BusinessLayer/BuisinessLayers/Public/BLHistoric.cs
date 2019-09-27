@@ -28,8 +28,8 @@ namespace TCC.BusinessLayer.BusinessLayers
                     CRUD<ETHistoric>.Instance.AddOrUpdate(historic);
                 }
 
-                BLCard<ETCardActor>.Save(historic.CardActors);
-                BLCard<ETCardUserStory>.Save(historic.CardUserStories);
+                BLCard<ETCardActor>.Save(historic.CardActors, historic.Id);
+                BLCard<ETCardUserStory>.Save(historic.CardUserStories, historic.Id);
             }
             catch (Exception)
             {

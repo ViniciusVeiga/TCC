@@ -22,16 +22,26 @@
         input.val('');
 
         if (text != '') {
-            $('.remove-line').remove();
-            $('.p:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
-
-            count();
-
-            if (countLines > 0)
-                finishCard();
+            addLine(text)
         }
 
         input.focus();
+    }
+
+
+    function addLine(text) {
+        $('.remove-line').remove();
+        $('.lines:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
+
+        count();
+        definePlaceholder();
+    }
+
+    function addLineWithoutRemove(text) {
+        $('.lines:last').append($('<p></p>').text(text));
+
+        count();
+        definePlaceholder();
     }
 
     function sendToSave(event) {
@@ -78,37 +88,79 @@
         countLines = $('.postit:last p').length;
     }
 
-    function validationsByJs() {
-        if ($('.postit', '#Append').length == 0)
-            return 'Escreva pelo menos um card';
-
-        return true;
-    }
-
     function finishCard() {
-        if (!$('.postit:last').hasClass('alert-dismissible'))
-            $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
+        var lastPostit = $('.postit:last');
+
+        if (!lastPostit.hasClass('alert-dismissible')) {
+            lastPostit.addClass('alert-dismissible').prepend(eRemovePostit);
+            lastPostit.removeClass('postit-send');
+            appendIdCardActor(lastPostit);
+        }
 
         $('#Append').append(ePlusPostit);
         $('.postit:last .input-group').remove();
         $('.remove-line').remove();
     }
 
-    function appendPostit(event) {
-        $('#AddPostit').parent().remove();
-        $('#Append').append(ePostit);
+    function appendPostit(element) {
+        var result = validationsToAppendPostit();
 
-        $('#Text').focus();
+        if (result == true) {
+            element.parent().remove();
+            $('#Append').append(ePostit);
+
+            $('#Text').focus();
+        }
+        else
+            writeMessage(result);
     }
 
-    function removePostit(event) {
-        $(event.target).closest('.to-remove').remove();
+    function validationsToAppendPostit() {
+        var countActive = $('.postit.active').length;
+
+        if (countActive == 0)
+            return 'Selecione um User Story para adicionar um cartão!';
+
+        return true;
     }
 
-    function removeLine(event) {
-        $(event.target).parent('p').remove();
-        $('.postit:last p:last').append(eRemoveLinePostit);
+    function removePostit(element) {
+        element.closest('.to-remove').remove();
+    }
 
+    function removeLine(element) {
+        element.parent('p').remove();
         count();
+        definePlaceholder();
+
+        $('.postit:last p:last').append(eRemoveLinePostit);
     }
+
+    function definePlaceholder() {
+        var input = $('#Text');
+
+        switch (parseInt(countLines)) {
+            case 0:
+                input.attr("placeholder", "eu como...");
+                break;
+            case 1:
+                input.attr("placeholder", "quero...");
+                break;
+            case 2:
+                input.attr("placeholder", "para...");
+                break;
+        }
+    }
+
+    $('#UserStories').on('click', '.postit.select', function () {
+        hideMessage();
+
+        //actorSelected = {
+        //    'Id': $(this).children('#Id').val(),
+        //    'Text': $(this).children('p').text()
+        //}
+
+        $('#Actors .postit.select').removeClass('active');
+        $(this).addClass('active');
+    });
 </script>

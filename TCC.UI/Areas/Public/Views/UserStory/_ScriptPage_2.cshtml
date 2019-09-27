@@ -160,7 +160,7 @@
         if (result == true) {
             element.parent().remove();
             $('#Append').append(ePostit);
-            addLineWithoutRemove('Eu como ' + actorSelected.Text.toLowerCase());
+            addLineWithoutRemove(firstLineUserStory());
 
             $('#Text').focus();
         }
@@ -229,6 +229,10 @@
             .children('.lines')
             .children('p')
             .first()
-            .text('Eu como ' + actorSelected.Text.toLowerCase())
+            .text(firstLineUserStory())
     });
+
+    function firstLineUserStory() {
+        return 'Eu como ' + actorSelected.Text.toLowerCase();
+    }
 </script>

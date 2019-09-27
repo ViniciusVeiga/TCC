@@ -6,6 +6,7 @@ namespace TCC.Domain.Entities
     {
         public decimal? IdCardActor { get; set; }
 
+        public virtual ETCardActor CardActor { get; set; }
         public virtual List<ETCardLineUserStory> CardLines { get; set; }
     }
 }

@@ -8,11 +8,11 @@
         Criação do BDD
     </h1>
     <div class="breadcrumb">
-        @Ajax.ActionLink("Voltar", "Page_1", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+        @Ajax.ActionLink("Voltar", "Index", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
 
         @if (Model.CardUserStories?.Count > 0)
         {
-            @Ajax.ActionLink("Continuar", "Page_3", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+            @Ajax.ActionLink("Continuar", "Page_2", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
         }
     </div>
 </div>
@@ -29,22 +29,6 @@
         <div class="box-body">
             <div class="board">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <h4>Cartões de Atores:</h4>
-                    </div>
-
-                    @PostitHelpers.CreatePostit_1(Model.CardActors)
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4>Cartões de Atores:</h4>
-                    </div>
-
-                    @PostitHelpers.CreatePostit_3(Model.CardUserStories)
-                </div>
-                <hr />
-                <div class="row">
                     <div class="col-sm-12 col-md-3">
                         <h4>Segue o exemplo abaixo:</h4>
                         <div class="to-remove">
@@ -57,6 +41,15 @@
                     </div>
                 </div>
                 <hr />
+                <div class="row" id="UserStories">
+                    <div class="col-sm-12">
+                        <h4>Cartões de User Story:</h4>
+                    </div>
+
+                    @PostitHelpers.CreatePostit_3(Model.CardUserStories)
+                </div>
+                <hr />
+
                 <div class="row" id="Append">
                     @Helpers.MessageBoard()
 
@@ -71,8 +64,8 @@
     </div>
 </div>
 
-@PostitHelpers.PostitExampleHTML("eu como...")
+@PostitHelpers.PostitExampleHTML("digite o cenário...")
 
 @section scripts {
-    @Html.Partial("_ScriptPage_2")
+    @Html.Partial("_ScriptPage_1")
 }

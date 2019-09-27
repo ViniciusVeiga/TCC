@@ -14,9 +14,15 @@ namespace TCC.Entity.Maps
                 .IsRequired()
                 .HasColumnName("ID_CARD_ACTOR_N");
 
+            HasRequired(e => e.CardActor)
+                .WithMany(e => e.CardUserStories)
+                .HasForeignKey(e => e.IdCardActor)
+                .WillCascadeOnDelete(true);
+
             HasRequired(e => e.Historic)
                 .WithMany(e => e.CardUserStories)
-                .HasForeignKey(e => e.IdHistoric);
+                .HasForeignKey(e => e.IdHistoric)
+                .WillCascadeOnDelete(false);
         }
     }
 }

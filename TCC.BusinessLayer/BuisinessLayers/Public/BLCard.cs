@@ -25,13 +25,13 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         #region Salvar
 
-        public static void Save(List<T> cards)
+        public static void Save(List<T> cards, decimal? idHistoric)
         {
             try
             {
                 if (cards != null && cards.Count > 0)
                 {
-                    GetDifference(cards, CRUD<T>.Instance.All())
+                    GetDifference(cards, GetList(idHistoric))
                         .ForEach(i =>
                         {
                             if (!i.Id.HasValue)
@@ -47,6 +47,11 @@ namespace TCC.BusinessLayer.BusinessLayers
             {
                 throw;
             }
+        }
+
+        private static List<T> GetList(decimal? idHistoric)
+        {
+            return CRUD<T>.Instance.FindAll(i => i.IdHistoric == idHistoric);
         }
 
         #endregion
