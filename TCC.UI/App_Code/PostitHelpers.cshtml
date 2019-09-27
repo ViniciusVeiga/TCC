@@ -1,7 +1,7 @@
 ﻿
 @helper PostitExampleHTML(string placeholder = "digite aqui...", string classCol = "col-sm-12 col-md-3", string addClassPostit = "")
 {
-    <div id="Example" style="display:none">
+    <div class="example" style="display:none">
         <div id="Postit">
             <div class="@classCol to-remove">
                 <div class="alert postit @addClassPostit  postit-send">
@@ -29,6 +29,18 @@
                     <i class="fa fa-plus"></i>
                 </button>
             </div>
+        </div>
+    </div>
+}
+
+@helper BDDExampleHTML()
+{
+    <div class="example" style="display:none">
+        <div id="AdditionalE">
+            <p><span class="clickable">E: </span><input type="hidden" id="IdChoice" value="no-value"></p>
+        </div>
+        <div id="FinalLine">
+            <p><span class="clickable finish-card"><i class="fa fa-save"></i> </span><input type="hidden" id="IdChoice" value="finishCard"></p>
         </div>
     </div>
 }

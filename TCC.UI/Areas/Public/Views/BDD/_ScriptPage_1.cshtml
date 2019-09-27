@@ -17,48 +17,68 @@
         opacity: 0.7
     }
 
-        .clickable:hover {
-            opacity: 1
-        }
+    .clickable:hover {
+        opacity: 1
+    }
+    
+    .choice {
+        margin-top: 30px;
+    }
+
+    .finish-card {
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+        font-size: 18px;
+    }
 </style>
 
+@PostitHelpers.BDDExampleHTML()
+
 <script type="text/javascript">
-    var aditionalE =
+    var finalLine = $('#FinalLine').html();
+    var additionalE =
     {
         'Id': 'no-value',
         'Html': '<span>E: </span>',
-        'HtmlChoice': '<p class="clickable">E: <input type="hidden" id="IdChoice" value="no-value"></p>',
+        'HtmlChoice': $('#AdditionalE').html(),
     }
 
     var sequence =
     [
         {
-            'Html': '<span>Cenário: </span>',
+            'Id': 0,
+            'Html': 'Cenário: ',
             'Here': false
         },
         {
             'Id': 1,
-            'Html': '<span>Dado: </span>',
-            'HtmlChoice': '<p class="clickable">Dado: <input type="hidden" id="IdChoice" value="1"></p>',
+            'Html': 'Dado: ',
+            'HtmlChoice': '<p><span class="clickable">Dado: </span><input type="hidden" id="IdChoice" value="1"></p>',
             'Here': false
         },
         {
             'Id': 2,
-            'Html': '<span>Quando: </span>',
-            'HtmlChoice': '<p class="clickable">Quando: <input type="hidden" id="IdChoice" value="2"></p>',
+            'Html': 'Quando: ',
+            'HtmlChoice': '<p><span class="clickable">Quando: </span><input type="hidden" id="IdChoice" value="2"></p>',
             'Here': false
         },
         {
             'Id': 3,
-            'Html': '<span>Então: </span>',
-            'HtmlChoice': '<p class="clickable">Então: <input type="hidden" id="IdChoice" value="3"></p>',
+            'Html': 'Então: ',
+            'HtmlChoice': '<p><span class="clickable">Então: </span><input type="hidden" id="IdChoice" value="3"></p>',
             'Here': false
         },
-        aditionalE
+        {
+            'Id': 4,
+            'Html': 'Mas: ',
+            'HtmlChoice': '<p><span class="clickable">Mas: </span><input type="hidden" id="IdChoice" value="4"></p>',
+            'Here': false
+        },
+        additionalE
     ]
 
     function start() {
-        $('#Example').remove();
         $('#Append').append(ePlusPostit);
     }
 
@@ -70,15 +90,11 @@
         if (text != '') {
             addLine(text)
         }
-
-        input.focus();
     }
-
 
     function addLine(text) {
         $('.remove-line').remove();
-        var span = $('<span></span>').text(text);
-        $('.lines:last p:last').append(span).append(eRemoveLinePostit);
+        $('.lines:last p:last').append(text).append(eRemoveLinePostit);
 
         count();
         choices();
@@ -96,12 +112,6 @@
         $('.lines:last').append(p).append(html);;
     }
 
-    function addLineWithoutRemove(text) {
-        $('.lines:last').append($('<p></p>').text(text));
-
-        count();
-    }
-
     function sendToSave(event) {
         var result = validationsByJs();
 
@@ -111,7 +121,7 @@
                 'model': {
                     'Id': '@Model.Id',
                     'IdProject': '@Model.IdProject',
-                    'CardActors': []
+                    'CardBDDs': []
                 },
                 'page': '@page'
             };
@@ -123,7 +133,7 @@
                     cardLine.push({ 'Line': $(this).text() });
                 });
 
-                data.model.CardActors.push({ 'IdHistoric': '@Model.Id', 'CardLines': cardLine });
+                data.model.CardBDDs.push({ 'IdHistoric': '@Model.Id', 'CardLines': cardLine });
             });
 
             $.ajax({
@@ -142,6 +152,13 @@
                 .fadeIn();
     }
 
+    function validationsByJs() {
+        if ($('.postit', '#Append').length == 0)
+            return 'Escreva pelo menos um card';
+
+        return true;
+    }
+
     function count() {
         countLines = $('.postit:last p').length;
     }
@@ -152,7 +169,6 @@
         if (!lastPostit.hasClass('alert-dismissible')) {
             lastPostit.addClass('alert-dismissible').prepend(eRemovePostit);
             lastPostit.removeClass('postit-send');
-            appendIdCardActor(lastPostit);
         }
 
         $('#Append').append(ePlusPostit);
@@ -167,6 +183,7 @@
             element.parent().remove();
             $('#Append').append(ePostit);
 
+            count();
             choices();
 
             $('#Text').focus();
@@ -193,8 +210,6 @@
         parent.nextAll('p').remove()
         parent.remove();
 
-        changeFlag(sequence.find(i => i.Here == true).Id - 1);
-
         count();
         $('.postit:last p:last').append(eRemoveLinePostit);
         choices();
@@ -208,7 +223,7 @@
         //    'Text': $(this).children('p').text()
         //}
 
-        $('#Actors .postit.select').removeClass('active');
+        $('#UserStories .postit.select').removeClass('active');
         $(this).addClass('active');
     });
 
@@ -218,47 +233,56 @@
 
     function showWriter() {
         $('.postit .input-group').show();
+        $('#Text').focus();
     }
 
     $('#Append').on('click', '.clickable', function () {
-        var value = $(this).children("#IdChoice").val();
-        $('.clickable, .choice').remove();
+        var value = $(this).next("#IdChoice").val();
+        cleanChoice();
+
+        if (value == 'finishCard') {
+            finishCard();
+            return;
+        }
 
         var element = sequence.find(i => i.Id == value);
+
         changeFlag(value);
         addTitle(element.Html);
         showWriter();
     });
 
+    function cleanChoice() {
+        $('.clickable').parent().remove();
+        $('.choice').remove();
+    }
+
     function changeFlag(value) {
         var convert = parseInt(value);
 
         if (Number.isInteger(convert)) {
-            sequence.forEach(i => {
-                if (i.Id == value)
-                    i.Here = true;
-                else
-                    i.Here = false;
-            });
+            sequence.forEach(i => i.Here = i.Id == value ? true : false );
         }
     }
 
     function choices() {
-        if (countLines == 0) {
+        var linesIgnore = [0, 1]
+        var finalLines = [3, 4]
+
+        if (linesIgnore.includes(countLines)) {
             showWriter();
-            sequence[0].Here = true;
-            addTitle(sequence[0].Html);
+            changeFlag(countLines)
+            addTitle(sequence[countLines].Html);
             return;
         }
 
         for (var i = 0; i < sequence.length; i++) {
             if (sequence[i].Here == true) {
-                if (sequence[i + 1] == aditionalE) {
-                    addChoice(aditionalE);
-                }
-                else {
-                    addChoice(sequence[i + 1].HtmlChoice + aditionalE.HtmlChoice);
-                }
+                var html = sequence[i + 1] != additionalE ? sequence[i + 1].HtmlChoice : '';
+                html += additionalE.HtmlChoice;
+                html += finalLines.includes(i) ? finalLine.HtmlChoice : '';
+
+                addChoice(html);
 
                 hideWriter();
                 break;

@@ -30,6 +30,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
                 BLCard<ETCardActor>.Save(historic.CardActors, historic.Id);
                 BLCard<ETCardUserStory>.Save(historic.CardUserStories, historic.Id);
+                BLCard<ETCardBDD>.Save(historic.CardBDDs, historic.Id);
             }
             catch (Exception)
             {

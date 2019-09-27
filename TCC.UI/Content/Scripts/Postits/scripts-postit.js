@@ -5,6 +5,7 @@ var ePlusPostit = $('#PlusPostit').html();
 var countLines = 0;
 
 $(document).ready(function () {
+    $('.example').remove();
     start();
 });
 
