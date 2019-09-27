@@ -10,7 +10,53 @@
 
 @Scripts.Render("~/Scripts/Postit")
 
+<style>
+    .clickable {
+        color: #333;
+        cursor: pointer;
+        opacity: 0.7
+    }
+
+        .clickable:hover {
+            opacity: 1
+        }
+</style>
+
 <script type="text/javascript">
+    var aditionalE =
+    {
+        'Id': 'no-value',
+        'Html': '<span>E: </span>',
+        'HtmlChoice': '<p class="clickable">E: <input type="hidden" id="IdChoice" value="no-value"></p>',
+    }
+
+    var sequence =
+    [
+        {
+            'Html': '<span>Cenário: </span>',
+            'Here': false
+        },
+        {
+            'Id': 1,
+            'Html': '<span>Dado: </span>',
+            'HtmlChoice': '<p class="clickable">Dado: <input type="hidden" id="IdChoice" value="1"></p>',
+            'Here': false
+        },
+        {
+            'Id': 2,
+            'Html': '<span>Quando: </span>',
+            'HtmlChoice': '<p class="clickable">Quando: <input type="hidden" id="IdChoice" value="2"></p>',
+            'Here': false
+        },
+        {
+            'Id': 3,
+            'Html': '<span>Então: </span>',
+            'HtmlChoice': '<p class="clickable">Então: <input type="hidden" id="IdChoice" value="3"></p>',
+            'Here': false
+        },
+        aditionalE
+    ]
+
     function start() {
         $('#Example').remove();
         $('#Append').append(ePlusPostit);
@@ -31,17 +77,29 @@
 
     function addLine(text) {
         $('.remove-line').remove();
-        $('.lines:last').append($('<p></p>').text(text).append(eRemoveLinePostit));
+        var span = $('<span></span>').text(text);
+        $('.lines:last p:last').append(span).append(eRemoveLinePostit);
 
         count();
-        definePlaceholder();
+        choices();
+    }
+
+    function addTitle(html) {
+        var p = $('<p></p>').append(html);
+
+        $('.lines:last').append(p);
+    }
+
+    function addChoice(html) {
+        var p = $('<p class="choice"></p>').text('Escolha entre:')
+
+        $('.lines:last').append(p).append(html);;
     }
 
     function addLineWithoutRemove(text) {
         $('.lines:last').append($('<p></p>').text(text));
 
         count();
-        definePlaceholder();
     }
 
     function sendToSave(event) {
@@ -109,6 +167,8 @@
             element.parent().remove();
             $('#Append').append(ePostit);
 
+            choices();
+
             $('#Text').focus();
         }
         else
@@ -129,27 +189,15 @@
     }
 
     function removeLine(element) {
-        element.parent('p').remove();
+        var parent = element.parent('p');
+        parent.nextAll('p').remove()
+        parent.remove();
+
+        changeFlag(sequence.find(i => i.Here == true).Id - 1);
+
         count();
-        definePlaceholder();
-
         $('.postit:last p:last').append(eRemoveLinePostit);
-    }
-
-    function definePlaceholder() {
-        var input = $('#Text');
-
-        switch (parseInt(countLines)) {
-            case 0:
-                input.attr("placeholder", "eu como...");
-                break;
-            case 1:
-                input.attr("placeholder", "quero...");
-                break;
-            case 2:
-                input.attr("placeholder", "para...");
-                break;
-        }
+        choices();
     }
 
     $('#UserStories').on('click', '.postit.select', function () {
@@ -163,4 +211,58 @@
         $('#Actors .postit.select').removeClass('active');
         $(this).addClass('active');
     });
+
+    function hideWriter() {
+        $('.postit .input-group').hide();
+    }
+
+    function showWriter() {
+        $('.postit .input-group').show();
+    }
+
+    $('#Append').on('click', '.clickable', function () {
+        var value = $(this).children("#IdChoice").val();
+        $('.clickable, .choice').remove();
+
+        var element = sequence.find(i => i.Id == value);
+        changeFlag(value);
+        addTitle(element.Html);
+        showWriter();
+    });
+
+    function changeFlag(value) {
+        var convert = parseInt(value);
+
+        if (Number.isInteger(convert)) {
+            sequence.forEach(i => {
+                if (i.Id == value)
+                    i.Here = true;
+                else
+                    i.Here = false;
+            });
+        }
+    }
+
+    function choices() {
+        if (countLines == 0) {
+            showWriter();
+            sequence[0].Here = true;
+            addTitle(sequence[0].Html);
+            return;
+        }
+
+        for (var i = 0; i < sequence.length; i++) {
+            if (sequence[i].Here == true) {
+                if (sequence[i + 1] == aditionalE) {
+                    addChoice(aditionalE);
+                }
+                else {
+                    addChoice(sequence[i + 1].HtmlChoice + aditionalE.HtmlChoice);
+                }
+
+                hideWriter();
+                break;
+            }
+        }
+    }
 </script>
