@@ -125,13 +125,18 @@
             };
 
             $('.postit', '#Append').each(function () {
+                var thisPostit = $(this);
                 var cardLine = [];
 
-                $(this).find('p').each(function () {
+                thisPostit.find('p').each(function () {
                     cardLine.push({ 'Line': $(this).text() });
                 });
 
-                data.model.CardBDDs.push({ 'IdHistoric': '@Model.Id', 'CardLines': cardLine });
+                data.model.CardBDDs.push({
+                    'Id': thisPostit.children('#Id').val(),
+                    'IdHistoric': '@Model.Id',
+                    'CardLines': cardLine
+                });
             });
 
             $.ajax({
