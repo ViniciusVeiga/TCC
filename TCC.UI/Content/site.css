@@ -387,3 +387,14 @@ pre {
 .main-header .logo {
     font-family: 'Anivers', sans-serif;
 }
+
+.content-tests p {
+    font-size: 16px;
+    text-align: right;
+}
+
+@media only screen and (min-width: 600px) {
+    .content-tests {
+        text-align: justify !important;
+    }
+}

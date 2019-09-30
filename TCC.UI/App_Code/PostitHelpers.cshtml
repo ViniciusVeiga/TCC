@@ -38,7 +38,7 @@
     <div class="example" style="display:none">
         <div id="AdditionalE">
             <p><span class="clickable continue">E: </span></p>
-            <input type="hidden" id="IdChoice" value="none"/>
+            <input type="hidden" id="IdChoice" value="none" />
         </div>
         <div id="FinalLine">
             <p><span class="clickable finish-card"><i class="fa fa-save"></i> </span></p>
@@ -166,4 +166,18 @@
             </div>
         </div>
     }
+}
+
+@helper ProjectChoosed(TCC.Domain.Entities.ETProject project)
+{
+    <div class="row">
+        <div class="col-sm-12 col-md-3">
+            <h4>Projeto escolhido:</h4>
+            <div class="alert postit">
+                <h4>@project.Title</h4>
+                <p>@project.Text</p>
+            </div>
+        </div>
+    </div>
+    <hr />
 }
