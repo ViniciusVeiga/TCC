@@ -268,18 +268,8 @@
         changeFlag(converted);
     }
 
-    function changeFlagToPrevious(value) {
-        var converted = parseInt(value) - 1;
-        changeFlag(converted);
-    }
-
     function changeFlag(value) {
-        if (Number.isInteger(value)) {
-            var element = getElementByValue(value);
-
-            value = element != null ? value : 'none';
-            sequence.forEach(i => i.Flag = i.Id == value ? true : false);
-        }
+        sequence.forEach(i => i.Flag = i.Id == value ? true : false);
     }
 
     function getElementByValue(value) {
@@ -296,18 +286,21 @@
         if (id == historic[historic.length - 1])
             return id;
 
+        if (id == 'none')
+            return historic[historic.length - 1]
+
         return id - 1;
     }
 
     function choices(dontSaveHistoric) {
-        var noChoiceLines = [0, 1]
-        var finalLines = [3, 4]
+        var noChoiceIds = [0, 1]
+        var finalIds = [3, 4, 'none']
 
         for (var i = 0; i < sequence.length; i++) {
             var item = sequence[i];
 
             if (item.Flag == true) {
-                if (noChoiceLines.includes(item.Id)) {
+                if (noChoiceIds.includes(item.Id)) {
                     showWriter();
 
                     changeFlagToNext(item.Id);
@@ -318,7 +311,7 @@
 
                     var html = item.Html != additionalE.Html ? item.Html : '';
                     html += additionalE.Html;
-                    html += finalLines.includes(i) ? finalLine : '';
+                    html += finalIds.includes(item.Id) ? finalLine : '';
 
                     addChoice(html);
                 }
