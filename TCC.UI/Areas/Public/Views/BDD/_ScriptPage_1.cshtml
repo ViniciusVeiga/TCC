@@ -17,10 +17,10 @@
         opacity: 0.7
     }
 
-    .clickable:hover {
-        opacity: 1
-    }
-    
+        .clickable:hover {
+            opacity: 1
+        }
+
     .choice {
         margin-top: 30px;
     }
@@ -251,7 +251,7 @@
         var value = $(this).parent().next('#IdChoice').val();
         cleanChoice();
 
-        var element = sequence.find(i => i.Id == value);
+        var element = getElementByValue(value);
 
         changeFlagToNext(value);
         addTitle(element.Text);
@@ -264,23 +264,40 @@
     }
 
     function changeFlagToNext(value) {
-        var convert = parseInt(value) + 1;
-        changeFlat(value);
+        var converted = parseInt(value) + 1;
+        changeFlag(converted);
     }
 
     function changeFlagToPrevious(value) {
-        var convert = parseInt(value) - 1;
-        changeFlat(value);
+        var converted = parseInt(value) - 1;
+        changeFlag(converted);
     }
 
-    function changeFlat(value) {
+    function changeFlag(value) {
         if (Number.isInteger(value)) {
-            sequence.forEach(i => i.Flag = i.Id == value ? true : false);
+            var element = getElementByValue(value);
+
+            if (element != null) {
+                sequence.forEach(i => i.Flag = i.Id == value ? true : false);
+            }
+            else {
+                sequence.forEach(i => i.Flag = i.Id == 'none' ? true : false);
+            }
+        }
+    }
+
+    function getElementByValue(value) {
+        return sequence.find(i => i.Id == value);
+    }
+
+    function saveIdFlaggedThatIsNumber(value) {
+        if (Number.isInteger(value)) {
+            idFlagged = value;
         }
     }
 
     function choices() {
-        var noChoices = [0, 1]
+        var noChoiceLines = [0, 1]
         var finalLines = [3, 4]
 
         for (var i = 0; i < sequence.length; i++) {
@@ -288,9 +305,9 @@
 
             if (item.Flag == true) {
 
-                idFlagged = item.Id;
+                saveIdFlaggedThatIsNumber(item.Id);
 
-                if (noChoices.includes(item.Id)) {
+                if (noChoiceLines.includes(item.Id)) {
                     showWriter();
 
                     changeFlagToNext(item.Id);
@@ -299,7 +316,7 @@
                 else {
                     hideWriter();
 
-                    var html = sequence[i] != additionalE ? sequence[i].Html : '';
+                    var html = item.Html != additionalE.Html ? item.Html : '';
                     html += additionalE.Html;
                     html += finalLines.includes(i) ? finalLine : '';
 
