@@ -10,9 +10,9 @@
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
 
-        @if (Model.CardUserStories?.Count > 0)
+        @if (Model.CardBDDs?.Count > 0)
         {
-            @Ajax.ActionLink("Continuar", "Page_2", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+            @Ajax.ActionLink("Continuar", "Page_Final", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
         }
     </div>
 </div>
@@ -21,7 +21,7 @@
         <div class="box-header with-border">
             <div class="col-lg-12">
                 <div>
-                    <h4>Após a seleção dos atores, é que se começa a contruir os cartões do User Story.</h4>
+                    <h4>Siga o exemplo para começar a contruir os cartões do BDD.</h4>
                     <p>Utilize a lousa para escrever os cartões.</p>
                 </div>
             </div>

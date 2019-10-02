@@ -14,10 +14,11 @@
     var historicChoice = [];
     var eChoice = $('#ChooseChoice').html();
     var finalLine = $('#FinalLine').html();
+    var none = 'none';
 
     var additionalE =
     {
-        'Id': 'none',
+        'Id': none,
         'Text': '<span>E: </span>',
         'Html': $('#AdditionalE').html(),
     }
@@ -246,7 +247,12 @@
     }
 
     function changeFlag(value) {
-        sequence.forEach(i => i.Flag = i.Id == value ? true : false);
+        if (Number.isInteger(value)) {
+            var element = getElementByValue(value);
+
+            value = element != null ? value : none;
+            sequence.forEach(i => i.Flag = i.Id == value ? true : false);
+        }
     }
 
     function getElementByValue(value) {
@@ -263,7 +269,7 @@
         if (value == historicChoice[historicChoice.length - 1])
             return value;
 
-        if (value == 'none')
+        if (value == none)
             return historicChoice[historicChoice.length - 1]
 
         return value - 1;
@@ -271,7 +277,7 @@
 
     function choices(dontSaveHistoric) {
         var noChoiceIds = [0, 1]
-        var finalIds = [3, 4, 'none']
+        var finalIds = [3, 4, none]
 
         for (var i = 0; i < sequence.length; i++) {
             var item = sequence[i];

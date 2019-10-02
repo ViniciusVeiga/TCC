@@ -7,7 +7,7 @@ using TCC.UI.Helpers.Attributes.TutorialDynamic;
 namespace TCC.UI.Areas.Public.Controllers
 {
     [PermissionPublic]
-    public class UserStoryController : TutorialDynamicBaseController
+    public class UserStoryController : TutorialDynamicBaseController, ITutorialDynamicBaseController
     {
         public const string Key = BLConfiguration.Keys.UserStory;
 

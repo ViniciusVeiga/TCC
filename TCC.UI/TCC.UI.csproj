@@ -137,7 +137,7 @@
     <Compile Include="Areas\Public\Views\ViewsModels\VMCardLine.cs" />
     <Compile Include="Areas\Public\Views\ViewsModels\UserStory\VMCard.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Extensions\AdminBaseController.cs" />
+    <Compile Include="Extensions\Classes\AdminBaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
@@ -150,8 +150,9 @@
     <Compile Include="Areas\Public\Controllers\ContentController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Controllers\LoginController.cs" />
-    <Compile Include="Extensions\TutorialDynamicBaseController.cs" />
-    <Compile Include="Extensions\LoginBaseController.cs" />
+    <Compile Include="Extensions\Classes\TutorialDynamicBaseController.cs" />
+    <Compile Include="Extensions\Classes\LoginBaseController.cs" />
+    <Compile Include="Extensions\Interfaces\TutorialDynamicBaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -6580,6 +6581,7 @@
     <Content Include="Areas\Public\Views\BDD\_ScriptPage_0.cshtml" />
     <Content Include="Areas\Public\Views\BDD\_ScriptPage_1.cshtml" />
     <Content Include="Areas\Public\Views\UserStory\Export.cshtml" />
+    <Content Include="Areas\Public\Views\BDD\Page_Final.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />

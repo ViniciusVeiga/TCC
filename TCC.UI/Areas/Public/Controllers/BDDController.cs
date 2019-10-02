@@ -9,7 +9,7 @@ using TCC.UI.Helpers.Attributes.TutorialDynamic;
 namespace TCC.UI.Areas.Public.Controllers
 {
     [PermissionPublic]
-    public class BDDController : TutorialDynamicBaseController
+    public class BDDController : TutorialDynamicBaseController, ITutorialDynamicBaseController
     {
         public const string Key = BLConfiguration.Keys.BDD;
 
@@ -32,6 +32,33 @@ namespace TCC.UI.Areas.Public.Controllers
             var model = BLHistoric.GetActive();
 
             return View(model);
+        }
+
+        #endregion
+
+        #region Etapa Final
+
+        [CompleteTutorial(Key = Key)]
+        public ActionResult Page_Final() => View();
+
+        #endregion
+
+        #region Próximo Tutorial
+
+        public ActionResult NextTutorial()
+        {
+            var id = BLMenuItem.GetByKey(BLConfiguration.Keys.TDD).Id;
+
+            return RedirectToAction("Index", "Content", new { id });
+        }
+
+        #endregion
+
+        #region Exportar
+
+        public ActionResult Export()
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
