@@ -6579,6 +6579,7 @@
     <Content Include="App_Code\PostitHelpers.cshtml" />
     <Content Include="Areas\Public\Views\BDD\_ScriptPage_0.cshtml" />
     <Content Include="Areas\Public\Views\BDD\_ScriptPage_1.cshtml" />
+    <Content Include="Areas\Public\Views\UserStory\Export.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />
@@ -7145,6 +7146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Public\Views\TDD\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

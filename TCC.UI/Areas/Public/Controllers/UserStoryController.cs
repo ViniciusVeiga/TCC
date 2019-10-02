@@ -62,5 +62,16 @@ namespace TCC.UI.Areas.Public.Controllers
         }
 
         #endregion
+
+        #region Exportar 
+
+        public ActionResult Export()
+        {
+            var model = BLHistoric.GetActive();
+
+            return View(model);
+        }
+
+        #endregion
     }
 }
