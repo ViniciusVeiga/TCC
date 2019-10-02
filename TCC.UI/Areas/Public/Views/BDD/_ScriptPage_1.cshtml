@@ -37,6 +37,7 @@
     var idFlagged;
     var eChoice = $('#ChooseChoice').html();
     var finalLine = $('#FinalLine').html();
+
     var additionalE =
     {
         'Id': 'none',
@@ -49,7 +50,7 @@
         {
             'Id': 0,
             'Text': 'Cenário: ',
-            'Flag': false
+            'Flag': true
         },
         {
             'Id': 1,
@@ -213,7 +214,7 @@
         parent.nextAll().remove()
         parent.remove();
 
-        changeFlag(idFlagged - 1);
+        changeFlagToPrevious(idFlagged);
 
         count();
         $('.postit:last p:last').append(eRemoveLinePostit);
@@ -252,7 +253,7 @@
 
         var element = sequence.find(i => i.Id == value);
 
-        changeFlag(value);
+        changeFlagToNext(value);
         addTitle(element.Text);
         showWriter();
     });
@@ -262,38 +263,49 @@
         $('.choice').remove();
     }
 
-    function changeFlag(value) {
-        var convert = parseInt(value);
+    function changeFlagToNext(value) {
+        var convert = parseInt(value) + 1;
+        changeFlat(value);
+    }
 
-        if (Number.isInteger(convert)) {
-            sequence.forEach(i => i.Flag = i.Id == value ? true : false );
+    function changeFlagToPrevious(value) {
+        var convert = parseInt(value) - 1;
+        changeFlat(value);
+    }
+
+    function changeFlat(value) {
+        if (Number.isInteger(value)) {
+            sequence.forEach(i => i.Flag = i.Id == value ? true : false);
         }
     }
 
     function choices() {
-        var linesIgnore = [0, 1]
+        var noChoices = [0, 1]
         var finalLines = [3, 4]
 
-        if (linesIgnore.includes(countLines)) {
-            idFlagged = sequence[countLines].Id;
-
-            showWriter();
-            changeFlag(countLines)
-            addTitle(sequence[countLines].Text);
-            return;
-        }
-
         for (var i = 0; i < sequence.length; i++) {
-            if (sequence[i].Flag == true) {
-                var html = sequence[i + 1] != additionalE ? sequence[i + 1].Html : '';
-                html += additionalE.Html;
-                html += finalLines.includes(i) ? finalLine : '';
+            var item = sequence[i];
 
-                idFlagged = sequence[i].Id;
-                console.log(idFlagged);
-                addChoice(html);
+            if (item.Flag == true) {
 
-                hideWriter();
+                idFlagged = item.Id;
+
+                if (noChoices.includes(item.Id)) {
+                    showWriter();
+
+                    changeFlagToNext(item.Id);
+                    addTitle(item.Text);
+                }
+                else {
+                    hideWriter();
+
+                    var html = sequence[i] != additionalE ? sequence[i].Html : '';
+                    html += additionalE.Html;
+                    html += finalLines.includes(i) ? finalLine : '';
+
+                    addChoice(html);
+                }
+
                 break;
             }
         }
