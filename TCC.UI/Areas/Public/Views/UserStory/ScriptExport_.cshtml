@@ -1,0 +1,34 @@
+﻿@*@model ETHistoric
+
+    @using TCC.Domain.Entities*@
+
+
+@Scripts.Render("~/Scripts/Postit")
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="https://cdn.rawgit.com/simonbengtsson/jsPDF/requirejs-fix-dist/dist/jspdf.debug.js"></script>
+<script src="https://unpkg.com/jspdf-autotable@2.3.2"></script>
+
+<script type="text/javascript">
+    var doc = new jsPDF;
+    doc.setFont("helvetica");
+    doc.setFontStyle("bold");
+    doc.setFontSize(25);
+    doc.text('EasyTest - Especificação do Projeto', 100, 20, null, null, 'center');
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+            return true;
+        }
+    };
+    function generatePDF() {
+
+       var res = doc.autoTableHtmlToJson(document.getElementById("basic-table"));
+    }
+
+</script>
+
+
