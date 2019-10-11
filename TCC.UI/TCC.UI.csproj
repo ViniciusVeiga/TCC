@@ -7139,6 +7139,13 @@
     <Content Include="Views\Home\Page_3.cshtml" />
     <Content Include="Views\Home\Page_4.cshtml" />
     <Content Include="Views\Home\Page_2.cshtml" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
