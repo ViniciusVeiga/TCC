@@ -81,6 +81,21 @@
     }
 }
 
+@helper CreatePostit_1(List<TCC.Domain.Entities.ETCardUserStory> postits)
+{
+    foreach (var postit in postits)
+    {
+        <div class="col-sm-12 col-md-3">
+            <div class="alert postit">
+                @foreach (var line in postit.CardLines)
+                {
+                    <p>@line.Line</p>
+                }
+            </div>
+        </div>
+    }
+}
+
 
 @helper CreatePostit_2(List<TCC.Domain.Entities.ETCardActor> postits)
 {

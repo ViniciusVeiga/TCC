@@ -183,7 +183,7 @@
     </div>
 }
 
-@helper SaveButtonBoard(string id = "SaveButton")
+@helper BottomButtonBoard(string id = "SaveButton", string value = "Salvar")
 {
-    <input id="@id" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">
+    <input id="@id" type="submit" class="btn btn-flat btn-board btn-lg" value="@value">
 }

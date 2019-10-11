@@ -6,13 +6,7 @@
         Exportação do Projeto
     </h1>
     <div class="breadcrumb">
-        @Ajax.ActionLink("Voltar", "Index", "Content/Index", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
-
-        @if (Model?.IdProject != null)
-        {
-            <button id="btnExport" class="btn btn-danger" onclick="generatePDF()">Exportar</button>
-        }
-
+        @Ajax.ActionLink("Voltar", "Page_Final", "UserStory", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
     </div>
 </div>
 <div class="content">
@@ -20,32 +14,38 @@
         <div class="box-header with-border">
             <div class="col-lg-12">
                 <div>
-                    <h4>Segue no quadro abaixo as informações do seu projeto atual:</h4>
+                    <h4>Segue o quadro com todas as informações atuais.</h4>
+                    <p>Clique em exportar para baixar o arquivo em PDF</p>
                 </div>
             </div>
         </div>
         <div class="box-body">
             <div class="board">
-                <div class="row" id="Append">
-                    @Helpers.MessageBoard()
-                    <h4>Projeto:</h4>
-                    <div>
-                        <div class="alert postit select active">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <h4>Projeto:</h4>
+                        <div class="alert postit">
                             <h4>@Model.Project.Title</h4>
                             <p>@Model.Project.Text</p>
                         </div>
                     </div>
-                    <hr />
-                    <h4>User Story:</h4>
-                    @PostitHelpers.CreatePostit_3(Model.CardUserStories)
+                    @Helpers.MessageBoard()      
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>User Stories:</h4>
+                    </div>
 
+                    @PostitHelpers.CreatePostit_1(Model.CardUserStories)
+                </div>
+                <div class="bottom-board">
+                    @Helpers.BottomButtonBoard("ExportarButton", "Exportar")
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-@*@PostitHelpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4", addClassPostit: "select")*@
 
 @section scripts {
     @Html.Partial("_ScriptExport")
