@@ -154,8 +154,7 @@
     foreach (var postit in postits)
     {
         <div class="col-sm-12 col-md-3">
-            <div class="alert postit select alert-dismissable">
-                <button type="button" class="close"></button>
+            <div class="alert postit select">
                 <input type="hidden" id="Id" value="@postit.Id" />
 
                 @foreach (var line in postit.CardLines)
@@ -188,7 +187,7 @@
 @helper ProjectChoosed(TCC.Domain.Entities.ETProject project)
 {
     <div class="row">
-        <div class="col-sm-12 col-md-3">
+        <div class="col-sm-12 col-md-4">
             <h4>Projeto escolhido:</h4>
             <div class="alert postit">
                 <h4>@project.Title</h4>
@@ -197,4 +196,23 @@
         </div>
     </div>
     <hr />
+}
+
+@helper CreatePostitWithNumber(List<TCC.Domain.Entities.ETCardUserStory> postits)
+{
+    for (int i = 0; i < postits.Count; i++)
+    {
+        var postit = postits[i];
+
+        <div class="col-sm-12 col-md-3 to-remove">
+            <div class="alert postit select">
+                <span id="Number" class="number">@i</span>
+                <input type="hidden" id="Id" value="@postit.Id" />
+                @foreach (var line in postit.CardLines)
+                {
+                    <div class="lines"><p>@line.Line</p></div>
+                }
+            </div>
+        </div>
+    }
 }

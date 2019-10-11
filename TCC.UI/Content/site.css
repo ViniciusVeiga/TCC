@@ -192,6 +192,12 @@ pre {
     color: #fff;
 }
 
+.board .number {
+    position: absolute;
+    left: 30px;
+    top: 9px;
+}
+
 .board hr {
     border-color: #fff;
 }
