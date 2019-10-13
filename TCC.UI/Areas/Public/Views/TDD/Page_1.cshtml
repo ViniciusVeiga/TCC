@@ -1,0 +1,205 @@
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+@using TCC.BusinessLayer.BusinessLayers
+
+@{
+    var projects = BLHistoric.GetProjectsOfUserForBDD();
+}
+
+<style>
+    .board select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: transparent;
+        color: #fff;
+        border: 2px dashed #fff;
+    }
+
+        .board select option {
+            background-color: #12834d;
+        }
+
+</style>
+
+<div class="content-header">
+    <h1>
+        Escolha de Projeto
+    </h1>
+    <div class="breadcrumb">
+        @Ajax.ActionLink("Voltar", "Index", "Content/Index", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+
+        @if (Model?.IdProject != null)
+        {
+            @Ajax.ActionLink("Continuar", "Page_2", "TDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        }
+    </div>
+</div>
+<div class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <div class="col-lg-12">
+                <div>
+                    <h4>Para iniciarmos a criação do TDD, precisamos escolher um User Story e um BDD ligado a esse User Story.</h4>
+                    <p>Selecione um User Story e um BDD:</p>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="board">
+                <div class="row" id="UserStories">
+                    <div class="col-sm-12">
+                        <h4>User Story:</h4>
+                    </div>
+                    <div class="col-sm-12 col-md-3 to-remove">
+                        <div class="alert postit select active">
+                            <input type="hidden" id="Id" value="31">
+                            <div class="lines">
+                                <p>
+                                    Eu como operador
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Quero pesquisar uma lista de empresas
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Para que eu possa ajudar nos transportes do malote
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 to-remove">
+                        <div class="alert postit select">
+                            <input type="hidden" id="Id" value="32">
+                            <div class="lines">
+                                <p>
+                                    Eu como gestor
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Quero verificar os malotes do mês de janeiro
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Para que eu possa realizar o processo de transporte dele.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" id="Append">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4>BDD:</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 to-remove">
+                        <div class="alert postit alert-dismissable">
+                            <input type="hidden" id="Id" value="13">
+                            <button type="button" class="close"></button>
+                            <div class="lines">
+                                <p>
+                                    Cenário: Pesquisando Empresas que precisam de transporte
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Dado: que estou realizando uma pesquisa nas empresas de sorocaba
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Quando: Eu encontrar uma empresa que precisa de transporte
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Então: devo mandar meu currículo para ela
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 to-remove">
+                        <div class="alert postit select active">
+                            <input type="hidden" id="Id" value="14">
+                            <button type="button" class="close"></button>
+                            <div class="lines">
+                                <p>
+                                    Cenário: Verificando disponibilidade
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Dado: que tenho todas as quarta-feira disponivel
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Quando: uma carga de malote for diferente de quarta-feira
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Então: não poderei realizar o transporte
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    E: devo avisar o gestor por email
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 to-remove">
+                        <div class="alert postit alert-dismissable">
+                            <input type="hidden" id="Id" value="15">
+                            <button type="button" class="close"></button>
+                            <div class="lines">
+                                <p>
+                                    Cenário: Priorizando os malotes
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Dado: que eu tenho a lista de malotes de um determinado mês
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Quando: eu realizar os preparos de cada malote
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Então: devo enviar em ordem de data de inclusão crescente
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-board">
+                    <input id="SaveButton" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">
+                </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+@PostitHelpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4", addClassPostit: "select")

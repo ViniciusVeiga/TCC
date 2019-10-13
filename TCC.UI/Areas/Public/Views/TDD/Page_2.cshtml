@@ -1,0 +1,139 @@
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+@using TCC.BusinessLayer.BusinessLayers
+
+@{
+    /**/
+
+    var projects = BLHistoric.GetProjectsOfUserForBDD();
+}
+
+<style>
+    .code-mirror {
+        padding: 10px;
+        border: 2px dashed #fff;
+    }
+</style>
+
+<div class="content-header">
+    <h1>
+        Criação do BDD
+    </h1>
+    <div class="breadcrumb">
+        @Ajax.ActionLink("Voltar", "Index", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+
+        @if (Model.CardBDDs?.Count > 0)
+        {
+            @Ajax.ActionLink("Continuar", "Page_Final", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        }
+    </div>
+</div>
+<div class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <div class="col-lg-12">
+                <div>
+                    <h4>Começamos para você, agora complete o teste unitario de acordo com o que foi ensinado.</h4>
+                    <p>Utilize o editor para codificar seu Teste Unitário.</p>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="board">
+                @PostitHelpers.ProjectChoosed(Model.Project)
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>User Story e BDD escolhido:</h4>
+                    </div>
+                    <div class="col-sm-12 col-md-3 to-remove">
+                        <div class="alert postit">
+                            <input type="hidden" id="Id" value="31">
+                            <div class="lines">
+                                <p>
+                                    Eu como operador
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Quero pesquisar uma lista de empresas
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Para que eu possa ajudar nos transportes do malote
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 to-remove">
+                        <div class="alert postit select active">
+                            <input type="hidden" id="Id" value="14">
+                            <button type="button" class="close"></button>
+                            <div class="lines">
+                                <p>
+                                    Cenário: Verificando disponibilidade
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Dado: que tenho todas as quarta-feira disponivel
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Quando: uma carga de malote for diferente de quarta-feira
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    Então: não poderei realizar o transporte
+
+                                </p>
+                            </div>
+                            <div class="lines">
+                                <p>
+                                    E: devo avisar o gestor por email
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" id="Append">
+                    <div class="col-sm-12">
+                        <h4>Segue o editor em JAVA.</h4>
+                        <div class="code-mirror">
+                            <textarea id=demotext></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-board">
+                    @Helpers.BottomButtonBoard()
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Content/CodeMirror/lib/codemirror.js"></script>
+    <script src="~/Content/CodeMirror/mode/javascript/javascript.js"></script>
+    <script src="~/Content/CodeMirror/mode/jsx/jsx.js"></script>
+    <script src="~/Content/CodeMirror/addon/edit/matchbrackets.js"></script>
+
+    <script>
+        var javaEditor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+            lineNumbers: true,
+            matchBrackets: true,
+            mode: "text/x-java"
+        });
+    </script>
+}
+
+@PostitHelpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4", addClassPostit: "select")

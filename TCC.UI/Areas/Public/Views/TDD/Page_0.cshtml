@@ -1,0 +1,97 @@
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+@using TCC.BusinessLayer.BusinessLayers
+
+@{
+    var projects = BLHistoric.GetProjectsOfUserForBDD();
+}
+
+<style>
+    .board select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: transparent;
+        color: #fff;
+        border: 2px dashed #fff;
+    }
+
+        .board select option {
+            background-color: #12834d;
+        }
+</style>
+
+<div class="content-header">
+    <h1>
+        Escolha de Projeto
+    </h1>
+    <div class="breadcrumb">
+        @Ajax.ActionLink("Voltar", "Index", "Content/Index", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
+
+        @if (Model?.IdProject != null)
+        {
+            @Ajax.ActionLink("Continuar", "Page_1", "TDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
+        }
+    </div>
+</div>
+<div class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <div class="col-lg-12">
+                <div>
+                    <h4>Para iniciarmos o tutorial, escolha um dos projetos já feitos, junto com uma linguagem e uma Framework de teste.</h4>
+                    <p>Selecione abaixo:</p>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="board">
+                <div class="row">
+                    @foreach (var item in projects)
+                    {
+                        <div class="col-lg-4">
+                            <div class="alert postit select @(Model?.IdProject == item.Id ? "active" : string.Empty)">
+                                <input type="hidden" name="IdProject" value="@item.Id" />
+                                <h4>@item.Title</h4>
+                                <p>@item.Text</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- select -->
+                        <div class="form-group">
+                            <h4>Selecione a linguagem de programação</h4>
+                            <select class="form-control">
+                                <option>JAVA</option>
+                                <option>C#</option>
+                                <option>JavaScript</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <h4>Escolha a Framework</h4>
+                            <select class="form-control">
+                                <option>JUnit</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                                <option>option 5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-board">
+                    <input id="SaveButton" type="submit" class="btn btn-flat btn-board btn-lg" value="Salvar">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@PostitHelpers.PostitExampleHTML(classCol: "col-sm-12 col-md-4", addClassPostit: "select")
