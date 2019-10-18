@@ -194,8 +194,10 @@ pre {
 
 .board .number {
     position: absolute;
-    left: 30px;
-    top: 9px;
+    left: 0px;
+    top: -1px;
+    color: #fff;
+    font-weight: normal;
 }
 
 .board hr {
