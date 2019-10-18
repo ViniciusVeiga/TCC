@@ -206,7 +206,7 @@
 
         <div class="col-sm-12 col-md-3 to-remove">
             <div class="alert postit select">
-                <span id="Number" class="number">@i</span>
+                <span id="Number" class="number">@(i + 1)</span>
                 <input type="hidden" id="Id" value="@postit.Id" />
                 @foreach (var line in postit.CardLines)
                 {

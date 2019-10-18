@@ -150,7 +150,7 @@
         lastPostit.addClass('alert-dismissible').prepend(eRemovePostit);
         lastPostit.removeClass('postit-send');
 
-        appendIdCardUserStory(lastPostit);
+        appendDateOfUserStory(lastPostit);
         resetHistoricBDD();
 
         $('#Append').append(ePlusPostit);
@@ -204,8 +204,10 @@
 
         userStorySelected = {
             'Id': $(this).children('#Id').val(),
-            'Number': $(this).children('#Number').val(),
+            'Number': $(this).children('#Number').text(),
         }
+
+        console.log(userStorySelected.Number)
 
         $('#UserStories .postit.select').removeClass('active');
         $(this).addClass('active');
@@ -311,8 +313,17 @@
         userStorySelected = null;
     }
 
+    function appendDateOfUserStory(postit) {
+        appendIdCardUserStory(postit);
+        appendNumberCardUserStory(postit);
+    }
+
     function appendIdCardUserStory(postit) {
         postit.prepend($('<input type="hidden" id="IdUserStory" value="' + userStorySelected.Id + '">'));
+    }
+
+    function appendNumberCardUserStory(postit) {
+        postit.prepend($('<span id="Number" class="number">' + userStorySelected.Number + '</span>'));
     }
 
     function resetHistoricBDD() {
