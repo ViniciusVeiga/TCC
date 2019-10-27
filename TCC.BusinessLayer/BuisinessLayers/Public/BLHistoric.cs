@@ -13,21 +13,11 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         #region Salvar
 
-        public static void Save(ETHistoric historic)
+        public static void SaveAllDependencies(ETHistoric historic)
         {
             try
             {
-                var oldHistoric = GetByProject(historic.IdProject);
-
-                if (AbleToSave(historic, oldHistoric))
-                {
-                    historic.Id = oldHistoric?.Id;
-                    historic.IdUserPublic = user.Id;
-
-                    InativeOthers(historic.Id);
-                    CRUD<ETHistoric>.Instance.AddOrUpdate(historic);
-                }
-
+                SaveAndInativeOthers(historic);
                 BLCard<ETCardActor>.Save(historic.CardActors, historic.Id);
                 BLCard<ETCardUserStory>.Save(historic.CardUserStories, historic.Id);
                 BLCard<ETCardBDD>.Save(historic.CardBDDs, historic.Id);
@@ -38,7 +28,25 @@ namespace TCC.BusinessLayer.BusinessLayers
             }
         }
 
+        #region Métodos Privados Para Salvar
+
         private static bool AbleToSave(ETHistoric historic, ETHistoric oldHistoric) => historic?.Id == null || oldHistoric?.Id != historic?.Id && historic?.IdProject != oldHistoric?.IdProject;
+
+        private static void SaveAndInativeOthers(ETHistoric historic)
+        {
+            var oldHistoric = GetByProject(historic.IdProject);
+
+            if (AbleToSave(historic, oldHistoric))
+            {
+                historic.Id = oldHistoric?.Id;
+                historic.IdUserPublic = user.Id;
+
+                InativeOthers(historic.Id);
+                CRUD<ETHistoric>.Instance.AddOrUpdate(historic);
+            }
+        }
+
+        #endregion
 
         #endregion
 

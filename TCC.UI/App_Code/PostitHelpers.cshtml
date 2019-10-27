@@ -204,7 +204,7 @@
     {
         var postit = postits[i];
 
-        <div class="col-sm-12 col-md-3 to-remove">
+        <div class="col-sm-12 col-md-3">
             <div class="alert postit select">
                 <span id="Number" class="number">@(i + 1)</span>
                 <input type="hidden" id="Id" value="@postit.Id" />
@@ -214,5 +214,29 @@
                 }
             </div>
         </div>
+    }
+}
+
+@helper CreatePostitBDDByUserStory(List<TCC.Domain.Entities.ETCardUserStory> cardUserStories)
+{
+    for (int i = 0; i < cardUserStories.Count; i++)
+    {
+        var cardUserStory = cardUserStories[i];
+
+        foreach (var postit in cardUserStory?.CardBDDs)
+        {
+            <div class="col-sm-12 col-md-3 to-remove">
+                <div class="alert postit">
+                    <span id="Number" class="number">@(i + 1)</span>
+                    <input type="hidden" id="IdCardUserStory" value="@postit.IdCardUserStory" />
+                    <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
+                    <input type="hidden" id="Id" value="@postit.Id" />
+                    @foreach (var line in postit.CardLines)
+                    {
+                        <div class="lines"><p>@line.Line</p></div>
+                    }
+                </div>
+            </div>
+        }
     }
 }

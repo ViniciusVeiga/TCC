@@ -24,6 +24,7 @@ namespace TCC.Entity.CRUD
                 .Include(i => i.Project)
                 .Include(i => i.CardActors.Select(o => o.CardLines))
                 .Include(i => i.CardUserStories.Select(o => o.CardLines))
+                .Include(i => i.CardUserStories.Select(o => o.CardBDDs))
                 .Include(i => i.CardBDDs.Select(o => o.CardLines))
                 .FirstOrDefault(predicate);
         }

@@ -18,7 +18,7 @@ namespace TCC.UI.Extensions
         {
             try
             {
-                BLHistoric.Save(model);
+                BLHistoric.SaveAllDependencies(model);
 
                 this.AddToastMessage("Sucesso", "Salvo com sucesso", ToastrType.Success);
             }

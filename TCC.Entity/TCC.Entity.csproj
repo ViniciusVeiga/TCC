@@ -56,7 +56,7 @@
     <Compile Include="Context\EFContext.cs" />
     <Compile Include="CRUD\CRUDHistoric.cs" />
     <Compile Include="Maps\Public\BDD\MPCardBDD.cs" />
-    <Compile Include="Maps\Public\BDD\MPCardLineUserStory.cs" />
+    <Compile Include="Maps\Public\BDD\MPCardLineBDD.cs" />
     <Compile Include="Maps\Public\MPCardLine.cs" />
     <Compile Include="Maps\Public\MPHistoric.cs" />
     <Compile Include="Maps\Public\MPCard.cs" />

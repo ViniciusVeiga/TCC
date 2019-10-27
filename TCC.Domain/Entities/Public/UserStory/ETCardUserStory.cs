@@ -8,5 +8,6 @@ namespace TCC.Domain.Entities
 
         public virtual ETCardActor CardActor { get; set; }
         public virtual List<ETCardLineUserStory> CardLines { get; set; }
+        public virtual List<ETCardBDD> CardBDDs { get; set; }
     }
 }
