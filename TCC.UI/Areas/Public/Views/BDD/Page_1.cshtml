@@ -10,7 +10,7 @@
     <div class="breadcrumb">
         @Ajax.ActionLink("Voltar", "Index", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-warning" })
 
-        @if (Model.CardBDDs?.Count > 0)
+        @if (!Model.CardUserStories.Any(i => i.CardBDDs.Count == 0))
         {
             @Ajax.ActionLink("Continuar", "Page_Final", "BDD", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Ajax_Update_Menu" }, new { @class = "btn btn-primary" })
         }
@@ -23,6 +23,7 @@
                 <div>
                     <h4>Siga o exemplo para começar a contruir os cartões do BDD.</h4>
                     <p>Utilize a lousa para escrever os cartões.</p>
+                    <p><strong>Crie pelo menos um Cartão de BDD para cada Cartão de User Story.</strong></p>
                 </div>
             </div>
         </div>
