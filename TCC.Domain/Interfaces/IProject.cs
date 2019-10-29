@@ -8,6 +8,7 @@ namespace TCC.Domain.Interfaces
 {
     public interface IProject
     {
+        decimal? IdUserPublic { get; set; }
         string Title { get; set; }
         string Text { get; set; }
     }

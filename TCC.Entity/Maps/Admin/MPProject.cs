@@ -10,6 +10,9 @@ namespace TCC.Entity.Maps
         {
             ToTable("ADM_TCC_PROJECT");
 
+            Property(e => e.IdUserPublic)
+                .HasColumnName("ID_USER_PUBLIC_N");
+
             Property(e => e.Title)
                 .IsRequired()
                 .HasColumnName("TITLE_C");
@@ -18,6 +21,8 @@ namespace TCC.Entity.Maps
                 .HasMaxLength(250)
                 .IsRequired()
                 .HasColumnName("TEXT_C");
+
+            Ignore(e => e.Selected);
         }
     }
 }

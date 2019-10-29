@@ -4,6 +4,7 @@
 @using TCC.BusinessLayer.BusinessLayers
 
 @{
+    const string active = "active";
     var projects = BLBase<ETProject>.GetList();
 }
 
@@ -32,19 +33,33 @@
         </div>
         <div class="box-body">
             <div class="board">
-                <div class="row" id="Append">
+                <div class="row">
                     @Helpers.MessageBoard()
 
-                    @foreach (var item in projects)
+                    @foreach (var project in projects.GetBaseProjects())
                     {
                         <div class="col-lg-4">
-                            <div class="alert postit select @(Model?.IdProject == item.Id ? "active" : string.Empty)">
-                                <input type="hidden" name="IdProject" value="@item.Id" />
-                                <h4>@item.Title</h4>
-                                <p>@item.Text</p>
+                            <div class="alert postit select @(Model?.IdProject == project.Id ? active : string.Empty)">
+                                <input type="hidden" name="IdProject" value="@project.Id" />
+                                <h4>@project.Title</h4>
+                                <p>@project.Text</p>
                             </div>
                         </div>
                     }
+
+                    <div id="Append">
+                        @foreach (var project in projects.GetUserProjects())
+                        {
+                            <div class="col-lg-4 to-remove">
+                                <div class="alert postit select alert-dismissable @(Model?.IdProject == project.Id ? active : string.Empty)">
+                                    <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
+                                    <input type="hidden" name="IdProject" value="@project.Id" />
+                                    <h4>@project.Title</h4>
+                                    <p>@project.Text</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
 
                     <div class="bottom-board">
                         @Helpers.BottomButtonBoard()

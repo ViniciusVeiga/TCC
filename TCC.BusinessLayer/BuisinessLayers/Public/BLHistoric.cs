@@ -22,7 +22,7 @@ namespace TCC.BusinessLayer.BusinessLayers
                 BLCard<ETCardUserStory>.Save(historicPlus.Historic.CardUserStories, historicPlus.Historic.Id);
                 BLCard<ETCardBDD>.Save(historicPlus.Historic.CardBDDs, historicPlus.Historic.Id);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

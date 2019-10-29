@@ -41,6 +41,13 @@
 
             @Helpers.JsonToSave(Model, page)
 
+            $('.postit', '#Append').each(function () {
+                data.model.UserProjects.push({
+                    'Title': $(this).find('h4').text(),
+                    'Title': $(this).find('p').text(),
+                });
+            });
+
             data.model.Historic.IdProject = idProject;
 
             $.ajax({
