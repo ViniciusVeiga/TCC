@@ -187,3 +187,22 @@
 {
     <input id="@id" type="submit" class="btn btn-flat btn-board btn-lg" value="@value">
 }
+
+@helper JsonToSave(TCC.Domain.Entities.ETHistoric model, string page)
+{ 
+    <text>
+        var data = {
+            'model': {
+                'Historic': {
+                    'Id': '@model.Id',
+                    'IdProject': '@model.IdProject',
+                    'CardBDDs': [],
+                    'CardActors': [],
+                    'CardUserStories': []
+                },
+                'Page': '@page',
+                'UserProjects': []
+            }
+        };
+    </text>
+}

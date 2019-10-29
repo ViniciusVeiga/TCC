@@ -59,6 +59,7 @@
     <Compile Include="BuisinessLayers\Basic\BLConfiguration.cs" />
     <Compile Include="BuisinessLayers\Basic\BLEmail.cs" />
     <Compile Include="BuisinessLayers\Public\BLCard.cs" />
+    <Compile Include="BuisinessLayers\Public\BLUserProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BuisinessLayers\Basic\BLEncrypt.cs" />
     <Compile Include="BuisinessLayers\Admin\BLMenu.cs" />

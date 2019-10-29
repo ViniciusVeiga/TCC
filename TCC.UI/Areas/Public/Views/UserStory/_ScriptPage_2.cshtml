@@ -55,14 +55,7 @@
         if (result == true) {
             hideMessage();
 
-            var data = {
-                'model': {
-                    'Id': '@Model.Id',
-                    'IdProject': '@Model.IdProject',
-                    'CardUserStories': []
-                },
-                'page': '@page'
-            };
+            @Helpers.JsonToSave(Model, page)
 
             $('.postit', '#Append').each(function () {
                 var thisPostit = $(this);
@@ -72,7 +65,7 @@
                     cardLine.push({ 'Line': $(this).text() });
                 });
 
-                data.model.CardUserStories.push({
+                data.model.Historic.CardUserStories.push({
                     'Id': thisPostit.children('#Id').val(),
                     'IdCardActor': thisPostit.children('#IdCardActor').val(),
                     'IdHistoric': '@Model.Id',

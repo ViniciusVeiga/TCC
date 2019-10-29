@@ -1,4 +1,7 @@
-﻿
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+
 @{
     var urlSave = "Learnboard/UserStory/SaveHistoric";
     var page = "Page_0";
@@ -36,12 +39,9 @@
         if (result == true){
             var idProject = $('.postit.active').children('input[name=IdProject]').val();
 
-            var data = {
-                'model': {
-                    'IdProject': idProject
-                },
-                'page': '@page'
-            };
+            @Helpers.JsonToSave(Model, page)
+
+            data.model.Historic.IdProject = idProject;
 
             $.ajax({
                 type: 'POST',

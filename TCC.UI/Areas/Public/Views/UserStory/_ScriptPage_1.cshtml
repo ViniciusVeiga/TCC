@@ -1,7 +1,6 @@
 ﻿@model ETHistoric
 
 @using TCC.Domain.Entities
-@using TCC.BusinessLayer.BusinessLayers
 
 @{
     var urlSave = "Learnboard/UserStory/SaveHistoric";
@@ -38,14 +37,7 @@
 
         if (result == true) {
 
-            var data = {
-                'model': {
-                    'Id': '@Model.Id',
-                    'IdProject': '@Model.IdProject',
-                    'CardActors': []
-                },
-                'page': '@page'
-            };
+            @Helpers.JsonToSave(Model, page)
 
             $('.postit', '#Append').each(function () {
                 var cardLine = [];
@@ -54,7 +46,7 @@
                     cardLine.push({ 'Line': $(this).text() });
                 });
 
-                data.model.CardActors.push({
+                data.model.Historic.CardActors.push({
                     'Id': $(this).children('#Id').val(),
                     'IdHistoric': '@Model.Id',
                     'CardLines': cardLine
