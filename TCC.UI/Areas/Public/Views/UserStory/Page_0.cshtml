@@ -33,14 +33,14 @@
         </div>
         <div class="box-body">
             <div class="board">
-                <div class="row">
+                <div class="row" id="Projects">
                     @Helpers.MessageBoard()
 
                     @foreach (var project in projects.GetBaseProjects())
                     {
                         <div class="col-lg-4">
                             <div class="alert postit select @(Model?.IdProject == project.Id ? active : string.Empty)">
-                                <input type="hidden" name="IdProject" value="@project.Id" />
+                                <input type="hidden" id="IdProject" value="@project.Id" />
                                 <h4>@project.Title</h4>
                                 <p>@project.Text</p>
                             </div>
@@ -53,7 +53,7 @@
                             <div class="col-lg-4 to-remove">
                                 <div class="alert postit select alert-dismissable @(Model?.IdProject == project.Id ? active : string.Empty)">
                                     <button type="button" class="close"><i class="fa fa-map-pin"></i></button>
-                                    <input type="hidden" name="IdProject" value="@project.Id" />
+                                    <input type="hidden" id="IdProject" value="@project.Id" />
                                     <h4>@project.Title</h4>
                                     <p>@project.Text</p>
                                 </div>

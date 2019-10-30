@@ -34,14 +34,17 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         private static void SaveHistoric(ETHistoricPlus historicPlus)
         {
-            historicPlus.Historic.IdProject.GetValueOrDefault(BLUserProject.SaveAndGetSelectedId(historicPlus.UserProjects).GetValueOrDefault());
+            var idUserProject = BLUserProject.SaveAndGetSelectedId(historicPlus.UserProjects);
+
+            if (idUserProject.HasValue)
+                historicPlus.Historic.IdProject = idUserProject;
 
             SaveAndInativeOthers(historicPlus.Historic);
         }
 
         #region Métodos Privados De Salvar
 
-        private static bool AbleToSave(ETHistoric historic, ETHistoric oldHistoric) => historic?.Id == null || oldHistoric?.Id != historic?.Id && historic?.IdProject != oldHistoric?.IdProject;
+        private static bool AbleToSave(ETHistoric historic, ETHistoric oldHistoric) => historic?.Id == null || oldHistoric?.Id != historic?.Id || historic?.IdProject != oldHistoric?.IdProject;
 
         private static void SaveAndInativeOthers(ETHistoric historic)
         {

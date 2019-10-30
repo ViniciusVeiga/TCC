@@ -37,14 +37,16 @@
         var result = validationsByJs();
 
         if (result == true){
-            var idProject = $('.postit.active').children('input[name=IdProject]').val();
+            var idProject = $('.postit.active').children('#IdProject').val();
 
             @Helpers.JsonToSave(Model, page)
 
             $('.postit', '#Append').each(function () {
                 data.model.UserProjects.push({
+                    'Id': $(this).children('#IdProject').val(),
                     'Title': $(this).find('h4').text(),
-                    'Title': $(this).find('p').text(),
+                    'Text': $(this).find('p').text(),
+                    'Selected': $(this).hasClass('active')
                 });
             });
 
@@ -111,7 +113,7 @@
         count();
     }
 
-    $('#Append').on('click', '.postit.select', function () {
+    $('#Projects').on('click', '.postit.select', function () {
         $('.postit').removeClass('active');
         $(this).addClass('active');
     });

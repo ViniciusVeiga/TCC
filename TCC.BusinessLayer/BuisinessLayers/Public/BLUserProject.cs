@@ -14,9 +14,16 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static decimal? SaveAndGetSelectedId(List<ETProject> userProjects)
         {
-            Save(userProjects);
+            try
+            {
+                Save(userProjects);
 
-            return userProjects.Find(i => i.Selected == true)?.Id;
+                return userProjects.Find(i => i.Selected == true)?.Id;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         #endregion
@@ -25,7 +32,7 @@ namespace TCC.BusinessLayer.BusinessLayers
 
         public static void Save(List<ETProject> userProjects)
         {
-            if (userProjects != null && userProjects.Count > 0)
+            try
             {
                 BLBase<ETProject>.GetDifference(userProjects, CRUD<ETProject>.Instance.All().GetUserProjects())
                     .ForEach(i =>
@@ -38,6 +45,10 @@ namespace TCC.BusinessLayer.BusinessLayers
                         else
                             CRUD<ETProject>.Instance.DeletePhysical(i);
                     });
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
