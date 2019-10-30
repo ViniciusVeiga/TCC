@@ -23,6 +23,8 @@
 
             @Helpers.JsonToSave(Model, page)
 
+            data.model.Historic.IdProject = idProject;
+
             $.ajax({
                 type: 'POST',
                 url: '@urlSave',
