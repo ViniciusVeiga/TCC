@@ -7494,8 +7494,6 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Home\Page_0.cshtml" />
     <Content Include="Views\Home\Page_1.cshtml" />
-    <Content Include="Views\Home\Page_3.cshtml" />
-    <Content Include="Views\Home\Page_4.cshtml" />
     <Content Include="Views\Home\Page_2.cshtml" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
