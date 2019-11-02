@@ -11,26 +11,40 @@ namespace TCC.BusinessLayer.BusinessLayers
     {
         private static ETUserPublic user = BLUser<ETUserPublic>.GetLogged();
 
-        #region Salvar
+        #region Salvar Dependências
 
-        public static void SaveAllDependencies(ETHistoric historic)
+        public static void SaveAllDependencies(ETHistoricPlus historicPlus)
         {
             try
             {
-                SaveAndInativeOthers(historic);
-                BLCard<ETCardActor>.Save(historic.CardActors, historic.Id);
-                BLCard<ETCardUserStory>.Save(historic.CardUserStories, historic.Id);
-                BLCard<ETCardBDD>.Save(historic.CardBDDs, historic.Id);
+                SaveHistoric(historicPlus);
+                BLCard<ETCardActor>.Save(historicPlus.Historic.CardActors, historicPlus.Historic.Id);
+                BLCard<ETCardUserStory>.Save(historicPlus.Historic.CardUserStories, historicPlus.Historic.Id);
+                BLCard<ETCardBDD>.Save(historicPlus.Historic.CardBDDs, historicPlus.Historic.Id);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
         }
 
-        #region Métodos Privados Para Salvar
+        #endregion
 
-        private static bool AbleToSave(ETHistoric historic, ETHistoric oldHistoric) => historic?.Id == null || oldHistoric?.Id != historic?.Id && historic?.IdProject != oldHistoric?.IdProject;
+        #region Salvar Historico
+
+        private static void SaveHistoric(ETHistoricPlus historicPlus)
+        {
+            var idUserProject = BLUserProject.SaveAndGetSelectedId(historicPlus.UserProjects);
+
+            if (idUserProject.HasValue)
+                historicPlus.Historic.IdProject = idUserProject;
+
+            SaveAndInativeOthers(historicPlus.Historic);
+        }
+
+        #region Métodos Privados De Salvar
+
+        private static bool AbleToSave(ETHistoric historic, ETHistoric oldHistoric) => historic?.Id == null || oldHistoric?.Id != historic?.Id || historic?.IdProject != oldHistoric?.IdProject;
 
         private static void SaveAndInativeOthers(ETHistoric historic)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using TCC.BusinessLayer.BusinessLayers;
 using TCC.Domain.Entities;
@@ -14,7 +15,7 @@ namespace TCC.UI.Extensions
         #region Salvar Historico
 
         [HttpPost]
-        public virtual ActionResult SaveHistoric(ETHistoric model, string page)
+        public virtual ActionResult SaveHistoric(ETHistoricPlus model)
         {
             try
             {
@@ -27,7 +28,7 @@ namespace TCC.UI.Extensions
                 this.AddToastMessage("Erro", "Erro ao salvar, favor tentar novamente", ToastrType.Error);
             }
 
-            return View(page, BLHistoric.GetActive());
+            return View(model.Page, BLHistoric.GetActive());
         }
 
         #endregion

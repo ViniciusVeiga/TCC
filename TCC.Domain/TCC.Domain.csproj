@@ -55,6 +55,7 @@
     <Compile Include="Entities\Public\BDD\ETCardBDD.cs" />
     <Compile Include="Entities\Public\ETCard.cs" />
     <Compile Include="Entities\Public\ETCardLine.cs" />
+    <Compile Include="Entities\Public\ETHistoricPlus.cs" />
     <Compile Include="Entities\Public\ETUserPublicMenuItem.cs" />
     <Compile Include="Entities\Public\ETHistoric.cs" />
     <Compile Include="Entities\Public\Security\ETUserPublic.cs" />

@@ -94,14 +94,7 @@
 
         if (result == true) {
 
-            var data = {
-                'model': {
-                    'Id': '@Model.Id',
-                    'IdProject': '@Model.IdProject',
-                    'CardBDDs': []
-                },
-                'page': '@page'
-            };
+            @Helpers.JsonToSave(Model, page)
 
             $('.postit', '#Append').each(function () {
                 var thisPostit = $(this);
@@ -111,7 +104,7 @@
                     cardLine.push({ 'Line': $(this).text() });
                 });
 
-                data.model.CardBDDs.push({
+                data.model.Historic.CardBDDs.push({
                     'Id': thisPostit.children('#Id').val(),
                     'IdCardUserStory': thisPostit.children('#IdCardUserStory').val(),
                     'IdHistoric': '@Model.Id',
@@ -130,9 +123,7 @@
             });
         }
         else
-            $('.board-message')
-                .text(result)
-                .fadeIn();
+            writeMessage(result);
     }
 
     function validationsByJs() {

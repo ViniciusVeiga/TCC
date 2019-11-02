@@ -1,4 +1,7 @@
-﻿
+﻿@model ETHistoric
+
+@using TCC.Domain.Entities
+
 @{
     var urlSave = "Learnboard/UserStory/SaveHistoric";
     var page = "Page_0";
@@ -19,7 +22,7 @@
 
         if (text != '') {
             $('.remove-line').remove();
-            $('.p:last').append($((countLines == 0) ? '<h4></h4>' : '<p></p>').text(text).append(eRemoveLinePostit));
+            $('.lines:last').append($((countLines == 0) ? '<h4></h4>' : '<p></p>').text(text).append(eRemoveLinePostit));
 
             count();
 
@@ -34,14 +37,20 @@
         var result = validationsByJs();
 
         if (result == true){
-            var idProject = $('.postit.active').children('input[name=IdProject]').val();
+            var idProject = $('.postit.active').children('#IdProject').val();
 
-            var data = {
-                'model': {
-                    'IdProject': idProject
-                },
-                'page': '@page'
-            };
+            @Helpers.JsonToSave(Model, page)
+
+            $('.postit', '#Append').each(function () {
+                data.model.UserProjects.push({
+                    'Id': $(this).children('#IdProject').val(),
+                    'Title': $(this).find('h4').text(),
+                    'Text': $(this).find('p').text(),
+                    'Selected': $(this).hasClass('active')
+                });
+            });
+
+            data.model.Historic.IdProject = idProject;
 
             $.ajax({
                 type: 'POST',
@@ -53,13 +62,15 @@
             });
         }
         else
-            $('.board-message')
-                .text(result)
-                .fadeIn();
+            writeMessage(result);
     }
 
     function count() {
-        countLines = $('.postit:last p, .postit:last h4').length;
+        console.log($('.postit:last .lines p').length);
+        console.log($('.postit:last .lines h4').length);
+        console.log(countLines);
+        countLines = $('.postit:last .lines p').length + $('.postit:last .lines h4').length;
+
     }
 
     function validationsByJs() {
@@ -72,6 +83,8 @@
     }
 
     function finishCard() {
+        countLines = 0;
+
         if (!$('.postit:last').hasClass('alert-dismissible'))
             $('.postit:last').addClass('alert-dismissible').prepend(eRemovePostit);
 
@@ -98,7 +111,7 @@
         count();
     }
 
-    $('#Append').on('click', '.postit.select', function () {
+    $('#Projects').on('click', '.postit.select', function () {
         $('.postit').removeClass('active');
         $(this).addClass('active');
     });
