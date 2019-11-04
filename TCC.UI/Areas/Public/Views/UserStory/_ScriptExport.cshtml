@@ -22,7 +22,7 @@
                             [
                                 {
                                     alignment: 'center',
-                                    text: '@Html.Raw(Model.Project.Title)',
+                                    text: '@Model.Project.Title.Replace("\r\n", "").Replace("\n", "").Replace("\r", "")',
                                     fontSize: 9,
                                     bold: true,
                                     fillColor: '#c2dec2', 
@@ -30,7 +30,7 @@
                             ],
                             [
                                 {
-                                    text: '@Html.Raw(Model.Project.Text)',
+                                    text: '@Model.Project.Text.Replace("\r\n", "").Replace("\n", "").Replace("\r", "")',
                                     fontSize: 9,
                                     bold: true
                                 }

@@ -194,8 +194,8 @@
         var data = {
             'model': {
                 'Historic': {
-                    'Id': '@model.Id',
-                    'IdProject': '@model.IdProject',
+                    'Id': '@(model?.Id)',
+                    'IdProject': '@(model?.IdProject)',
                     'CardBDDs': [],
                     'CardActors': [],
                     'CardUserStories': []
